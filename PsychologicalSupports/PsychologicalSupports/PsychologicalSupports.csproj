@@ -130,6 +130,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\Archive.cs" />
+    <Compile Include="Models\AveragePoint.cs" />
+    <Compile Include="Models\ClassroomRelationships.cs" />
+    <Compile Include="Models\ClassTeacheInformation.cs" />
+    <Compile Include="Models\EmotioTest.cs" />
+    <Compile Include="Models\FamilyAlarmAnalysis.cs" />
+    <Compile Include="Models\Intellectual_6_Class.cs" />
+    <Compile Include="Models\Intellectual_7_Class.cs" />
+    <Compile Include="Models\Intellectual_8_Class.cs" />
+    <Compile Include="Models\Intellectual_9_Class.cs" />
+    <Compile Include="Models\Interests Card_50.cs" />
+    <Compile Include="Models\InterestsInSchoolSubjects.cs" />
+    <Compile Include="Models\Interests_Card_145.cs" />
+    <Compile Include="Models\Mindset.cs" />
+    <Compile Include="Models\PersonaAnxietyScale.cs" />
+    <Compile Include="Models\PersonalProtagonistAizenko.cs" />
+    <Compile Include="Models\SchoolMotivation.cs" />
+    <Compile Include="Models\Self_esteem.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
