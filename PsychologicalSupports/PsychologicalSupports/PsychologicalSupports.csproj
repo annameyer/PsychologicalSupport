@@ -131,7 +131,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrator.cs" />
-    <Compile Include="Models\Archive.cs" />
     <Compile Include="Models\AveragePoint.cs" />
     <Compile Include="Models\ClassroomRelationships.cs" />
     <Compile Include="Models\ClassTeacheInformation.cs" />

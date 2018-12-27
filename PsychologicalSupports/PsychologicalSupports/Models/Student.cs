@@ -14,6 +14,7 @@ namespace PsychologicalSupports.Models
         public byte NumberClass { get; set; }
         public char Class { get; set; }
         public DateTime AdmissionDate { get; set; }
+        public bool BeingTrained { get; set; }
         public ICollection<Test> Tests { get; set; }
 
         public Student()
