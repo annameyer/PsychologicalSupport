@@ -2,7 +2,7 @@
 {
     public class Intellectual_6_Class
     {
-        public int Intellectual_66_ClassID { get; set; }
+        public int Intellectual_6_ClassID { get; set; }
         public int? StudentID { get; set; }
         public Student Student { get; set; }
         public int TestResult { get; set; }
