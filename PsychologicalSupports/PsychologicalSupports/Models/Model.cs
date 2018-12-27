@@ -9,7 +9,7 @@ namespace PsychologicalSupports.Models.Db
         {
         }
 
-        public virtual DbSet<AdministratorID> AdministratorIDs { get; set; }
+        public virtual DbSet<Administrator> AdministratorIDs { get; set; }
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
         public virtual DbSet<ClassTeacheInformation> ClassTeacheInformations { get; set; }
