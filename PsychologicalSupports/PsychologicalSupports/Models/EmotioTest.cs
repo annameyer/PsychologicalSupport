@@ -2,7 +2,7 @@
 {
     public class EmotioTest
     {
-        public int SchoolMotivationID { get; set; }
+        public int EmotioTestID { get; set; }
         public int? StudentID { get; set; }
         public Student Student { get; set; }
         public string PhysicalAggression { get; set; }
