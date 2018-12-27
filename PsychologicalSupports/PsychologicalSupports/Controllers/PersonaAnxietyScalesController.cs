@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -39,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: PersonaAnxietyScales/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -57,7 +53,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", personaAnxietyScale.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 
@@ -73,7 +69,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", personaAnxietyScale.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 
@@ -90,7 +86,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", personaAnxietyScale.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 

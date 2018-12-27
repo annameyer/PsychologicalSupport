@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -39,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_6_Class/Create
         public ActionResult Create()
         {
-            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "LastName");
+            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -57,7 +53,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "LastName", intellectual_6_Class.Intellectual_6_ClassID);
+            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.Intellectual_6_ClassID);
             return View(intellectual_6_Class);
         }
 
@@ -73,7 +69,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "LastName", intellectual_6_Class.Intellectual_6_ClassID);
+            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.Intellectual_6_ClassID);
             return View(intellectual_6_Class);
         }
 
@@ -90,7 +86,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "LastName", intellectual_6_Class.Intellectual_6_ClassID);
+            ViewBag.Intellectual_6_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.Intellectual_6_ClassID);
             return View(intellectual_6_Class);
         }
 

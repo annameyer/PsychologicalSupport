@@ -96,7 +96,7 @@
             @Html.DisplayNameFor(model => model.Sport)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.LastName)
+            @Html.DisplayNameFor(model => model.Student.FIO)
         </th>
         <th></th>
     </tr>
@@ -188,7 +188,7 @@
             @Html.DisplayFor(modelItem => item.Sport)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.LastName)
+            @Html.DisplayFor(modelItem => item.Student.FIO)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

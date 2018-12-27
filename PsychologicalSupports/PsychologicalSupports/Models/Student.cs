@@ -37,9 +37,7 @@ namespace PsychologicalSupports.Models
         }
     
         public long StudentID { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
+        public string FIO { get; set; }
         public Nullable<int> NumberClass { get; set; }
         public string Class { get; set; }
         public Nullable<System.DateTime> AdmissionDate { get; set; }

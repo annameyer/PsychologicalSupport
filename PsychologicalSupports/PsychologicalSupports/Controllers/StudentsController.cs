@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -46,7 +42,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,LastName,FirstName,Patronymic,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
+        public ActionResult Create([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +74,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,LastName,FirstName,Patronymic,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
         {
             if (ModelState.IsValid)
             {

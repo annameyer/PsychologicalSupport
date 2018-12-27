@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_9_Class/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", intellectual_9_Class.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 
@@ -69,7 +69,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", intellectual_9_Class.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 
@@ -86,7 +86,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", intellectual_9_Class.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 
