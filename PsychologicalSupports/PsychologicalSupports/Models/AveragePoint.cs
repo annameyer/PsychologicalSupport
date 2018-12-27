@@ -1,13 +1,27 @@
-﻿namespace PsychologicalSupports.Models
+namespace PsychologicalSupports.Models.Db
 {
-    public class AveragePoint
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public partial class AveragePoint
     {
-        public int AveragePointID { get; set; }
-        public int? StudentID { get; set; }
-        public Student Student { get; set; }
-        public float AveragePoint_6 { get; set; }
-        public float AveragePoint_7 { get; set; }
-        public float AveragePoint_8 { get; set; }
-        public float AveragePoint_9 { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        public long AveragePointID { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long StudentID { get; set; }
+
+        public double? AveragePoint_6 { get; set; }
+
+        public double? AveragePoint_7 { get; set; }
+
+        public double? AveragePoint_8 { get; set; }
+
+        public double? AveragePoint_9 { get; set; }
+
+        public virtual Student Student { get; set; }
     }
 }

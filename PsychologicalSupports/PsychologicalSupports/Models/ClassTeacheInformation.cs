@@ -1,22 +1,58 @@
-﻿namespace PsychologicalSupports.Models
+namespace PsychologicalSupports.Models.Db
 {
-    public class ClassTeacheInformation
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public partial class ClassTeacheInformation
     {
-        public int ClassTeacheInformationID { get; set; }
-        public int? StudentID { get; set; }
-        public Student Student { get; set; }
-        public bool Self_harmingBehavior { get; set; }
-        public bool Isolation { get; set; }
-        public bool Aggression { get; set; }
-        public bool AvoidPhysicalContact { get; set; }
-        public bool AfraidToGoHome { get; set; }
-        public bool RunningAwayFromHome { get; set; }
-        public bool WearBodyHidingClothes { get; set; }
-        public bool DefiantBehavior { get; set; }
-        public bool LowSelf_esteem { get; set; }
-        public bool PoorPeerRelations { get; set; }
-        public bool SharpWeightChange { get; set; }
-        public bool HystericalEmotionalImbalance { get; set; }
-        public bool ExceptionallyGoodSexKnowledge { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        public long ClassTeacheInformationID { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long StudentID { get; set; }
+
+        [StringLength(50)]
+        public string Self_harmingBehavior { get; set; }
+
+        [StringLength(50)]
+        public string Isolation { get; set; }
+
+        [StringLength(50)]
+        public string Aggression { get; set; }
+
+        [StringLength(50)]
+        public string AvoidPhysicalContact { get; set; }
+
+        [StringLength(50)]
+        public string AfraidToGoHome { get; set; }
+
+        [StringLength(50)]
+        public string RunningAwayFromHome { get; set; }
+
+        [StringLength(50)]
+        public string WearBodyHidingClothes { get; set; }
+
+        [StringLength(50)]
+        public string DefiantBehavior { get; set; }
+
+        [StringLength(50)]
+        public string LowSelf_esteem { get; set; }
+
+        [StringLength(50)]
+        public string PoorPeerRelations { get; set; }
+
+        [StringLength(50)]
+        public string SharpWeightChange { get; set; }
+
+        [StringLength(50)]
+        public string HystericalEmotionalImbalance { get; set; }
+
+        [StringLength(50)]
+        public string ExceptionallyGoodSexKnowledge { get; set; }
+
+        public virtual Student Student { get; set; }
     }
 }

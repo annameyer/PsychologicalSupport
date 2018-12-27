@@ -138,46 +138,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AdministratorID.cs" />
     <Compile Include="Models\AveragePoint.cs" />
-    <Compile Include="Models\ClassroomRelationships.cs" />
+    <Compile Include="Models\ClassroomRelationship.cs" />
     <Compile Include="Models\ClassTeacheInformation.cs" />
-    <Compile Include="Models\Db\AdministratorID.cs" />
-    <Compile Include="Models\Db\AveragePoint.cs" />
-    <Compile Include="Models\Db\ClassroomRelationship.cs" />
-    <Compile Include="Models\Db\ClassTeacheInformation.cs" />
-    <Compile Include="Models\Db\EmotioTest.cs" />
-    <Compile Include="Models\Db\FamilyAlarmAnalysi.cs" />
-    <Compile Include="Models\Db\Intellectual_6_Class.cs" />
-    <Compile Include="Models\Db\Intellectual_7_Class.cs" />
-    <Compile Include="Models\Db\Intellectual_8_Class.cs" />
-    <Compile Include="Models\Db\Intellectual_9_Class.cs" />
-    <Compile Include="Models\Db\InterestsInSchoolSubject.cs" />
-    <Compile Include="Models\Db\Interests_Card_145.cs" />
-    <Compile Include="Models\Db\Interests_Card_50.cs" />
-    <Compile Include="Models\Db\Mindset.cs" />
-    <Compile Include="Models\Db\Model.cs" />
-    <Compile Include="Models\Db\PersonaAnxietyScale.cs" />
-    <Compile Include="Models\Db\PersonalProtagonistAizenko.cs" />
-    <Compile Include="Models\Db\SchoolMotivation.cs" />
-    <Compile Include="Models\Db\Self_esteem.cs" />
-    <Compile Include="Models\Db\Student.cs" />
     <Compile Include="Models\EmotioTest.cs" />
-    <Compile Include="Models\FamilyAlarmAnalysis.cs" />
+    <Compile Include="Models\FamilyAlarmAnalysi.cs" />
     <Compile Include="Models\Intellectual_6_Class.cs" />
     <Compile Include="Models\Intellectual_7_Class.cs" />
     <Compile Include="Models\Intellectual_8_Class.cs" />
     <Compile Include="Models\Intellectual_9_Class.cs" />
-    <Compile Include="Models\Interests Card_50.cs" />
-    <Compile Include="Models\InterestsInSchoolSubjects.cs" />
+    <Compile Include="Models\InterestsInSchoolSubject.cs" />
     <Compile Include="Models\Interests_Card_145.cs" />
+    <Compile Include="Models\Interests_Card_50.cs" />
     <Compile Include="Models\Mindset.cs" />
+    <Compile Include="Models\Model.cs" />
     <Compile Include="Models\PersonaAnxietyScale.cs" />
     <Compile Include="Models\PersonalProtagonistAizenko.cs" />
     <Compile Include="Models\SchoolMotivation.cs" />
     <Compile Include="Models\Self_esteem.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
