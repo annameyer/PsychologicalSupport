@@ -134,105 +134,103 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AveragePointsController.cs" />
+    <Compile Include="Controllers\ClassroomRelationshipsController.cs" />
+    <Compile Include="Controllers\ClassTeacheInformationsController.cs" />
+    <Compile Include="Controllers\EmotioTestsController.cs" />
+    <Compile Include="Controllers\FamilyAlarmAnalysisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="EF\Administrator.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\AveragePoint.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\BD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\BD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\BD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ClassroomRelationship.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ClassTeacheInformation.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\EmotioTest.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\FamilyAlarmAnalysi.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Intellectual_6_Class.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Intellectual_7_Class.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Intellectual_8_Class.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Intellectual_9_Class.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\InterestsInSchoolSubject.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Interests_Card_145.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Interests_Card_50.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Mindset.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\PersonaAnxietyScale.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\PersonalProtagonistAizenko.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\SchoolMotivation.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Self_esteem.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Student.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\Intellectual_6_ClassController.cs" />
+    <Compile Include="Controllers\Intellectual_7_ClassController.cs" />
+    <Compile Include="Controllers\Intellectual_8_ClassController.cs" />
+    <Compile Include="Controllers\Intellectual_9_ClassController.cs" />
+    <Compile Include="Controllers\InterestsInSchoolSubjectsController.cs" />
+    <Compile Include="Controllers\Interests_Card_145Controller.cs" />
+    <Compile Include="Controllers\Interests_Card_50Controller.cs" />
+    <Compile Include="Controllers\MindsetsController.cs" />
+    <Compile Include="Controllers\PersonaAnxietyScalesController.cs" />
+    <Compile Include="Controllers\PersonalProtagonistAizenkoesController.cs" />
+    <Compile Include="Controllers\SchoolMotivationsController.cs" />
+    <Compile Include="Controllers\Self_esteemController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdministratorID.cs" />
-    <Compile Include="Models\AveragePoint.cs" />
-    <Compile Include="Models\ClassroomRelationship.cs" />
-    <Compile Include="Models\ClassTeacheInformation.cs" />
-    <Compile Include="Models\EmotioTest.cs" />
-    <Compile Include="Models\FamilyAlarmAnalysi.cs" />
-    <Compile Include="Models\Intellectual_6_Class.cs" />
-    <Compile Include="Models\Intellectual_7_Class.cs" />
-    <Compile Include="Models\Intellectual_8_Class.cs" />
-    <Compile Include="Models\Intellectual_9_Class.cs" />
-    <Compile Include="Models\InterestsInSchoolSubject.cs" />
-    <Compile Include="Models\Interests_Card_145.cs" />
-    <Compile Include="Models\Interests_Card_50.cs" />
-    <Compile Include="Models\Mindset.cs" />
-    <Compile Include="Models\Model.cs" />
-    <Compile Include="Models\PersonaAnxietyScale.cs" />
-    <Compile Include="Models\PersonalProtagonistAizenko.cs" />
-    <Compile Include="Models\SchoolMotivation.cs" />
-    <Compile Include="Models\Self_esteem.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Administrator.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AveragePoint.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassroomRelationship.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassTeacheInformation.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmotioTest.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FamilyAlarmAnalysi.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Intellectual_6_Class.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Intellectual_7_Class.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Intellectual_8_Class.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Intellectual_9_Class.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InterestsInSchoolSubject.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Interests_Card_145.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Interests_Card_50.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mindset.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonaAnxietyScale.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalProtagonistAizenko.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SchoolMotivation.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Self_esteem.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,28 +238,28 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="EF\BD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD.edmx</DependentUpon>
-      <LastGenOutput>BD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EF\BD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD.edmx</DependentUpon>
-      <LastGenOutput>BD.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\PsychologicalSupports.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+      <LastGenOutput>PsychologicalSupports.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PsychologicalSupports.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+      <LastGenOutput>PsychologicalSupports.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="EF\BD.edmx">
+    <EntityDeploy Include="Models\PsychologicalSupports.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BD.Designer.cs</LastGenOutput>
+      <LastGenOutput>PsychologicalSupports.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="EF\BD.edmx.diagram">
-      <DependentUpon>BD.edmx</DependentUpon>
+    <Content Include="Models\PsychologicalSupports.edmx.diagram">
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -288,6 +286,101 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\AveragePoints\Create.cshtml" />
+    <Content Include="Views\AveragePoints\Delete.cshtml" />
+    <Content Include="Views\AveragePoints\Details.cshtml" />
+    <Content Include="Views\AveragePoints\Edit.cshtml" />
+    <Content Include="Views\AveragePoints\Index.cshtml" />
+    <Content Include="Views\ClassroomRelationships\Create.cshtml" />
+    <Content Include="Views\ClassroomRelationships\Delete.cshtml" />
+    <Content Include="Views\ClassroomRelationships\Details.cshtml" />
+    <Content Include="Views\ClassroomRelationships\Edit.cshtml" />
+    <Content Include="Views\ClassroomRelationships\Index.cshtml" />
+    <Content Include="Views\ClassTeacheInformations\Create.cshtml" />
+    <Content Include="Views\ClassTeacheInformations\Delete.cshtml" />
+    <Content Include="Views\ClassTeacheInformations\Details.cshtml" />
+    <Content Include="Views\ClassTeacheInformations\Edit.cshtml" />
+    <Content Include="Views\ClassTeacheInformations\Index.cshtml" />
+    <Content Include="Views\EmotioTests\Create.cshtml" />
+    <Content Include="Views\EmotioTests\Delete.cshtml" />
+    <Content Include="Views\EmotioTests\Details.cshtml" />
+    <Content Include="Views\EmotioTests\Edit.cshtml" />
+    <Content Include="Views\EmotioTests\Index.cshtml" />
+    <Content Include="Views\FamilyAlarmAnalysis\Create.cshtml" />
+    <Content Include="Views\FamilyAlarmAnalysis\Delete.cshtml" />
+    <Content Include="Views\FamilyAlarmAnalysis\Details.cshtml" />
+    <Content Include="Views\FamilyAlarmAnalysis\Edit.cshtml" />
+    <Content Include="Views\FamilyAlarmAnalysis\Index.cshtml" />
+    <Content Include="Views\Intellectual_6_Class\Create.cshtml" />
+    <Content Include="Views\Intellectual_6_Class\Delete.cshtml" />
+    <Content Include="Views\Intellectual_6_Class\Details.cshtml" />
+    <Content Include="Views\Intellectual_6_Class\Edit.cshtml" />
+    <Content Include="Views\Intellectual_6_Class\Index.cshtml" />
+    <Content Include="Views\Intellectual_7_Class\Create.cshtml" />
+    <Content Include="Views\Intellectual_7_Class\Delete.cshtml" />
+    <Content Include="Views\Intellectual_7_Class\Details.cshtml" />
+    <Content Include="Views\Intellectual_7_Class\Edit.cshtml" />
+    <Content Include="Views\Intellectual_7_Class\Index.cshtml" />
+    <Content Include="Views\Intellectual_8_Class\Create.cshtml" />
+    <Content Include="Views\Intellectual_8_Class\Delete.cshtml" />
+    <Content Include="Views\Intellectual_8_Class\Details.cshtml" />
+    <Content Include="Views\Intellectual_8_Class\Edit.cshtml" />
+    <Content Include="Views\Intellectual_8_Class\Index.cshtml" />
+    <Content Include="Views\Intellectual_9_Class\Create.cshtml" />
+    <Content Include="Views\Intellectual_9_Class\Delete.cshtml" />
+    <Content Include="Views\Intellectual_9_Class\Details.cshtml" />
+    <Content Include="Views\Intellectual_9_Class\Edit.cshtml" />
+    <Content Include="Views\Intellectual_9_Class\Index.cshtml" />
+    <Content Include="Views\Interests_Card_145\Create.cshtml" />
+    <Content Include="Views\Interests_Card_145\Delete.cshtml" />
+    <Content Include="Views\Interests_Card_145\Details.cshtml" />
+    <Content Include="Views\Interests_Card_145\Edit.cshtml" />
+    <Content Include="Views\Interests_Card_145\Index.cshtml" />
+    <Content Include="Views\Interests_Card_50\Create.cshtml" />
+    <Content Include="Views\Interests_Card_50\Delete.cshtml" />
+    <Content Include="Views\Interests_Card_50\Details.cshtml" />
+    <Content Include="Views\Interests_Card_50\Edit.cshtml" />
+    <Content Include="Views\Interests_Card_50\Index.cshtml" />
+    <Content Include="Views\InterestsInSchoolSubjects\Create.cshtml" />
+    <Content Include="Views\InterestsInSchoolSubjects\Delete.cshtml" />
+    <Content Include="Views\InterestsInSchoolSubjects\Details.cshtml" />
+    <Content Include="Views\InterestsInSchoolSubjects\Edit.cshtml" />
+    <Content Include="Views\InterestsInSchoolSubjects\Index.cshtml" />
+    <Content Include="Views\Mindsets\Create.cshtml" />
+    <Content Include="Views\Mindsets\Delete.cshtml" />
+    <Content Include="Views\Mindsets\Details.cshtml" />
+    <Content Include="Views\Mindsets\Edit.cshtml" />
+    <Content Include="Views\Mindsets\Index.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales\Create.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales\Delete.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales\Details.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales\Edit.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales\Index.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales1\Create.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales1\Delete.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales1\Details.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales1\Edit.cshtml" />
+    <Content Include="Views\PersonaAnxietyScales1\Index.cshtml" />
+    <Content Include="Views\PersonalProtagonistAizenkoes\Create.cshtml" />
+    <Content Include="Views\PersonalProtagonistAizenkoes\Delete.cshtml" />
+    <Content Include="Views\PersonalProtagonistAizenkoes\Details.cshtml" />
+    <Content Include="Views\PersonalProtagonistAizenkoes\Edit.cshtml" />
+    <Content Include="Views\PersonalProtagonistAizenkoes\Index.cshtml" />
+    <Content Include="Views\SchoolMotivations\Create.cshtml" />
+    <Content Include="Views\SchoolMotivations\Delete.cshtml" />
+    <Content Include="Views\SchoolMotivations\Details.cshtml" />
+    <Content Include="Views\SchoolMotivations\Edit.cshtml" />
+    <Content Include="Views\SchoolMotivations\Index.cshtml" />
+    <Content Include="Views\Self_esteem\Create.cshtml" />
+    <Content Include="Views\Self_esteem\Delete.cshtml" />
+    <Content Include="Views\Self_esteem\Details.cshtml" />
+    <Content Include="Views\Self_esteem\Edit.cshtml" />
+    <Content Include="Views\Self_esteem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

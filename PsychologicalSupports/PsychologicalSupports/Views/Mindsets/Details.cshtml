@@ -1,0 +1,66 @@
+﻿@model PsychologicalSupports.Models.Mindset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mindset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject_Effective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject_Effective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractSymbolic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractSymbolic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verbal_Logical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verbal_Logical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visually_Shaped)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visually_Shaped)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creativity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creativity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

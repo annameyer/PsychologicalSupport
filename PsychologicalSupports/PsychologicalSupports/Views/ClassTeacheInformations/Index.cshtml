@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.ClassTeacheInformation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Self_harmingBehavior)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Isolation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aggression)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvoidPhysicalContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AfraidToGoHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunningAwayFromHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WearBodyHidingClothes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefiantBehavior)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LowSelf_esteem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoorPeerRelations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SharpWeightChange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HystericalEmotionalImbalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExceptionallyGoodSexKnowledge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Self_harmingBehavior)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isolation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aggression)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvoidPhysicalContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AfraidToGoHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunningAwayFromHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WearBodyHidingClothes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefiantBehavior)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LowSelf_esteem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoorPeerRelations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SharpWeightChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HystericalEmotionalImbalance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExceptionallyGoodSexKnowledge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

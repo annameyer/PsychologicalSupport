@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.Mindset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject_Effective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractSymbolic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Verbal_Logical)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visually_Shaped)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creativity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject_Effective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbstractSymbolic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verbal_Logical)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visually_Shaped)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creativity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

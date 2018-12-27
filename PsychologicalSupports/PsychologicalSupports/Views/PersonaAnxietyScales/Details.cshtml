@@ -1,0 +1,58 @@
+﻿@model PsychologicalSupports.Models.PersonaAnxietyScale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonaAnxietyScale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.School)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interpersonal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interpersonal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Self_assessment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Self_assessment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.General)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.General)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

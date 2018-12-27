@@ -1,0 +1,98 @@
+﻿@model PsychologicalSupports.Models.InterestsInSchoolSubject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InterestsInSchoolSubject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Russian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Russian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Belorussian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Belorussian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Physics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Physics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Story)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialScientist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialScientist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Biology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Biology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chemistry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chemistry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComputerScience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComputerScience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.English)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.English)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

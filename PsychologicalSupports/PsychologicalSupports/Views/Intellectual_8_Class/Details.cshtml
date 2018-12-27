@@ -1,0 +1,42 @@
+﻿@model PsychologicalSupports.Models.Intellectual_8_Class
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Intellectual_8_Class</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestMap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestMap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecommendedProfile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecommendedProfile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

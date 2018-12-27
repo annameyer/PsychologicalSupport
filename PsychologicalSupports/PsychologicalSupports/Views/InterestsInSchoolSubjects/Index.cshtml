@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.InterestsInSchoolSubject>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Russian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Belorussian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Physics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Story)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialScientist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Biology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chemistry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComputerScience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.English)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Russian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Belorussian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Physics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Story)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocialScientist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Biology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chemistry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComputerScience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.English)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

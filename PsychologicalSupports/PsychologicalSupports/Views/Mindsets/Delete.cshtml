@@ -1,0 +1,72 @@
+﻿@model PsychologicalSupports.Models.Mindset
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Mindset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject_Effective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject_Effective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractSymbolic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractSymbolic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verbal_Logical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verbal_Logical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visually_Shaped)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visually_Shaped)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creativity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creativity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

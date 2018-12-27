@@ -1,0 +1,58 @@
+﻿@model PsychologicalSupports.Models.AveragePoint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AveragePoint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

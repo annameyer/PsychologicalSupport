@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.SchoolMotivation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudyInClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestFamilyStudiesLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CognitiveInterest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TesMotivationAchievementstLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classmates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pedagogues)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ByParents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheFamily)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwarenessOfSocialNecessity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommunicationMotif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtracurricularSchoolMotivation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudyInClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestFamilyStudiesLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CognitiveInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TesMotivationAchievementstLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classmates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pedagogues)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ByParents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromTheSideOfTheSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromTheSideOfTheFamily)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AwarenessOfSocialNecessity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommunicationMotif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExtracurricularSchoolMotivation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheMotiveOfSelf_Realization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

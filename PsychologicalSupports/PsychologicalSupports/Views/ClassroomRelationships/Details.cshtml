@@ -1,0 +1,42 @@
+﻿@model PsychologicalSupports.Models.ClassroomRelationship
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClassroomRelationship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IGS_Sishora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IGS_Sishora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sociometry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sociometry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

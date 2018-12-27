@@ -1,0 +1,130 @@
+﻿@model PsychologicalSupports.Models.SchoolMotivation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SchoolMotivation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudyInClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyInClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestFamilyStudiesLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestFamilyStudiesLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CognitiveInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CognitiveInterest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TesMotivationAchievementstLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TesMotivationAchievementstLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classmates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classmates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedagogues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedagogues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ByParents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ByParents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheSchool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromTheSideOfTheSchool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromTheSideOfTheFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwarenessOfSocialNecessity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwarenessOfSocialNecessity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommunicationMotif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommunicationMotif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtracurricularSchoolMotivation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtracurricularSchoolMotivation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheMotiveOfSelf_Realization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

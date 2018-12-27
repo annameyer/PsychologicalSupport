@@ -1,0 +1,90 @@
+﻿@model PsychologicalSupports.Models.EmotioTest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmotioTest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalAggression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalAggression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndirectAggression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndirectAggression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Irritability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Irritability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Negativism)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Negativism)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Touchiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Touchiness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suspicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suspicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VerbalAggression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VerbalAggression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guilt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guilt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

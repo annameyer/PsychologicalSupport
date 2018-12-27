@@ -1,0 +1,256 @@
+﻿@model PsychologicalSupports.Models.Interests_Card_145
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Interests_Card_145</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Biology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Biology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geography)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geography)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheMedicine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheMedicine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LightAndFoodIndustry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LightAndFoodIndustry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Physics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Physics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chemistry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chemistry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineeringMechanics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineeringMechanics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElectricalEngineeringRadioEngineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElectricalEngineeringRadioEngineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialHandling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialHandling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformationTechnology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformationTechnology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Psychology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Psychology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tranport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tranport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MilitarySpecialties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MilitarySpecialties)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Story)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Literature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Literature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Journalism)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journalism)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sociology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sociology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedagogy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedagogy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Right)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Right)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceSector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceSector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maths)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Economy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Economy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForeignLanguages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForeignLanguages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Art)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Art)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Music)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Music)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
