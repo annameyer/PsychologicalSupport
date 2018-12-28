@@ -156,79 +156,79 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrator.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AveragePoint.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassroomRelationship.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassTeacheInformation.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmotioTest.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FamilyAlarmAnalysi.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_6_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_7_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_8_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_9_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InterestsInSchoolSubject.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interests_Card_145.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interests_Card_50.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mindset.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonaAnxietyScale.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonalProtagonistAizenko.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PsychologicalSupports.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PsychologicalSupports.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PsychologicalSupports.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SchoolMotivation.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Self_esteem.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsController.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsController.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsController.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsController.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+      <DependentUpon>StudentsController.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -241,24 +241,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\PsychologicalSupports.Context.tt">
+    <Content Include="Models\StudentsController.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
-      <LastGenOutput>PsychologicalSupports.Context.cs</LastGenOutput>
+      <DependentUpon>StudentsController.edmx</DependentUpon>
+      <LastGenOutput>StudentsController.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\PsychologicalSupports.tt">
+    <Content Include="Models\StudentsController.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
-      <LastGenOutput>PsychologicalSupports.cs</LastGenOutput>
+      <DependentUpon>StudentsController.edmx</DependentUpon>
+      <LastGenOutput>StudentsController.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\PsychologicalSupports.edmx">
+    <EntityDeploy Include="Models\StudentsController.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PsychologicalSupports.Designer.cs</LastGenOutput>
+      <LastGenOutput>StudentsController.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\PsychologicalSupports.edmx.diagram">
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+    <Content Include="Models\StudentsController.edmx.diagram">
+      <DependentUpon>StudentsController.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -367,6 +367,11 @@
     <Content Include="Views\Self_esteem\Details.cshtml" />
     <Content Include="Views\Self_esteem\Edit.cshtml" />
     <Content Include="Views\Self_esteem\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

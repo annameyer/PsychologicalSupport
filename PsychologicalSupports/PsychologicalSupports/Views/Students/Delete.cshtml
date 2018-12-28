@@ -1,0 +1,200 @@
+﻿@model PsychologicalSupports.Models.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdmissionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdmissionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeingTrained)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeingTrained)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint.AveragePointID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint.AveragePointID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomRelationship.IGS_Sishora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomRelationship.IGS_Sishora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassTeacheInformation.Self_harmingBehavior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassTeacheInformation.Self_harmingBehavior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotioTest.PhysicalAggression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotioTest.PhysicalAggression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyAlarmAnalysi.Fault)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyAlarmAnalysi.Fault)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_6_Class.TestLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_6_Class.TestLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_7_Class.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_7_Class.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_8_Class.InterestMap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_8_Class.InterestMap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_9_Class.Profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_9_Class.Profile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interests_Card_145.Biology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interests_Card_145.Biology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interests_Card_50.PhysicsMathematics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interests_Card_50.PhysicsMathematics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestsInSchoolSubject.Russian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestsInSchoolSubject.Russian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mindset.Subject_Effective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mindset.Subject_Effective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonaAnxietyScale.School)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonaAnxietyScale.School)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalProtagonistAizenko.Temperament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalProtagonistAizenko.Temperament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolMotivation.StudyInClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolMotivation.StudyInClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Self_esteem.Indicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Self_esteem.Indicator)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

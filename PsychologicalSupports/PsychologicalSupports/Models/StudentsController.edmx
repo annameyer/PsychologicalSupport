@@ -232,7 +232,7 @@
           <Key>
             <PropertyRef Name="StudentID" />
           </Key>
-          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumberClass" Type="int" />
           <Property Name="Class" Type="char" MaxLength="10" />
@@ -249,7 +249,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_AveragePoint_Student">
+        <Association Name="FK_AveragePoint_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="AveragePoint" Type="Self.AveragePoint" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -261,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClassroomRelationships_Student">
+        <Association Name="FK_ClassroomRelationships_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="ClassroomRelationships" Type="Self.ClassroomRelationships" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -273,7 +273,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_6_Class_Student">
+        <Association Name="FK_ClassTeacheInformation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="ClassTeacheInformation">
+              <PropertyRef Name="ClassTeacheInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmotioTest_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="EmotioTest">
+              <PropertyRef Name="EmotioTestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FamilyAlarmAnalysis_Student1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysis" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="FamilyAlarmAnalysis">
+              <PropertyRef Name="FamilyAlarmAnalysisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Intellectual_6_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_6_Class" Type="Self.Intellectual_6_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -285,7 +321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_7_Class_Student">
+        <Association Name="FK_Intellectual_7_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_7_Class" Type="Self.Intellectual_7_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -297,7 +333,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_8_Class_Student">
+        <Association Name="FK_Intellectual_8_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_8_Class" Type="Self.Intellectual_8_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -309,147 +345,111 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_ClassTeacheInformation">
-          <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Intellectual_9_Class_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="ClassTeacheInformation">
-              <PropertyRef Name="ClassTeacheInformationID" />
-            </Principal>
-            <Dependent Role="Student">
+            <Principal Role="Student">
               <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_EmotioTest">
-          <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="EmotioTest">
-              <PropertyRef Name="EmotioTestID" />
             </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_FamilyAlarmAnalysis">
-          <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysis" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="FamilyAlarmAnalysis">
-              <PropertyRef Name="FamilyAlarmAnalysisID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_Intellectual_9_Class">
-          <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Intellectual_9_Class">
+            <Dependent Role="Intellectual_9_Class">
               <PropertyRef Name="Intellectual_9_ClassID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Interests_Card_145">
-          <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Interests_Card_145_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Interests_Card_145">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Interests_Card_145">
               <PropertyRef Name="Interests_Card_145ID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Interests_Card_50">
-          <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Interests_Card_50_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Interests_Card_50">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Interests_Card_50">
               <PropertyRef Name="Interests_Card_50ID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_InterestsInSchoolSubjects">
-          <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubjects" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_InterestsInSchoolSubjects_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubjects" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="InterestsInSchoolSubjects">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="InterestsInSchoolSubjects">
               <PropertyRef Name="InterestsInSchoolSubjectsID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Mindset">
-          <End Role="Mindset" Type="Self.Mindset" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Mindset_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Mindset" Type="Self.Mindset" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Mindset">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Mindset">
               <PropertyRef Name="MindsetID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_PersonaAnxietyScale">
-          <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_PersonaAnxietyScale_Student1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PersonaAnxietyScale">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PersonaAnxietyScale">
               <PropertyRef Name="PersonaAnxietyScaleID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_PersonalProtagonistAizenko">
-          <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_PersonalProtagonistAizenko_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PersonalProtagonistAizenko">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PersonalProtagonistAizenko">
               <PropertyRef Name="PersonaAnxietyScaleID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_SchoolMotivation">
-          <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_SchoolMotivation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="SchoolMotivation">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="SchoolMotivation">
               <PropertyRef Name="SchoolMotivationID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Self_esteem">
-          <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Self_esteem_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Self_esteem">
-              <PropertyRef Name="Self_esteemID" />
-            </Principal>
-            <Dependent Role="Student">
+            <Principal Role="Student">
               <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Self_esteem">
+              <PropertyRef Name="Self_esteemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -474,73 +474,73 @@
           <EntitySet Name="Self_esteem" EntityType="Self.Self_esteem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AveragePoint_Student" Association="Self.FK_AveragePoint_Student">
+          <AssociationSet Name="FK_AveragePoint_Student1" Association="Self.FK_AveragePoint_Student1">
             <End Role="Student" EntitySet="Student" />
             <End Role="AveragePoint" EntitySet="AveragePoint" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClassroomRelationships_Student" Association="Self.FK_ClassroomRelationships_Student">
+          <AssociationSet Name="FK_ClassroomRelationships_Student1" Association="Self.FK_ClassroomRelationships_Student1">
             <End Role="Student" EntitySet="Student" />
             <End Role="ClassroomRelationships" EntitySet="ClassroomRelationships" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_6_Class_Student" Association="Self.FK_Intellectual_6_Class_Student">
+          <AssociationSet Name="FK_ClassTeacheInformation_Student" Association="Self.FK_ClassTeacheInformation_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="ClassTeacheInformation" EntitySet="ClassTeacheInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmotioTest_Student" Association="Self.FK_EmotioTest_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="EmotioTest" EntitySet="EmotioTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FamilyAlarmAnalysis_Student1" Association="Self.FK_FamilyAlarmAnalysis_Student1">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="FamilyAlarmAnalysis" EntitySet="FamilyAlarmAnalysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Intellectual_6_Class_Student1" Association="Self.FK_Intellectual_6_Class_Student1">
             <End Role="Student" EntitySet="Student" />
             <End Role="Intellectual_6_Class" EntitySet="Intellectual_6_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_7_Class_Student" Association="Self.FK_Intellectual_7_Class_Student">
+          <AssociationSet Name="FK_Intellectual_7_Class_Student1" Association="Self.FK_Intellectual_7_Class_Student1">
             <End Role="Student" EntitySet="Student" />
             <End Role="Intellectual_7_Class" EntitySet="Intellectual_7_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_8_Class_Student" Association="Self.FK_Intellectual_8_Class_Student">
+          <AssociationSet Name="FK_Intellectual_8_Class_Student1" Association="Self.FK_Intellectual_8_Class_Student1">
             <End Role="Student" EntitySet="Student" />
             <End Role="Intellectual_8_Class" EntitySet="Intellectual_8_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_ClassTeacheInformation" Association="Self.FK_Student_ClassTeacheInformation">
-            <End Role="ClassTeacheInformation" EntitySet="ClassTeacheInformation" />
+          <AssociationSet Name="FK_Intellectual_9_Class_Student" Association="Self.FK_Intellectual_9_Class_Student">
             <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_EmotioTest" Association="Self.FK_Student_EmotioTest">
-            <End Role="EmotioTest" EntitySet="EmotioTest" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_FamilyAlarmAnalysis" Association="Self.FK_Student_FamilyAlarmAnalysis">
-            <End Role="FamilyAlarmAnalysis" EntitySet="FamilyAlarmAnalysis" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Intellectual_9_Class" Association="Self.FK_Student_Intellectual_9_Class">
             <End Role="Intellectual_9_Class" EntitySet="Intellectual_9_Class" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Interests_Card_145" Association="Self.FK_Student_Interests_Card_145">
+          <AssociationSet Name="FK_Interests_Card_145_Student" Association="Self.FK_Interests_Card_145_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="Interests_Card_145" EntitySet="Interests_Card_145" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Interests_Card_50" Association="Self.FK_Student_Interests_Card_50">
+          <AssociationSet Name="FK_Interests_Card_50_Student" Association="Self.FK_Interests_Card_50_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="Interests_Card_50" EntitySet="Interests_Card_50" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_InterestsInSchoolSubjects" Association="Self.FK_Student_InterestsInSchoolSubjects">
+          <AssociationSet Name="FK_InterestsInSchoolSubjects_Student" Association="Self.FK_InterestsInSchoolSubjects_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="InterestsInSchoolSubjects" EntitySet="InterestsInSchoolSubjects" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Mindset" Association="Self.FK_Student_Mindset">
+          <AssociationSet Name="FK_Mindset_Student" Association="Self.FK_Mindset_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="Mindset" EntitySet="Mindset" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_PersonaAnxietyScale" Association="Self.FK_Student_PersonaAnxietyScale">
+          <AssociationSet Name="FK_PersonaAnxietyScale_Student1" Association="Self.FK_PersonaAnxietyScale_Student1">
+            <End Role="Student" EntitySet="Student" />
             <End Role="PersonaAnxietyScale" EntitySet="PersonaAnxietyScale" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_PersonalProtagonistAizenko" Association="Self.FK_Student_PersonalProtagonistAizenko">
+          <AssociationSet Name="FK_PersonalProtagonistAizenko_Student" Association="Self.FK_PersonalProtagonistAizenko_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="PersonalProtagonistAizenko" EntitySet="PersonalProtagonistAizenko" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_SchoolMotivation" Association="Self.FK_Student_SchoolMotivation">
+          <AssociationSet Name="FK_SchoolMotivation_Student" Association="Self.FK_SchoolMotivation_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="SchoolMotivation" EntitySet="SchoolMotivation" />
-            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Self_esteem" Association="Self.FK_Student_Self_esteem">
-            <End Role="Self_esteem" EntitySet="Self_esteem" />
+          <AssociationSet Name="FK_Self_esteem_Student" Association="Self.FK_Self_esteem_Student">
             <End Role="Student" EntitySet="Student" />
+            <End Role="Self_esteem" EntitySet="Self_esteem" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -565,7 +565,7 @@
           <Property Name="AveragePoint_7" Type="Double" />
           <Property Name="AveragePoint_8" Type="Double" />
           <Property Name="AveragePoint_9" Type="Double" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_AveragePoint_Student" FromRole="AveragePoint" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_AveragePoint_Student1" FromRole="AveragePoint" ToRole="Student" />
         </EntityType>
         <EntityType Name="ClassroomRelationship">
           <Key>
@@ -574,7 +574,7 @@
           <Property Name="ClassroomRelationshipsID" Type="Int64" Nullable="false" />
           <Property Name="IGS_Sishora" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sociometry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_ClassroomRelationships_Student" FromRole="ClassroomRelationships" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_ClassroomRelationships_Student1" FromRole="ClassroomRelationships" ToRole="Student" />
         </EntityType>
         <EntityType Name="ClassTeacheInformation">
           <Key>
@@ -594,7 +594,7 @@
           <Property Name="SharpWeightChange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HystericalEmotionalImbalance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ExceptionallyGoodSexKnowledge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_ClassTeacheInformation" FromRole="ClassTeacheInformation" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_ClassTeacheInformation_Student" FromRole="ClassTeacheInformation" ToRole="Student" />
         </EntityType>
         <EntityType Name="EmotioTest">
           <Key>
@@ -609,7 +609,7 @@
           <Property Name="Suspicion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VerbalAggression" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Guilt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_EmotioTest" FromRole="EmotioTest" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_EmotioTest_Student" FromRole="EmotioTest" ToRole="Student" />
         </EntityType>
         <EntityType Name="FamilyAlarmAnalysi">
           <Key>
@@ -620,7 +620,7 @@
           <Property Name="Anxiety" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Stress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="General" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_FamilyAlarmAnalysis" FromRole="FamilyAlarmAnalysis" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_FamilyAlarmAnalysis_Student1" FromRole="FamilyAlarmAnalysis" ToRole="Student" />
         </EntityType>
         <EntityType Name="Intellectual_6_Class">
           <Key>
@@ -630,7 +630,7 @@
           <Property Name="TestResult" Type="Int32" />
           <Property Name="TestLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AveragePoint" Type="Double" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_6_Class_Student" FromRole="Intellectual_6_Class" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_6_Class_Student1" FromRole="Intellectual_6_Class" ToRole="Student" />
         </EntityType>
         <EntityType Name="Intellectual_7_Class">
           <Key>
@@ -641,7 +641,7 @@
           <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AveragePointСommon" Type="Double" />
           <Property Name="AveragePointMath" Type="Double" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_7_Class_Student" FromRole="Intellectual_7_Class" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_7_Class_Student1" FromRole="Intellectual_7_Class" ToRole="Student" />
         </EntityType>
         <EntityType Name="Intellectual_8_Class">
           <Key>
@@ -650,7 +650,7 @@
           <Property Name="Intellectual_8_ClassID" Type="Int64" Nullable="false" />
           <Property Name="InterestMap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RecommendedProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_8_Class_Student" FromRole="Intellectual_8_Class" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_8_Class_Student1" FromRole="Intellectual_8_Class" ToRole="Student" />
         </EntityType>
         <EntityType Name="Intellectual_9_Class">
           <Key>
@@ -658,7 +658,7 @@
           </Key>
           <Property Name="Intellectual_9_ClassID" Type="Int64" Nullable="false" />
           <Property Name="Profile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Intellectual_9_Class" FromRole="Intellectual_9_Class" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Intellectual_9_Class_Student" FromRole="Intellectual_9_Class" ToRole="Student" />
         </EntityType>
         <EntityType Name="Interests_Card_145">
           <Key>
@@ -693,7 +693,7 @@
           <Property Name="Art" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Music" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Interests_Card_145" FromRole="Interests_Card_145" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_145_Student" FromRole="Interests_Card_145" ToRole="Student" />
         </EntityType>
         <EntityType Name="Interests_Card_50">
           <Key>
@@ -710,7 +710,7 @@
           <Property Name="PedagogyMedicine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EntrepreneurshiHomeEconomics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SportsMilitary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Interests_Card_50" FromRole="Interests_Card_50" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_50_Student" FromRole="Interests_Card_50" ToRole="Student" />
         </EntityType>
         <EntityType Name="InterestsInSchoolSubject">
           <Key>
@@ -726,7 +726,7 @@
           <Property Name="Chemistry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ComputerScience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_InterestsInSchoolSubjects" FromRole="InterestsInSchoolSubjects" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_InterestsInSchoolSubjects_Student" FromRole="InterestsInSchoolSubjects" ToRole="Student" />
         </EntityType>
         <EntityType Name="Mindset">
           <Key>
@@ -738,7 +738,7 @@
           <Property Name="Verbal_Logical" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Visually_Shaped" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Creativity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Mindset" FromRole="Mindset" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Mindset_Student" FromRole="Mindset" ToRole="Student" />
         </EntityType>
         <EntityType Name="PersonaAnxietyScale">
           <Key>
@@ -749,7 +749,7 @@
           <Property Name="Interpersonal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Self_assessment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="General" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_PersonaAnxietyScale" FromRole="PersonaAnxietyScale" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_PersonaAnxietyScale_Student1" FromRole="PersonaAnxietyScale" ToRole="Student" />
         </EntityType>
         <EntityType Name="PersonalProtagonistAizenko">
           <Key>
@@ -758,7 +758,7 @@
           <Property Name="PersonaAnxietyScaleID" Type="Int64" Nullable="false" />
           <Property Name="Temperament" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_PersonalProtagonistAizenko" FromRole="PersonalProtagonistAizenko" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_PersonalProtagonistAizenko_Student" FromRole="PersonalProtagonistAizenko" ToRole="Student" />
         </EntityType>
         <EntityType Name="SchoolMotivation">
           <Key>
@@ -778,7 +778,7 @@
           <Property Name="CommunicationMotif" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ExtracurricularSchoolMotivation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TheMotiveOfSelf_Realization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_SchoolMotivation" FromRole="SchoolMotivation" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_SchoolMotivation_Student" FromRole="SchoolMotivation" ToRole="Student" />
         </EntityType>
         <EntityType Name="Self_esteem">
           <Key>
@@ -786,35 +786,35 @@
           </Key>
           <Property Name="Self_esteemID" Type="Int64" Nullable="false" />
           <Property Name="Indicator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Self_esteem" FromRole="Self_esteem" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Self_esteem_Student" FromRole="Self_esteem" ToRole="Student" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="StudentID" />
           </Key>
-          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NumberClass" Type="Int32" />
           <Property Name="Class" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="AdmissionDate" Type="DateTime" Precision="0" />
           <Property Name="BeingTrained" Type="Boolean" />
-          <NavigationProperty Name="AveragePoint" Relationship="Self.FK_AveragePoint_Student" FromRole="Student" ToRole="AveragePoint" />
-          <NavigationProperty Name="ClassroomRelationship" Relationship="Self.FK_ClassroomRelationships_Student" FromRole="Student" ToRole="ClassroomRelationships" />
-          <NavigationProperty Name="ClassTeacheInformation" Relationship="Self.FK_Student_ClassTeacheInformation" FromRole="Student" ToRole="ClassTeacheInformation" />
-          <NavigationProperty Name="EmotioTest" Relationship="Self.FK_Student_EmotioTest" FromRole="Student" ToRole="EmotioTest" />
-          <NavigationProperty Name="FamilyAlarmAnalysi" Relationship="Self.FK_Student_FamilyAlarmAnalysis" FromRole="Student" ToRole="FamilyAlarmAnalysis" />
-          <NavigationProperty Name="Intellectual_6_Class" Relationship="Self.FK_Intellectual_6_Class_Student" FromRole="Student" ToRole="Intellectual_6_Class" />
-          <NavigationProperty Name="Intellectual_7_Class" Relationship="Self.FK_Intellectual_7_Class_Student" FromRole="Student" ToRole="Intellectual_7_Class" />
-          <NavigationProperty Name="Intellectual_8_Class" Relationship="Self.FK_Intellectual_8_Class_Student" FromRole="Student" ToRole="Intellectual_8_Class" />
-          <NavigationProperty Name="Intellectual_9_Class" Relationship="Self.FK_Student_Intellectual_9_Class" FromRole="Student" ToRole="Intellectual_9_Class" />
-          <NavigationProperty Name="Interests_Card_145" Relationship="Self.FK_Student_Interests_Card_145" FromRole="Student" ToRole="Interests_Card_145" />
-          <NavigationProperty Name="Interests_Card_50" Relationship="Self.FK_Student_Interests_Card_50" FromRole="Student" ToRole="Interests_Card_50" />
-          <NavigationProperty Name="InterestsInSchoolSubject" Relationship="Self.FK_Student_InterestsInSchoolSubjects" FromRole="Student" ToRole="InterestsInSchoolSubjects" />
-          <NavigationProperty Name="Mindset" Relationship="Self.FK_Student_Mindset" FromRole="Student" ToRole="Mindset" />
-          <NavigationProperty Name="PersonaAnxietyScale" Relationship="Self.FK_Student_PersonaAnxietyScale" FromRole="Student" ToRole="PersonaAnxietyScale" />
-          <NavigationProperty Name="PersonalProtagonistAizenko" Relationship="Self.FK_Student_PersonalProtagonistAizenko" FromRole="Student" ToRole="PersonalProtagonistAizenko" />
-          <NavigationProperty Name="SchoolMotivation" Relationship="Self.FK_Student_SchoolMotivation" FromRole="Student" ToRole="SchoolMotivation" />
-          <NavigationProperty Name="Self_esteem" Relationship="Self.FK_Student_Self_esteem" FromRole="Student" ToRole="Self_esteem" />
+          <NavigationProperty Name="AveragePoint" Relationship="Self.FK_AveragePoint_Student1" FromRole="Student" ToRole="AveragePoint" />
+          <NavigationProperty Name="ClassroomRelationship" Relationship="Self.FK_ClassroomRelationships_Student1" FromRole="Student" ToRole="ClassroomRelationships" />
+          <NavigationProperty Name="ClassTeacheInformation" Relationship="Self.FK_ClassTeacheInformation_Student" FromRole="Student" ToRole="ClassTeacheInformation" />
+          <NavigationProperty Name="EmotioTest" Relationship="Self.FK_EmotioTest_Student" FromRole="Student" ToRole="EmotioTest" />
+          <NavigationProperty Name="FamilyAlarmAnalysi" Relationship="Self.FK_FamilyAlarmAnalysis_Student1" FromRole="Student" ToRole="FamilyAlarmAnalysis" />
+          <NavigationProperty Name="Intellectual_6_Class" Relationship="Self.FK_Intellectual_6_Class_Student1" FromRole="Student" ToRole="Intellectual_6_Class" />
+          <NavigationProperty Name="Intellectual_7_Class" Relationship="Self.FK_Intellectual_7_Class_Student1" FromRole="Student" ToRole="Intellectual_7_Class" />
+          <NavigationProperty Name="Intellectual_8_Class" Relationship="Self.FK_Intellectual_8_Class_Student1" FromRole="Student" ToRole="Intellectual_8_Class" />
+          <NavigationProperty Name="Intellectual_9_Class" Relationship="Self.FK_Intellectual_9_Class_Student" FromRole="Student" ToRole="Intellectual_9_Class" />
+          <NavigationProperty Name="Interests_Card_145" Relationship="Self.FK_Interests_Card_145_Student" FromRole="Student" ToRole="Interests_Card_145" />
+          <NavigationProperty Name="Interests_Card_50" Relationship="Self.FK_Interests_Card_50_Student" FromRole="Student" ToRole="Interests_Card_50" />
+          <NavigationProperty Name="InterestsInSchoolSubject" Relationship="Self.FK_InterestsInSchoolSubjects_Student" FromRole="Student" ToRole="InterestsInSchoolSubjects" />
+          <NavigationProperty Name="Mindset" Relationship="Self.FK_Mindset_Student" FromRole="Student" ToRole="Mindset" />
+          <NavigationProperty Name="PersonaAnxietyScale" Relationship="Self.FK_PersonaAnxietyScale_Student1" FromRole="Student" ToRole="PersonaAnxietyScale" />
+          <NavigationProperty Name="PersonalProtagonistAizenko" Relationship="Self.FK_PersonalProtagonistAizenko_Student" FromRole="Student" ToRole="PersonalProtagonistAizenko" />
+          <NavigationProperty Name="SchoolMotivation" Relationship="Self.FK_SchoolMotivation_Student" FromRole="Student" ToRole="SchoolMotivation" />
+          <NavigationProperty Name="Self_esteem" Relationship="Self.FK_Self_esteem_Student" FromRole="Student" ToRole="Self_esteem" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -826,7 +826,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_AveragePoint_Student">
+        <Association Name="FK_AveragePoint_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="AveragePoint" Type="Self.AveragePoint" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -838,7 +838,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClassroomRelationships_Student">
+        <Association Name="FK_ClassroomRelationships_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="ClassroomRelationships" Type="Self.ClassroomRelationship" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -850,43 +850,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_ClassTeacheInformation">
-          <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_ClassTeacheInformation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="ClassTeacheInformation">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="ClassTeacheInformation">
               <PropertyRef Name="ClassTeacheInformationID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_EmotioTest">
-          <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_EmotioTest_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="EmotioTest">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="EmotioTest">
               <PropertyRef Name="EmotioTestID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_FamilyAlarmAnalysis">
-          <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysi" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_FamilyAlarmAnalysis_Student1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysi" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="FamilyAlarmAnalysis">
-              <PropertyRef Name="FamilyAlarmAnalysisID" />
-            </Principal>
-            <Dependent Role="Student">
+            <Principal Role="Student">
               <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="FamilyAlarmAnalysis">
+              <PropertyRef Name="FamilyAlarmAnalysisID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_6_Class_Student">
+        <Association Name="FK_Intellectual_6_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_6_Class" Type="Self.Intellectual_6_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -898,7 +898,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_7_Class_Student">
+        <Association Name="FK_Intellectual_7_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_7_Class" Type="Self.Intellectual_7_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -910,7 +910,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Intellectual_8_Class_Student">
+        <Association Name="FK_Intellectual_8_Class_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Intellectual_8_Class" Type="Self.Intellectual_8_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -922,111 +922,111 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Intellectual_9_Class">
-          <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Intellectual_9_Class_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Intellectual_9_Class">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Intellectual_9_Class">
               <PropertyRef Name="Intellectual_9_ClassID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Interests_Card_145">
-          <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Interests_Card_145_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Interests_Card_145">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Interests_Card_145">
               <PropertyRef Name="Interests_Card_145ID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Interests_Card_50">
-          <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Interests_Card_50_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Interests_Card_50">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Interests_Card_50">
               <PropertyRef Name="Interests_Card_50ID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_InterestsInSchoolSubjects">
-          <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubject" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_InterestsInSchoolSubjects_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubject" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="InterestsInSchoolSubjects">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="InterestsInSchoolSubjects">
               <PropertyRef Name="InterestsInSchoolSubjectsID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Mindset">
-          <End Role="Mindset" Type="Self.Mindset" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Mindset_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Mindset" Type="Self.Mindset" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Mindset">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Mindset">
               <PropertyRef Name="MindsetID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_PersonaAnxietyScale">
-          <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_PersonaAnxietyScale_Student1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PersonaAnxietyScale">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PersonaAnxietyScale">
               <PropertyRef Name="PersonaAnxietyScaleID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_PersonalProtagonistAizenko">
-          <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_PersonalProtagonistAizenko_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PersonalProtagonistAizenko">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PersonalProtagonistAizenko">
               <PropertyRef Name="PersonaAnxietyScaleID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_SchoolMotivation">
-          <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_SchoolMotivation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="SchoolMotivation">
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="SchoolMotivation">
               <PropertyRef Name="SchoolMotivationID" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="StudentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Self_esteem">
-          <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Self_esteem_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Self_esteem">
-              <PropertyRef Name="Self_esteemID" />
-            </Principal>
-            <Dependent Role="Student">
+            <Principal Role="Student">
               <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Self_esteem">
+              <PropertyRef Name="Self_esteemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1051,73 +1051,73 @@
           <EntitySet Name="Self_esteem" EntityType="Self.Self_esteem" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_AveragePoint_Student" Association="Self.FK_AveragePoint_Student">
+          <AssociationSet Name="FK_AveragePoint_Student1" Association="Self.FK_AveragePoint_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="AveragePoint" EntitySet="AveragePoints" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClassroomRelationships_Student" Association="Self.FK_ClassroomRelationships_Student">
+          <AssociationSet Name="FK_ClassroomRelationships_Student1" Association="Self.FK_ClassroomRelationships_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="ClassroomRelationships" EntitySet="ClassroomRelationships" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_ClassTeacheInformation" Association="Self.FK_Student_ClassTeacheInformation">
+          <AssociationSet Name="FK_ClassTeacheInformation_Student" Association="Self.FK_ClassTeacheInformation_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="ClassTeacheInformation" EntitySet="ClassTeacheInformations" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_EmotioTest" Association="Self.FK_Student_EmotioTest">
+          <AssociationSet Name="FK_EmotioTest_Student" Association="Self.FK_EmotioTest_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="EmotioTest" EntitySet="EmotioTests" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_FamilyAlarmAnalysis" Association="Self.FK_Student_FamilyAlarmAnalysis">
+          <AssociationSet Name="FK_FamilyAlarmAnalysis_Student1" Association="Self.FK_FamilyAlarmAnalysis_Student1">
+            <End Role="Student" EntitySet="Students" />
             <End Role="FamilyAlarmAnalysis" EntitySet="FamilyAlarmAnalysis" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_6_Class_Student" Association="Self.FK_Intellectual_6_Class_Student">
+          <AssociationSet Name="FK_Intellectual_6_Class_Student1" Association="Self.FK_Intellectual_6_Class_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="Intellectual_6_Class" EntitySet="Intellectual_6_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_7_Class_Student" Association="Self.FK_Intellectual_7_Class_Student">
+          <AssociationSet Name="FK_Intellectual_7_Class_Student1" Association="Self.FK_Intellectual_7_Class_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="Intellectual_7_Class" EntitySet="Intellectual_7_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Intellectual_8_Class_Student" Association="Self.FK_Intellectual_8_Class_Student">
+          <AssociationSet Name="FK_Intellectual_8_Class_Student1" Association="Self.FK_Intellectual_8_Class_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="Intellectual_8_Class" EntitySet="Intellectual_8_Class" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Intellectual_9_Class" Association="Self.FK_Student_Intellectual_9_Class">
+          <AssociationSet Name="FK_Intellectual_9_Class_Student" Association="Self.FK_Intellectual_9_Class_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="Intellectual_9_Class" EntitySet="Intellectual_9_Class" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Interests_Card_145" Association="Self.FK_Student_Interests_Card_145">
+          <AssociationSet Name="FK_Interests_Card_145_Student" Association="Self.FK_Interests_Card_145_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="Interests_Card_145" EntitySet="Interests_Card_145" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Interests_Card_50" Association="Self.FK_Student_Interests_Card_50">
+          <AssociationSet Name="FK_Interests_Card_50_Student" Association="Self.FK_Interests_Card_50_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="Interests_Card_50" EntitySet="Interests_Card_50" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_InterestsInSchoolSubjects" Association="Self.FK_Student_InterestsInSchoolSubjects">
+          <AssociationSet Name="FK_InterestsInSchoolSubjects_Student" Association="Self.FK_InterestsInSchoolSubjects_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="InterestsInSchoolSubjects" EntitySet="InterestsInSchoolSubjects" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Mindset" Association="Self.FK_Student_Mindset">
+          <AssociationSet Name="FK_Mindset_Student" Association="Self.FK_Mindset_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="Mindset" EntitySet="Mindsets" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_PersonaAnxietyScale" Association="Self.FK_Student_PersonaAnxietyScale">
+          <AssociationSet Name="FK_PersonaAnxietyScale_Student1" Association="Self.FK_PersonaAnxietyScale_Student1">
+            <End Role="Student" EntitySet="Students" />
             <End Role="PersonaAnxietyScale" EntitySet="PersonaAnxietyScales" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_PersonalProtagonistAizenko" Association="Self.FK_Student_PersonalProtagonistAizenko">
+          <AssociationSet Name="FK_PersonalProtagonistAizenko_Student" Association="Self.FK_PersonalProtagonistAizenko_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="PersonalProtagonistAizenko" EntitySet="PersonalProtagonistAizenkoes" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_SchoolMotivation" Association="Self.FK_Student_SchoolMotivation">
+          <AssociationSet Name="FK_SchoolMotivation_Student" Association="Self.FK_SchoolMotivation_Student">
+            <End Role="Student" EntitySet="Students" />
             <End Role="SchoolMotivation" EntitySet="SchoolMotivations" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Self_esteem" Association="Self.FK_Student_Self_esteem">
-            <End Role="Self_esteem" EntitySet="Self_esteem" />
+          <AssociationSet Name="FK_Self_esteem_Student" Association="Self.FK_Self_esteem_Student">
             <End Role="Student" EntitySet="Students" />
+            <End Role="Self_esteem" EntitySet="Self_esteem" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
