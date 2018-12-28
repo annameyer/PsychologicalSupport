@@ -91,13 +91,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Self_esteem/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Self_esteem self_esteem = db.Self_esteem.Find(id);
+            Self_esteem self_esteem = db.Self_esteem.Find(id,id2);
             if (self_esteem == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: Self_esteem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id, long? id2)
         {
-            Self_esteem self_esteem = db.Self_esteem.Find(id);
+            Self_esteem self_esteem = db.Self_esteem.Find(id, id2);
             db.Self_esteem.Remove(self_esteem);
             db.SaveChanges();
             return RedirectToAction("Index");
