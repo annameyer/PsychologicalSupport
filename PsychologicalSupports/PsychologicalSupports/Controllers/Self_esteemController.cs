@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Self_esteem/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2 == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Self_esteem self_esteem = db.Self_esteem.Find(id);
+            Self_esteem self_esteem = db.Self_esteem.Find(id, id2);
             if (self_esteem == null)
             {
                 return HttpNotFound();
@@ -58,13 +58,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Self_esteem/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2 == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Self_esteem self_esteem = db.Self_esteem.Find(id);
+            Self_esteem self_esteem = db.Self_esteem.Find(id, id2);
             if (self_esteem == null)
             {
                 return HttpNotFound();

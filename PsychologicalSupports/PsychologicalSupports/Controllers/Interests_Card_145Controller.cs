@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Interests_Card_145/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null & id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id);
+            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id,id2);
             if (interests_Card_145 == null)
             {
                 return HttpNotFound();
@@ -58,13 +58,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Interests_Card_145/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null & id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id);
+            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id,id2);
             if (interests_Card_145 == null)
             {
                 return HttpNotFound();
@@ -91,13 +91,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Interests_Card_145/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null & id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id);
+            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id,id2);
             if (interests_Card_145 == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: Interests_Card_145/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long id, long id2)
         {
-            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id);
+            Interests_Card_145 interests_Card_145 = db.Interests_Card_145.Find(id,id2);
             db.Interests_Card_145.Remove(interests_Card_145);
             db.SaveChanges();
             return RedirectToAction("Index");

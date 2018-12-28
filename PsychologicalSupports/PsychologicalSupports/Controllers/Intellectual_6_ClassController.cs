@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Intellectual_6_Class/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id,id2);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -58,13 +58,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Intellectual_6_Class/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id,id2);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -91,13 +91,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Intellectual_6_Class/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(long? id, long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id,id2);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: Intellectual_6_Class/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long id, long id2)
         {
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id,id2);
             db.Intellectual_6_Class.Remove(intellectual_6_Class);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: SchoolMotivations/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
@@ -58,13 +58,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: SchoolMotivations/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
@@ -91,13 +91,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: SchoolMotivations/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(long? id,long? id2)
         {
-            if (id == null)
+            if (id == null && id2==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: SchoolMotivations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long id,long id2)
         {
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
             db.SchoolMotivations.Remove(schoolMotivation);
             db.SaveChanges();
             return RedirectToAction("Index");
