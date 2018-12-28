@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: ClassroomRelationships/Details/5
-        public ActionResult Details(long? id, long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id,id2);
+            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: ClassroomRelationships/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClassroomRelationshipsID,StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Create([Bind(Include = "ClassroomRelationshipsID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
             return View(classroomRelationship);
         }
 
         // GET: ClassroomRelationships/Edit/5
-        public ActionResult Edit(long? id, long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id, id2);
+            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
             return View(classroomRelationship);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClassroomRelationshipsID,StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Edit([Bind(Include = "ClassroomRelationshipsID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
             return View(classroomRelationship);
         }
 
         // GET: ClassroomRelationships/Delete/5
-        public ActionResult Delete(long? id, long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id, id2);
+            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: ClassroomRelationships/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id, long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id, id2);
+            ClassroomRelationship classroomRelationship = db.ClassroomRelationships.Find(id);
             db.ClassroomRelationships.Remove(classroomRelationship);
             db.SaveChanges();
             return RedirectToAction("Index");

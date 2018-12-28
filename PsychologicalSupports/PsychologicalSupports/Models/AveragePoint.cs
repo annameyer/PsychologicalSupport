@@ -15,7 +15,6 @@ namespace PsychologicalSupports.Models
     public partial class AveragePoint
     {
         public long AveragePointID { get; set; }
-        public long StudentID { get; set; }
         public Nullable<double> AveragePoint_6 { get; set; }
         public Nullable<double> AveragePoint_7 { get; set; }
         public Nullable<double> AveragePoint_8 { get; set; }

@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: FamilyAlarmAnalysis/Details/5
-        public ActionResult Details(long? id, long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id, id2);
+            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: FamilyAlarmAnalysis/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FamilyAlarmAnalysisID,StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
+        public ActionResult Create([Bind(Include = "FamilyAlarmAnalysisID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
+            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
             return View(familyAlarmAnalysi);
         }
 
         // GET: FamilyAlarmAnalysis/Edit/5
-        public ActionResult Edit(long? id, long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id, id2);
+            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
+            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
             return View(familyAlarmAnalysi);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FamilyAlarmAnalysisID,StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
+        public ActionResult Edit([Bind(Include = "FamilyAlarmAnalysisID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
+            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
             return View(familyAlarmAnalysi);
         }
 
         // GET: FamilyAlarmAnalysis/Delete/5
-        public ActionResult Delete(long? id, long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id,id2);
+            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: FamilyAlarmAnalysis/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id, long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id, id2);
+            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             db.FamilyAlarmAnalysis.Remove(familyAlarmAnalysi);
             db.SaveChanges();
             return RedirectToAction("Index");

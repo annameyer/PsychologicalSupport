@@ -15,7 +15,6 @@ namespace PsychologicalSupports.Models
     public partial class SchoolMotivation
     {
         public long SchoolMotivationID { get; set; }
-        public long StudentID { get; set; }
         public string StudyInClass { get; set; }
         public string TestFamilyStudiesLevel { get; set; }
         public string CognitiveInterest { get; set; }

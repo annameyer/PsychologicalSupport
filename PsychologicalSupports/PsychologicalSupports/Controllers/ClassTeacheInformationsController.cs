@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: ClassTeacheInformations/Details/5
-        public ActionResult Details(long? id, long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id,id2);
+            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id);
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: ClassTeacheInformations/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClassTeacheInformationID,StudentID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
+        public ActionResult Create([Bind(Include = "ClassTeacheInformationID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
+            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
             return View(classTeacheInformation);
         }
 
         // GET: ClassTeacheInformations/Edit/5
-        public ActionResult Edit(long? id, long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2 == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id, id2);
+            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id);
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
+            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
             return View(classTeacheInformation);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClassTeacheInformationID,StudentID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
+        public ActionResult Edit([Bind(Include = "ClassTeacheInformationID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
+            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
             return View(classTeacheInformation);
         }
 
         // GET: ClassTeacheInformations/Delete/5
-        public ActionResult Delete(long? id, long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id, id2);
+            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id);
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: ClassTeacheInformations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id, long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id, id2);
+            ClassTeacheInformation classTeacheInformation = db.ClassTeacheInformations.Find(id);
             db.ClassTeacheInformations.Remove(classTeacheInformation);
             db.SaveChanges();
             return RedirectToAction("Index");

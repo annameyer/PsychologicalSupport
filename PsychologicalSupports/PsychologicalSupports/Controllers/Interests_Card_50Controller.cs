@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Interests_Card_50/Details/5
-        public ActionResult Details(long? id, long? id2)
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id,id2);
+            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id);
             if (interests_Card_50 == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Interests_Card_50/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.Interests_Card_50ID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Interests_Card_50ID,StudentID,PhysicsMathematics,ChemistryBiology,RadioEngineeringElectronics,MechanicsDesign,GeographyGeology,LiteratureArt,HistoryPolitics,PedagogyMedicine,EntrepreneurshiHomeEconomics,SportsMilitary")] Interests_Card_50 interests_Card_50)
+        public ActionResult Create([Bind(Include = "Interests_Card_50ID,PhysicsMathematics,ChemistryBiology,RadioEngineeringElectronics,MechanicsDesign,GeographyGeology,LiteratureArt,HistoryPolitics,PedagogyMedicine,EntrepreneurshiHomeEconomics,SportsMilitary")] Interests_Card_50 interests_Card_50)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.StudentID);
+            ViewBag.Interests_Card_50ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.Interests_Card_50ID);
             return View(interests_Card_50);
         }
 
         // GET: Interests_Card_50/Edit/5
-        public ActionResult Edit(long? id,long? id2)
+        public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id,id2);
+            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id);
             if (interests_Card_50 == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.StudentID);
+            ViewBag.Interests_Card_50ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.Interests_Card_50ID);
             return View(interests_Card_50);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Interests_Card_50ID,StudentID,PhysicsMathematics,ChemistryBiology,RadioEngineeringElectronics,MechanicsDesign,GeographyGeology,LiteratureArt,HistoryPolitics,PedagogyMedicine,EntrepreneurshiHomeEconomics,SportsMilitary")] Interests_Card_50 interests_Card_50)
+        public ActionResult Edit([Bind(Include = "Interests_Card_50ID,PhysicsMathematics,ChemistryBiology,RadioEngineeringElectronics,MechanicsDesign,GeographyGeology,LiteratureArt,HistoryPolitics,PedagogyMedicine,EntrepreneurshiHomeEconomics,SportsMilitary")] Interests_Card_50 interests_Card_50)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.StudentID);
+            ViewBag.Interests_Card_50ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_50.Interests_Card_50ID);
             return View(interests_Card_50);
         }
 
         // GET: Interests_Card_50/Delete/5
-        public ActionResult Delete(long? id,long? id2)
+        public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id,id2);
+            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id);
             if (interests_Card_50 == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: Interests_Card_50/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id,long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id,id2);
+            Interests_Card_50 interests_Card_50 = db.Interests_Card_50.Find(id);
             db.Interests_Card_50.Remove(interests_Card_50);
             db.SaveChanges();
             return RedirectToAction("Index");

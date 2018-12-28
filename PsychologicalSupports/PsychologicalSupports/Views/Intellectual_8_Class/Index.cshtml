@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Student.FIO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Intellectual_8_Class1, id2 = item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Intellectual_8_ClassID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Intellectual_8_ClassID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Intellectual_8_ClassID })
         </td>
     </tr>
 }

@@ -15,7 +15,6 @@ namespace PsychologicalSupports.Models
     public partial class Intellectual_6_Class
     {
         public long Intellectual_6_ClassID { get; set; }
-        public long StudentID { get; set; }
         public Nullable<int> TestResult { get; set; }
         public string TestLevel { get; set; }
         public Nullable<double> AveragePoint { get; set; }

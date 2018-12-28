@@ -101,9 +101,9 @@
             @Html.DisplayFor(modelItem => item.Student.FIO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SchoolMotivationID, id2 = item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SchoolMotivationID, id2 = item.StudentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SchoolMotivationID, id2 = item.StudentID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.SchoolMotivationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SchoolMotivationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SchoolMotivationID })
         </td>
     </tr>
 }

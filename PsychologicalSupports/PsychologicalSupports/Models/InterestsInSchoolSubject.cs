@@ -15,7 +15,6 @@ namespace PsychologicalSupports.Models
     public partial class InterestsInSchoolSubject
     {
         public long InterestsInSchoolSubjectsID { get; set; }
-        public long StudentID { get; set; }
         public string Russian { get; set; }
         public string Belorussian { get; set; }
         public string Physics { get; set; }

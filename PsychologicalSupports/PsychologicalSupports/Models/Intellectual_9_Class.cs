@@ -15,7 +15,6 @@ namespace PsychologicalSupports.Models
     public partial class Intellectual_9_Class
     {
         public long Intellectual_9_ClassID { get; set; }
-        public long StudentID { get; set; }
         public string Profile { get; set; }
     
         public virtual Student Student { get; set; }

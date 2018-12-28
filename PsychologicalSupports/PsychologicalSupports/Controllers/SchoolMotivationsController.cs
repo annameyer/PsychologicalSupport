@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: SchoolMotivations/Details/5
-        public ActionResult Details(long? id,long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: SchoolMotivations/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SchoolMotivationID,StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Create([Bind(Include = "SchoolMotivationID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
+            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
             return View(schoolMotivation);
         }
 
         // GET: SchoolMotivations/Edit/5
-        public ActionResult Edit(long? id,long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
+            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
             return View(schoolMotivation);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SchoolMotivationID,StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Edit([Bind(Include = "SchoolMotivationID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
+            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
             return View(schoolMotivation);
         }
 
         // GET: SchoolMotivations/Delete/5
-        public ActionResult Delete(long? id,long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
             if (schoolMotivation == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: SchoolMotivations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id,long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id,id2);
+            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
             db.SchoolMotivations.Remove(schoolMotivation);
             db.SaveChanges();
             return RedirectToAction("Index");

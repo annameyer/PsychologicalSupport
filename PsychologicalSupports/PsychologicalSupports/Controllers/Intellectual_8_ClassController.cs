@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: Intellectual_8_Class/Details/5
-        public ActionResult Details(long? id, long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id,id2);
+            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_8_Class/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Intellectual_8_Class1,StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Create([Bind(Include = "Intellectual_8_ClassID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
             return View(intellectual_8_Class);
         }
 
         // GET: Intellectual_8_Class/Edit/5
-        public ActionResult Edit(long? id, long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id,id2);
+            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
             return View(intellectual_8_Class);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Intellectual_8_Class1,StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Edit([Bind(Include = "Intellectual_8_ClassID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
             return View(intellectual_8_Class);
         }
 
         // GET: Intellectual_8_Class/Delete/5
-        public ActionResult Delete(long? id, long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id,id2);
+            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: Intellectual_8_Class/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id, long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id,id2);
+            Intellectual_8_Class intellectual_8_Class = db.Intellectual_8_Class.Find(id);
             db.Intellectual_8_Class.Remove(intellectual_8_Class);
             db.SaveChanges();
             return RedirectToAction("Index");

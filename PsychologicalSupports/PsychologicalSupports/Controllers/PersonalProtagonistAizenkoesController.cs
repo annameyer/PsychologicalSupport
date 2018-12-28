@@ -18,13 +18,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: PersonalProtagonistAizenkoes/Details/5
-        public ActionResult Details(long? id,long? id2)
+        public ActionResult Details(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id,id2);
+            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace PsychologicalSupports.Controllers
         // GET: PersonalProtagonistAizenkoes/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonaAnxietyScaleID,StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
+        public ActionResult Create([Bind(Include = "PersonaAnxietyScaleID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
         {
             if (ModelState.IsValid)
             {
@@ -53,23 +53,23 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
+            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.PersonaAnxietyScaleID);
             return View(personalProtagonistAizenko);
         }
 
         // GET: PersonalProtagonistAizenkoes/Edit/5
-        public ActionResult Edit(long? id,long? id2)
+        public ActionResult Edit(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id,id2);
+            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
+            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.PersonaAnxietyScaleID);
             return View(personalProtagonistAizenko);
         }
 
@@ -78,7 +78,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonaAnxietyScaleID,StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
+        public ActionResult Edit([Bind(Include = "PersonaAnxietyScaleID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
         {
             if (ModelState.IsValid)
             {
@@ -86,18 +86,18 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
+            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.PersonaAnxietyScaleID);
             return View(personalProtagonistAizenko);
         }
 
         // GET: PersonalProtagonistAizenkoes/Delete/5
-        public ActionResult Delete(long? id,long? id2)
+        public ActionResult Delete(long? id)
         {
-            if (id == null && id2==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id,id2);
+            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: PersonalProtagonistAizenkoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id,long id2)
+        public ActionResult DeleteConfirmed(long id)
         {
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id,id2);
+            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             db.PersonalProtagonistAizenkoes.Remove(personalProtagonistAizenko);
             db.SaveChanges();
             return RedirectToAction("Index");
