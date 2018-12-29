@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: PersonaAnxietyScales/Create
         public ActionResult Create()
         {
-            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonaAnxietyScaleID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
+        public ActionResult Create([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.PersonaAnxietyScaleID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.PersonaAnxietyScaleID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonaAnxietyScaleID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
+        public ActionResult Edit([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaAnxietyScaleID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.PersonaAnxietyScaleID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
             return View(personaAnxietyScale);
         }
 

@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: SchoolMotivations/Create
         public ActionResult Create()
         {
-            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SchoolMotivationID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Create([Bind(Include = "StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
             return View(schoolMotivation);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
             return View(schoolMotivation);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SchoolMotivationID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Edit([Bind(Include = "StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SchoolMotivationID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.SchoolMotivationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
             return View(schoolMotivation);
         }
 

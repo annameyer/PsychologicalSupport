@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.InterestMap)
         </dt>
 
@@ -27,13 +33,9 @@
             @Html.DisplayFor(model => model.RecommendedProfile)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Student.FIO)
-        </dd>
+
+
 
     </dl>
 

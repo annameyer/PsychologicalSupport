@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: ClassTeacheInformations/Create
         public ActionResult Create()
         {
-            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClassTeacheInformationID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
+        public ActionResult Create([Bind(Include = "StudentID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
             return View(classTeacheInformation);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
             return View(classTeacheInformation);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClassTeacheInformationID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
+        public ActionResult Edit([Bind(Include = "StudentID,Self_harmingBehavior,Isolation,Aggression,AvoidPhysicalContact,AfraidToGoHome,RunningAwayFromHome,WearBodyHidingClothes,DefiantBehavior,LowSelf_esteem,PoorPeerRelations,SharpWeightChange,HystericalEmotionalImbalance,ExceptionallyGoodSexKnowledge")] ClassTeacheInformation classTeacheInformation)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClassTeacheInformationID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.ClassTeacheInformationID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
             return View(classTeacheInformation);
         }
 

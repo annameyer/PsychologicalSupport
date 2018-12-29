@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StudyInClass)
         </th>
         <th>
@@ -50,14 +53,15 @@
         <th>
             @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FIO)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.StudyInClass)
         </td>
@@ -97,13 +101,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.TheMotiveOfSelf_Realization)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SchoolMotivationID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SchoolMotivationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SchoolMotivationID })
+            @Html.ActionLink("Edit", "Edit", new {id = item.StudentID}) |
+            @Html.ActionLink("Details", "Details", new {id = item.StudentID}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.StudentID})
         </td>
     </tr>
 }

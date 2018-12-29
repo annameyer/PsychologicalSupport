@@ -11,6 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.IGS_Sishora)
         </dt>
 
@@ -26,17 +33,11 @@
             @Html.DisplayFor(model => model.Sociometry)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Student.FIO)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassroomRelationshipsID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

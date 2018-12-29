@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: FamilyAlarmAnalysis/Create
         public ActionResult Create()
         {
-            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FamilyAlarmAnalysisID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
+        public ActionResult Create([Bind(Include = "StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
             return View(familyAlarmAnalysi);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
             return View(familyAlarmAnalysi);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FamilyAlarmAnalysisID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
+        public ActionResult Edit([Bind(Include = "StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FamilyAlarmAnalysisID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.FamilyAlarmAnalysisID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
             return View(familyAlarmAnalysi);
         }
 

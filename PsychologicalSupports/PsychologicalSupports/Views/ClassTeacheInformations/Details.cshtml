@@ -10,6 +10,14 @@
     <h4>ClassTeacheInformation</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Self_harmingBehavior)
         </dt>
@@ -114,17 +122,10 @@
             @Html.DisplayFor(model => model.ExceptionallyGoodSexKnowledge)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Student.FIO)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassTeacheInformationID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

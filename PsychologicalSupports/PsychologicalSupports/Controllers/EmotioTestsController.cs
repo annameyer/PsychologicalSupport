@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: EmotioTests/Create
         public ActionResult Create()
         {
-            ViewBag.EmotioTestID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmotioTestID,PhysicalAggression,IndirectAggression,Irritability,Negativism,Touchiness,Suspicion,VerbalAggression,Guilt")] EmotioTest emotioTest)
+        public ActionResult Create([Bind(Include = "StudentID,PhysicalAggression,IndirectAggression,Irritability,Negativism,Touchiness,Suspicion,VerbalAggression,Guilt")] EmotioTest emotioTest)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmotioTestID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.EmotioTestID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.StudentID);
             return View(emotioTest);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmotioTestID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.EmotioTestID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.StudentID);
             return View(emotioTest);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmotioTestID,PhysicalAggression,IndirectAggression,Irritability,Negativism,Touchiness,Suspicion,VerbalAggression,Guilt")] EmotioTest emotioTest)
+        public ActionResult Edit([Bind(Include = "StudentID,PhysicalAggression,IndirectAggression,Irritability,Negativism,Touchiness,Suspicion,VerbalAggression,Guilt")] EmotioTest emotioTest)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmotioTestID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.EmotioTestID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", emotioTest.StudentID);
             return View(emotioTest);
         }
 

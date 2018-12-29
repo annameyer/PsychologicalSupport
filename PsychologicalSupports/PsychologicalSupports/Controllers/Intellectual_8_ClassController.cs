@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_8_Class/Create
         public ActionResult Create()
         {
-            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Intellectual_8_ClassID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Create([Bind(Include = "StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Intellectual_8_ClassID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Edit([Bind(Include = "StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Intellectual_8_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.Intellectual_8_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 

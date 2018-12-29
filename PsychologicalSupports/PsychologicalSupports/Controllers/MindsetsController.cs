@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Mindsets/Create
         public ActionResult Create()
         {
-            ViewBag.MindsetID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MindsetID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
+        public ActionResult Create([Bind(Include = "StudentID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MindsetID = new SelectList(db.Students, "StudentID", "FIO", mindset.MindsetID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
             return View(mindset);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MindsetID = new SelectList(db.Students, "StudentID", "FIO", mindset.MindsetID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
             return View(mindset);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MindsetID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
+        public ActionResult Edit([Bind(Include = "StudentID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MindsetID = new SelectList(db.Students, "StudentID", "FIO", mindset.MindsetID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
             return View(mindset);
         }
 

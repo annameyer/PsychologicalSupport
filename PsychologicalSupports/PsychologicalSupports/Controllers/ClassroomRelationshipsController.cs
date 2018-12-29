@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: ClassroomRelationships/Create
         public ActionResult Create()
         {
-            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClassroomRelationshipsID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Create([Bind(Include = "StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClassroomRelationshipsID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Edit([Bind(Include = "StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClassroomRelationshipsID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.ClassroomRelationshipsID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 

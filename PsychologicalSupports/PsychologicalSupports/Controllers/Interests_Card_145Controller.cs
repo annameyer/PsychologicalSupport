@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Interests_Card_145/Create
         public ActionResult Create()
         {
-            ViewBag.Interests_Card_145ID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Interests_Card_145ID,Biology,Geography,Geology,TheMedicine,LightAndFoodIndustry,Physics,Chemistry,EngineeringMechanics,ElectricalEngineeringRadioEngineering,MaterialHandling,InformationTechnology,Psychology,Building,Tranport,MilitarySpecialties,Story,Literature,Journalism,Sociology,Pedagogy,Right,ServiceSector,Maths,Economy,ForeignLanguages,Art,Music,Sport")] Interests_Card_145 interests_Card_145)
+        public ActionResult Create([Bind(Include = "StudentID,Biology,Geography,Geology,TheMedicine,LightAndFoodIndustry,Physics,Chemistry,EngineeringMechanics,ElectricalEngineeringRadioEngineering,MaterialHandling,InformationTechnology,Psychology,Building,Tranport,MilitarySpecialties,Story,Literature,Journalism,Sociology,Pedagogy,Right,ServiceSector,Maths,Economy,ForeignLanguages,Art,Music,Sport")] Interests_Card_145 interests_Card_145)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Interests_Card_145ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.Interests_Card_145ID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.StudentID);
             return View(interests_Card_145);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Interests_Card_145ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.Interests_Card_145ID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.StudentID);
             return View(interests_Card_145);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Interests_Card_145ID,Biology,Geography,Geology,TheMedicine,LightAndFoodIndustry,Physics,Chemistry,EngineeringMechanics,ElectricalEngineeringRadioEngineering,MaterialHandling,InformationTechnology,Psychology,Building,Tranport,MilitarySpecialties,Story,Literature,Journalism,Sociology,Pedagogy,Right,ServiceSector,Maths,Economy,ForeignLanguages,Art,Music,Sport")] Interests_Card_145 interests_Card_145)
+        public ActionResult Edit([Bind(Include = "StudentID,Biology,Geography,Geology,TheMedicine,LightAndFoodIndustry,Physics,Chemistry,EngineeringMechanics,ElectricalEngineeringRadioEngineering,MaterialHandling,InformationTechnology,Psychology,Building,Tranport,MilitarySpecialties,Story,Literature,Journalism,Sociology,Pedagogy,Right,ServiceSector,Maths,Economy,ForeignLanguages,Art,Music,Sport")] Interests_Card_145 interests_Card_145)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Interests_Card_145ID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.Interests_Card_145ID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", interests_Card_145.StudentID);
             return View(interests_Card_145);
         }
 

@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: AveragePoints/Create
         public ActionResult Create()
         {
-            ViewBag.AveragePointID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AveragePointID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
+        public ActionResult Create([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AveragePointID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.AveragePointID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AveragePointID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.AveragePointID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AveragePointID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
+        public ActionResult Edit([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AveragePointID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.AveragePointID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 

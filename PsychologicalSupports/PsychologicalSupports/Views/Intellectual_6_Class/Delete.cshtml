@@ -12,6 +12,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.TestResult)
         </dt>
 
@@ -35,13 +42,7 @@
             @Html.DisplayFor(model => model.AveragePoint)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Student.FIO)
-        </dd>
 
     </dl>
 

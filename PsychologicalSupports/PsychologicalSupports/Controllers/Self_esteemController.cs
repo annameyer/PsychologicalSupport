@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Self_esteem/Create
         public ActionResult Create()
         {
-            ViewBag.Self_esteemID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Self_esteemID,Indicator")] Self_esteem self_esteem)
+        public ActionResult Create([Bind(Include = "StudentID,Indicator")] Self_esteem self_esteem)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Self_esteemID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.Self_esteemID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.StudentID);
             return View(self_esteem);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Self_esteemID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.Self_esteemID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.StudentID);
             return View(self_esteem);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Self_esteemID,Indicator")] Self_esteem self_esteem)
+        public ActionResult Edit([Bind(Include = "StudentID,Indicator")] Self_esteem self_esteem)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Self_esteemID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.Self_esteemID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", self_esteem.StudentID);
             return View(self_esteem);
         }
 

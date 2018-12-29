@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_9_Class/Create
         public ActionResult Create()
         {
-            ViewBag.Intellectual_9_ClassID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Intellectual_9_ClassID,Profile")] Intellectual_9_Class intellectual_9_Class)
+        public ActionResult Create([Bind(Include = "StudentID,Profile")] Intellectual_9_Class intellectual_9_Class)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Intellectual_9_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.Intellectual_9_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Intellectual_9_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.Intellectual_9_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Intellectual_9_ClassID,Profile")] Intellectual_9_Class intellectual_9_Class)
+        public ActionResult Edit([Bind(Include = "StudentID,Profile")] Intellectual_9_Class intellectual_9_Class)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Intellectual_9_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.Intellectual_9_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_9_Class.StudentID);
             return View(intellectual_9_Class);
         }
 

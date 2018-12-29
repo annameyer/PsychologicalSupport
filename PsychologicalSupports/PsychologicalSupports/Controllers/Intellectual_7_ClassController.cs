@@ -39,7 +39,7 @@ namespace PsychologicalSupports.Controllers
         // GET: Intellectual_7_Class/Create
         public ActionResult Create()
         {
-            ViewBag.Intellectual_7_ClassID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Intellectual_7_ClassID,IQ,Level,AveragePointСommon,AveragePointMath")] Intellectual_7_Class intellectual_7_Class)
+        public ActionResult Create([Bind(Include = "StudentID,IQ,Level,AveragePointСommon,AveragePointMath")] Intellectual_7_Class intellectual_7_Class)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Intellectual_7_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.Intellectual_7_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.StudentID);
             return View(intellectual_7_Class);
         }
 
@@ -73,7 +73,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Intellectual_7_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.Intellectual_7_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.StudentID);
             return View(intellectual_7_Class);
         }
 
@@ -82,7 +82,7 @@ namespace PsychologicalSupports.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Intellectual_7_ClassID,IQ,Level,AveragePointСommon,AveragePointMath")] Intellectual_7_Class intellectual_7_Class)
+        public ActionResult Edit([Bind(Include = "StudentID,IQ,Level,AveragePointСommon,AveragePointMath")] Intellectual_7_Class intellectual_7_Class)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Intellectual_7_ClassID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.Intellectual_7_ClassID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_7_Class.StudentID);
             return View(intellectual_7_Class);
         }
 
