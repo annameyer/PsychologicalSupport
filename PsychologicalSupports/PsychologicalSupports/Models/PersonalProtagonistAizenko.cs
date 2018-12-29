@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class PersonalProtagonistAizenko
     {
-        public long PersonaAnxietyScaleID { get; set; }
+        public long StudentID { get; set; }
         public string Temperament { get; set; }
         public string Type { get; set; }
     

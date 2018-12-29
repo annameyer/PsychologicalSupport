@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class ClassroomRelationship
     {
-        public long ClassroomRelationshipsID { get; set; }
+        public long StudentID { get; set; }
         public string IGS_Sishora { get; set; }
         public string Sociometry { get; set; }
     

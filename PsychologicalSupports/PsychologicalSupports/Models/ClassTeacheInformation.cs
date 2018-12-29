@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class ClassTeacheInformation
     {
-        public long ClassTeacheInformationID { get; set; }
+        public long StudentID { get; set; }
         public string Self_harmingBehavior { get; set; }
         public string Isolation { get; set; }
         public string Aggression { get; set; }

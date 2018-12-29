@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class Mindset
     {
-        public long MindsetID { get; set; }
+        public long StudentID { get; set; }
         public string Subject_Effective { get; set; }
         public string AbstractSymbolic { get; set; }
         public string Verbal_Logical { get; set; }

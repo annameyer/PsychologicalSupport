@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class FamilyAlarmAnalysi
     {
-        public long FamilyAlarmAnalysisID { get; set; }
+        public long StudentID { get; set; }
         public string Fault { get; set; }
         public string Anxiety { get; set; }
         public string Stress { get; set; }

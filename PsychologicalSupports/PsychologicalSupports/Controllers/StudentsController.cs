@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -176,7 +180,6 @@ namespace PsychologicalSupports.Controllers
         {
             Student student = db.Students.Find(id);
             db.Students.Remove(student);
-            
             db.SaveChanges();
             return RedirectToAction("Index");
         }

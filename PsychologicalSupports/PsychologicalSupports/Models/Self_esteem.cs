@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class Self_esteem
     {
-        public long Self_esteemID { get; set; }
+        public long StudentID { get; set; }
         public string Indicator { get; set; }
     
         public virtual Student Student { get; set; }

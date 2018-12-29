@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class Intellectual_8_Class
     {
-        public long Intellectual_8_ClassID { get; set; }
+        public long StudentID { get; set; }
         public string InterestMap { get; set; }
         public string RecommendedProfile { get; set; }
     

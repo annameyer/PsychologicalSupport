@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class EmotioTest
     {
-        public long EmotioTestID { get; set; }
+        public long StudentID { get; set; }
         public string PhysicalAggression { get; set; }
         public string IndirectAggression { get; set; }
         public string Irritability { get; set; }

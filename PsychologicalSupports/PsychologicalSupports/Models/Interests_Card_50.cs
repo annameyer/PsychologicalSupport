@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     
     public partial class Interests_Card_50
     {
-        public long Interests_Card_50ID { get; set; }
+        public long StudentID { get; set; }
         public string PhysicsMathematics { get; set; }
         public string ChemistryBiology { get; set; }
         public string RadioEngineeringElectronics { get; set; }
