@@ -176,6 +176,7 @@ namespace PsychologicalSupports.Controllers
         {
             Student student = db.Students.Find(id);
             db.Students.Remove(student);
+            
             db.SaveChanges();
             return RedirectToAction("Index");
         }

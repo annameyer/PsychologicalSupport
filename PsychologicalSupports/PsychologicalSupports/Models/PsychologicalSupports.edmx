@@ -250,7 +250,9 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_AveragePoint_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AveragePoint" Type="Self.AveragePoint" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -262,7 +264,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClassroomRelationships_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ClassroomRelationships" Type="Self.ClassroomRelationships" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -274,7 +278,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClassTeacheInformation_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -286,7 +292,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmotioTest_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -298,7 +306,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FamilyAlarmAnalysis_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysis" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -310,7 +320,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_6_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_6_Class" Type="Self.Intellectual_6_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -322,7 +334,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_7_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_7_Class" Type="Self.Intellectual_7_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -334,7 +348,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_8_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_8_Class" Type="Self.Intellectual_8_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -346,7 +362,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_9_Class_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -358,7 +376,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Interests_Card_145_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -370,7 +390,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Interests_Card_50_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -382,7 +404,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InterestsInSchoolSubjects_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubjects" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -394,7 +418,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Mindset_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Mindset" Type="Self.Mindset" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -406,7 +432,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonaAnxietyScale_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -418,7 +446,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonalProtagonistAizenko_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -430,7 +460,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SchoolMotivation_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -442,7 +474,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Self_esteem_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -827,7 +861,9 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_AveragePoint_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AveragePoint" Type="Self.AveragePoint" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -839,7 +875,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClassroomRelationships_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ClassroomRelationships" Type="Self.ClassroomRelationship" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -851,7 +889,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClassTeacheInformation_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ClassTeacheInformation" Type="Self.ClassTeacheInformation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -863,7 +903,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmotioTest_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="EmotioTest" Type="Self.EmotioTest" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -875,7 +917,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FamilyAlarmAnalysis_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FamilyAlarmAnalysis" Type="Self.FamilyAlarmAnalysi" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -887,7 +931,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_6_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_6_Class" Type="Self.Intellectual_6_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -899,7 +945,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_7_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_7_Class" Type="Self.Intellectual_7_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -911,7 +959,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_8_Class_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_8_Class" Type="Self.Intellectual_8_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -923,7 +973,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Intellectual_9_Class_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Intellectual_9_Class" Type="Self.Intellectual_9_Class" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -935,7 +987,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Interests_Card_145_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Interests_Card_145" Type="Self.Interests_Card_145" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -947,7 +1001,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Interests_Card_50_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Interests_Card_50" Type="Self.Interests_Card_50" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -959,7 +1015,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InterestsInSchoolSubjects_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="InterestsInSchoolSubjects" Type="Self.InterestsInSchoolSubject" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -971,7 +1029,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Mindset_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Mindset" Type="Self.Mindset" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -983,7 +1043,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonaAnxietyScale_Student1">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PersonaAnxietyScale" Type="Self.PersonaAnxietyScale" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -995,7 +1057,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonalProtagonistAizenko_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PersonalProtagonistAizenko" Type="Self.PersonalProtagonistAizenko" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -1007,7 +1071,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SchoolMotivation_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SchoolMotivation" Type="Self.SchoolMotivation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -1019,7 +1085,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Self_esteem_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Self_esteem" Type="Self.Self_esteem" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Student">

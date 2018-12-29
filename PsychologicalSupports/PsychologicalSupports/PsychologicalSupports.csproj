@@ -52,9 +52,73 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -120,9 +184,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Diagnostics.DiagnosticSource">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -156,79 +217,79 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrator.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AveragePoint.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassroomRelationship.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassTeacheInformation.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmotioTest.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FamilyAlarmAnalysi.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_6_Class.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_7_Class.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_8_Class.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Intellectual_9_Class.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InterestsInSchoolSubject.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interests_Card_145.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interests_Card_50.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mindset.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonaAnxietyScale.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonalProtagonistAizenko.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PsychologicalSupports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SchoolMotivation.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Self_esteem.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StudentsController.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsController.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StudentsController.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsController.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StudentsController.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsController.edmx</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>StudentsController.tt</DependentUpon>
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -241,24 +302,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\StudentsController.Context.tt">
+    <Content Include="Models\PsychologicalSupports.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudentsController.edmx</DependentUpon>
-      <LastGenOutput>StudentsController.Context.cs</LastGenOutput>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+      <LastGenOutput>PsychologicalSupports.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\StudentsController.tt">
+    <Content Include="Models\PsychologicalSupports.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudentsController.edmx</DependentUpon>
-      <LastGenOutput>StudentsController.cs</LastGenOutput>
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
+      <LastGenOutput>PsychologicalSupports.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\StudentsController.edmx">
+    <EntityDeploy Include="Models\PsychologicalSupports.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StudentsController.Designer.cs</LastGenOutput>
+      <LastGenOutput>PsychologicalSupports.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\StudentsController.edmx.diagram">
-      <DependentUpon>StudentsController.edmx</DependentUpon>
+    <Content Include="Models\PsychologicalSupports.edmx.diagram">
+      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
