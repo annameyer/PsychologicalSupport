@@ -13,10 +13,10 @@ namespace PsychologicalSupports.Controllers
         // GET: Students
         public ActionResult Index(int? number, string classed)
         {
-            var studentnumberclass = db.Students.GroupBy(t=>t.NumberClass).Select(g=>new{ NumberClass =g.Key});
+            var studentnumberclass = db.Students.GroupBy(t => t.NumberClass).Select(g => new { NumberClass = g.Key });
             ViewBag.NumberClass = new SelectList(studentnumberclass, "NumberClass", "NumberClass");
             var studentclass = db.Students.GroupBy(t => t.Class).Select(g => new { Class = g.Key });
-            ViewBag.Class= new SelectList(studentclass, "Class", "Class");
+            ViewBag.Class = new SelectList(studentclass, "Class", "Class");
 
             var students = db.Students.Include(s => s.AveragePoint).
                 Include(s => s.ClassroomRelationship)
@@ -33,19 +33,20 @@ namespace PsychologicalSupports.Controllers
                 .Include(s => s.PersonalProtagonistAizenko)
                 .Include(s => s.SchoolMotivation)
                 .Include(s => s.Self_esteem);
-           if (number != null && classed != null)
+            if (number != null && classed != null)
             {
                 return View(students.Where(s => s.NumberClass == number && s.Class == classed));
             }
-           else if(number != null && classed == null)
-           {
-               return View(students.Where(s => s.NumberClass == number));
-           }
-           else if (number == null && classed != null)
-           {
-               return View(students.Where(s=>s.Class == classed));
+            else if (number != null && classed == null)
+            {
+                return View(students.Where(s => s.NumberClass == number));
+            }
+            else if (number == null && classed != null)
+            {
+                return View(students.Where(s => s.Class == classed));
             }
             else
+               
                 return View(students);
         }
 
