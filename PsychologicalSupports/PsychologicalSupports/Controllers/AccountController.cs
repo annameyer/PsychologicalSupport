@@ -12,6 +12,7 @@ namespace PsychologicalSupports.Controllers
 {
     public class AccountController : Controller
     {
+        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
         // GET: Account
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

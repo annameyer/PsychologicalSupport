@@ -9,16 +9,17 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
     public partial class PsychologicalSupportsEntities : DbContext
     {
         public PsychologicalSupportsEntities()
-            : base("name=PsychologicalSupportsEntities")
+            : base("PsychologicalSupportsEntities")
         {
+
         }
+        public DbSet<AppUser> AppUsers { get; set; }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
