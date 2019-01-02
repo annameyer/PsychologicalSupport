@@ -3,12 +3,19 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="form-horizontal">
+    @Html.DropDownList("NumberClass", null, htmlAttributes: new { @class = "form-control" })
+    @Html.DropDownList("Class", null, htmlAttributes: new { @class = "form-control" })
+</div>
+<div class="form-group">
+        <input type="submit" value="Поиск" class="btn btn-default" />
+    
+</div>
 <table class="table">
     <tr>
         <th>
@@ -16,9 +23,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumberClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Class)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AdmissionDate)
@@ -29,29 +33,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberClass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Class)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdmissionDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeingTrained)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @string.Format("{0} {1}", item.NumberClass, item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeingTrained)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+            </td>
+        </tr>
+    }
 
 </table>

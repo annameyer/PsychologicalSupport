@@ -11,10 +11,42 @@ namespace PsychologicalSupports.Controllers
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
 
         // GET: Students
-        public ActionResult Index()
+        public ActionResult Index(int? number, string classed)
         {
-            var students = db.Students.Include(s => s.AveragePoint).Include(s => s.ClassroomRelationship).Include(s => s.ClassTeacheInformation).Include(s => s.EmotioTest).Include(s => s.FamilyAlarmAnalysi).Include(s => s.Intellectual_6_Class).Include(s => s.Intellectual_7_Class).Include(s => s.Intellectual_8_Class).Include(s => s.Intellectual_9_Class).Include(s => s.Interests_Card_145).Include(s => s.Interests_Card_50).Include(s => s.InterestsInSchoolSubject).Include(s => s.Mindset).Include(s => s.PersonaAnxietyScale).Include(s => s.PersonalProtagonistAizenko).Include(s => s.SchoolMotivation).Include(s => s.Self_esteem);
-            return View(students.ToList());
+            var studentnumberclass = db.Students.GroupBy(t=>t.NumberClass).Select(g=>new{ NumberClass =g.Key});
+            ViewBag.NumberClass = new SelectList(studentnumberclass, "NumberClass", "NumberClass");
+            var studentclass = db.Students.GroupBy(t => t.Class).Select(g => new { Class = g.Key });
+            ViewBag.Class= new SelectList(studentclass, "Class", "Class");
+
+            var students = db.Students.Include(s => s.AveragePoint).
+                Include(s => s.ClassroomRelationship)
+                .Include(s => s.ClassTeacheInformation)
+                .Include(s => s.EmotioTest).Include(s => s.FamilyAlarmAnalysi)
+                .Include(s => s.Intellectual_6_Class)
+                .Include(s => s.Intellectual_7_Class)
+                .Include(s => s.Intellectual_8_Class)
+                .Include(s => s.Intellectual_9_Class)
+                .Include(s => s.Interests_Card_145)
+                .Include(s => s.Interests_Card_50)
+                .Include(s => s.InterestsInSchoolSubject)
+                .Include(s => s.Mindset).Include(s => s.PersonaAnxietyScale)
+                .Include(s => s.PersonalProtagonistAizenko)
+                .Include(s => s.SchoolMotivation)
+                .Include(s => s.Self_esteem);
+           if (number != null && classed != null)
+            {
+                return View(students.Where(s => s.NumberClass == number && s.Class == classed));
+            }
+           else if(number != null && classed == null)
+           {
+               return View(students.Where(s => s.NumberClass == number));
+           }
+           else if (number == null && classed != null)
+           {
+               return View(students.Where(s=>s.Class == classed));
+            }
+            else
+                return View(students);
         }
 
         // GET: Students/Details/5
