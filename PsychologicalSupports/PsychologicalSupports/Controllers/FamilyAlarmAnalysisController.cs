@@ -13,7 +13,7 @@ namespace PsychologicalSupports.Controllers
     public class FamilyAlarmAnalysisController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
+        [Authorize]
         // GET: FamilyAlarmAnalysis
         public ActionResult Index()
         {

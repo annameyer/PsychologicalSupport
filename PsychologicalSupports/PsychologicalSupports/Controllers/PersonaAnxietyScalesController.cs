@@ -13,7 +13,7 @@ namespace PsychologicalSupports.Controllers
     public class PersonaAnxietyScalesController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
+        [Authorize]
         // GET: PersonaAnxietyScales
         public ActionResult Index()
         {

@@ -13,7 +13,7 @@ namespace PsychologicalSupports.Controllers
     public class Intellectual_8_ClassController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
+        [Authorize]
         // GET: Intellectual_8_Class
         public ActionResult Index()
         {

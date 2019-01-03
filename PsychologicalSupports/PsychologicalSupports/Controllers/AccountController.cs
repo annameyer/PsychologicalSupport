@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Infrastructure;
@@ -12,7 +13,13 @@ namespace PsychologicalSupports.Controllers
 {
     public class AccountController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private IAuthenticationManager AuthenticationManager
+{
+    get
+    {
+        return HttpContext.GetOwinContext().Authentication;
+    }
+}
         // GET: Account
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -47,9 +54,21 @@ namespace PsychologicalSupports.Controllers
                     {
                         IsPersistent = false
                     }, ident);
-                    return Redirect(returnUrl);
+
+                    try
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    catch
+                    {
+                        return RedirectToAction("Index", "Students");
+                    }   
+                    
+                    
+                    
                 }
             }
+            ViewBag.returnUrl = returnUrl;
             return View(details);
         }
 
@@ -60,7 +79,13 @@ namespace PsychologicalSupports.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "Account");
+        }
         private AppUserManager UserManager
         {
             get

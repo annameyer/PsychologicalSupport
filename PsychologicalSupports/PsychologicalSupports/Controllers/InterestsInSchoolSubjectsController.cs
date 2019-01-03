@@ -13,7 +13,7 @@ namespace PsychologicalSupports.Controllers
     public class InterestsInSchoolSubjectsController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
+        [Authorize]
         // GET: InterestsInSchoolSubjects
         public ActionResult Index()
         {

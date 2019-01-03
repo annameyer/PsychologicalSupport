@@ -9,7 +9,7 @@ namespace PsychologicalSupports.Controllers
     public class Self_esteemController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
+        [Authorize]
         // GET: Self_esteem
         public ActionResult Index()
         {

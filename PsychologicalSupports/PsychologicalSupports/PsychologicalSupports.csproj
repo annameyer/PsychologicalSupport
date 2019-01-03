@@ -246,24 +246,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\AppIdentityDBContext.cs" />
+    <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
+    <Compile Include="Migrations\201901031230202_MigrateDB.cs" />
+    <Compile Include="Migrations\201901031230202_MigrateDB.Designer.cs">
+      <DependentUpon>201901031230202_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUser.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\AveragePoint.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -484,6 +477,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -503,6 +497,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901031230202_MigrateDB.resx">
+      <DependentUpon>201901031230202_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
