@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Infrastructure;
@@ -13,15 +12,21 @@ namespace PsychologicalSupports.Controllers
 {
     public class AccountController : Controller
     {
-        private IAuthenticationManager AuthenticationManager
-{
-    get
-    {
-        return HttpContext.GetOwinContext().Authentication;
-    }
-}
+        private AppUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            }
+        }
+        private IAuthenticationManager AuthManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
         // GET: Account
-        [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
@@ -29,7 +34,6 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(Administrator details, string returnUrl)
         {
@@ -39,14 +43,14 @@ namespace PsychologicalSupports.Controllers
             }
             else
             {
-                AppUser user = await UserManager.FindAsync(details.Login, details.Password);
+                var user = await UserManager.FindAsync(details.Login, details.Password);
                 if (user == null)
                 {
                     ModelState.AddModelError("", "Некорректное имя или пароль.");
                 }
                 else
                 {
-                    ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user,
+                    var ident = await UserManager.CreateIdentityAsync(user,
                         DefaultAuthenticationTypes.ApplicationCookie);
 
                     AuthManager.SignOut();
@@ -54,44 +58,21 @@ namespace PsychologicalSupports.Controllers
                     {
                         IsPersistent = false
                     }, ident);
-
-                    try
-                    {
                         return Redirect(returnUrl);
-                    }
-                    catch
-                    {
-                        return RedirectToAction("Index", "Students");
-                    }   
-                    
-                    
-                    
                 }
             }
             ViewBag.returnUrl = returnUrl;
             return View(details);
         }
 
-        private IAuthenticationManager AuthManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login", "Account");
+            AuthManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Students");
         }
-        private AppUserManager UserManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-            }
-        }
+        
     }
 }

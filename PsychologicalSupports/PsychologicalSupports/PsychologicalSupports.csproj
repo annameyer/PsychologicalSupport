@@ -248,11 +248,6 @@
     </Compile>
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
-    <Compile Include="Migrations\201901031230202_MigrateDB.cs" />
-    <Compile Include="Migrations\201901031230202_MigrateDB.Designer.cs">
-      <DependentUpon>201901031230202_MigrateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -497,11 +492,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901031230202_MigrateDB.resx">
-      <DependentUpon>201901031230202_MigrateDB.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

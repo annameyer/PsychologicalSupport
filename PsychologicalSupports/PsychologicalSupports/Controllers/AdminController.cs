@@ -10,6 +10,20 @@ namespace PsychologicalSupports.Controllers
 {
     public class AdminController : Controller
     {
+        private AppUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            }
+        }
+        private void AddErrorsFromResult(IdentityResult result)
+        {
+            foreach (string error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
+        }
         // GET: Admin
         public ActionResult Index()
         {
@@ -26,8 +40,8 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser user = new AppUser { UserName = model.Login};
-                IdentityResult result =
+                var user = new AppUser { UserName = model.Login};
+                var result =
                     await UserManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -42,20 +56,8 @@ namespace PsychologicalSupports.Controllers
             return View(model);
         }
 
-        private void AddErrorsFromResult(IdentityResult result)
-        {
-            foreach (string error in result.Errors)
-            {
-                ModelState.AddModelError("", error);
-            }
-        }
+       
 
-        private AppUserManager UserManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-            }
-        }
+        
     }
 }

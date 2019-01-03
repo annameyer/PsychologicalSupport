@@ -19,13 +19,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: AveragePoints/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AveragePoint averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = db.AveragePoints.Find(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -44,7 +44,6 @@ namespace PsychologicalSupports.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
@@ -59,13 +58,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: AveragePoints/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AveragePoint averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = db.AveragePoints.Find(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -92,13 +91,13 @@ namespace PsychologicalSupports.Controllers
         }
 
         // GET: AveragePoints/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AveragePoint averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = db.AveragePoints.Find(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -109,9 +108,9 @@ namespace PsychologicalSupports.Controllers
         // POST: AveragePoints/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            AveragePoint averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = db.AveragePoints.Find(id);
             db.AveragePoints.Remove(averagePoint);
             db.SaveChanges();
             return RedirectToAction("Index");
