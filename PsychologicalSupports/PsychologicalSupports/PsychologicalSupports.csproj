@@ -224,6 +224,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AveragePointsController.cs" />
     <Compile Include="Controllers\ClassroomRelationshipsController.cs" />
     <Compile Include="Controllers\ClassTeacheInformationsController.cs" />
@@ -251,6 +252,18 @@
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AveragePoint.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -258,6 +271,9 @@
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassTeacheInformation.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmotioTest.cs">
@@ -466,6 +482,8 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

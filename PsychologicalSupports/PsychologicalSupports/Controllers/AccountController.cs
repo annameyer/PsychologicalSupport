@@ -26,25 +26,30 @@ namespace PsychologicalSupports.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(Administrator details, string returnUrl)
         {
-            AppUser user = await UserManager.FindAsync(details.Login, details.Password);
-
-            if (user == null)
+            if (details.Login == null || details.Password == null)
             {
                 ModelState.AddModelError("", "Некорректное имя или пароль.");
             }
             else
             {
-                ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user,
-                    DefaultAuthenticationTypes.ApplicationCookie);
-
-                AuthManager.SignOut();
-                AuthManager.SignIn(new AuthenticationProperties
+                AppUser user = await UserManager.FindAsync(details.Login, details.Password);
+                if (user == null)
                 {
-                    IsPersistent = false
-                }, ident);
-                return Redirect(returnUrl);
-            }
+                    ModelState.AddModelError("", "Некорректное имя или пароль.");
+                }
+                else
+                {
+                    ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user,
+                        DefaultAuthenticationTypes.ApplicationCookie);
 
+                    AuthManager.SignOut();
+                    AuthManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = false
+                    }, ident);
+                    return Redirect(returnUrl);
+                }
+            }
             return View(details);
         }
 

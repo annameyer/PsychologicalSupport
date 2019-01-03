@@ -6,7 +6,7 @@ namespace PsychologicalSupports.Infrastructure
 {
     public class AppIdentityDbContext : IdentityDbContext<AppUser>
     {
-        public AppIdentityDbContext() : base("PsychologicalSupportsEntities") { }
+        public AppIdentityDbContext() : base("name=PsychologicalSupportsContext") { }
 
         static AppIdentityDbContext()
         {

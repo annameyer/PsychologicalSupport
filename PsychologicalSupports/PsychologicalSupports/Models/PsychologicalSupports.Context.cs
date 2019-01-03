@@ -9,17 +9,16 @@
 
 namespace PsychologicalSupports.Models
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
     public partial class PsychologicalSupportsEntities : DbContext
     {
         public PsychologicalSupportsEntities()
-            : base("PsychologicalSupportsEntities")
+            : base("name=PsychologicalSupportsEntities")
         {
-
         }
-        public DbSet<AppUser> AppUsers { get; set; }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,5 +45,10 @@ namespace PsychologicalSupports.Models
         public virtual DbSet<Self_esteem> Self_esteem { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
     }
 }

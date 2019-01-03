@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="befbc19a9f614f249de923a752d5d903" Name="Diagram1">
-        <EntityTypeShape EntityType="PsychologicalSupportsModel.Administrator" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.Administrator" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.AveragePoint" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.ClassroomRelationship" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.ClassTeacheInformation" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="PsychologicalSupportsModel.SchoolMotivation" Width="1.5" PointX="3" PointY="55" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.Self_esteem" Width="1.5" PointX="3" PointY="59.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.Student" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PsychologicalSupportsModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.sysdiagram" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_AveragePoint_Student1" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_ClassroomRelationships_Student1" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_ClassTeacheInformation_Student" ManuallyRouted="false" />
@@ -42,6 +42,14 @@
         <AssociationConnector Association="PsychologicalSupportsModel.FK_PersonalProtagonistAizenko_Student" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_SchoolMotivation_Student" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_Self_esteem_Student" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.AspNetRole" Width="1.5" PointX="5.375" PointY="2.5" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.AspNetUserClaim" Width="1.5" PointX="9.875" PointY="3.625" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.AspNetUserLogin" Width="1.5" PointX="9.875" PointY="1" />
+        <EntityTypeShape EntityType="PsychologicalSupportsModel.AspNetUser" Width="1.5" PointX="7.625" PointY="1.375" />
+        <AssociationConnector Association="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PsychologicalSupportsModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
