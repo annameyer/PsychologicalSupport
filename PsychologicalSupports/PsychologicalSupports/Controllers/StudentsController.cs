@@ -1,34 +1,21 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class StudentsController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
-
-        [Authorize]
-        public ActionResult Index(int? number, string classed)
+        IRepository<Student> repo;
+        public StudentsController()
         {
-            var students = db.Students.Include(s => s.AveragePoint).
-                Include(s => s.ClassroomRelationship)
-                .Include(s => s.ClassTeacheInformation)
-                .Include(s => s.EmotioTest).Include(s => s.FamilyAlarmAnalysi)
-                .Include(s => s.Intellectual_6_Class)
-                .Include(s => s.Intellectual_7_Class)
-                .Include(s => s.Intellectual_8_Class)
-                .Include(s => s.Intellectual_9_Class)
-                .Include(s => s.Interests_Card_145)
-                .Include(s => s.Interests_Card_50)
-                .Include(s => s.InterestsInSchoolSubject)
-                .Include(s => s.Mindset).Include(s => s.PersonaAnxietyScale)
-                .Include(s => s.PersonalProtagonistAizenko)
-                .Include(s => s.SchoolMotivation)
-                .Include(s => s.Self_esteem);
-                return View(students);
+            repo = new StudentRepository();
+        }
+        [Authorize]
+        public ActionResult Index()
+        {
+                return View(repo.List());
         }
 
         public ActionResult Details(int? id)
@@ -37,7 +24,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = db.Students.Find(id);
+            var student = repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -55,8 +42,7 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
-                db.SaveChanges();
+                repo.Create(student);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -68,7 +54,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = db.Students.Find(id);
+            var student = repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -81,8 +67,7 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                repo.Edit(student);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -94,7 +79,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = db.Students.Find(id);
+            var student = repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -105,9 +90,7 @@ namespace PsychologicalSupports.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -115,7 +98,7 @@ namespace PsychologicalSupports.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                repo.Dispose();
             }
             base.Dispose(disposing);
         }
