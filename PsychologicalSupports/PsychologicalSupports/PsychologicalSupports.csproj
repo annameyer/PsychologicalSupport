@@ -264,6 +264,7 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dependencies\IRepository.cs" />
     <Compile Include="Models\Dependencies\StudentRepository.cs" />
     <Compile Include="Models\EmotioTest.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
