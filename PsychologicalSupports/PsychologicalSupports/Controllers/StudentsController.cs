@@ -33,20 +33,6 @@ namespace PsychologicalSupports.Controllers
                 .Include(s => s.PersonalProtagonistAizenko)
                 .Include(s => s.SchoolMotivation)
                 .Include(s => s.Self_esteem);
-            //if (number != null && classed != null)
-            //{
-            //    return View(students.Where(s => s.NumberClass == number && s.Class == classed));
-            //}
-            //else if (number != null && classed == null)
-            //{
-            //    return View(students.Where(s => s.NumberClass == number));
-            //}
-            //else if (number == null && classed != null)
-            //{
-            //    return View(students.Where(s => s.Class == classed));
-            //}
-            //else
-               
                 return View(students);
         }
 
