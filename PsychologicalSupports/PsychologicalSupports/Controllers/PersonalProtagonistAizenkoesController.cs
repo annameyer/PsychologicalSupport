@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -13,22 +10,21 @@ namespace PsychologicalSupports.Controllers
     public class PersonalProtagonistAizenkoesController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+
         [Authorize]
-        // GET: PersonalProtagonistAizenkoes
         public ActionResult Index()
         {
             var personalProtagonistAizenkoes = db.PersonalProtagonistAizenkoes.Include(p => p.Student);
             return View(personalProtagonistAizenkoes.ToList());
         }
 
-        // GET: PersonalProtagonistAizenkoes/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
+            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
@@ -36,18 +32,13 @@ namespace PsychologicalSupports.Controllers
             return View(personalProtagonistAizenko);
         }
 
-        // GET: PersonalProtagonistAizenkoes/Create
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
-        // POST: PersonalProtagonistAizenkoes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
         {
             if (ModelState.IsValid)
@@ -61,14 +52,13 @@ namespace PsychologicalSupports.Controllers
             return View(personalProtagonistAizenko);
         }
 
-        // GET: PersonalProtagonistAizenkoes/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
+            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
@@ -77,11 +67,7 @@ namespace PsychologicalSupports.Controllers
             return View(personalProtagonistAizenko);
         }
 
-        // POST: PersonalProtagonistAizenkoes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
         {
             if (ModelState.IsValid)
@@ -94,14 +80,13 @@ namespace PsychologicalSupports.Controllers
             return View(personalProtagonistAizenko);
         }
 
-        // GET: PersonalProtagonistAizenkoes/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
+            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             if (personalProtagonistAizenko == null)
             {
                 return HttpNotFound();
@@ -109,12 +94,10 @@ namespace PsychologicalSupports.Controllers
             return View(personalProtagonistAizenko);
         }
 
-        // POST: PersonalProtagonistAizenkoes/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            PersonalProtagonistAizenko personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
+            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
             db.PersonalProtagonistAizenkoes.Remove(personalProtagonistAizenko);
             db.SaveChanges();
             return RedirectToAction("Index");

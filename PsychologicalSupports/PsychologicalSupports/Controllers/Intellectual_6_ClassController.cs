@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -13,22 +9,21 @@ namespace PsychologicalSupports.Controllers
     public class Intellectual_6_ClassController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+
         [Authorize]
-        // GET: Intellectual_6_Class
         public ActionResult Index()
         {
             var intellectual_6_Class = db.Intellectual_6_Class.Include(i => i.Student);
             return View(intellectual_6_Class.ToList());
         }
 
-        // GET: Intellectual_6_Class/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -36,18 +31,13 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_6_Class);
         }
 
-        // GET: Intellectual_6_Class/Create
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
-        // POST: Intellectual_6_Class/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,TestResult,TestLevel,AveragePoint")] Intellectual_6_Class intellectual_6_Class)
         {
             if (ModelState.IsValid)
@@ -61,14 +51,13 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_6_Class);
         }
 
-        // GET: Intellectual_6_Class/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -77,11 +66,7 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_6_Class);
         }
 
-        // POST: Intellectual_6_Class/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,TestResult,TestLevel,AveragePoint")] Intellectual_6_Class intellectual_6_Class)
         {
             if (ModelState.IsValid)
@@ -94,14 +79,13 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_6_Class);
         }
 
-        // GET: Intellectual_6_Class/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -109,12 +93,10 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_6_Class);
         }
 
-        // POST: Intellectual_6_Class/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Intellectual_6_Class intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
             db.Intellectual_6_Class.Remove(intellectual_6_Class);
             db.SaveChanges();
             return RedirectToAction("Index");

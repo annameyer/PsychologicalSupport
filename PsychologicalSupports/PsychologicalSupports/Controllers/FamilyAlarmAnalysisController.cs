@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -14,21 +10,19 @@ namespace PsychologicalSupports.Controllers
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
         [Authorize]
-        // GET: FamilyAlarmAnalysis
         public ActionResult Index()
         {
             var familyAlarmAnalysis = db.FamilyAlarmAnalysis.Include(f => f.Student);
             return View(familyAlarmAnalysis.ToList());
         }
 
-        // GET: FamilyAlarmAnalysis/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
+            var familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -36,18 +30,13 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        // GET: FamilyAlarmAnalysis/Create
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
-        // POST: FamilyAlarmAnalysis/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
@@ -61,14 +50,13 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        // GET: FamilyAlarmAnalysis/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
+            var familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -77,11 +65,7 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        // POST: FamilyAlarmAnalysis/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,Fault,Anxiety,Stress,General")] FamilyAlarmAnalysi familyAlarmAnalysi)
         {
             if (ModelState.IsValid)
@@ -94,14 +78,13 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        // GET: FamilyAlarmAnalysis/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
+            var familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -109,12 +92,10 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        // POST: FamilyAlarmAnalysis/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            FamilyAlarmAnalysi familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
+            var familyAlarmAnalysi = db.FamilyAlarmAnalysis.Find(id);
             db.FamilyAlarmAnalysis.Remove(familyAlarmAnalysi);
             db.SaveChanges();
             return RedirectToAction("Index");

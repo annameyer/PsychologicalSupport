@@ -3,7 +3,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Infrastructure;
 using PsychologicalSupports.Models;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -70,7 +69,7 @@ namespace PsychologicalSupports.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            AuthManager.SignOut();
             return RedirectToAction("Index", "Students");
         }
         

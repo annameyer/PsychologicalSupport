@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 
@@ -14,21 +10,19 @@ namespace PsychologicalSupports.Controllers
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
         [Authorize]
-        // GET: PersonaAnxietyScales
         public ActionResult Index()
         {
             var personaAnxietyScales = db.PersonaAnxietyScales.Include(p => p.Student);
             return View(personaAnxietyScales.ToList());
         }
 
-        // GET: PersonaAnxietyScales/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonaAnxietyScale personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
+            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
             if (personaAnxietyScale == null)
             {
                 return HttpNotFound();
@@ -36,18 +30,13 @@ namespace PsychologicalSupports.Controllers
             return View(personaAnxietyScale);
         }
 
-        // GET: PersonaAnxietyScales/Create
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
-        // POST: PersonaAnxietyScales/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
         {
             if (ModelState.IsValid)
@@ -61,8 +50,7 @@ namespace PsychologicalSupports.Controllers
             return View(personaAnxietyScale);
         }
 
-        // GET: PersonaAnxietyScales/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -77,11 +65,7 @@ namespace PsychologicalSupports.Controllers
             return View(personaAnxietyScale);
         }
 
-        // POST: PersonaAnxietyScales/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
         {
             if (ModelState.IsValid)
@@ -94,14 +78,13 @@ namespace PsychologicalSupports.Controllers
             return View(personaAnxietyScale);
         }
 
-        // GET: PersonaAnxietyScales/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonaAnxietyScale personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
+            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
             if (personaAnxietyScale == null)
             {
                 return HttpNotFound();
@@ -109,12 +92,10 @@ namespace PsychologicalSupports.Controllers
             return View(personaAnxietyScale);
         }
 
-        // POST: PersonaAnxietyScales/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            PersonaAnxietyScale personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
+            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
             db.PersonaAnxietyScales.Remove(personaAnxietyScale);
             db.SaveChanges();
             return RedirectToAction("Index");

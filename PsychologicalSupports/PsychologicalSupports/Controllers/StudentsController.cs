@@ -9,8 +9,8 @@ namespace PsychologicalSupports.Controllers
     public class StudentsController : Controller
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+
         [Authorize]
-        // GET: Students
         public ActionResult Index(int? number, string classed)
         {
             var studentnumberclass = db.Students.GroupBy(t => t.NumberClass).Select(g => new { NumberClass = g.Key });
@@ -50,14 +50,13 @@ namespace PsychologicalSupports.Controllers
                 return View(students);
         }
 
-        // GET: Students/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            var student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -65,34 +64,12 @@ namespace PsychologicalSupports.Controllers
             return View(student);
         }
 
-        // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.AveragePoints, "AveragePointID", "AveragePointID");
-            ViewBag.StudentID = new SelectList(db.ClassroomRelationships, "ClassroomRelationshipsID", "IGS_Sishora");
-            ViewBag.StudentID = new SelectList(db.ClassTeacheInformations, "ClassTeacheInformationID", "Self_harmingBehavior");
-            ViewBag.StudentID = new SelectList(db.EmotioTests, "EmotioTestID", "PhysicalAggression");
-            ViewBag.StudentID = new SelectList(db.FamilyAlarmAnalysis, "FamilyAlarmAnalysisID", "Fault");
-            ViewBag.StudentID = new SelectList(db.Intellectual_6_Class, "Intellectual_6_ClassID", "TestLevel");
-            ViewBag.StudentID = new SelectList(db.Intellectual_7_Class, "Intellectual_7_ClassID", "Level");
-            ViewBag.StudentID = new SelectList(db.Intellectual_8_Class, "Intellectual_8_ClassID", "InterestMap");
-            ViewBag.StudentID = new SelectList(db.Intellectual_9_Class, "Intellectual_9_ClassID", "Profile");
-            ViewBag.StudentID = new SelectList(db.Interests_Card_145, "Interests_Card_145ID", "Biology");
-            ViewBag.StudentID = new SelectList(db.Interests_Card_50, "Interests_Card_50ID", "PhysicsMathematics");
-            ViewBag.StudentID = new SelectList(db.InterestsInSchoolSubjects, "InterestsInSchoolSubjectsID", "Russian");
-            ViewBag.StudentID = new SelectList(db.Mindsets, "MindsetID", "Subject_Effective");
-            ViewBag.StudentID = new SelectList(db.PersonaAnxietyScales, "PersonaAnxietyScaleID", "School");
-            ViewBag.StudentID = new SelectList(db.PersonalProtagonistAizenkoes, "PersonaAnxietyScaleID", "Temperament");
-            ViewBag.StudentID = new SelectList(db.SchoolMotivations, "SchoolMotivationID", "StudyInClass");
-            ViewBag.StudentID = new SelectList(db.Self_esteem, "Self_esteemID", "Indicator");
             return View();
         }
 
-        // POST: Students/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
         {
             if (ModelState.IsValid)
@@ -101,64 +78,24 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.StudentID = new SelectList(db.AveragePoints, "AveragePointID", "AveragePointID", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassroomRelationships, "ClassroomRelationshipsID", "IGS_Sishora", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassTeacheInformations, "ClassTeacheInformationID", "Self_harmingBehavior", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.EmotioTests, "EmotioTestID", "PhysicalAggression", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.FamilyAlarmAnalysis, "FamilyAlarmAnalysisID", "Fault", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_6_Class, "Intellectual_6_ClassID", "TestLevel", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_7_Class, "Intellectual_7_ClassID", "Level", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_8_Class, "Intellectual_8_ClassID", "InterestMap", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_9_Class, "Intellectual_9_ClassID", "Profile", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_145, "Interests_Card_145ID", "Biology", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_50, "Interests_Card_50ID", "PhysicsMathematics", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.InterestsInSchoolSubjects, "InterestsInSchoolSubjectsID", "Russian", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Mindsets, "MindsetID", "Subject_Effective", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonaAnxietyScales, "PersonaAnxietyScaleID", "School", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonalProtagonistAizenkoes, "PersonaAnxietyScaleID", "Temperament", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.SchoolMotivations, "SchoolMotivationID", "StudyInClass", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Self_esteem, "Self_esteemID", "Indicator", student.StudentID);
             return View(student);
         }
 
-        // GET: Students/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            var student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.AveragePoints, "AveragePointID", "AveragePointID", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassroomRelationships, "ClassroomRelationshipsID", "IGS_Sishora", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassTeacheInformations, "ClassTeacheInformationID", "Self_harmingBehavior", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.EmotioTests, "EmotioTestID", "PhysicalAggression", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.FamilyAlarmAnalysis, "FamilyAlarmAnalysisID", "Fault", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_6_Class, "Intellectual_6_ClassID", "TestLevel", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_7_Class, "Intellectual_7_ClassID", "Level", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_8_Class, "Intellectual_8_ClassID", "InterestMap", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_9_Class, "Intellectual_9_ClassID", "Profile", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_145, "Interests_Card_145ID", "Biology", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_50, "Interests_Card_50ID", "PhysicsMathematics", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.InterestsInSchoolSubjects, "InterestsInSchoolSubjectsID", "Russian", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Mindsets, "MindsetID", "Subject_Effective", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonaAnxietyScales, "PersonaAnxietyScaleID", "School", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonalProtagonistAizenkoes, "PersonaAnxietyScaleID", "Temperament", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.SchoolMotivations, "SchoolMotivationID", "StudyInClass", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Self_esteem, "Self_esteemID", "Indicator", student.StudentID);
             return View(student);
         }
-
-        // POST: Students/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
         {
             if (ModelState.IsValid)
@@ -167,34 +104,16 @@ namespace PsychologicalSupports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.AveragePoints, "AveragePointID", "AveragePointID", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassroomRelationships, "ClassroomRelationshipsID", "IGS_Sishora", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.ClassTeacheInformations, "ClassTeacheInformationID", "Self_harmingBehavior", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.EmotioTests, "EmotioTestID", "PhysicalAggression", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.FamilyAlarmAnalysis, "FamilyAlarmAnalysisID", "Fault", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_6_Class, "Intellectual_6_ClassID", "TestLevel", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_7_Class, "Intellectual_7_ClassID", "Level", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_8_Class, "Intellectual_8_ClassID", "InterestMap", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Intellectual_9_Class, "Intellectual_9_ClassID", "Profile", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_145, "Interests_Card_145ID", "Biology", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Interests_Card_50, "Interests_Card_50ID", "PhysicsMathematics", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.InterestsInSchoolSubjects, "InterestsInSchoolSubjectsID", "Russian", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Mindsets, "MindsetID", "Subject_Effective", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonaAnxietyScales, "PersonaAnxietyScaleID", "School", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.PersonalProtagonistAizenkoes, "PersonaAnxietyScaleID", "Temperament", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.SchoolMotivations, "SchoolMotivationID", "StudyInClass", student.StudentID);
-            ViewBag.StudentID = new SelectList(db.Self_esteem, "Self_esteemID", "Indicator", student.StudentID);
             return View(student);
         }
 
-        // GET: Students/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            var student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -202,12 +121,10 @@ namespace PsychologicalSupports.Controllers
             return View(student);
         }
 
-        // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
+            var student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");

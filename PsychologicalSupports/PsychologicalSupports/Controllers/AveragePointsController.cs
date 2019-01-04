@@ -11,14 +11,12 @@ namespace PsychologicalSupports.Controllers
     {
         private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
         [Authorize]
-        // GET: AveragePoints
         public ActionResult Index()
         {
             var averagePoints = db.AveragePoints.Include(a => a.Student);
             return View(averagePoints.ToList());
         }
 
-        // GET: AveragePoints/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -33,16 +31,12 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        // GET: AveragePoints/Create
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
             return View();
         }
 
-        // POST: AveragePoints/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         public ActionResult Create([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
         {
@@ -57,7 +51,6 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        // GET: AveragePoints/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,11 +66,7 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        // POST: AveragePoints/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
@@ -90,7 +79,6 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        // GET: AveragePoints/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,9 +93,7 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        // POST: AveragePoints/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             var averagePoint = db.AveragePoints.Find(id);
