@@ -13,11 +13,6 @@ namespace PsychologicalSupports.Controllers
         [Authorize]
         public ActionResult Index(int? number, string classed)
         {
-            var studentnumberclass = db.Students.GroupBy(t => t.NumberClass).Select(g => new { NumberClass = g.Key });
-            ViewBag.NumberClass = new SelectList(studentnumberclass, "NumberClass", "NumberClass");
-            var studentclass = db.Students.GroupBy(t => t.Class).Select(g => new { Class = g.Key });
-            ViewBag.Class = new SelectList(studentclass, "Class", "Class");
-
             var students = db.Students.Include(s => s.AveragePoint).
                 Include(s => s.ClassroomRelationship)
                 .Include(s => s.ClassTeacheInformation)
