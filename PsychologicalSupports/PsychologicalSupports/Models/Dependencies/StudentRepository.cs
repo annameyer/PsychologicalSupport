@@ -4,9 +4,9 @@ using System.Data.Entity;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
-    public class StudentRepository:IDisposable, IRepository<Student>
+    public class StudentRepository:IRepository<Student>
     {
-        private PsychologicalSupportsEntities db=new PsychologicalSupportsEntities();
+        private readonly IContext db;
 
         public IEnumerable<Student> List()
         {
@@ -24,7 +24,7 @@ namespace PsychologicalSupports.Models.Dependencies
 
         public void Edit(Student student)
         {
-            db.Entry(student).State = EntityState.Modified;
+            db.Students.Add(student);
             db.SaveChanges();
         }
         public void Delete(int id)
@@ -32,22 +32,6 @@ namespace PsychologicalSupports.Models.Dependencies
             var student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
-        }
-        protected void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (db != null)
-                {
-                    db.Dispose();
-                    db = null;
-                }
-            }
-        }
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+        }        
     }
 }

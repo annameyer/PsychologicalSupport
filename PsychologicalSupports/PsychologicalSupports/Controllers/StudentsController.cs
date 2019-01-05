@@ -8,9 +8,9 @@ namespace PsychologicalSupports.Controllers
     public class StudentsController : Controller
     {
         IRepository<Student> repo;
-        public StudentsController()
+        public StudentsController(IRepository<Student> r)
         {
-            repo = new StudentRepository();
+            repo = r;
         }
         [Authorize]
         public ActionResult Index()
@@ -94,13 +94,6 @@ namespace PsychologicalSupports.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                repo.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

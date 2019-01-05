@@ -9,11 +9,12 @@
 
 namespace PsychologicalSupports.Models
 {
+    using PsychologicalSupports.Models.Dependencies;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PsychologicalSupportsEntities : DbContext
+    public partial class PsychologicalSupportsEntities : DbContext,IContext
     {
         public PsychologicalSupportsEntities()
             : base("name=PsychologicalSupportsEntities")

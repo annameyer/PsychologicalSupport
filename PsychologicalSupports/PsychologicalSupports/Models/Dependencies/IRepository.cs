@@ -9,6 +9,5 @@ namespace PsychologicalSupports.Models.Dependencies
         void Create(T item);
         void Edit(T item);
         void Delete(int id);
-        void Dispose();
     }
 }
