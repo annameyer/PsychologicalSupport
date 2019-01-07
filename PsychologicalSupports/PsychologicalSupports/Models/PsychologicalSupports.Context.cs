@@ -26,7 +26,6 @@ namespace PsychologicalSupports.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
         public virtual DbSet<ClassTeacheInformation> ClassTeacheInformations { get; set; }
@@ -45,7 +44,5 @@ namespace PsychologicalSupports.Models
         public virtual DbSet<SchoolMotivation> SchoolMotivations { get; set; }
         public virtual DbSet<Self_esteem> Self_esteem { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
     }
 }

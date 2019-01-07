@@ -259,7 +259,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
+    <Compile Include="Infrastructure\AppRepository.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -273,10 +275,9 @@
     <Compile Include="Models\ClassTeacheInformation.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Dependencies\IContext.cs" />
     <Compile Include="Models\Dependencies\IRepository.cs" />
+    <Compile Include="Models\Dependencies\LoginRepository.cs" />
     <Compile Include="Models\Dependencies\StudentRepository.cs" />
     <Compile Include="Models\EmotioTest.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
@@ -336,9 +337,6 @@
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

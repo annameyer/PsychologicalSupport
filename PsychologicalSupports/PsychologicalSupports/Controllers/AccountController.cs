@@ -6,70 +6,39 @@ using PsychologicalSupports.Models;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class AccountController : Controller
     {
-        private AppUserManager UserManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-            }
-        }
-        private IAuthenticationManager AuthManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private readonly ILoginRepository _LoginRepository;
+        private readonly IAuthenticationManager _authManager;
         // GET: Account
         public ActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
             return View();
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(Administrator details, string returnUrl)
+        public async Task<ActionResult> Login(Administrator details)
         {
-            if (details.Login == null || details.Password == null)
-            {
-                ModelState.AddModelError("", "Некорректное имя или пароль.");
-            }
-            else
-            {
-                var user = await UserManager.FindAsync(details.Login, details.Password);
-                if (user == null)
+            var user = await _LoginRepository.Login(details);
+
+                if (user == false)
                 {
-                    ModelState.AddModelError("", "Некорректное имя или пароль.");
+                    ModelState.AddModelError("", "Name or password was wrong.");
                 }
                 else
                 {
-                    var ident = await UserManager.CreateIdentityAsync(user,
-                        DefaultAuthenticationTypes.ApplicationCookie);
-
-                    AuthManager.SignOut();
-                    AuthManager.SignIn(new AuthenticationProperties
-                    {
-                        IsPersistent = false
-                    }, ident);
-                        return Redirect(returnUrl);
+                    return RedirectToAction("Index", "Team");
                 }
-            }
-            ViewBag.returnUrl = returnUrl;
-            return View(details);
+                return View(details);
         }
-
-       
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthManager.SignOut();
+            _LoginRepository.SignOut(_authManager);
             return RedirectToAction("Index", "Students");
         }
         

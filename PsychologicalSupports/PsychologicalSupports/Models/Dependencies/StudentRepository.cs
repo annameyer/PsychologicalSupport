@@ -6,32 +6,31 @@ namespace PsychologicalSupports.Models.Dependencies
 {
     public class StudentRepository:IRepository<Student>
     {
-        private readonly IContext db;
-
+        private readonly IContext __context;
         public IEnumerable<Student> List()
         {
-            return db.Students;
+            return __context.Students;
         }
         public Student Get(int? id)
         {
-            return db.Students.Find(id);
+            return __context.Students.Find(id);
         }
         public void Create(Student student)
         {
-            db.Students.Add(student);
-            db.SaveChanges();
+            __context.Students.Add(student);
+            __context.SaveChanges();
         }
 
         public void Edit(Student student)
         {
-            db.Students.Add(student);
-            db.SaveChanges();
+            __context.Students.Add(student);
+            __context.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            var student = __context.Students.Find(id);
+            __context.Students.Remove(student);
+            __context.SaveChanges();
         }        
     }
 }

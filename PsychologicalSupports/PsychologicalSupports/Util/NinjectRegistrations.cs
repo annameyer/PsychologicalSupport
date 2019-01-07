@@ -1,6 +1,10 @@
-﻿using Ninject.Modules;
+﻿using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Ninject.Modules;
+using PsychologicalSupports.Infrastructure;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Web;
 
 namespace PsychologicalSupports.Util
 {
@@ -9,6 +13,9 @@ namespace PsychologicalSupports.Util
         public override void Load()
         {
             Bind<IRepository<Student>>().To<StudentRepository>();
+            Bind<ILoginRepository>().To<LoginRepository>();
+            Bind<IAppUserManager>().ToMethod(c =>HttpContext.Current.GetOwinContext().GetUserManager<AppUserManager>());
+            Bind<IAuthenticationManager>().ToMethod(c => HttpContext.Current.GetOwinContext().Authentication);
         }
     }
 }

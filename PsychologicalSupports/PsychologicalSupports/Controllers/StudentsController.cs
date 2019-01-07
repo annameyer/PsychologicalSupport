@@ -7,15 +7,15 @@ namespace PsychologicalSupports.Controllers
 {
     public class StudentsController : Controller
     {
-        IRepository<Student> repo;
-        public StudentsController(IRepository<Student> r)
+        private readonly IRepository<Student> __repo;
+        public StudentsController(IRepository<Student> student)
         {
-            repo = r;
+            __repo = student;
         }
         [Authorize]
         public ActionResult Index()
         {
-                return View(repo.List());
+                return View(__repo.List());
         }
 
         public ActionResult Details(int? id)
@@ -24,7 +24,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = repo.Get(id);
+            var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -36,64 +36,57 @@ namespace PsychologicalSupports.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
+        public ActionResult Create(Student student)
         {
             if (ModelState.IsValid)
             {
-                repo.Create(student);
+                __repo.Create(student);
                 return RedirectToAction("Index");
             }
             return View(student);
         }
-
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = repo.Get(id);
+            var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
             return View(student);
         }
-        
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,FIO,NumberClass,Class,AdmissionDate,BeingTrained")] Student student)
+        public ActionResult Edit(Student student)
         {
             if (ModelState.IsValid)
             {
-                repo.Edit(student);
+                __repo.Edit(student);
                 return RedirectToAction("Index");
             }
             return View(student);
         }
-
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var student = repo.Get(id);
+            var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
             return View(student);
         }
-
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            repo.Delete(id);
+            __repo.Delete(id);
             return RedirectToAction("Index");
         }
-
-       
     }
 }

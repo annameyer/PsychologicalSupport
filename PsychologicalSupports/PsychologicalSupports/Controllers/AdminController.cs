@@ -25,6 +25,7 @@ namespace PsychologicalSupports.Controllers
             }
         }
         // GET: Admin
+        [Authorize]
         public ActionResult Index()
         {
             return View(UserManager.Users);

@@ -4,12 +4,13 @@ using System.Data.Entity;
 
 namespace PsychologicalSupports.Infrastructure
 {
-    public class AppIdentityDbContext : IdentityDbContext<AppUser>
+    public interface IAppIdentityDbContext
+    {
+        IDbSet<AppUser> Users { get; set; }
+    }
+    public class AppIdentityDbContext : IdentityDbContext<AppUser>,IAppIdentityDbContext
     {
         public AppIdentityDbContext() : base("name=PsychologicalSupport") { }
-
-        
-
         public static AppIdentityDbContext Create()
         {
             return new AppIdentityDbContext();
