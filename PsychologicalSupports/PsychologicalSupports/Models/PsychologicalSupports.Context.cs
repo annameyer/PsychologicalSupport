@@ -14,7 +14,7 @@ namespace PsychologicalSupports.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PsychologicalSupportsEntities : DbContext,IContext
+    public partial class PsychologicalSupportsEntities : DbContext,IPsychologicalSupportsContext
     {
         public PsychologicalSupportsEntities()
             : base("name=PsychologicalSupportsEntities")

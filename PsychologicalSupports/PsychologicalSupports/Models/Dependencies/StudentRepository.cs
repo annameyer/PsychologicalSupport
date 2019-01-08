@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
     public class StudentRepository:IRepository<Student>
     {
-        private readonly IContext __context;
+        private readonly IPsychologicalSupportsContext __context;
+
+        public StudentRepository(IPsychologicalSupportsContext context)
+        {
+            __context = context;
+        }
         public IEnumerable<Student> List()
         {
             return __context.Students;

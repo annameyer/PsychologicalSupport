@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
-     interface ILoginRepository
+     public interface ILoginRepository
     {
         Task<bool> Login(Administrator detalis);
         void SignOut(IAuthenticationManager iManager);

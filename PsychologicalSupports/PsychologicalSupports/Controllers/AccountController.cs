@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using PsychologicalSupports.Infrastructure;
+﻿using Microsoft.Owin.Security;
 using PsychologicalSupports.Models;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using PsychologicalSupports.Models.Dependencies;
 
@@ -14,24 +10,28 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly ILoginRepository _LoginRepository;
         private readonly IAuthenticationManager _authManager;
-        // GET: Account
+        public AccountController(ILoginRepository loginRepository, IAuthenticationManager authManager)
+        {
+            _LoginRepository = loginRepository;
+            _authManager = authManager;
+        }
         public ActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Login(Administrator details)
+        public async Task<ActionResult> Login(Administrator details, string returnUrl)
         {
             var user = await _LoginRepository.Login(details);
 
                 if (user == false)
                 {
-                    ModelState.AddModelError("", "Name or password was wrong.");
+                    ModelState.AddModelError("", "Некорректное имя или пароль");
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Team");
+                    return Redirect(returnUrl);
                 }
                 return View(details);
         }
