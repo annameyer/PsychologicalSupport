@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Threading.Tasks;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
     public class StudentRepository:IRepository<Student>
     {
         private readonly IPsychologicalSupportsContext __context;
+        private PsychologicalSupportsEntities db=new PsychologicalSupportsEntities();
 
         public StudentRepository(IPsychologicalSupportsContext context)
         {
@@ -24,10 +27,10 @@ namespace PsychologicalSupports.Models.Dependencies
             __context.SaveChanges();
         }
 
-        public void Edit(Student student)
+        public async Task Edit(Student student)
         {
-            __context.Students.Add(student);
-            __context.SaveChanges();
+            __context.Students.AddOrUpdate(student);
+            await __context.SaveChangesAsync();
         }
         public void Delete(int id)
         {

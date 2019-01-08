@@ -7,14 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using PsychologicalSupports.Models.Dependencies;
+
 namespace PsychologicalSupports.Models
 {
-    using PsychologicalSupports.Models.Dependencies;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PsychologicalSupportsEntities : DbContext,IPsychologicalSupportsContext
+    public partial class PsychologicalSupportsEntities : DbContext, IPsychologicalSupportsContext
     {
         public PsychologicalSupportsEntities()
             : base("name=PsychologicalSupportsEntities")
@@ -26,6 +27,7 @@ namespace PsychologicalSupports.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
         public virtual DbSet<ClassTeacheInformation> ClassTeacheInformations { get; set; }

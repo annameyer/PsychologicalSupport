@@ -1,5 +1,4 @@
 ﻿using Ninject;
-using Ninject.Modules;
 using Ninject.Web.Mvc;
 using PsychologicalSupports.Util;
 using System.Web.Mvc;

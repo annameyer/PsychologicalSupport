@@ -24,7 +24,6 @@
         <EntityTypeShape EntityType="PsychologicalSupportsModel.SchoolMotivation" Width="1.5" PointX="3" PointY="55" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.Self_esteem" Width="1.5" PointX="3" PointY="59.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PsychologicalSupportsModel.Student" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PsychologicalSupportsModel.sysdiagram" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_AveragePoint_Student1" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_ClassroomRelationships_Student1" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_ClassTeacheInformation_Student" ManuallyRouted="false" />
@@ -42,7 +41,6 @@
         <AssociationConnector Association="PsychologicalSupportsModel.FK_PersonalProtagonistAizenko_Student" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_SchoolMotivation_Student" ManuallyRouted="false" />
         <AssociationConnector Association="PsychologicalSupportsModel.FK_Self_esteem_Student" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PsychologicalSupportsModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
