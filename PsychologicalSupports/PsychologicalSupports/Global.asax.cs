@@ -11,6 +11,9 @@ namespace PsychologicalSupports
     {
         protected void Application_Start()
         {
+            ModelValidatorProviders.Providers.Clear();
+            //ModelValidatorProviders.Providers.Add(new AttributeValidatorProvider());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
