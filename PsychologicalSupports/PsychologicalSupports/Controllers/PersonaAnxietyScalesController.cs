@@ -1,19 +1,24 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class PersonaAnxietyScalesController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<PersonaAnxietyScale> _repository;
+        public PersonaAnxietyScalesController(IRepository<PersonaAnxietyScale> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
+
         [Authorize]
         public ActionResult Index()
         {
-            var personaAnxietyScales = db.PersonaAnxietyScales.Include(p => p.Student);
-            return View(personaAnxietyScales.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -22,32 +27,31 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
-            if (personaAnxietyScale == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(personaAnxietyScale);
+            return View(PersonaAnxietyScale);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
+        public ActionResult Create(PersonaAnxietyScale PersonaAnxietyScale)
         {
             if (ModelState.IsValid)
             {
-                db.PersonaAnxietyScales.Add(personaAnxietyScale);
-                db.SaveChanges();
+                _repository.Create(PersonaAnxietyScale);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
-            return View(personaAnxietyScale);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            return View(PersonaAnxietyScale);
         }
 
         public ActionResult Edit(int? id)
@@ -56,26 +60,25 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonaAnxietyScale personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
-            if (personaAnxietyScale == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
-            return View(personaAnxietyScale);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,School,Interpersonal,Self_assessment,General")] PersonaAnxietyScale personaAnxietyScale)
+        public ActionResult Edit(PersonaAnxietyScale PersonaAnxietyScale)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(personaAnxietyScale).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(PersonaAnxietyScale);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personaAnxietyScale.StudentID);
-            return View(personaAnxietyScale);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            return View(PersonaAnxietyScale);
         }
 
         public ActionResult Delete(int? id)
@@ -84,30 +87,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
-            if (personaAnxietyScale == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(personaAnxietyScale);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var personaAnxietyScale = db.PersonaAnxietyScales.Find(id);
-            db.PersonaAnxietyScales.Remove(personaAnxietyScale);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

@@ -1,21 +1,24 @@
-﻿
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class PersonalProtagonistAizenkoesController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<PersonalProtagonistAizenko> _repository;
+        public PersonalProtagonistAizenkoesController(IRepository<PersonalProtagonistAizenko> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
 
         [Authorize]
         public ActionResult Index()
         {
-            var personalProtagonistAizenkoes = db.PersonalProtagonistAizenkoes.Include(p => p.Student);
-            return View(personalProtagonistAizenkoes.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -24,32 +27,31 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
-            if (personalProtagonistAizenko == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(personalProtagonistAizenko);
+            return View(PersonaAnxietyScale);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
+        public ActionResult Create(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
             if (ModelState.IsValid)
             {
-                db.PersonalProtagonistAizenkoes.Add(personalProtagonistAizenko);
-                db.SaveChanges();
+                _repository.Create(PersonalProtagonistAizenko);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
-            return View(personalProtagonistAizenko);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonalProtagonistAizenko.StudentID);
+            return View(PersonalProtagonistAizenko);
         }
 
         public ActionResult Edit(int? id)
@@ -58,26 +60,25 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
-            if (personalProtagonistAizenko == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
-            return View(personalProtagonistAizenko);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,Temperament,Type")] PersonalProtagonistAizenko personalProtagonistAizenko)
+        public ActionResult Edit(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(personalProtagonistAizenko).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(PersonalProtagonistAizenko);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", personalProtagonistAizenko.StudentID);
-            return View(personalProtagonistAizenko);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonalProtagonistAizenko.StudentID);
+            return View(PersonalProtagonistAizenko);
         }
 
         public ActionResult Delete(int? id)
@@ -86,30 +87,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
-            if (personalProtagonistAizenko == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(personalProtagonistAizenko);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var personalProtagonistAizenko = db.PersonalProtagonistAizenkoes.Find(id);
-            db.PersonalProtagonistAizenkoes.Remove(personalProtagonistAizenko);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

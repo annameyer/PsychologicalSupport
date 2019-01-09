@@ -258,19 +258,35 @@
     <Compile Include="Controllers\InterestsInSchoolSubjectsController.cs" />
     <Compile Include="Controllers\Interests_Card_145Controller.cs" />
     <Compile Include="Controllers\Interests_Card_50Controller.cs" />
+    <Compile Include="Dependencies\Repository\InterestsInSchoolSubjectsRepository.cs" />
+    <Compile Include="Dependencies\Repository\Interests_Card_50Repository.cs" />
     <Compile Include="Controllers\MindsetsController.cs" />
     <Compile Include="Controllers\PersonaAnxietyScalesController.cs" />
     <Compile Include="Controllers\PersonalProtagonistAizenkoesController.cs" />
     <Compile Include="Controllers\SchoolMotivationsController.cs" />
     <Compile Include="Controllers\Self_esteemController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Dependencies\Repository\AveragePointsRepository.cs" />
+    <Compile Include="Dependencies\Repository\ClassroomRelationshipRepository.cs" />
+    <Compile Include="Dependencies\Repository\ClassTeacheInformationsRepository.cs" />
+    <Compile Include="Dependencies\Repository\EmotioTestsRepository.cs" />
+    <Compile Include="Dependencies\Repository\FamilyAlarmAnalysisRepository.cs" />
+    <Compile Include="Dependencies\Repository\Intellectual_6_ClassRepository.cs" />
+    <Compile Include="Dependencies\Repository\Intellectual_7_ClassRepository.cs" />
+    <Compile Include="Dependencies\Repository\Intellectual_8_ClassRepository.cs" />
+    <Compile Include="Dependencies\Repository\Intellectual_9_ClassRepository.cs" />
+    <Compile Include="Dependencies\Repository\Interests_Card_145Repository.cs" />
+    <Compile Include="Dependencies\Repository\MindsetsRepository.cs" />
+    <Compile Include="Dependencies\Repository\PersonaAnxietyScalesRepository.cs" />
+    <Compile Include="Dependencies\Repository\PersonalProtagonistAizenkoesRepository.cs" />
+    <Compile Include="Dependencies\Repository\SchoolMotivationsRepository.cs" />
+    <Compile Include="Dependencies\Repository\Self_esteemRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Authentication\AppIdentityDbContext.cs" />
     <Compile Include="Authentication\AppUserManager.cs" />
     <Compile Include="Authentication\AppUserStore.cs" />
-    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>

@@ -8,7 +8,8 @@ namespace PsychologicalSupports.Models.Dependencies
         IEnumerable<T> List();
         T Get(int? id);
         void Create(T item);
-        Task Edit(T team);
+        void Edit(T item);
         void Delete(int id);
     }
+    
 }

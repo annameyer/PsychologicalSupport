@@ -1,19 +1,24 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class MindsetsController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<Mindset> _repository;
+        public MindsetsController(IRepository<Mindset> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
+
         [Authorize]
         public ActionResult Index()
         {
-            var mindsets = db.Mindsets.Include(m => m.Student);
-            return View(mindsets.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -22,32 +27,31 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var mindset = db.Mindsets.Find(id);
-            if (mindset == null)
+            var Mindset = _repository.Get(id);
+            if (Mindset == null)
             {
                 return HttpNotFound();
             }
-            return View(mindset);
+            return View(Mindset);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
+        public ActionResult Create(Mindset Mindset)
         {
             if (ModelState.IsValid)
             {
-                db.Mindsets.Add(mindset);
-                db.SaveChanges();
+                _repository.Create(Mindset);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
-            return View(mindset);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Mindset.StudentID);
+            return View(Mindset);
         }
 
         public ActionResult Edit(int? id)
@@ -56,26 +60,25 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var mindset = db.Mindsets.Find(id);
-            if (mindset == null)
+            var Mindset = _repository.Get(id);
+            if (Mindset == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
-            return View(mindset);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Mindset.StudentID);
+            return View(Mindset);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,Subject_Effective,AbstractSymbolic,Verbal_Logical,Visually_Shaped,Creativity")] Mindset mindset)
+        public ActionResult Edit(Mindset Mindset)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mindset).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(Mindset);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", mindset.StudentID);
-            return View(mindset);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Mindset.StudentID);
+            return View(Mindset);
         }
 
         public ActionResult Delete(int? id)
@@ -84,30 +87,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var mindset = db.Mindsets.Find(id);
-            if (mindset == null)
+            var Mindset = _repository.Get(id);
+            if (Mindset == null)
             {
                 return HttpNotFound();
             }
-            return View(mindset);
+            return View(Mindset);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var mindset = db.Mindsets.Find(id);
-            db.Mindsets.Remove(mindset);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

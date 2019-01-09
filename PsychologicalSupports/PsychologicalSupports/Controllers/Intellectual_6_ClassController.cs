@@ -3,18 +3,24 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class Intellectual_6_ClassController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<Intellectual_6_Class> _repository;
+        public Intellectual_6_ClassController(IRepository<Intellectual_6_Class> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
 
         [Authorize]
         public ActionResult Index()
         {
-            var intellectual_6_Class = db.Intellectual_6_Class.Include(i => i.Student);
-            return View(intellectual_6_Class.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -23,7 +29,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -33,21 +39,20 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,TestResult,TestLevel,AveragePoint")] Intellectual_6_Class intellectual_6_Class)
+        public ActionResult Create(Intellectual_6_Class intellectual_6_Class)
         {
             if (ModelState.IsValid)
             {
-                db.Intellectual_6_Class.Add(intellectual_6_Class);
-                db.SaveChanges();
+                _repository.Create(intellectual_6_Class);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
             return View(intellectual_6_Class);
         }
 
@@ -57,25 +62,24 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
             return View(intellectual_6_Class);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,TestResult,TestLevel,AveragePoint")] Intellectual_6_Class intellectual_6_Class)
+        public ActionResult Edit(Intellectual_6_Class intellectual_6_Class)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(intellectual_6_Class).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(intellectual_6_Class);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
             return View(intellectual_6_Class);
         }
 
@@ -85,7 +89,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
+            var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
@@ -96,19 +100,9 @@ namespace PsychologicalSupports.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var intellectual_6_Class = db.Intellectual_6_Class.Find(id);
-            db.Intellectual_6_Class.Remove(intellectual_6_Class);
-            db.SaveChanges();
+           _repository.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

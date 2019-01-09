@@ -1,20 +1,24 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class SchoolMotivationsController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<SchoolMotivation> _repository;
+        public SchoolMotivationsController(IRepository<SchoolMotivation> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
 
         [Authorize]
         public ActionResult Index()
         {
-            var schoolMotivations = db.SchoolMotivations.Include(s => s.Student);
-            return View(schoolMotivations.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -23,32 +27,31 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SchoolMotivation schoolMotivation = db.SchoolMotivations.Find(id);
-            if (schoolMotivation == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(schoolMotivation);
+            return View(PersonaAnxietyScale);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Create(SchoolMotivation SchoolMotivation)
         {
             if (ModelState.IsValid)
             {
-                db.SchoolMotivations.Add(schoolMotivation);
-                db.SaveChanges();
+                _repository.Create(SchoolMotivation);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
-            return View(schoolMotivation);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", SchoolMotivation.StudentID);
+            return View(SchoolMotivation);
         }
 
         public ActionResult Edit(int? id)
@@ -57,26 +60,25 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var schoolMotivation = db.SchoolMotivations.Find(id);
-            if (schoolMotivation == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
-            return View(schoolMotivation);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,StudyInClass,TestFamilyStudiesLevel,CognitiveInterest,TesMotivationAchievementstLevel,Classmates,Pedagogues,ByParents,FromTheSideOfTheSchool,FromTheSideOfTheFamily,AwarenessOfSocialNecessity,CommunicationMotif,ExtracurricularSchoolMotivation,TheMotiveOfSelf_Realization")] SchoolMotivation schoolMotivation)
+        public ActionResult Edit(SchoolMotivation SchoolMotivation)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(schoolMotivation).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(SchoolMotivation);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", schoolMotivation.StudentID);
-            return View(schoolMotivation);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", SchoolMotivation.StudentID);
+            return View(SchoolMotivation);
         }
 
         public ActionResult Delete(int? id)
@@ -85,30 +87,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var schoolMotivation = db.SchoolMotivations.Find(id);
-            if (schoolMotivation == null)
+            var PersonaAnxietyScale = _repository.Get(id);
+            if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            return View(schoolMotivation);
+            return View(PersonaAnxietyScale);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var schoolMotivation = db.SchoolMotivations.Find(id);
-            db.SchoolMotivations.Remove(schoolMotivation);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

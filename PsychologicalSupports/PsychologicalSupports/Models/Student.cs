@@ -38,5 +38,6 @@ namespace PsychologicalSupports.Models
         public virtual PersonalProtagonistAizenko PersonalProtagonistAizenko { get; set; }
         public virtual SchoolMotivation SchoolMotivation { get; set; }
         public virtual Self_esteem Self_esteem { get; set; }
+        public object Modified { get; internal set; }
     }
 }

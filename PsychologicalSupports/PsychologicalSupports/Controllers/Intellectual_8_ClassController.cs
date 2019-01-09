@@ -1,19 +1,24 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class Intellectual_8_ClassController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext _context;
+        private IRepository<Intellectual_8_Class> _repository;
+        public Intellectual_8_ClassController(IRepository<Intellectual_8_Class> repository, IPsychologicalSupportsContext context)
+        {
+            _context = context;
+            _repository = repository;
+        }
+
         [Authorize]
         public ActionResult Index()
         {
-            var intellectual_8_Class = db.Intellectual_8_Class.Include(i => i.Student);
-            return View(intellectual_8_Class.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -22,7 +27,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_8_Class = db.Intellectual_8_Class.Find(id);
+            var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -32,21 +37,20 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Create(Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
-                db.Intellectual_8_Class.Add(intellectual_8_Class);
-                db.SaveChanges();
+                _repository.Create(intellectual_8_Class);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
@@ -56,25 +60,24 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_8_Class = db.Intellectual_8_Class.Find(id);
+            var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,InterestMap,RecommendedProfile")] Intellectual_8_Class intellectual_8_Class)
+        public ActionResult Edit(Intellectual_8_Class intellectual_8_Class)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(intellectual_8_Class).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(intellectual_8_Class);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
@@ -84,7 +87,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var intellectual_8_Class = db.Intellectual_8_Class.Find(id);
+            var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -95,19 +98,8 @@ namespace PsychologicalSupports.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var intellectual_8_Class = db.Intellectual_8_Class.Find(id);
-            db.Intellectual_8_Class.Remove(intellectual_8_Class);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

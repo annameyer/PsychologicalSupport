@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
+   
     public class StudentRepository:IRepository<Student>
     {
         private readonly IPsychologicalSupportsContext __context;
-        private PsychologicalSupportsEntities db=new PsychologicalSupportsEntities();
-
         public StudentRepository(IPsychologicalSupportsContext context)
         {
             __context = context;
@@ -26,11 +26,11 @@ namespace PsychologicalSupports.Models.Dependencies
             __context.Students.Add(student);
             __context.SaveChanges();
         }
-
-        public async Task Edit(Student student)
+        public void Edit(Student student)
         {
-            __context.Students.AddOrUpdate(student);
-            await __context.SaveChangesAsync();
+            //__context.Entry(student).State = student.Modified;
+            __context.Students.Attach(student);
+             __context.SaveChanges();
         }
         public void Delete(int id)
         {

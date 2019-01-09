@@ -3,17 +3,23 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class AveragePointsController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext __context;
+        private IRepository<AveragePoint> _repository;
+        public AveragePointsController(IRepository<AveragePoint> repository,IPsychologicalSupportsContext context)
+        {
+            __context = context;
+            _repository = repository;
+        }
         [Authorize]
         public ActionResult Index()
         {
-            var averagePoints = db.AveragePoints.Include(a => a.Student);
-            return View(averagePoints.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -22,7 +28,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -32,21 +38,20 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
+        public ActionResult Create(AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
             {
-                db.AveragePoints.Add(averagePoint);
-                db.SaveChanges();
+                _repository.Create(averagePoint);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 
@@ -56,25 +61,24 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,AveragePoint_6,AveragePoint_7,AveragePoint_8,AveragePoint_9")] AveragePoint averagePoint)
+        public ActionResult Edit(AveragePoint averagePoint)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(averagePoint).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(averagePoint);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", averagePoint.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", averagePoint.StudentID);
             return View(averagePoint);
         }
 
@@ -84,7 +88,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var averagePoint = db.AveragePoints.Find(id);
+            var averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -95,19 +99,8 @@ namespace PsychologicalSupports.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var averagePoint = db.AveragePoints.Find(id);
-            db.AveragePoints.Remove(averagePoint);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

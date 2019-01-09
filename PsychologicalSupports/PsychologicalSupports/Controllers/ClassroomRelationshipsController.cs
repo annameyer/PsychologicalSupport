@@ -1,20 +1,24 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
+using PsychologicalSupports.Models.Dependencies;
 
 namespace PsychologicalSupports.Controllers
 {
     public class ClassroomRelationshipsController : Controller
     {
-        private PsychologicalSupportsEntities db = new PsychologicalSupportsEntities();
+        private readonly IPsychologicalSupportsContext __context;
+        private IRepository<ClassroomRelationship> _repository;
+        public ClassroomRelationshipsController(IRepository<ClassroomRelationship> repository, IPsychologicalSupportsContext context)
+        {
+            __context = context;
+            _repository = repository;
+        }
 
         [Authorize]
         public ActionResult Index()
         {
-            var classroomRelationships = db.ClassroomRelationships.Include(c => c.Student);
-            return View(classroomRelationships.ToList());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -23,7 +27,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var classroomRelationship = db.ClassroomRelationships.Find(id);
+            var classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -33,21 +37,20 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Create(ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
-                db.ClassroomRelationships.Add(classroomRelationship);
-                db.SaveChanges();
+                _repository.Create(classroomRelationship);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -57,25 +60,24 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var classroomRelationship = db.ClassroomRelationships.Find(id);
+            var classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "StudentID,IGS_Sishora,Sociometry")] ClassroomRelationship classroomRelationship)
+        public ActionResult Edit(ClassroomRelationship classroomRelationship)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(classroomRelationship).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Edit(classroomRelationship);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -85,7 +87,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var classroomRelationship = db.ClassroomRelationships.Find(id);
+            var classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -96,19 +98,8 @@ namespace PsychologicalSupports.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var classroomRelationship = db.ClassroomRelationships.Find(id);
-            db.ClassroomRelationships.Remove(classroomRelationship);
-            db.SaveChanges();
+            _repository.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
