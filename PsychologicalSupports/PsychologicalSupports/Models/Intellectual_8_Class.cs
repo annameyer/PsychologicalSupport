@@ -9,13 +9,19 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("8 класс")]
     public partial class Intellectual_8_Class
     {
+        [key]
         public long StudentID { get; set; }
+
+        [Display(Name = "Карта интересов")]
         public string InterestMap { get; set; }
+
+        [Display(Name = "Рекомендуемый профиль")]
         public string RecommendedProfile { get; set; }
     
         public virtual Student Student { get; set; }

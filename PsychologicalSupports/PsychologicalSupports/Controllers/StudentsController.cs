@@ -15,6 +15,7 @@ namespace PsychologicalSupports.Controllers
         [Authorize]
         public ActionResult Index()
         {
+
                 return View(__repo.List());
         }
 

@@ -11,18 +11,32 @@ namespace PsychologicalSupports.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Средний балл")]
     public partial class InterestsInSchoolSubject
     {
+        [key]
         public long StudentID { get; set; }
+
+        [Display(Name = "Русский ")]
         public string Russian { get; set; }
+        [Display(Name = "Белоруссеий")]
         public string Belorussian { get; set; }
+        [Display(Name = "Физика")]
         public string Physics { get; set; }
+        [Display(Name = "ИСтория")]
         public string Story { get; set; }
+        [Display(Name = "Обществоведение")]
         public string SocialScientist { get; set; }
+        [Display(Name = "Биология")]
         public string Biology { get; set; }
+        [Display(Name = "Химия")]
         public string Chemistry { get; set; }
+        [Display(Name = "Информатика")]
         public string ComputerScience { get; set; }
+        [Display(Name = "Иностранный")]
         public string English { get; set; }
     
         public virtual Student Student { get; set; }

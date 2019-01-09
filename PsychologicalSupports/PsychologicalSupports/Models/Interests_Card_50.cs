@@ -9,21 +9,35 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Карта интересов 50")]
     public partial class Interests_Card_50
     {
+        [key]
         public long StudentID { get; set; }
+
+        [Display(Name = "ФизМат")]
         public string PhysicsMathematics { get; set; }
+
+        [Display(Name = "ХимБио")]
         public string ChemistryBiology { get; set; }
+        [Display(Name = "Радиотехника")]
         public string RadioEngineeringElectronics { get; set; }
+        [Display(Name = "Механика")]
         public string MechanicsDesign { get; set; }
+        [Display(Name = "География")]
         public string GeographyGeology { get; set; }
+        [Display(Name = "Литература")]
         public string LiteratureArt { get; set; }
+        [Display(Name = "Политика и История")]
         public string HistoryPolitics { get; set; }
+        [Display(Name = "Педагогика и Медицина")]
         public string PedagogyMedicine { get; set; }
+        [Display(Name = "Предпринимательство")]
         public string EntrepreneurshiHomeEconomics { get; set; }
+        [Display(Name = "Спорт")]
         public string SportsMilitary { get; set; }
     
         public virtual Student Student { get; set; }

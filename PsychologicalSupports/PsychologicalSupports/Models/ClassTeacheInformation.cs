@@ -9,24 +9,40 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("9 класс")]
     public partial class ClassTeacheInformation
     {
+        [key]
         public long StudentID { get; set; }
+        [Display(Name = "Самовредительство")]
         public string Self_harmingBehavior { get; set; }
+        //  [Display(Name = "Резкое изменение внешнего вида")]
+        [Display(Name = "Замкнутость")]
         public string Isolation { get; set; }
+        [Display(Name = "Агрессия")]
         public string Aggression { get; set; }
+        [Display(Name = "Избегание физического контакта")]
         public string AvoidPhysicalContact { get; set; }
+        [Display(Name = "Боится идти домой")]
         public string AfraidToGoHome { get; set; }
+        [Display(Name = "Убегает из дома")]
         public string RunningAwayFromHome { get; set; }
+        [Display(Name = "Носит скрывающую одежду")]
         public string WearBodyHidingClothes { get; set; }
+        [Display(Name = "Вызывающее поведение")]
         public string DefiantBehavior { get; set; }
+        [Display(Name = "Низкая самооценка")]
         public string LowSelf_esteem { get; set; }
+        [Display(Name = "Плохое отношение со сверстниками")]
         public string PoorPeerRelations { get; set; }
+        [Display(Name = "Резкое изменения веса")]
         public string SharpWeightChange { get; set; }
+        [Display(Name = "Эмоциональная неуравновешенность")]
         public string HystericalEmotionalImbalance { get; set; }
+        [Display(Name = "ИСключительно хорошие знания о сексе")]
         public string ExceptionallyGoodSexKnowledge { get; set; }
     
         public virtual Student Student { get; set; }

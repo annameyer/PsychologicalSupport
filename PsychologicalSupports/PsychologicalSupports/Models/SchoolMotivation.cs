@@ -9,24 +9,40 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Школьная мотивация")]
     public partial class SchoolMotivation
     {
+        [key]
         public long StudentID { get; set; }
+
+        [Display(Name = "Учеба в классе")]
         public string StudyInClass { get; set; }
+        [Display(Name = "Учеба в семье")]
         public string TestFamilyStudiesLevel { get; set; }
+        [Display(Name = "Познавательный интерес")]
         public string CognitiveInterest { get; set; }
+        [Display(Name = "Мотивация достижения")]
         public string TesMotivationAchievementstLevel { get; set; }
+        [Display(Name = "Одноклассниками")]
         public string Classmates { get; set; }
+        [Display(Name = "Педагогами")]
         public string Pedagogues { get; set; }
+        [Display(Name = "Родителями")]
         public string ByParents { get; set; }
+        [Display(Name = "Со стороны школы")]
         public string FromTheSideOfTheSchool { get; set; }
+        [Display(Name = "Со стороны семьи")]
         public string FromTheSideOfTheFamily { get; set; }
+        [Display(Name = "Осознание социальной необходимости")]
         public string AwarenessOfSocialNecessity { get; set; }
+        [Display(Name = "Мотив общения")]
         public string CommunicationMotif { get; set; }
+        [Display(Name = "Ынеучебная школьная моивация")]
         public string ExtracurricularSchoolMotivation { get; set; }
+        [Display(Name = "Мотив самореализации")]
         public string TheMotiveOfSelf_Realization { get; set; }
     
         public virtual Student Student { get; set; }

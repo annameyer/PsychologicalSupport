@@ -9,12 +9,17 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("9 класс")]
     public partial class Intellectual_9_Class
     {
+        
+        [key]
         public long StudentID { get; set; }
+
+        [Display(Name = "Профиль")]
         public string Profile { get; set; }
     
         public virtual Student Student { get; set; }

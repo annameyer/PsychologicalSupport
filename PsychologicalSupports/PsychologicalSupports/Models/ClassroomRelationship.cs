@@ -11,11 +11,17 @@ namespace PsychologicalSupports.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Взаимоотношения в классе")]
     public partial class ClassroomRelationship
     {
+        [key]
         public long StudentID { get; set; }
+        [Display(Name = "ИГС Сишора")]
         public string IGS_Sishora { get; set; }
+        [Display(Name = "Социометрия")]
         public string Sociometry { get; set; }
     
         public virtual Student Student { get; set; }

@@ -9,11 +9,14 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+        
+    [Table("Средний балл")]
     public partial class Mindset
     {
+        [key]
+        [Display(Name = "6 класс")]
         public long StudentID { get; set; }
         public string Subject_Effective { get; set; }
         public string AbstractSymbolic { get; set; }

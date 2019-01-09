@@ -9,15 +9,22 @@
 
 namespace PsychologicalSupports.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Анализ семейной тревоги")]
     public partial class FamilyAlarmAnalysi
     {
+        
+        [key]
         public long StudentID { get; set; }
+        [Display(Name = "Вина")]
         public string Fault { get; set; }
+        [Display(Name = "Тревога")]
         public string Anxiety { get; set; }
+        [Display(Name = "Напряжение")]
         public string Stress { get; set; }
+        [Display(Name = "Общее")]
         public string General { get; set; }
     
         public virtual Student Student { get; set; }

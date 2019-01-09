@@ -10,14 +10,21 @@
 namespace PsychologicalSupports.Models
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Средний балл")]
     public partial class AveragePoint
     {
+        [key]
         public long StudentID { get; set; }
+        [Display(Name = "6 класс")]
         public Nullable<double> AveragePoint_6 { get; set; }
+        [Display(Name = "7 класс")]
         public Nullable<double> AveragePoint_7 { get; set; }
+        [Display(Name = "8 класс")]
         public Nullable<double> AveragePoint_8 { get; set; }
+        [Display(Name = "9 класс")]
         public Nullable<double> AveragePoint_9 { get; set; }
     
         public virtual Student Student { get; set; }
