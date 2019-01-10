@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class PersonaAnxietyScalesRepository : IRepository<PersonaAnxietyScale>
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
 
-        public PersonaAnxietyScalesRepository(IPsychologicalSupportsContext context)
+        public PersonaAnxietyScalesRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
 
         public IEnumerable<PersonaAnxietyScale> List()
         {
-            return _context.PersonaAnxietyScales;
+            return _psychologicalSupportsContext.PersonaAnxietyScales;
         }
 
         public PersonaAnxietyScale Get(int? id)
         {
-            return _context.PersonaAnxietyScales.Find(id);
+            return _psychologicalSupportsContext.PersonaAnxietyScales.Find(id);
         }
 
         public void Create(PersonaAnxietyScale PersonaAnxietyScale)
         {
-            _context.PersonaAnxietyScales.Add(PersonaAnxietyScale);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.PersonaAnxietyScales.Add(PersonaAnxietyScale);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Edit(PersonaAnxietyScale PersonaAnxietyScale)
         {
-            _context.PersonaAnxietyScales.AddOrUpdate(PersonaAnxietyScale);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.PersonaAnxietyScales.AddOrUpdate(PersonaAnxietyScale);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = _context.PersonaAnxietyScales.Find(id);
-            _context.PersonaAnxietyScales.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.PersonaAnxietyScales.Find(id);
+            _psychologicalSupportsContext.PersonaAnxietyScales.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

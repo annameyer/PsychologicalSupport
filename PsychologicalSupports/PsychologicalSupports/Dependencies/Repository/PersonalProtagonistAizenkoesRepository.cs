@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class PersonalProtagonistAizenkoesRepository : IRepository<PersonalProtagonistAizenko>
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
 
-        public PersonalProtagonistAizenkoesRepository(IPsychologicalSupportsContext context)
+        public PersonalProtagonistAizenkoesRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
 
         public IEnumerable<PersonalProtagonistAizenko> List()
         {
-            return _context.PersonalProtagonistAizenkoes;
+            return _psychologicalSupportsContext.PersonalProtagonistAizenkoes;
         }
 
         public PersonalProtagonistAizenko Get(int? id)
         {
-            return _context.PersonalProtagonistAizenkoes.Find(id);
+            return _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
         }
 
         public void Create(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
-            _context.PersonalProtagonistAizenkoes.Add(PersonalProtagonistAizenko);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Add(PersonalProtagonistAizenko);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Edit(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
-            _context.PersonalProtagonistAizenkoes.AddOrUpdate(PersonalProtagonistAizenko);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.PersonalProtagonistAizenkoes.AddOrUpdate(PersonalProtagonistAizenko);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = _context.PersonalProtagonistAizenkoes.Find(id);
-            _context.PersonalProtagonistAizenkoes.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
+            _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

@@ -1,18 +1,18 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
     public class AveragePointsController : Controller
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
         private IRepository<AveragePoint> _repository;
 
-        public AveragePointsController(IRepository<AveragePoint> repository,IPsychologicalSupportsContext context)
+        public AveragePointsController(IRepository<AveragePoint> repository, IPsychologicalSupportsContext context)
         {
-            _context = context;
+            _psychologicalSupportsContext = context;
             _repository = repository;
         }
 
@@ -40,7 +40,7 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -96,7 +96,6 @@ namespace PsychologicalSupports.Controllers
             {
                 return HttpNotFound();
             }
-
             return View(averagePoint);
         }
 

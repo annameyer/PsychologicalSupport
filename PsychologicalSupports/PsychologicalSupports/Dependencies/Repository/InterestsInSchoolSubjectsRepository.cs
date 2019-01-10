@@ -1,47 +1,46 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
-    public class InterestsInSchoolSubjectsRepository:IRepository<InterestsInSchoolSubject>
+    public class InterestsInSchoolSubjectsRepository : IRepository<InterestsInSchoolSubject>
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
 
-        public InterestsInSchoolSubjectsRepository(IPsychologicalSupportsContext context)
+        public InterestsInSchoolSubjectsRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
 
         public IEnumerable<InterestsInSchoolSubject> List()
         {
-            return _context.InterestsInSchoolSubjects;
+            return _psychologicalSupportsContext.InterestsInSchoolSubjects;
         }
 
         public InterestsInSchoolSubject Get(int? id)
         {
-            return _context.InterestsInSchoolSubjects.Find(id);
+            return _psychologicalSupportsContext.InterestsInSchoolSubjects.Find(id);
         }
 
         public void Create(InterestsInSchoolSubject InterestsInSchoolSubject)
         {
-            _context.InterestsInSchoolSubjects.Add(InterestsInSchoolSubject);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.InterestsInSchoolSubjects.Add(InterestsInSchoolSubject);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Edit(InterestsInSchoolSubject InterestsInSchoolSubject)
         {
-            _context.InterestsInSchoolSubjects.AddOrUpdate(InterestsInSchoolSubject);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.InterestsInSchoolSubjects.AddOrUpdate(InterestsInSchoolSubject);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = _context.InterestsInSchoolSubjects.Find(id);
-            _context.InterestsInSchoolSubjects.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.InterestsInSchoolSubjects.Find(id);
+            _psychologicalSupportsContext.InterestsInSchoolSubjects.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

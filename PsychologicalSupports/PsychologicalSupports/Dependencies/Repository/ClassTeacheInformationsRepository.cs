@@ -1,40 +1,40 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
-    public class ClassTeacheInformationsRepository:IRepository<ClassTeacheInformation>
+    public class ClassTeacheInformationsRepository : IRepository<ClassTeacheInformation>
     {
-        private readonly IPsychologicalSupportsContext _context;
-        public ClassTeacheInformationsRepository(IPsychologicalSupportsContext context)
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
+        public ClassTeacheInformationsRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
         public IEnumerable<ClassTeacheInformation> List()
         {
-            return _context.ClassTeacheInformations;
+            return _psychologicalSupportsContext.ClassTeacheInformations;
         }
         public ClassTeacheInformation Get(int? id)
         {
-            return _context.ClassTeacheInformations.Find(id);
+            return _psychologicalSupportsContext.ClassTeacheInformations.Find(id);
         }
         public void Create(ClassTeacheInformation classroomRelationship)
         {
-            _context.ClassTeacheInformations.Add(classroomRelationship);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.ClassTeacheInformations.Add(classroomRelationship);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Edit(ClassTeacheInformation classroomRelationship)
         {
-            _context.ClassTeacheInformations.AddOrUpdate(classroomRelationship);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.ClassTeacheInformations.AddOrUpdate(classroomRelationship);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = _context.ClassTeacheInformations.Find(id);
-            _context.ClassTeacheInformations.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.ClassTeacheInformations.Find(id);
+            _psychologicalSupportsContext.ClassTeacheInformations.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

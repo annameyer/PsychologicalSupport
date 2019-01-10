@@ -1,43 +1,40 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
     public class EmotioTestsRepository : IRepository<EmotioTest>
     {
-        private readonly IPsychologicalSupportsContext _context;
-        public EmotioTestsRepository(IPsychologicalSupportsContext context)
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
+        public EmotioTestsRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
         public IEnumerable<EmotioTest> List()
         {
-            return _context.EmotioTests;
+            return _psychologicalSupportsContext.EmotioTests;
         }
         public EmotioTest Get(int? id)
         {
-            return _context.EmotioTests.Find(id);
+            return _psychologicalSupportsContext.EmotioTests.Find(id);
         }
         public void Create(EmotioTest emotioTest)
         {
-            _context.EmotioTests.Add(emotioTest);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.EmotioTests.Add(emotioTest);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Edit(EmotioTest emotioTest)
         {
-            _context.EmotioTests.AddOrUpdate(emotioTest);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.EmotioTests.AddOrUpdate(emotioTest);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = _context.EmotioTests.Find(id);
-            _context.EmotioTests.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.EmotioTests.Find(id);
+            _psychologicalSupportsContext.EmotioTests.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

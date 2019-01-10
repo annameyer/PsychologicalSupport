@@ -7,12 +7,12 @@ namespace PsychologicalSupports.Controllers
 {
     public class Self_esteemController : Controller
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
         private IRepository<Self_esteem> _repository;
 
         public Self_esteemController(IRepository<Self_esteem> repository, IPsychologicalSupportsContext context)
         {
-            _context = context;
+            _psychologicalSupportsContext = context;
             _repository = repository;
         }
 
@@ -40,7 +40,7 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Self_esteem.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", Self_esteem.StudentID);
             return View(Self_esteem);
         }
 
@@ -70,7 +70,7 @@ namespace PsychologicalSupports.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
             return View(PersonaAnxietyScale);
         }
 
@@ -83,7 +83,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Self_esteem.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", Self_esteem.StudentID);
             return View(Self_esteem);
         }
 

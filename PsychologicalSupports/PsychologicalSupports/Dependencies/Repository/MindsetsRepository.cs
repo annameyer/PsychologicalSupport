@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class MindsetsRepository : IRepository<Mindset>
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
 
-        public MindsetsRepository(IPsychologicalSupportsContext context)
+        public MindsetsRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
 
         public IEnumerable<Mindset> List()
         {
-            return _context.Mindsets;
+            return _psychologicalSupportsContext.Mindsets;
         }
 
         public Mindset Get(int? id)
         {
-            return _context.Mindsets.Find(id);
+            return _psychologicalSupportsContext.Mindsets.Find(id);
         }
 
         public void Create(Mindset Mindset)
         {
-            _context.Mindsets.Add(Mindset);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.Mindsets.Add(Mindset);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Edit(Mindset Mindset)
         {
-            _context.Mindsets.AddOrUpdate(Mindset);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.Mindsets.AddOrUpdate(Mindset);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = _context.Mindsets.Find(id);
-            _context.Mindsets.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.Mindsets.Find(id);
+            _psychologicalSupportsContext.Mindsets.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

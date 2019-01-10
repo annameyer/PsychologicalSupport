@@ -7,12 +7,12 @@ namespace PsychologicalSupports.Controllers
 {
     public class Intellectual_9_ClassController : Controller
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
         private IRepository<Intellectual_9_Class> _repository;
 
         public Intellectual_9_ClassController(IRepository<Intellectual_9_Class> repository, IPsychologicalSupportsContext context)
         {
-            _context = context;
+            _psychologicalSupportsContext = context;
             _repository = repository;
         }
 
@@ -40,7 +40,7 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
             return View();
         }
 

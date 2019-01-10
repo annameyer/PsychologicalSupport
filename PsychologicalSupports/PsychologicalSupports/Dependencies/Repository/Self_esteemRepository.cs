@@ -1,49 +1,46 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
     public class Self_esteemRepository : IRepository<Self_esteem>
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
 
-        public Self_esteemRepository(IPsychologicalSupportsContext context)
+        public Self_esteemRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
 
         public IEnumerable<Self_esteem> List()
         {
-            return _context.Self_esteem;
+            return _psychologicalSupportsContext.Self_esteem;
         }
 
         public Self_esteem Get(int? id)
         {
-            return _context.Self_esteem.Find(id);
+            return _psychologicalSupportsContext.Self_esteem.Find(id);
         }
 
         public void Create(Self_esteem Self_esteem)
         {
-            _context.Self_esteem.Add(Self_esteem);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.Self_esteem.Add(Self_esteem);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Edit(Self_esteem Self_esteem)
         {
-            _context.Self_esteem.AddOrUpdate(Self_esteem);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.Self_esteem.AddOrUpdate(Self_esteem);
+            _psychologicalSupportsContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = _context.Self_esteem.Find(id);
-            _context.Self_esteem.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.Self_esteem.Find(id);
+            _psychologicalSupportsContext.Self_esteem.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

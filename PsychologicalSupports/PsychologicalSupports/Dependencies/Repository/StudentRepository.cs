@@ -1,42 +1,39 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Threading.Tasks;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
-   
-    public class StudentRepository:IRepository<Student>
+
+    public class StudentRepository : IRepository<Student>
     {
-        private readonly IPsychologicalSupportsContext _context;
-        public StudentRepository(IPsychologicalSupportsContext context)
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
+        public StudentRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
         public IEnumerable<Student> List()
         {
-            return _context.Students;
+            return _psychologicalSupportsContext.Students;
         }
         public Student Get(int? id)
         {
-            return _context.Students.Find(id);
+            return _psychologicalSupportsContext.Students.Find(id);
         }
         public void Create(Student student)
         {
-            _context.Students.Add(student);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.Students.Add(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Edit(Student student)
         {
-            //_context.Entry(student).State = student.Modified;
-            _context.Students.Attach(student);
-             _context.SaveChanges();
+            //_psychologicalSupportsContext.Entry(student).State = student.Modified;
+            _psychologicalSupportsContext.Students.Attach(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = _context.Students.Find(id);
-            _context.Students.Remove(student);
-            _context.SaveChanges();
-        }        
+            var student = _psychologicalSupportsContext.Students.Find(id);
+            _psychologicalSupportsContext.Students.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
+        }
     }
 }

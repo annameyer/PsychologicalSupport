@@ -1,23 +1,23 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
     public class StudentsController : Controller
     {
-        private readonly IRepository<Student> __repo;
+        private readonly IRepository<Student> _repository;
 
         public StudentsController(IRepository<Student> student)
         {
-            __repo = student;
+            _repository = student;
         }
 
         [Authorize]
         public ActionResult Index()
         {
-            return View(__repo.List());
+            return View(_repository.List());
         }
 
         public ActionResult Details(int? id)
@@ -27,7 +27,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var student = __repo.Get(id);
+            Student student = _repository.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                __repo.Create(student);
+                _repository.Create(student);
                 return RedirectToAction("Index");
             }
 
@@ -60,7 +60,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var student = __repo.Get(id);
+            Student student = _repository.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -74,7 +74,7 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                __repo.Edit(student);
+                _repository.Edit(student);
                 return RedirectToAction("Index");
             }
 
@@ -88,7 +88,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var student = __repo.Get(id);
+            Student student = _repository.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -96,10 +96,11 @@ namespace PsychologicalSupports.Controllers
 
             return View(student);
         }
+
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            __repo.Delete(id);
+            _repository.Delete(id);
             return RedirectToAction("Index");
         }
     }

@@ -7,34 +7,34 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class AveragePointsRepository : IRepository<AveragePoint>
     {
-        private readonly IPsychologicalSupportsContext _context;
-        public AveragePointsRepository(IPsychologicalSupportsContext context)
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
+        public AveragePointsRepository(IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
         }
         public IEnumerable<AveragePoint> List()
         {
-            return _context.AveragePoints;
+            return _psychologicalSupportsContext.AveragePoints;
         }
         public AveragePoint Get(int? id)
         {
-            return _context.AveragePoints.Find(id);
+            return _psychologicalSupportsContext.AveragePoints.Find(id);
         }
         public void Create(AveragePoint averagePoint)
         {
-            _context.AveragePoints.Add(averagePoint);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.AveragePoints.Add(averagePoint);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Edit(AveragePoint averagePoint)
         {
-            _context.AveragePoints.AddOrUpdate(averagePoint);
-            _context.SaveChanges();
+            _psychologicalSupportsContext.AveragePoints.AddOrUpdate(averagePoint);
+            _psychologicalSupportsContext.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = _context.AveragePoints.Find(id);
-            _context.AveragePoints.Remove(student);
-            _context.SaveChanges();
+            var student = _psychologicalSupportsContext.AveragePoints.Find(id);
+            _psychologicalSupportsContext.AveragePoints.Remove(student);
+            _psychologicalSupportsContext.SaveChanges();
         }
     }
 }

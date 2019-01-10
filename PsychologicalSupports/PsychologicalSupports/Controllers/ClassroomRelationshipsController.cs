@@ -1,18 +1,18 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
     public class ClassroomRelationshipsController : Controller
     {
-        private readonly IPsychologicalSupportsContext _context;
+        private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
         private IRepository<ClassroomRelationship> _repository;
 
-        public ClassroomRelationshipsController(IRepository<ClassroomRelationship> repository, IPsychologicalSupportsContext context)
+        public ClassroomRelationshipsController(IRepository<ClassroomRelationship> repository, IPsychologicalSupportsContext psychologicalSupportsContext)
         {
-            _context = context;
+            _psychologicalSupportsContext = psychologicalSupportsContext;
             _repository = repository;
         }
 
@@ -40,7 +40,7 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -70,7 +70,7 @@ namespace PsychologicalSupports.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -83,7 +83,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
