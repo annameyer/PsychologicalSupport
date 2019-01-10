@@ -21,7 +21,7 @@ namespace PsychologicalSupports.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Login(Administrator details, string returnUrl)
+        public async Task<ActionResult> Login(Administrator details)
         {
             var user = await _LoginRepository.Login(details);
 
@@ -31,8 +31,8 @@ namespace PsychologicalSupports.Controllers
                 }
                 else
                 {
-                    return Redirect(returnUrl);
-                }
+                return RedirectToAction("Index", "Students");
+            }
                 return View(details);
         }
         [HttpPost]

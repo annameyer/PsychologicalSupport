@@ -2,6 +2,7 @@
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Infrastructure;
 using System.Threading.Tasks;
+using System.Web.ModelBinding;
 
 namespace PsychologicalSupports.Models.Dependencies
 {

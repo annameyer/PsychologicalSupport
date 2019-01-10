@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Персональный тест личности</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
@@ -37,9 +37,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+            @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID })
         </td>
     </tr>
 }
