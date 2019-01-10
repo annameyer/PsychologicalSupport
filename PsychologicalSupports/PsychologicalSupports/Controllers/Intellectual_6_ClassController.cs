@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
@@ -11,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<Intellectual_6_Class> _repository;
+
         public Intellectual_6_ClassController(IRepository<Intellectual_6_Class> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -29,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
             }
+
             return View(intellectual_6_Class);
         }
 
@@ -52,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
             return View(intellectual_6_Class);
         }
 
@@ -62,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
+
             return View(intellectual_6_Class);
         }
 
@@ -79,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(intellectual_6_Class);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_6_Class.StudentID);
+
             return View(intellectual_6_Class);
         }
 
@@ -89,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)
             {
                 return HttpNotFound();
             }
+
             return View(intellectual_6_Class);
         }
 
@@ -103,6 +106,5 @@ namespace PsychologicalSupports.Controllers
            _repository.Delete(id);
             return RedirectToAction("Index");
         }
-
     }
 }

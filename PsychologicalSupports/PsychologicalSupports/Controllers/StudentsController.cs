@@ -8,15 +8,16 @@ namespace PsychologicalSupports.Controllers
     public class StudentsController : Controller
     {
         private readonly IRepository<Student> __repo;
+
         public StudentsController(IRepository<Student> student)
         {
             __repo = student;
         }
+
         [Authorize]
         public ActionResult Index()
         {
-
-                return View(__repo.List());
+            return View(__repo.List());
         }
 
         public ActionResult Details(int? id)
@@ -25,11 +26,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
+
             return View(student);
         }
 
@@ -37,6 +40,7 @@ namespace PsychologicalSupports.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Create(Student student)
         {
@@ -45,21 +49,26 @@ namespace PsychologicalSupports.Controllers
                 __repo.Create(student);
                 return RedirectToAction("Index");
             }
+
             return View(student);
         }
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
+
             return View(student);
         }
+
         [HttpPost]
         public ActionResult Edit(Student student)
         {
@@ -68,19 +77,23 @@ namespace PsychologicalSupports.Controllers
                 __repo.Edit(student);
                 return RedirectToAction("Index");
             }
+
             return View(student);
         }
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var student = __repo.Get(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
+
             return View(student);
         }
         [HttpPost, ActionName("Delete")]

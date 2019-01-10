@@ -9,11 +9,12 @@ namespace PsychologicalSupports.Controllers
 {
     public class ClassTeacheInformationsController : Controller
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         private IRepository<ClassTeacheInformation> _repository;
+
         public ClassTeacheInformationsController(IRepository<ClassTeacheInformation> repository, IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
             _repository = repository;
         }
 
@@ -29,18 +30,20 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var classTeacheInformation = _repository.Get(id);
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
             }
+
             return View(classTeacheInformation);
         }
 
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -53,7 +56,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
             return View(classTeacheInformation);
         }
 
@@ -63,12 +65,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var classTeacheInformation = _repository.Get(id);
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
+
             return View(classTeacheInformation);
         }
 
@@ -80,7 +83,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(classTeacheInformation);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", classTeacheInformation.StudentID);
+
             return View(classTeacheInformation);
         }
 
@@ -90,11 +93,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var classTeacheInformation = _repository.Get(id); ;
             if (classTeacheInformation == null)
             {
                 return HttpNotFound();
             }
+
             return View(classTeacheInformation);
         }
 

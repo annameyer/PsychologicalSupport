@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<PersonaAnxietyScale> _repository;
+
         public PersonaAnxietyScalesController(IRepository<PersonaAnxietyScale> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -27,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
+
             return View(PersonaAnxietyScale);
         }
 
@@ -50,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
             return View(PersonaAnxietyScale);
         }
 
@@ -60,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+
             return View(PersonaAnxietyScale);
         }
 
@@ -77,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(PersonaAnxietyScale);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+
             return View(PersonaAnxietyScale);
         }
 
@@ -87,9 +90,11 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
+
                 return HttpNotFound();
             }
             return View(PersonaAnxietyScale);

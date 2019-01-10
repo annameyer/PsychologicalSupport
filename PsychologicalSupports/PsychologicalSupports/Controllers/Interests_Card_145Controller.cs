@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<Interests_Card_145> _repository;
+
         public Interests_Card_145Controller(IRepository<Interests_Card_145> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -27,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var Interests_Card_145 = _repository.Get(id);
             if (Interests_Card_145 == null)
             {
                 return HttpNotFound();
             }
+
             return View(Interests_Card_145);
         }
 
@@ -50,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Interests_Card_145.StudentID);
             return View(Interests_Card_145);
         }
 
@@ -60,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var Interests_Card_145 = _repository.Get(id);
             if (Interests_Card_145 == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Interests_Card_145.StudentID);
+
             return View(Interests_Card_145);
         }
 
@@ -77,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(Interests_Card_145);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", Interests_Card_145.StudentID);
+
             return View(Interests_Card_145);
         }
 
@@ -87,6 +90,7 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var Interests_Card_145 = _repository.Get(id);
             if (Interests_Card_145 == null)
             {

@@ -1,26 +1,21 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using PsychologicalSupports.Infrastructure;
+using PsychologicalSupports.Authentication.Interface;
 using System.Threading.Tasks;
-using System.Web.ModelBinding;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
-     public interface ILoginRepository
-    {
-        Task<bool> Login(Administrator detalis);
-        void SignOut(IAuthenticationManager iManager);
-
-    }
+    
     public class LoginRepository:ILoginRepository
     {
-        private readonly IAppIdentityDbContext _context;
+        private readonly IAppIdentityDbContext _AppIdentityDbContext;
         private readonly IAppUserManager _appUserManager;
-        private readonly IAuthenticationManager _iManager;
-        public LoginRepository(IAppIdentityDbContext context, IAuthenticationManager iManager, IAppUserManager appUserManager)
+        private readonly IAuthenticationManager _authenticationManager;
+
+        public LoginRepository(IAppIdentityDbContext AppIdentityDbContext, IAuthenticationManager authenticationManager, IAppUserManager appUserManager)
         {
-            _context = context;
-            _iManager = iManager;
+            _AppIdentityDbContext = AppIdentityDbContext;
+            _authenticationManager = authenticationManager;
             _appUserManager = appUserManager;
         }
 
@@ -35,8 +30,8 @@ namespace PsychologicalSupports.Models.Dependencies
             {
                 var ident = await _appUserManager.CreateIdentityAsync(user,
                     DefaultAuthenticationTypes.ApplicationCookie);
-                _iManager.SignOut();
-                _iManager.SignIn(new AuthenticationProperties
+                _authenticationManager.SignOut();
+                _authenticationManager.SignIn(new AuthenticationProperties
                 {
                     IsPersistent = false
 
@@ -45,9 +40,9 @@ namespace PsychologicalSupports.Models.Dependencies
             }
         }
 
-        public void SignOut(IAuthenticationManager iManager)
+        public void SignOut(IAuthenticationManager authenticationManager)
         {
-            iManager.SignOut();
+            authenticationManager.SignOut();
         }
     }
 }

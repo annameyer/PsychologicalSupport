@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<PersonalProtagonistAizenko> _repository;
+
         public PersonalProtagonistAizenkoesController(IRepository<PersonalProtagonistAizenko> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -27,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
+
             return View(PersonaAnxietyScale);
         }
 
@@ -50,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonalProtagonistAizenko.StudentID);
             return View(PersonalProtagonistAizenko);
         }
 
@@ -60,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+
             return View(PersonaAnxietyScale);
         }
 
@@ -77,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(PersonalProtagonistAizenko);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", PersonalProtagonistAizenko.StudentID);
+
             return View(PersonalProtagonistAizenko);
         }
 
@@ -87,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
+
             return View(PersonaAnxietyScale);
         }
 

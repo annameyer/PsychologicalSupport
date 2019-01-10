@@ -2,7 +2,7 @@
 using PsychologicalSupports.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using PsychologicalSupports.Models.Dependencies;
+using PsychologicalSupports.Authentication.Interface;
 
 namespace PsychologicalSupports.Controllers
 {
@@ -10,16 +10,19 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly ILoginRepository _LoginRepository;
         private readonly IAuthenticationManager _authManager;
+
         public AccountController(ILoginRepository loginRepository, IAuthenticationManager authManager)
         {
             _LoginRepository = loginRepository;
             _authManager = authManager;
         }
+
         public ActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
             return View();
         }
+
         [HttpPost]
         public async Task<ActionResult> Login(Administrator details)
         {
@@ -35,6 +38,7 @@ namespace PsychologicalSupports.Controllers
             }
                 return View(details);
         }
+
         [HttpPost]
         public ActionResult LogOff()
         {

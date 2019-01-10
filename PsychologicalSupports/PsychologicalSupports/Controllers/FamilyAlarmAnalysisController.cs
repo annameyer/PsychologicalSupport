@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
@@ -9,13 +7,15 @@ namespace PsychologicalSupports.Controllers
 {
     public class FamilyAlarmAnalysisController : Controller
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         private IRepository<FamilyAlarmAnalysi> _repository;
+
         public FamilyAlarmAnalysisController(IRepository<FamilyAlarmAnalysi> repository, IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
             _repository = repository;
         }
+
         [Authorize]
         public ActionResult Index()
         {
@@ -28,17 +28,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
             }
+
             return View(familyAlarmAnalysi);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -51,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
             return View(familyAlarmAnalysi);
         }
 
@@ -61,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
+
             return View(familyAlarmAnalysi);
         }
 
@@ -78,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(familyAlarmAnalysi);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", familyAlarmAnalysi.StudentID);
+
             return View(familyAlarmAnalysi);
         }
 
@@ -88,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
             }
+
             return View(familyAlarmAnalysi);
         }
 

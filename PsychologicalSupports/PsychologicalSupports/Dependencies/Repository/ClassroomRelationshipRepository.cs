@@ -7,34 +7,34 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class ClassroomRelationshipRepository:IRepository<ClassroomRelationship>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         public ClassroomRelationshipRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
         public IEnumerable<ClassroomRelationship> List()
         {
-            return __context.ClassroomRelationships;
+            return _context.ClassroomRelationships;
         }
         public ClassroomRelationship Get(int? id)
         {
-            return __context.ClassroomRelationships.Find(id);
+            return _context.ClassroomRelationships.Find(id);
         }
         public void Create(ClassroomRelationship classroomRelationship)
         {
-            __context.ClassroomRelationships.Add(classroomRelationship);
-            __context.SaveChanges();
+            _context.ClassroomRelationships.Add(classroomRelationship);
+            _context.SaveChanges();
         }
         public void Edit(ClassroomRelationship classroomRelationship)
         {
-            __context.ClassroomRelationships.AddOrUpdate(classroomRelationship);
-            __context.SaveChanges();
+            _context.ClassroomRelationships.AddOrUpdate(classroomRelationship);
+            _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = __context.ClassroomRelationships.Find(id);
-            __context.ClassroomRelationships.Remove(student);
-            __context.SaveChanges();
+            var student = _context.ClassroomRelationships.Find(id);
+            _context.ClassroomRelationships.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

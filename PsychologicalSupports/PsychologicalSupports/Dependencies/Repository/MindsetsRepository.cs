@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class MindsetsRepository : IRepository<Mindset>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
 
         public MindsetsRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
 
         public IEnumerable<Mindset> List()
         {
-            return __context.Mindsets;
+            return _context.Mindsets;
         }
 
         public Mindset Get(int? id)
         {
-            return __context.Mindsets.Find(id);
+            return _context.Mindsets.Find(id);
         }
 
         public void Create(Mindset Mindset)
         {
-            __context.Mindsets.Add(Mindset);
-            __context.SaveChanges();
+            _context.Mindsets.Add(Mindset);
+            _context.SaveChanges();
         }
 
         public void Edit(Mindset Mindset)
         {
-            __context.Mindsets.AddOrUpdate(Mindset);
-            __context.SaveChanges();
+            _context.Mindsets.AddOrUpdate(Mindset);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = __context.Mindsets.Find(id);
-            __context.Mindsets.Remove(student);
-            __context.SaveChanges();
+            var student = _context.Mindsets.Find(id);
+            _context.Mindsets.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

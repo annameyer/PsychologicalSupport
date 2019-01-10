@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<InterestsInSchoolSubject> _repository;
+
         public InterestsInSchoolSubjectsController(IRepository<InterestsInSchoolSubject> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -27,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var InterestsInSchoolSubject = _repository.Get(id);
             if (InterestsInSchoolSubject == null)
             {
                 return HttpNotFound();
             }
+
             return View(InterestsInSchoolSubject);
         }
 
@@ -50,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", InterestsInSchoolSubject.StudentID);
             return View(InterestsInSchoolSubject);
         }
 
@@ -60,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var InterestsInSchoolSubject = _repository.Get(id);
             if (InterestsInSchoolSubject == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", InterestsInSchoolSubject.StudentID);
+
             return View(InterestsInSchoolSubject);
         }
 
@@ -77,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(InterestsInSchoolSubject);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", InterestsInSchoolSubject.StudentID);
+
             return View(InterestsInSchoolSubject);
         }
 
@@ -87,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var InterestsInSchoolSubject = _repository.Get(id);
             if (InterestsInSchoolSubject == null)
             {
                 return HttpNotFound();
             }
+
             return View(InterestsInSchoolSubject);
         }
 

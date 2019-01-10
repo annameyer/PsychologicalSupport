@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
@@ -9,13 +7,15 @@ namespace PsychologicalSupports.Controllers
 {
     public class EmotioTestsController : Controller
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         private IRepository<EmotioTest> _repository;
+
         public EmotioTestsController(IRepository<EmotioTest> repository, IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
             _repository = repository;
         }
+
         [Authorize]
         public ActionResult Index()
         {
@@ -28,17 +28,19 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();
             }
+
             return View(emotioTest);
         }
 
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO");
+            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO");
             return View();
         }
 
@@ -51,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", emotioTest.StudentID);
             return View(emotioTest);
         }
 
@@ -61,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", emotioTest.StudentID);
+
             return View(emotioTest);
         }
 
@@ -78,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(emotioTest);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(__context.Students, "StudentID", "FIO", emotioTest.StudentID);
+
             return View(emotioTest);
         }
 
@@ -88,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();
             }
+
             return View(emotioTest);
         }
 
@@ -102,6 +106,5 @@ namespace PsychologicalSupports.Controllers
             _repository.Delete(id);
             return RedirectToAction("Index");
         }
-
     }
 }

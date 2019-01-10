@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using PsychologicalSupports.Authentication.Interface;
 using PsychologicalSupports.Models;
 using System.Data.Entity;
 

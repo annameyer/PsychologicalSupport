@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Controllers
     {
         private readonly IPsychologicalSupportsContext _context;
         private IRepository<Intellectual_8_Class> _repository;
+
         public Intellectual_8_ClassController(IRepository<Intellectual_8_Class> repository, IPsychologicalSupportsContext context)
         {
             _context = context;
@@ -27,11 +28,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
             }
+
             return View(intellectual_8_Class);
         }
 
@@ -50,7 +53,6 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
             return View(intellectual_8_Class);
         }
 
@@ -60,12 +62,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+
             return View(intellectual_8_Class);
         }
 
@@ -77,7 +80,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Edit(intellectual_8_Class);
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(_context.Students, "StudentID", "FIO", intellectual_8_Class.StudentID);
+
             return View(intellectual_8_Class);
         }
 
@@ -87,11 +90,13 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
             }
+
             return View(intellectual_8_Class);
         }
 

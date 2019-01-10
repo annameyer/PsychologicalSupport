@@ -10,34 +10,34 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class FamilyAlarmAnalysisRepository:IRepository<FamilyAlarmAnalysi>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         public FamilyAlarmAnalysisRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
         public IEnumerable<FamilyAlarmAnalysi> List()
         {
-            return __context.FamilyAlarmAnalysis;
+            return _context.FamilyAlarmAnalysis;
         }
         public FamilyAlarmAnalysi Get(int? id)
         {
-            return __context.FamilyAlarmAnalysis.Find(id);
+            return _context.FamilyAlarmAnalysis.Find(id);
         }
         public void Create(FamilyAlarmAnalysi FamilyAlarmAnalysi)
         {
-            __context.FamilyAlarmAnalysis.Add(FamilyAlarmAnalysi);
-            __context.SaveChanges();
+            _context.FamilyAlarmAnalysis.Add(FamilyAlarmAnalysi);
+            _context.SaveChanges();
         }
         public void Edit(FamilyAlarmAnalysi FamilyAlarmAnalysi)
         {
-            __context.FamilyAlarmAnalysis.AddOrUpdate(FamilyAlarmAnalysi);
-            __context.SaveChanges();
+            _context.FamilyAlarmAnalysis.AddOrUpdate(FamilyAlarmAnalysi);
+            _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = __context.FamilyAlarmAnalysis.Find(id);
-            __context.FamilyAlarmAnalysis.Remove(student);
-            __context.SaveChanges();
+            var student = _context.FamilyAlarmAnalysis.Find(id);
+            _context.FamilyAlarmAnalysis.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

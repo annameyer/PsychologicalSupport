@@ -8,40 +8,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class InterestsInSchoolSubjectsRepository:IRepository<InterestsInSchoolSubject>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
 
         public InterestsInSchoolSubjectsRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
 
         public IEnumerable<InterestsInSchoolSubject> List()
         {
-            return __context.InterestsInSchoolSubjects;
+            return _context.InterestsInSchoolSubjects;
         }
 
         public InterestsInSchoolSubject Get(int? id)
         {
-            return __context.InterestsInSchoolSubjects.Find(id);
+            return _context.InterestsInSchoolSubjects.Find(id);
         }
 
         public void Create(InterestsInSchoolSubject InterestsInSchoolSubject)
         {
-            __context.InterestsInSchoolSubjects.Add(InterestsInSchoolSubject);
-            __context.SaveChanges();
+            _context.InterestsInSchoolSubjects.Add(InterestsInSchoolSubject);
+            _context.SaveChanges();
         }
 
         public void Edit(InterestsInSchoolSubject InterestsInSchoolSubject)
         {
-            __context.InterestsInSchoolSubjects.AddOrUpdate(InterestsInSchoolSubject);
-            __context.SaveChanges();
+            _context.InterestsInSchoolSubjects.AddOrUpdate(InterestsInSchoolSubject);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = __context.InterestsInSchoolSubjects.Find(id);
-            __context.InterestsInSchoolSubjects.Remove(student);
-            __context.SaveChanges();
+            var student = _context.InterestsInSchoolSubjects.Find(id);
+            _context.InterestsInSchoolSubjects.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

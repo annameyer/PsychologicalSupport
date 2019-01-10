@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class PersonaAnxietyScalesRepository : IRepository<PersonaAnxietyScale>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
 
         public PersonaAnxietyScalesRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
 
         public IEnumerable<PersonaAnxietyScale> List()
         {
-            return __context.PersonaAnxietyScales;
+            return _context.PersonaAnxietyScales;
         }
 
         public PersonaAnxietyScale Get(int? id)
         {
-            return __context.PersonaAnxietyScales.Find(id);
+            return _context.PersonaAnxietyScales.Find(id);
         }
 
         public void Create(PersonaAnxietyScale PersonaAnxietyScale)
         {
-            __context.PersonaAnxietyScales.Add(PersonaAnxietyScale);
-            __context.SaveChanges();
+            _context.PersonaAnxietyScales.Add(PersonaAnxietyScale);
+            _context.SaveChanges();
         }
 
         public void Edit(PersonaAnxietyScale PersonaAnxietyScale)
         {
-            __context.PersonaAnxietyScales.AddOrUpdate(PersonaAnxietyScale);
-            __context.SaveChanges();
+            _context.PersonaAnxietyScales.AddOrUpdate(PersonaAnxietyScale);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = __context.PersonaAnxietyScales.Find(id);
-            __context.PersonaAnxietyScales.Remove(student);
-            __context.SaveChanges();
+            var student = _context.PersonaAnxietyScales.Find(id);
+            _context.PersonaAnxietyScales.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

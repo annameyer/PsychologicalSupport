@@ -241,6 +241,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication\Interface\IAppIdentityDbContext.cs" />
+    <Compile Include="Authentication\Interface\IAppUserManager.cs" />
+    <Compile Include="Authentication\Interface\ILoginRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AveragePointsController.cs" />

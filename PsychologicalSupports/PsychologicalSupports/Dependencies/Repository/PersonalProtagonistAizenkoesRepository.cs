@@ -7,40 +7,40 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class PersonalProtagonistAizenkoesRepository : IRepository<PersonalProtagonistAizenko>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
 
         public PersonalProtagonistAizenkoesRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
 
         public IEnumerable<PersonalProtagonistAizenko> List()
         {
-            return __context.PersonalProtagonistAizenkoes;
+            return _context.PersonalProtagonistAizenkoes;
         }
 
         public PersonalProtagonistAizenko Get(int? id)
         {
-            return __context.PersonalProtagonistAizenkoes.Find(id);
+            return _context.PersonalProtagonistAizenkoes.Find(id);
         }
 
         public void Create(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
-            __context.PersonalProtagonistAizenkoes.Add(PersonalProtagonistAizenko);
-            __context.SaveChanges();
+            _context.PersonalProtagonistAizenkoes.Add(PersonalProtagonistAizenko);
+            _context.SaveChanges();
         }
 
         public void Edit(PersonalProtagonistAizenko PersonalProtagonistAizenko)
         {
-            __context.PersonalProtagonistAizenkoes.AddOrUpdate(PersonalProtagonistAizenko);
-            __context.SaveChanges();
+            _context.PersonalProtagonistAizenkoes.AddOrUpdate(PersonalProtagonistAizenko);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var student = __context.PersonalProtagonistAizenkoes.Find(id);
-            __context.PersonalProtagonistAizenkoes.Remove(student);
-            __context.SaveChanges();
+            var student = _context.PersonalProtagonistAizenkoes.Find(id);
+            _context.PersonalProtagonistAizenkoes.Remove(student);
+            _context.SaveChanges();
         }
     }
 }

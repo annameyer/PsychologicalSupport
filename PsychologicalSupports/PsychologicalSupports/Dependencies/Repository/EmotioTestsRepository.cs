@@ -10,34 +10,34 @@ namespace PsychologicalSupports.Dependencies.Repository
 {
     public class EmotioTestsRepository : IRepository<EmotioTest>
     {
-        private readonly IPsychologicalSupportsContext __context;
+        private readonly IPsychologicalSupportsContext _context;
         public EmotioTestsRepository(IPsychologicalSupportsContext context)
         {
-            __context = context;
+            _context = context;
         }
         public IEnumerable<EmotioTest> List()
         {
-            return __context.EmotioTests;
+            return _context.EmotioTests;
         }
         public EmotioTest Get(int? id)
         {
-            return __context.EmotioTests.Find(id);
+            return _context.EmotioTests.Find(id);
         }
         public void Create(EmotioTest emotioTest)
         {
-            __context.EmotioTests.Add(emotioTest);
-            __context.SaveChanges();
+            _context.EmotioTests.Add(emotioTest);
+            _context.SaveChanges();
         }
         public void Edit(EmotioTest emotioTest)
         {
-            __context.EmotioTests.AddOrUpdate(emotioTest);
-            __context.SaveChanges();
+            _context.EmotioTests.AddOrUpdate(emotioTest);
+            _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = __context.EmotioTests.Find(id);
-            __context.EmotioTests.Remove(student);
-            __context.SaveChanges();
+            var student = _context.EmotioTests.Find(id);
+            _context.EmotioTests.Remove(student);
+            _context.SaveChanges();
         }
     }
 }
