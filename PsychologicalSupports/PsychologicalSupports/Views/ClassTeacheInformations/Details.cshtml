@@ -1,0 +1,130 @@
+﻿@model PsychologicalSupports.Models.ClassTeacheInformation
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Self_harmingBehavior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Self_harmingBehavior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isolation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isolation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aggression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aggression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvoidPhysicalContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvoidPhysicalContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AfraidToGoHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AfraidToGoHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RunningAwayFromHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunningAwayFromHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WearBodyHidingClothes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WearBodyHidingClothes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefiantBehavior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefiantBehavior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowSelf_esteem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowSelf_esteem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PoorPeerRelations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoorPeerRelations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SharpWeightChange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SharpWeightChange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HystericalEmotionalImbalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HystericalEmotionalImbalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExceptionallyGoodSexKnowledge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExceptionallyGoodSexKnowledge)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Вернуться", "Index")
+</p>

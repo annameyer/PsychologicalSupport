@@ -1,0 +1,136 @@
+﻿@model PsychologicalSupports.Models.SchoolMotivation
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StudyInClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyInClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestFamilyStudiesLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestFamilyStudiesLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CognitiveInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CognitiveInterest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TesMotivationAchievementstLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TesMotivationAchievementstLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classmates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classmates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedagogues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedagogues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ByParents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ByParents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheSchool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromTheSideOfTheSchool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromTheSideOfTheFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromTheSideOfTheFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwarenessOfSocialNecessity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwarenessOfSocialNecessity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommunicationMotif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommunicationMotif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtracurricularSchoolMotivation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtracurricularSchoolMotivation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheMotiveOfSelf_Realization)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>

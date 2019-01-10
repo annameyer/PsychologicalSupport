@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.Intellectual_9_Class>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>9 класс</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile)
+        </td>
+
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}) |
+            @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID}) |
+            @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID})
+        </td>
+    </tr>
+}
+
+</table>

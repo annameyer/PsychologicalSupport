@@ -1,0 +1,42 @@
+﻿@model PsychologicalSupports.Models.ClassroomRelationship
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IGS_Sishora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IGS_Sishora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sociometry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sociometry)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Вернуться", "Index")
+</p>

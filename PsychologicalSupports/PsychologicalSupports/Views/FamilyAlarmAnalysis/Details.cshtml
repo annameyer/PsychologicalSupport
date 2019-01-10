@@ -1,0 +1,58 @@
+﻿@model PsychologicalSupports.Models.FamilyAlarmAnalysi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fault)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fault)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anxiety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anxiety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.General)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.General)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Вернуться", "Index")
+</p>

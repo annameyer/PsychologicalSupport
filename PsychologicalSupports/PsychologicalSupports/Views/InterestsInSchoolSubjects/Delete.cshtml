@@ -1,0 +1,104 @@
+﻿@model PsychologicalSupports.Models.InterestsInSchoolSubject
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Russian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Russian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Belorussian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Belorussian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Physics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Physics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Story)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialScientist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialScientist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Biology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Biology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chemistry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chemistry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComputerScience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComputerScience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.English)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.English)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>

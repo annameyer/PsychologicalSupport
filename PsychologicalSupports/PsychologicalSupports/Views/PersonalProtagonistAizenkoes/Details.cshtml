@@ -1,0 +1,42 @@
+﻿@model PsychologicalSupports.Models.PersonalProtagonistAizenko
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Вернуться", "Index")
+</p>

@@ -1,0 +1,194 @@
+﻿@model PsychologicalSupports.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdmissionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdmissionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeingTrained)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeingTrained)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomRelationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomRelationship.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassTeacheInformation.Self_harmingBehavior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassTeacheInformation.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotioTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotioTest.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyAlarmAnalysi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyAlarmAnalysi.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_6_Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_6_Class.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_7_Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_7_Class.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_8_Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_8_Class.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intellectual_9_Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intellectual_9_Class.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interests_Card_145)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interests_Card_145.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interests_Card_50)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interests_Card_50.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestsInSchoolSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestsInSchoolSubject.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mindset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mindset.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonaAnxietyScale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonaAnxietyScale.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalProtagonistAizenko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalProtagonistAizenko.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolMotivation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolMotivation.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Self_esteem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Self_esteem.StudentID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

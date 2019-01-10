@@ -1,0 +1,95 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.Interests_Card_50>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Карта интересов 50</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicsMathematics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChemistryBiology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RadioEngineeringElectronics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MechanicsDesign)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeographyGeology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiteratureArt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HistoryPolitics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedagogyMedicine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntrepreneurshiHomeEconomics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SportsMilitary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicsMathematics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChemistryBiology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RadioEngineeringElectronics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MechanicsDesign)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeographyGeology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiteratureArt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HistoryPolitics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedagogyMedicine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntrepreneurshiHomeEconomics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportsMilitary)
+        </td>
+
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}) |
+            @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID}) |
+            @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID})
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model PsychologicalSupports.Models.Intellectual_6_Class
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TestResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePoint)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Вернуться", "Index")
+</p>

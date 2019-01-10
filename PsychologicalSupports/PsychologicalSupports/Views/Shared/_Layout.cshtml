@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Учащиеся <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "Index", "Students")</li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Эмоциональная <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Семейная тревожность", "Index", "FamilyAlarmAnalysis")</li>
+                    <li>@Html.ActionLink("Шкала личностной тревоги", "Index", "PersonaAnxietyScales")</li>
+                    <li>@Html.ActionLink("Взаимоотношение в классе", "Index", "ClassroomRelationships")</li>
+                    <li>@Html.ActionLink("Информация классного руководителя", "Index", "ClassTeacheInformations")</li>
+                    <li>@Html.ActionLink("Самооценка", "Index", "Self_esteem")</li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Личностная <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Mindsets", "Index", "Mindsets")</li>
+                    <li>@Html.ActionLink("Персональный тест личности", "Index", "PersonalProtagonistAizenkoes")</li>
+                    <li>@Html.ActionLink("Школьная мотивация", "Index", "SchoolMotivations")</li>
+                    <li>@Html.ActionLink("Карта интересов 145", "Index", "Interests_Card_145")</li>
+                    <li>@Html.ActionLink("Карта интересов 50", "Index", "Interests_Card_50")</li>
+                    <li>@Html.ActionLink("Отношение к учебным предметам", "Index", "InterestsInSchoolSubjects")</li>
+                    <li>@Html.ActionLink("Тест эмоций", "Index", "EmotioTests")</li>
+                    <li>@Html.ActionLink("Средний балл", "Index", "AveragePoints")</li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Интеллектуальная <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("6 класс", "Index", "Intellectual_6_Class")</li>
+                    <li>@Html.ActionLink("7 класс", "Index", "Intellectual_7_Class")</li>
+                    <li>@Html.ActionLink("8 класс", "Index", "Intellectual_8_Class")</li>
+                    <li>@Html.ActionLink("9 класс", "Index", "Intellectual_9_Class")</li>
+                </ul>
+            </div>
+            <div class="btn-group navbar-right">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>

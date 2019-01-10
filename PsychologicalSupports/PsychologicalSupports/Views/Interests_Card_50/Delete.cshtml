@@ -1,0 +1,112 @@
+﻿@model PsychologicalSupports.Models.Interests_Card_50
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicsMathematics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicsMathematics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChemistryBiology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChemistryBiology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RadioEngineeringElectronics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RadioEngineeringElectronics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MechanicsDesign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MechanicsDesign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeographyGeology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeographyGeology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiteratureArt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiteratureArt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoryPolitics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HistoryPolitics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedagogyMedicine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedagogyMedicine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntrepreneurshiHomeEconomics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntrepreneurshiHomeEconomics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SportsMilitary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportsMilitary)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.ClassroomRelationship>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Взаимоотношение в классе</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGS_Sishora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sociometry)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IGS_Sishora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sociometry)
+        </td>
+
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}) |
+            @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID }) |
+            @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PsychologicalSupports.Models.AveragePoint>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Средний балл</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePoint_6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePoint_7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePoint_8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePoint_9)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AveragePoint_6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AveragePoint_7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AveragePoint_8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AveragePoint_9)
+        </td>
+
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}) |
+            @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID }) |
+            @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID })
+        </td>
+    </tr>
+}
+
+</table>

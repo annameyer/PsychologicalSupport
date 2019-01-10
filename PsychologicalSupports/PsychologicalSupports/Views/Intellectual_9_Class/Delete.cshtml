@@ -1,0 +1,41 @@
+﻿@model PsychologicalSupports.Models.Intellectual_9_Class
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>Удалить</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FIO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.FIO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile)
+        </dd>
+
+
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>
