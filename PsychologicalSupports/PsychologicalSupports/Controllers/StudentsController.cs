@@ -1,4 +1,5 @@
-﻿using PsychologicalSupports.Models;
+﻿using OfficeOpenXml;
+using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
 using System.Web.Mvc;
@@ -12,6 +13,23 @@ namespace PsychologicalSupports.Controllers
         public StudentsController(IRepository<Student> student)
         {
             _repository = student;
+        }
+        public FileContentResult Download()
+        {
+
+            string fileDownloadName = string.Format("Authors.xlsx");
+            const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+
+            // Pass your ef data to method
+            ExcelPackage package = ExcelFile.GenerateExcelFile(_repository.List());
+
+            FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
+            {
+                FileDownloadName = fileDownloadName
+            };
+
+            return fsr;
         }
 
         [Authorize]

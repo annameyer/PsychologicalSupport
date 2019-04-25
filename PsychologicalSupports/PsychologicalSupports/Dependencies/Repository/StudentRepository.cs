@@ -25,13 +25,12 @@ namespace PsychologicalSupports.Models.Dependencies
         }
         public void Edit(Student student)
         {
-            //_psychologicalSupportsContext.Entry(student).State = student.Modified;
-            _psychologicalSupportsContext.Students.Attach(student);
+            _psychologicalSupportsContext.Entry(student).State = student.Modified;
             _psychologicalSupportsContext.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = _psychologicalSupportsContext.Students.Find(id);
+            Student student = _psychologicalSupportsContext.Students.Find(id);
             _psychologicalSupportsContext.Students.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }
