@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Personal";
+}
+@Styles.Render("~/HomePage/css")
+
+<div>
+    <div class="m-t-50">
+        <div>
+            <button type="button" class="btn btn-list-menu btn-danger">
+                @Html.ActionLink("Mindsets", "Index", "Mindsets")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-warning">
+                @Html.ActionLink("Персональный тест личности", "Index", "PersonalProtagonistAizenkoes")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-success">
+                @Html.ActionLink("Школьная мотивация", "Index", "SchoolMotivations")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-primary">
+                @Html.ActionLink("Карта интересов 145", "Index", "Interests_Card_145")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-info">
+                @Html.ActionLink("Карта интересов 50", "Index", "Interests_Card_50")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-danger">
+                @Html.ActionLink("Отношение к учебным предметам", "Index", "InterestsInSchoolSubjects")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-warning">
+                @Html.ActionLink("Тест эмоций", "Index", "EmotioTests")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-success">
+                @Html.ActionLink("Средний балл", "Index", "AveragePoints")
+            </button>
+        </div>
+    </div>
+</div>
+

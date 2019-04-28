@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PsychologicalSupports
 {
@@ -25,6 +24,8 @@ namespace PsychologicalSupports
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/HomePage/css").Include(
+                "~/Content/HomePage.css"));
         }
     }
 }

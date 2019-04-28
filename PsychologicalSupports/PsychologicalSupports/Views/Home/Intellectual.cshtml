@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Intellectual";
+}
+@Styles.Render("~/HomePage/css")
+
+<div>
+    <div class="m-t-50">
+        <div>
+            <button type="button" class="btn btn-list-menu btn-danger">
+                @Html.ActionLink("6 класс", "Index", "Intellectual_6_Class")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-success">
+                @Html.ActionLink("7 класс", "Index", "Intellectual_7_Class")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-primary">
+                @Html.ActionLink("8 класс", "Index", "Intellectual_8_Class")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-info">
+                @Html.ActionLink("9 класс", "Index", "Intellectual_9_Class")
+            </button>
+        </div>
+    </div>
+</div>
+

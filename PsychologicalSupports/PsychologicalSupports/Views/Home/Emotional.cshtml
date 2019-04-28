@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Emotional";
+}
+@Styles.Render("~/HomePage/css")
+
+<div>
+    <div class="m-t-50">
+        <div>
+            <button type="button" class="btn btn-list-menu btn-danger">
+                @Html.ActionLink("Семейная тревожность", "Index", "FamilyAlarmAnalysis")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-warning">
+                @Html.ActionLink("Шкала личностной тревоги", "Index", "PersonaAnxietyScales")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-success">
+                @Html.ActionLink("Взаимоотношение в классе", "Index", "ClassroomRelationships")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-primary">
+                @Html.ActionLink("Информация классного руководителя", "Index", "ClassTeacheInformations")
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-list-menu btn-info">
+                @Html.ActionLink("Самооценка", "Index", "Self_esteem")
+            </button>
+        </div>
+    </div>
+</div>
+

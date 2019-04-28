@@ -267,6 +267,7 @@
     <Compile Include="Controllers\ClassTeacheInformationsController.cs" />
     <Compile Include="Controllers\EmotioTestsController.cs" />
     <Compile Include="Controllers\FamilyAlarmAnalysisController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Intellectual_6_ClassController.cs" />
     <Compile Include="Controllers\Intellectual_7_ClassController.cs" />
     <Compile Include="Controllers\Intellectual_8_ClassController.cs" />
@@ -408,6 +409,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HomePage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -549,6 +551,10 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Emotional.cshtml" />
+    <Content Include="Views\Home\Intellectual.cshtml" />
+    <Content Include="Views\Home\Personal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
