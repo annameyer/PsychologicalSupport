@@ -7,8 +7,17 @@
 <h2>Семейная тревожность</h2>
 
 <p>
-    @Html.ActionLink("Создать", "Create")
+    @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-success" })
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Поиск: @Html.TextBox("search")
+        <input class="btn btn-info" type="submit" value="Поиск" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -30,30 +39,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fault)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Anxiety)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.General)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fault)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anxiety)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.General)
+            </td>
 
-        <td>
-            @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }) |
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }) |
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID })
+            </td>
+        </tr>
+    }
 
 </table>

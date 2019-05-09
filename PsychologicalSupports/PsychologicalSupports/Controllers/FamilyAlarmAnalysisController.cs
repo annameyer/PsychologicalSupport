@@ -1,7 +1,8 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using OfficeOpenXml;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
@@ -22,6 +23,23 @@ namespace PsychologicalSupports.Controllers
             return View(_repository.List());
         }
 
+        public FileContentResult Download()
+        {
+
+            string fileDownloadName = string.Format("Семейная тревожность.xlsx");
+            const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+
+            ExcelPackage package = ExcelFile.GenerateExcelFile(_repository.List());
+
+            FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
+            {
+                FileDownloadName = fileDownloadName
+            };
+
+            return fsr;
+        }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -29,7 +47,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var familyAlarmAnalysi = _repository.Get(id);
+            FamilyAlarmAnalysi familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -63,7 +81,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var familyAlarmAnalysi = _repository.Get(id);
+            FamilyAlarmAnalysi familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();
@@ -91,7 +109,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var familyAlarmAnalysi = _repository.Get(id);
+            FamilyAlarmAnalysi familyAlarmAnalysi = _repository.Get(id);
             if (familyAlarmAnalysi == null)
             {
                 return HttpNotFound();

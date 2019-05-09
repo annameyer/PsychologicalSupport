@@ -4,33 +4,21 @@
 }
 @Styles.Render("~/HomePage/css")
 
-<div>
-    <div class="m-t-50">
-        <div>
-            <button type="button" class="btn btn-list-menu btn-danger">
-                @Html.ActionLink("Семейная тревожность", "Index", "FamilyAlarmAnalysis")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-warning">
-                @Html.ActionLink("Шкала личностной тревоги", "Index", "PersonaAnxietyScales")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-success">
-                @Html.ActionLink("Взаимоотношение в классе", "Index", "ClassroomRelationships")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-primary">
-                @Html.ActionLink("Информация классного руководителя", "Index", "ClassTeacheInformations")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-info">
-                @Html.ActionLink("Самооценка", "Index", "Self_esteem")
-            </button>
-        </div>
-    </div>
+<div class="m-t-50">
+    <a class="float-left btn btn-list-menu btn-danger" href="~/FamilyAlarmAnalysis/">
+        Семейная тревожность
+    </a>
+    <a class="float-left btn btn-list-menu btn-warning" href="~/PersonaAnxietyScales/">
+        Шкала личностной тревоги
+    </a>
+    <a class="float-left btn btn-list-menu btn-success" href="~/ClassroomRelationships/">
+        Взаимоотношение в классе
+    </a>
+    <a class="float-left btn btn-list-menu btn-primary" href="~/ClassTeacheInformations/">
+        Информация классного руководителя
+    </a>
+    <a class="float-left btn btn-list-menu btn-info" href="~/Self_esteem/">
+        Самооценка
+    </a>
 </div>
 

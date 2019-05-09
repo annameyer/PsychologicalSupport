@@ -17,7 +17,7 @@ namespace PsychologicalSupports.Models
                 int i = ds.ToList().IndexOf(elem) + 2;
                 foreach (System.Reflection.PropertyInfo prop in typeProps)
                 {
-                    if (prop.ToString().Contains("System.Collections.Generic") || prop.ToString().Contains("WebApplication1.Models"))
+                    if (prop.ToString().Contains("System.Collections.Generic") || prop.ToString().Contains("PsychologicalSupports.Models"))
                     {
                         continue;
                     }

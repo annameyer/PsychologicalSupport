@@ -1,6 +1,7 @@
 ﻿using OfficeOpenXml;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -17,11 +18,10 @@ namespace PsychologicalSupports.Controllers
         public FileContentResult Download()
         {
 
-            string fileDownloadName = string.Format("Authors.xlsx");
+            string fileDownloadName = string.Format("Студенты.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 
-            // Pass your ef data to method
             ExcelPackage package = ExcelFile.GenerateExcelFile(_repository.List());
 
             FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
@@ -33,9 +33,14 @@ namespace PsychologicalSupports.Controllers
         }
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View(_repository.List());
+            var recipes = _repository.List();
+            if (search != null)
+            {
+                recipes = recipes.Where(x => x.FIO.Contains(search));
+            }
+            return View(recipes);
         }
 
         public ActionResult Details(int? id)

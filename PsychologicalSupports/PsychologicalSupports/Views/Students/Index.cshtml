@@ -3,12 +3,19 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Студент</h2>
+<h2>Учащиеся</h2>
 <p>
-    <button>@Html.ActionLink("Сформировать отчет", "Download")</button>
-    @Html.ActionLink("Создать", "Create")
+    @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-success" })
 </p>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Поиск: @Html.TextBox("search")
+        <input class="btn btn-info" type="submit" value="Поиск" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -19,9 +26,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AdmissionDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeingTrained)
         </th>
         <th></th>
     </tr>
@@ -39,12 +43,9 @@
                 @Html.DisplayFor(modelItem => item.AdmissionDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BeingTrained)
-            </td>
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }) |
-                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }) |
-                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID })
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new{@class = "btn btn-info" }) 
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new {@class= "btn btn-primary" }) 
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new {@class = "btn btn-danger"})
             </td>
         </tr>
     }

@@ -22,11 +22,12 @@ namespace PsychologicalSupports.Models
         public long StudentID { get; set; }
         [Display(Name = "ФИО")]
         public string FIO { get; set; }
-        [Display(Name = "Класс")]
+        [Display(Name = "Номер класса")]
         public Nullable<int> NumberClass { get; set; }
+        [Display(Name = "Класс")]
         public string Class { get; set; }
         [Display(Name = "Дата поступления")]
-        [DisplayFormat(DataFormatString = "{0:dd.mm.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> AdmissionDate { get; set; }
         [Display(Name = "Обучается")]
         public Nullable<bool> BeingTrained { get; set; }

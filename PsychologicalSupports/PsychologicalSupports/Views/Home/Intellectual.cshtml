@@ -4,28 +4,17 @@
 }
 @Styles.Render("~/HomePage/css")
 
-<div>
-    <div class="m-t-50">
-        <div>
-            <button type="button" class="btn btn-list-menu btn-danger">
-                @Html.ActionLink("6 класс", "Index", "Intellectual_6_Class")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-success">
-                @Html.ActionLink("7 класс", "Index", "Intellectual_7_Class")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-primary">
-                @Html.ActionLink("8 класс", "Index", "Intellectual_8_Class")
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-list-menu btn-info">
-                @Html.ActionLink("9 класс", "Index", "Intellectual_9_Class")
-            </button>
-        </div>
-    </div>
+<div class="m-t-50">
+    <a class="float-left btn btn-list-menu btn-info" href="~/Intellectual_6_Class/">
+        6 класс
+    </a>
+    <a class="float-left btn btn-list-menu btn-danger" href="~/Intellectual_7_Class/">
+        7 класс
+    </a>
+    <a class="float-left btn btn-list-menu btn-warning" href="~/Intellectual_8_Class/">
+        8 класс
+    </a>
+    <a class="float-left btn btn-list-menu btn-primary" href="~/Intellectual_9_Class/">
+        9 класс
+    </a>
 </div>
-
