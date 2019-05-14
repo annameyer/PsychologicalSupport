@@ -15,7 +15,7 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Ó÷àùèåñÿ")]
+    [Table("Учащиеся")]
     public class Student
     {
         [Key]

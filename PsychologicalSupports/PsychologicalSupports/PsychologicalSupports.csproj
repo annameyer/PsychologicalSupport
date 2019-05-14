@@ -298,6 +298,8 @@
     <Compile Include="Dependencies\Repository\PersonalProtagonistAizenkoesRepository.cs" />
     <Compile Include="Dependencies\Repository\SchoolMotivationsRepository.cs" />
     <Compile Include="Dependencies\Repository\Self_esteemRepository.cs" />
+    <Compile Include="Enum\NumberClass.cs" />
+    <Compile Include="Enum\Class.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -555,6 +557,8 @@
     <Content Include="Views\Home\Emotional.cshtml" />
     <Content Include="Views\Home\Intellectual.cshtml" />
     <Content Include="Views\Home\Personal.cshtml" />
+    <Content Include="Views\Students\_StudentTable.cshtml" />
+    <Content Include="Views\Students\Archive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

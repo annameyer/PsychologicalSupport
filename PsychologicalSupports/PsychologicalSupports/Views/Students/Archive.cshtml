@@ -1,6 +1,8 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿
+@{
+    ViewBag.Title = "Archive";
 }
+
 <h2>Учащиеся</h2>
 <p>
     @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
@@ -18,13 +20,14 @@
 {
     @Html.DropDownList("Class", new SelectList(Enum.GetValues(typeof(PsychologicalSupports.Enum.Class))), new { @class = "dropdown-list-size" })
 
-    @Html.DropDownList("NumberClass", new SelectList((PsychologicalSupports.Enum.NumberClass.GetNumberClass()), new { @class = "dropdown-list-size" }))
+    @Html.DropDownList("Class", new SelectList(Enum.GetValues(typeof(PsychologicalSupports.Enum.Class))), new { @class = "dropdown-list-size" })
 }
 <div>
     <ul class="nav nav-tabs">
-        <li class="active">@Html.ActionLink("Обучается", "Index")</li>
-        <li>@Html.ActionLink("Не обучается", "Archive")</li>
+        <li>@Html.ActionLink("Обучается", "Index")</li>
+        <li class="active">@Html.ActionLink("Не обучается", "Archive")</li>
     </ul>
 
     @Html.Partial("~/Views/Students/_StudentTable.cshtml");
 </div>
+

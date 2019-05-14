@@ -15,6 +15,9 @@ namespace PsychologicalSupports.Controllers
         {
             _repository = student;
         }
+
+
+
         public FileContentResult Download()
         {
 
@@ -35,7 +38,18 @@ namespace PsychologicalSupports.Controllers
         [Authorize]
         public ActionResult Index(string search)
         {
-            var recipes = _repository.List();
+            System.Collections.Generic.IEnumerable<Student> recipes = _repository.List().Where(x => x.BeingTrained == true);
+            if (search != null)
+            {
+                recipes = recipes.Where(x => x.FIO.Contains(search));
+            }
+            return View(recipes);
+        }
+
+        [Authorize]
+        public ActionResult Archive(string search)
+        {
+            System.Collections.Generic.IEnumerable<Student> recipes = _repository.List().Where(x => x.BeingTrained == false);
             if (search != null)
             {
                 recipes = recipes.Where(x => x.FIO.Contains(search));
