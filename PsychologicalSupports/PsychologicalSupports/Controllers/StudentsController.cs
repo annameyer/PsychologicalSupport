@@ -43,17 +43,29 @@ namespace PsychologicalSupports.Controllers
             {
                 recipes = recipes.Where(x => x.FIO.Contains(search));
             }
+
             return View(recipes);
         }
 
         [Authorize]
-        public ActionResult Archive(string search)
+        public ActionResult Archive(string search, string Class, int? NumberClass)
         {
             System.Collections.Generic.IEnumerable<Student> recipes = _repository.List().Where(x => x.BeingTrained == false);
             if (search != null)
             {
                 recipes = recipes.Where(x => x.FIO.Contains(search));
             }
+
+            if (Class != null)
+            {
+                recipes = recipes.Where(x => x.Class.Contains(Class));
+            }
+
+            if (NumberClass != null)
+            {
+                recipes = recipes.Where(x => x.NumberClass.Equals(NumberClass));
+            }
+
             return View(recipes);
         }
 

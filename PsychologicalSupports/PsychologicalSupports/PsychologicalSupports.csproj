@@ -298,8 +298,8 @@
     <Compile Include="Dependencies\Repository\PersonalProtagonistAizenkoesRepository.cs" />
     <Compile Include="Dependencies\Repository\SchoolMotivationsRepository.cs" />
     <Compile Include="Dependencies\Repository\Self_esteemRepository.cs" />
-    <Compile Include="Enum\NumberClass.cs" />
     <Compile Include="Enum\Class.cs" />
+    <Compile Include="Enum\Enums.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
