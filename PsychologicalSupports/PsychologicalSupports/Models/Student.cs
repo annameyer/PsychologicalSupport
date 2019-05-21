@@ -31,23 +31,39 @@ namespace PsychologicalSupports.Models
         public Nullable<System.DateTime> AdmissionDate { get; set; }
         [Display(Name = "Обучается")]
         public Nullable<bool> BeingTrained { get; set; }
-
+        [Display(Name = "Средний балл")]
         public virtual AveragePoint AveragePoint { get; set; }
+        [Display(Name = "Взаимоотношения в классе")]
         public virtual ClassroomRelationship ClassroomRelationship { get; set; }
+        [Display(Name = "Информация классного руководителя")]
         public virtual ClassTeacheInformation ClassTeacheInformation { get; set; }
+        [Display(Name = "Тест эмоций")]
         public virtual EmotioTest EmotioTest { get; set; }
+        [Display(Name = "Анализ семейной тревоги")]
         public virtual FamilyAlarmAnalysi FamilyAlarmAnalysi { get; set; }
+        [Display(Name = "6 класс")]
         public virtual Intellectual_6_Class Intellectual_6_Class { get; set; }
+        [Display(Name = "7 класс")]
         public virtual Intellectual_7_Class Intellectual_7_Class { get; set; }
+        [Display(Name = "8 класс")]
         public virtual Intellectual_8_Class Intellectual_8_Class { get; set; }
+        [Display(Name = "9 класс")]
         public virtual Intellectual_9_Class Intellectual_9_Class { get; set; }
+        [Display(Name = "Карта интересов  145")]
         public virtual Interests_Card_145 Interests_Card_145 { get; set; }
+        [Display(Name = "Карта интересов 50")]
         public virtual Interests_Card_50 Interests_Card_50 { get; set; }
+        [Display(Name = "Интересующие школьные предметы")]
         public virtual InterestsInSchoolSubject InterestsInSchoolSubject { get; set; }
+        [Display(Name = "Mindset")]
         public virtual Mindset Mindset { get; set; }
+        [Display(Name = "Шкала личностной тревоги")]
         public virtual PersonaAnxietyScale PersonaAnxietyScale { get; set; }
+        [Display(Name = "Личностный тест Айзенко")]
         public virtual PersonalProtagonistAizenko PersonalProtagonistAizenko { get; set; }
+        [Display(Name = "Школьная мотивация")]
         public virtual SchoolMotivation SchoolMotivation { get; set; }
+        [Display(Name = "Самооценка")]
         public virtual Self_esteem Self_esteem { get; set; }
         public EntityState Modified { get; internal set; }
     }

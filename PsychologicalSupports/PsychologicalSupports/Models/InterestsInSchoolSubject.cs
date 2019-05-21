@@ -12,7 +12,7 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Средний балл")]
+    [Table("Интересующие школьные предметы")]
     public partial class InterestsInSchoolSubject
     {
         [key]

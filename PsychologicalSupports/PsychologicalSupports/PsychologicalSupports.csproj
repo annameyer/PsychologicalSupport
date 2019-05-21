@@ -355,24 +355,6 @@
     <Compile Include="Models\Mindset.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelUI\AveragePointUI.cs" />
-    <Compile Include="Models\ModelUI\ClassroomRelationshipUI.cs" />
-    <Compile Include="Models\ModelUI\ClassTeacheInformationUI.cs" />
-    <Compile Include="Models\ModelUI\EmotioTestUI.cs" />
-    <Compile Include="Models\ModelUI\FamilyAlarmAnalysiUI.cs" />
-    <Compile Include="Models\ModelUI\Intellectual_6_ClassUI.cs" />
-    <Compile Include="Models\ModelUI\Intellectual_7_ClassUI.cs" />
-    <Compile Include="Models\ModelUI\Intellectual_8_ClassUI.cs" />
-    <Compile Include="Models\ModelUI\Intellectual_9_ClassUI.cs" />
-    <Compile Include="Models\ModelUI\InterestsInSchoolSubjectUI.cs" />
-    <Compile Include="Models\ModelUI\Interests_Card_145UI.cs" />
-    <Compile Include="Models\ModelUI\Interests_Card_50UI.cs" />
-    <Compile Include="Models\ModelUI\MindsetUI.cs" />
-    <Compile Include="Models\ModelUI\PersonaAnxietyScaleUI.cs" />
-    <Compile Include="Models\ModelUI\PersonalProtagonistAizenkoUI.cs" />
-    <Compile Include="Models\ModelUI\SchoolMotivationUI.cs" />
-    <Compile Include="Models\ModelUI\Self_esteemUI.cs" />
-    <Compile Include="Models\ModelUI\StudentUI.cs" />
     <Compile Include="Models\PersonaAnxietyScale.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -403,6 +385,7 @@
     <Compile Include="Models\Student.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StudentDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\NinjectRegistrations.cs" />
   </ItemGroup>
@@ -557,8 +540,9 @@
     <Content Include="Views\Home\Emotional.cshtml" />
     <Content Include="Views\Home\Intellectual.cshtml" />
     <Content Include="Views\Home\Personal.cshtml" />
-    <Content Include="Views\Students\_StudentTable.cshtml" />
+    <Content Include="Views\Partials\_StudentTable.cshtml" />
     <Content Include="Views\Students\Archive.cshtml" />
+    <Content Include="Views\Partials\_tableButtons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

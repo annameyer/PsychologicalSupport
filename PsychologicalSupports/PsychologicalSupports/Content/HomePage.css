@@ -9,9 +9,10 @@
     width: 100%;
     height: 70px;
     margin: 5px;
-    line-height: 55px;
+    line-height: 55px;    
 }
- .float-left {
+
+ .text-style {
      float: left;
  }
 
@@ -22,4 +23,20 @@
 .dropdown-list-size {
     width: 280px;
     height: 30px;    
+}
+
+.list {
+    width: 100px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.div-list{
+    padding: 5px 0;
+}
+
+.text-style{
+    text-transform: uppercase;
+    font-size: 20px;
+    float: left;
 }

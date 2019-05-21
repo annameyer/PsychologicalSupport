@@ -39,7 +39,7 @@
                         <li>@Html.ActionLink("Отношение к учебным предметам", "Index", "InterestsInSchoolSubjects")</li>
                         <li>@Html.ActionLink("Тест эмоций", "Index", "EmotioTests")</li>
                         <li>@Html.ActionLink("Средний балл", "Index", "AveragePoints")</li>
-</ul>
+                    </ul>
                 </li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown">
@@ -52,6 +52,7 @@
                         <li>@Html.ActionLink("9 класс", "Index", "Intellectual_9_Class", null, new { @class = "dropdown-item" })</li>
                     </ul>
                 </li>
+                <li> @Html.ActionLink("Архив", "Archive", "Students")</li>
             </ul>
             <div class="btn-group navbar-right">
                 @Html.Partial("_LoginPartial")
