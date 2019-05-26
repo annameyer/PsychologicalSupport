@@ -24,43 +24,39 @@
         <div class="form-group">
             @Html.LabelFor(model => model.School, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.School, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.School, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.School, new SelectList(PsychologicalSupports.Enums.GetIQ()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Interpersonal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Interpersonal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Interpersonal, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Interpersonal, new SelectList(PsychologicalSupports.Enums.GetIQ()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Self_assessment, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Self_assessment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Self_assessment, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Self_assessment, new SelectList(PsychologicalSupports.Enums.GetIQ()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.General, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.General, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.General, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.General, new SelectList(PsychologicalSupports.Enums.GetIQ()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Создать" class="btn btn-default" />
+                 <input type="submit" value="Сохранить" class="btn btn-info" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index")
+    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </div>

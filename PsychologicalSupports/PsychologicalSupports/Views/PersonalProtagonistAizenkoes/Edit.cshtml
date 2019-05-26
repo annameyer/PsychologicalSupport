@@ -18,8 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Temperament, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Temperament, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Temperament, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Temperament, new SelectList(PsychologicalSupports.Enums.GetPersonalPersonalityTest()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
@@ -40,5 +39,5 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index")
+    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </div>

@@ -24,115 +24,102 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StudyInClass, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StudyInClass, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StudyInClass, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.StudyInClass, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.TestFamilyStudiesLevel, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TestFamilyStudiesLevel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TestFamilyStudiesLevel, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.TestFamilyStudiesLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CognitiveInterest, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CognitiveInterest, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CognitiveInterest, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CognitiveInterest, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.TesMotivationAchievementstLevel, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TesMotivationAchievementstLevel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TesMotivationAchievementstLevel, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.TesMotivationAchievementstLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Classmates, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Classmates, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Classmates, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Classmates, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Pedagogues, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Pedagogues, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Pedagogues, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Pedagogues, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ByParents, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ByParents, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ByParents, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.ByParents, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FromTheSideOfTheSchool, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FromTheSideOfTheSchool, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FromTheSideOfTheSchool, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.FromTheSideOfTheSchool, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FromTheSideOfTheFamily, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FromTheSideOfTheFamily, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FromTheSideOfTheFamily, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.FromTheSideOfTheFamily, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.AwarenessOfSocialNecessity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AwarenessOfSocialNecessity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AwarenessOfSocialNecessity, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.AwarenessOfSocialNecessity, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CommunicationMotif, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CommunicationMotif, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CommunicationMotif, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CommunicationMotif, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ExtracurricularSchoolMotivation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ExtracurricularSchoolMotivation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ExtracurricularSchoolMotivation, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.ExtracurricularSchoolMotivation, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.TheMotiveOfSelf_Realization, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TheMotiveOfSelf_Realization, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TheMotiveOfSelf_Realization, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.TheMotiveOfSelf_Realization, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Создать" class="btn btn-default" />
+                 <input type="submit" value="Сохранить" class="btn btn-info" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index")
+    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </div>

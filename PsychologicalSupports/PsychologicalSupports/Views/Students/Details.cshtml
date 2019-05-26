@@ -56,6 +56,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.AveragePoint)
+            @if (Model.AveragePoint != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "AveragePoints", new { id = Model.StudentID }, new {@class = "btn"})
+            }
         </dd>
 
         <dt>
@@ -64,6 +68,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.ClassroomRelationship)
+            @if (Model.ClassroomRelationship != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -72,6 +80,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.ClassTeacheInformation)
+            @if (Model.ClassTeacheInformation != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -80,6 +92,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.EmotioTest)
+            @if (Model.EmotioTest != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -88,6 +104,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.FamilyAlarmAnalysi)
+            @if (Model.FamilyAlarmAnalysi != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -96,6 +116,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Intellectual_6_Class)
+            @if (Model.Intellectual_6_Class != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -104,6 +128,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Intellectual_7_Class)
+            @if (Model.Intellectual_7_Class != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -112,6 +140,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Intellectual_8_Class)
+            @if (Model.Intellectual_8_Class != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -120,6 +152,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Intellectual_9_Class)
+            @if (Model.Intellectual_9_Class != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -128,6 +164,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Interests_Card_145)
+            @if (Model.Interests_Card_145 != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -136,6 +176,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Interests_Card_50)
+            @if (Model.Interests_Card_50 != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -144,6 +188,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.InterestsInSchoolSubject)
+            @if (Model.InterestsInSchoolSubject != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -152,6 +200,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.Mindset)
+            @if (Model.Mindset != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Mindsets", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -160,6 +212,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.PersonaAnxietyScale)
+            @if (Model.PersonaAnxietyScale != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -168,6 +224,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.PersonalProtagonistAizenko)
+            @if (Model.PersonalProtagonistAizenko != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -176,6 +236,10 @@
 
         <dd>
             @Html.DisplayFor(model => model.SchoolMotivation)
+            @if (Model.SchoolMotivation != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
         <dt>
@@ -184,11 +248,15 @@
 
         <dd>
             @Html.DisplayFor(model => model.Self_esteem)
+            @if (Model.Self_esteem != String.Empty)
+            {
+                @Html.ActionLink("Подробнее", "Details", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn" })
+            }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }, new { @class = "btn btn-success" }) 
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }, new { @class = "btn btn-success" })
     @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </p>

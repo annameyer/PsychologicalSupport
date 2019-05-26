@@ -24,8 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IQ, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IQ, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IQ, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.IQ, new SelectList(PsychologicalSupports.Enums.GetIQ()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
@@ -55,12 +54,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Создать" class="btn btn-default" />
+                 <input type="submit" value="Сохранить" class="btn btn-info" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index")
+    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </div>

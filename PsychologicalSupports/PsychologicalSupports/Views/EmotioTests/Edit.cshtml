@@ -18,64 +18,56 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhysicalAggression, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhysicalAggression, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhysicalAggression, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.PhysicalAggression, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IndirectAggression, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IndirectAggression, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IndirectAggression, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.IndirectAggression, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Irritability, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Irritability, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Irritability, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Irritability, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Negativism, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Negativism, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Negativism, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Negativism, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Touchiness, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Touchiness, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Touchiness, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Touchiness, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Suspicion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Suspicion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Suspicion, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Suspicion, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.VerbalAggression, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.VerbalAggression, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.VerbalAggression, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.VerbalAggression, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Guilt, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Guilt, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Guilt, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Guilt, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
@@ -88,5 +80,5 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index")
+    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
 </div>

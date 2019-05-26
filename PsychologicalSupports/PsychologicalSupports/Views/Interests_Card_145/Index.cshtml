@@ -7,7 +7,7 @@
 <h2>Карта интересов 145</h2>
 
 <p>
-    @Html.ActionLink("Создать", "Create")
+    @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -193,9 +193,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}) |
-            @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID}) |
-            @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID})
+             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
