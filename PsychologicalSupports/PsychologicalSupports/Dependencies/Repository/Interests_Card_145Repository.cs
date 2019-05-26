@@ -16,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         {
             return _psychologicalSupportsContext.Interests_Card_145;
         }
-        public Interests_Card_145 Get(int? id)
+        public Interests_Card_145 Get(long? id)
         {
             return _psychologicalSupportsContext.Interests_Card_145.Find(id);
         }
@@ -30,7 +30,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.Interests_Card_145.AddOrUpdate(Interests_Card_145);
             _psychologicalSupportsContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.Interests_Card_145.Find(id);
             _psychologicalSupportsContext.Interests_Card_145.Remove(student);

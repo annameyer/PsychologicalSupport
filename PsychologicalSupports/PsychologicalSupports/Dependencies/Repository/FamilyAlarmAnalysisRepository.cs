@@ -16,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         {
             return _psychologicalSupportsContext.FamilyAlarmAnalysis;
         }
-        public FamilyAlarmAnalysi Get(int? id)
+        public FamilyAlarmAnalysi Get(long? id)
         {
             return _psychologicalSupportsContext.FamilyAlarmAnalysis.Find(id);
         }
@@ -30,9 +30,9 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.FamilyAlarmAnalysis.AddOrUpdate(FamilyAlarmAnalysi);
             _psychologicalSupportsContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(long id)
         {
-            var student = _psychologicalSupportsContext.FamilyAlarmAnalysis.Find(id);
+            FamilyAlarmAnalysi student = _psychologicalSupportsContext.FamilyAlarmAnalysis.Find(id);
             _psychologicalSupportsContext.FamilyAlarmAnalysis.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }

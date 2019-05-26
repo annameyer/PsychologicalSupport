@@ -112,7 +112,6 @@ namespace PsychologicalSupports.Controllers
                 Interests_Card_145 = student.Interests_Card_145 != null ? "1" : string.Empty,
                 Interests_Card_50 = student.Interests_Card_50 != null ? "1" : string.Empty,
                 InterestsInSchoolSubject = student.InterestsInSchoolSubject != null ? "1" : string.Empty,
-                Mindset = student.Mindset != null ? "1" : string.Empty,
                 PersonaAnxietyScale = student.PersonaAnxietyScale != null ? "1" : string.Empty,
                 PersonalProtagonistAizenko = student.PersonalProtagonistAizenko != null ? "1" : string.Empty,
                 SchoolMotivation = student.SchoolMotivation != null ? "1" : string.Empty,

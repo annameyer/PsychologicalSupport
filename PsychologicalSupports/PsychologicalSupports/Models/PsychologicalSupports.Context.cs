@@ -7,26 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using PsychologicalSupports.Models.Dependencies;
-
 namespace PsychologicalSupports.Models
 {
-    using System;
+    using PsychologicalSupports.Models.Dependencies;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class PsychologicalSupportsEntities : DbContext, IPsychologicalSupportsContext
     {
         public PsychologicalSupportsEntities()
             : base("name=PsychologicalSupportsEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
@@ -40,7 +38,6 @@ namespace PsychologicalSupports.Models
         public virtual DbSet<Interests_Card_145> Interests_Card_145 { get; set; }
         public virtual DbSet<Interests_Card_50> Interests_Card_50 { get; set; }
         public virtual DbSet<InterestsInSchoolSubject> InterestsInSchoolSubjects { get; set; }
-        public virtual DbSet<Mindset> Mindsets { get; set; }
         public virtual DbSet<PersonaAnxietyScale> PersonaAnxietyScales { get; set; }
         public virtual DbSet<PersonalProtagonistAizenko> PersonalProtagonistAizenkoes { get; set; }
         public virtual DbSet<SchoolMotivation> SchoolMotivations { get; set; }

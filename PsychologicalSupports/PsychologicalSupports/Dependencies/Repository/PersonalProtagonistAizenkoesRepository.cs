@@ -19,7 +19,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             return _psychologicalSupportsContext.PersonalProtagonistAizenkoes;
         }
 
-        public PersonalProtagonistAizenko Get(int? id)
+        public PersonalProtagonistAizenko Get(long? id)
         {
             return _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
         }
@@ -36,7 +36,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
             _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Remove(student);

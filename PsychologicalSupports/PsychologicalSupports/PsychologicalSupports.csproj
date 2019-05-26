@@ -277,7 +277,6 @@
     <Compile Include="Controllers\Interests_Card_50Controller.cs" />
     <Compile Include="Dependencies\Repository\InterestsInSchoolSubjectsRepository.cs" />
     <Compile Include="Dependencies\Repository\Interests_Card_50Repository.cs" />
-    <Compile Include="Controllers\MindsetsController.cs" />
     <Compile Include="Controllers\PersonaAnxietyScalesController.cs" />
     <Compile Include="Controllers\PersonalProtagonistAizenkoesController.cs" />
     <Compile Include="Controllers\SchoolMotivationsController.cs" />
@@ -293,7 +292,6 @@
     <Compile Include="Dependencies\Repository\Intellectual_8_ClassRepository.cs" />
     <Compile Include="Dependencies\Repository\Intellectual_9_ClassRepository.cs" />
     <Compile Include="Dependencies\Repository\Interests_Card_145Repository.cs" />
-    <Compile Include="Dependencies\Repository\MindsetsRepository.cs" />
     <Compile Include="Dependencies\Repository\PersonaAnxietyScalesRepository.cs" />
     <Compile Include="Dependencies\Repository\PersonalProtagonistAizenkoesRepository.cs" />
     <Compile Include="Dependencies\Repository\SchoolMotivationsRepository.cs" />
@@ -310,6 +308,18 @@
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AveragePoint.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -323,6 +333,9 @@
     <Compile Include="Dependencies\Interface\IRepository.cs" />
     <Compile Include="Authentication\LoginRepository.cs" />
     <Compile Include="Dependencies\Repository\StudentRepository.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EmotioTest.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -352,9 +365,6 @@
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\keyAttribute.cs" />
-    <Compile Include="Models\Mindset.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PersonaAnxietyScale.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -502,11 +512,6 @@
     <Content Include="Views\InterestsInSchoolSubjects\Details.cshtml" />
     <Content Include="Views\InterestsInSchoolSubjects\Edit.cshtml" />
     <Content Include="Views\InterestsInSchoolSubjects\Index.cshtml" />
-    <Content Include="Views\Mindsets\Create.cshtml" />
-    <Content Include="Views\Mindsets\Delete.cshtml" />
-    <Content Include="Views\Mindsets\Details.cshtml" />
-    <Content Include="Views\Mindsets\Edit.cshtml" />
-    <Content Include="Views\Mindsets\Index.cshtml" />
     <Content Include="Views\PersonaAnxietyScales\Create.cshtml" />
     <Content Include="Views\PersonaAnxietyScales\Delete.cshtml" />
     <Content Include="Views\PersonaAnxietyScales\Details.cshtml" />

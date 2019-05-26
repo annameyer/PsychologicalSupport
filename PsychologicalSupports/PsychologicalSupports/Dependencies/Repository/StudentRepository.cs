@@ -17,7 +17,7 @@ namespace PsychologicalSupports.Models.Dependencies
             return _psychologicalSupportsContext.Students;
         }
 
-        public Student Get(int? id)
+        public Student Get(long? id)
         {
             return _psychologicalSupportsContext.Students.Find(id);
         }
@@ -30,7 +30,7 @@ namespace PsychologicalSupports.Models.Dependencies
 
         public void Edit(Student student)
         {
-            Student newStudent = Get((int)student.StudentID);
+            Student newStudent = Get((long)student.StudentID);
 
             if (newStudent != null)
             {
@@ -46,7 +46,7 @@ namespace PsychologicalSupports.Models.Dependencies
             }
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             Student student = _psychologicalSupportsContext.Students.Find(id);
             _psychologicalSupportsContext.Students.Remove(student);

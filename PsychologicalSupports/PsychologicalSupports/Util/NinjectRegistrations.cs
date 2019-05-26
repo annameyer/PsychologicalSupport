@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Ninject.Modules;
+using PsychologicalSupports.Authentication.Interface;
+using PsychologicalSupports.Controllers;
+using PsychologicalSupports.Dependencies.Repository;
 using PsychologicalSupports.Infrastructure;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Web;
-using PsychologicalSupports.Controllers;
-using PsychologicalSupports.Dependencies.Repository;
-using PsychologicalSupports.Authentication.Interface;
 
 namespace PsychologicalSupports.Util
 {
@@ -28,7 +28,6 @@ namespace PsychologicalSupports.Util
             Bind<IRepository<Interests_Card_145>>().To<Interests_Card_145Repository>();
             Bind<IRepository<Interests_Card_50>>().To<Interests_Card_50Repository>();
             Bind<IRepository<InterestsInSchoolSubject>>().To<InterestsInSchoolSubjectsRepository>();
-            Bind<IRepository<Mindset>>().To<MindsetsRepository>();
             Bind<IRepository<PersonaAnxietyScale>>().To<PersonaAnxietyScalesRepository>();
             Bind<IRepository<PersonalProtagonistAizenko>>().To<PersonalProtagonistAizenkoesRepository>();
             Bind<IRepository<SchoolMotivation>>().To<SchoolMotivationsRepository>();

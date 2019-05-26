@@ -20,7 +20,6 @@ namespace PsychologicalSupports.Models.Dependencies
         DbSet<Interests_Card_145> Interests_Card_145 { get; set; }
         DbSet<Interests_Card_50> Interests_Card_50 { get; set; }
         DbSet<InterestsInSchoolSubject> InterestsInSchoolSubjects { get; set; }
-        DbSet<Mindset> Mindsets { get; set; }
         DbSet<PersonaAnxietyScale> PersonaAnxietyScales { get; set; }
         DbSet<PersonalProtagonistAizenko> PersonalProtagonistAizenkoes { get; set; }
         DbSet<SchoolMotivation> SchoolMotivations { get; set; }

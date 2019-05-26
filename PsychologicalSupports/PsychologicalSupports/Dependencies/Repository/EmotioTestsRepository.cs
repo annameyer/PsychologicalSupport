@@ -16,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         {
             return _psychologicalSupportsContext.EmotioTests;
         }
-        public EmotioTest Get(int? id)
+        public EmotioTest Get(long? id)
         {
             return _psychologicalSupportsContext.EmotioTests.Find(id);
         }
@@ -30,7 +30,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.EmotioTests.AddOrUpdate(emotioTest);
             _psychologicalSupportsContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.EmotioTests.Find(id);
             _psychologicalSupportsContext.EmotioTests.Remove(student);

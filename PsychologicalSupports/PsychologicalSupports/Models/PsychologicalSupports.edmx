@@ -5,12 +5,67 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PsychologicalSupportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Administrators">
+        <EntityType Name="__MigrationHistory">
           <Key>
-            <PropertyRef Name="Login" />
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="AveragePoints">
           <Key>
@@ -54,14 +109,14 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="bigint" Nullable="false" />
-          <Property Name="PhysicalAggression" Type="nvarchar" MaxLength="50" />
-          <Property Name="IndirectAggression" Type="nvarchar" MaxLength="50" />
-          <Property Name="Irritability" Type="nvarchar" MaxLength="50" />
-          <Property Name="Negativism" Type="nvarchar" MaxLength="50" />
-          <Property Name="Touchiness" Type="nvarchar" MaxLength="50" />
-          <Property Name="Suspicion" Type="nvarchar" MaxLength="50" />
-          <Property Name="VerbalAggression" Type="nvarchar" MaxLength="50" />
-          <Property Name="Guilt" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhysicalAggression" Type="tinyint" Nullable="false" />
+          <Property Name="IndirectAggression" Type="tinyint" Nullable="false" />
+          <Property Name="Irritability" Type="tinyint" Nullable="false" />
+          <Property Name="Negativism" Type="tinyint" Nullable="false" />
+          <Property Name="Touchiness" Type="tinyint" Nullable="false" />
+          <Property Name="Suspicion" Type="tinyint" Nullable="false" />
+          <Property Name="VerbalAggression" Type="tinyint" Nullable="false" />
+          <Property Name="Guilt" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="FamilyAlarmAnalysis">
           <Key>
@@ -112,76 +167,65 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="bigint" Nullable="false" />
-          <Property Name="Biology" Type="nvarchar" MaxLength="50" />
-          <Property Name="Geography" Type="nvarchar" MaxLength="50" />
-          <Property Name="Geology" Type="nvarchar" MaxLength="50" />
-          <Property Name="TheMedicine" Type="nvarchar" MaxLength="50" />
-          <Property Name="LightAndFoodIndustry" Type="nvarchar" MaxLength="50" />
-          <Property Name="Physics" Type="nvarchar" MaxLength="50" />
-          <Property Name="Chemistry" Type="nvarchar" MaxLength="50" />
-          <Property Name="EngineeringMechanics" Type="nvarchar" MaxLength="50" />
-          <Property Name="ElectricalEngineeringRadioEngineering" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaterialHandling" Type="nvarchar" MaxLength="50" />
-          <Property Name="InformationTechnology" Type="nvarchar" MaxLength="50" />
-          <Property Name="Psychology" Type="nvarchar" MaxLength="50" />
-          <Property Name="Building" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tranport" Type="nvarchar" MaxLength="50" />
-          <Property Name="MilitarySpecialties" Type="nvarchar" MaxLength="50" />
-          <Property Name="Story" Type="nvarchar" MaxLength="50" />
-          <Property Name="Literature" Type="nvarchar" MaxLength="50" />
-          <Property Name="Journalism" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sociology" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pedagogy" Type="nvarchar" MaxLength="50" />
-          <Property Name="Right" Type="nvarchar" MaxLength="50" />
-          <Property Name="ServiceSector" Type="nvarchar" MaxLength="50" />
-          <Property Name="Maths" Type="nvarchar" MaxLength="50" />
-          <Property Name="Economy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ForeignLanguages" Type="nvarchar" MaxLength="50" />
-          <Property Name="Art" Type="nvarchar" MaxLength="50" />
-          <Property Name="Music" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sport" Type="nvarchar" MaxLength="50" />
+          <Property Name="Biology" Type="tinyint" Nullable="false" />
+          <Property Name="Geography" Type="tinyint" Nullable="false" />
+          <Property Name="Geology" Type="tinyint" Nullable="false" />
+          <Property Name="TheMedicine" Type="tinyint" Nullable="false" />
+          <Property Name="LightAndFoodIndustry" Type="tinyint" Nullable="false" />
+          <Property Name="Physics" Type="tinyint" Nullable="false" />
+          <Property Name="Chemistry" Type="tinyint" Nullable="false" />
+          <Property Name="EngineeringMechanics" Type="tinyint" Nullable="false" />
+          <Property Name="ElectricalEngineeringRadioEngineering" Type="tinyint" Nullable="false" />
+          <Property Name="MaterialHandling" Type="tinyint" Nullable="false" />
+          <Property Name="InformationTechnology" Type="tinyint" Nullable="false" />
+          <Property Name="Psychology" Type="tinyint" Nullable="false" />
+          <Property Name="Building" Type="tinyint" Nullable="false" />
+          <Property Name="Tranport" Type="tinyint" Nullable="false" />
+          <Property Name="MilitarySpecialties" Type="tinyint" Nullable="false" />
+          <Property Name="Story" Type="tinyint" Nullable="false" />
+          <Property Name="Literature" Type="tinyint" Nullable="false" />
+          <Property Name="Journalism" Type="tinyint" Nullable="false" />
+          <Property Name="Sociology" Type="tinyint" Nullable="false" />
+          <Property Name="Pedagogy" Type="tinyint" Nullable="false" />
+          <Property Name="Right" Type="tinyint" Nullable="false" />
+          <Property Name="ServiceSector" Type="tinyint" Nullable="false" />
+          <Property Name="Maths" Type="tinyint" Nullable="false" />
+          <Property Name="Economy" Type="tinyint" Nullable="false" />
+          <Property Name="ForeignLanguages" Type="tinyint" Nullable="false" />
+          <Property Name="Art" Type="tinyint" Nullable="false" />
+          <Property Name="Music" Type="tinyint" Nullable="false" />
+          <Property Name="Sport" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="Interests_Card_50">
           <Key>
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="bigint" Nullable="false" />
-          <Property Name="PhysicsMathematics" Type="nvarchar" MaxLength="50" />
-          <Property Name="ChemistryBiology" Type="nvarchar" MaxLength="50" />
-          <Property Name="RadioEngineeringElectronics" Type="nvarchar" MaxLength="50" />
-          <Property Name="MechanicsDesign" Type="nvarchar" MaxLength="50" />
-          <Property Name="GeographyGeology" Type="nvarchar" MaxLength="50" />
-          <Property Name="LiteratureArt" Type="nvarchar" MaxLength="50" />
-          <Property Name="HistoryPolitics" Type="nvarchar" MaxLength="50" />
-          <Property Name="PedagogyMedicine" Type="nvarchar" MaxLength="50" />
-          <Property Name="EntrepreneurshiHomeEconomics" Type="nvarchar" MaxLength="50" />
-          <Property Name="SportsMilitary" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhysicsMathematics" Type="tinyint" Nullable="false" />
+          <Property Name="ChemistryBiology" Type="tinyint" Nullable="false" />
+          <Property Name="RadioEngineeringElectronics" Type="tinyint" Nullable="false" />
+          <Property Name="MechanicsDesign" Type="tinyint" Nullable="false" />
+          <Property Name="GeographyGeology" Type="tinyint" Nullable="false" />
+          <Property Name="LiteratureArt" Type="tinyint" Nullable="false" />
+          <Property Name="HistoryPolitics" Type="tinyint" Nullable="false" />
+          <Property Name="PedagogyMedicine" Type="tinyint" Nullable="false" />
+          <Property Name="EntrepreneurshiHomeEconomics" Type="tinyint" Nullable="false" />
+          <Property Name="SportsMilitary" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="InterestsInSchoolSubjects">
           <Key>
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="bigint" Nullable="false" />
-          <Property Name="Russian" Type="nvarchar" MaxLength="50" />
-          <Property Name="Belorussian" Type="nvarchar" MaxLength="50" />
-          <Property Name="Physics" Type="nvarchar" MaxLength="50" />
-          <Property Name="Story" Type="nvarchar" MaxLength="50" />
-          <Property Name="SocialScientist" Type="nvarchar" MaxLength="50" />
-          <Property Name="Biology" Type="nvarchar" MaxLength="50" />
-          <Property Name="Chemistry" Type="nvarchar" MaxLength="50" />
-          <Property Name="ComputerScience" Type="nvarchar" MaxLength="50" />
-          <Property Name="English" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Mindsets">
-          <Key>
-            <PropertyRef Name="StudentID" />
-          </Key>
-          <Property Name="StudentID" Type="bigint" Nullable="false" />
-          <Property Name="Subject_Effective" Type="nvarchar" MaxLength="50" />
-          <Property Name="AbstractSymbolic" Type="nvarchar" MaxLength="50" />
-          <Property Name="Verbal_Logical" Type="nvarchar" MaxLength="50" />
-          <Property Name="Visually_Shaped" Type="nvarchar" MaxLength="50" />
-          <Property Name="Creativity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Russian" Type="tinyint" Nullable="false" />
+          <Property Name="Belorussian" Type="tinyint" Nullable="false" />
+          <Property Name="Physics" Type="tinyint" Nullable="false" />
+          <Property Name="Story" Type="tinyint" Nullable="false" />
+          <Property Name="SocialScientist" Type="tinyint" Nullable="false" />
+          <Property Name="Biology" Type="tinyint" Nullable="false" />
+          <Property Name="Chemistry" Type="tinyint" Nullable="false" />
+          <Property Name="ComputerScience" Type="tinyint" Nullable="false" />
+          <Property Name="English" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="PersonaAnxietyScales">
           <Key>
@@ -277,6 +321,62 @@
             </Principal>
             <Dependent Role="ClassTeacheInformations">
               <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -406,20 +506,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mindset_Student">
-          <End Role="Students" Type="Self.Students" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Mindsets" Type="Self.Mindsets" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentID" />
-            </Principal>
-            <Dependent Role="Mindsets">
-              <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PersonaAnxietyScale_Student1">
           <End Role="Students" Type="Self.Students" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -477,7 +563,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PsychologicalSupportsModelStoreContainer">
-          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AveragePoints" EntityType="Self.AveragePoints" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassroomRelationships" EntityType="Self.ClassroomRelationships" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassTeacheInformations" EntityType="Self.ClassTeacheInformations" Schema="dbo" store:Type="Tables" />
@@ -490,7 +581,6 @@
           <EntitySet Name="Interests_Card_145" EntityType="Self.Interests_Card_145" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Interests_Card_50" EntityType="Self.Interests_Card_50" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterestsInSchoolSubjects" EntityType="Self.InterestsInSchoolSubjects" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Mindsets" EntityType="Self.Mindsets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonaAnxietyScales" EntityType="Self.PersonaAnxietyScales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonalProtagonistAizenkoes" EntityType="Self.PersonalProtagonistAizenkoes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolMotivations" EntityType="Self.SchoolMotivations" Schema="dbo" store:Type="Tables" />
@@ -507,6 +597,22 @@
           <AssociationSet Name="FK_ClassTeacheInformation_Student" Association="Self.FK_ClassTeacheInformation_Student">
             <End Role="Students" EntitySet="Students" />
             <End Role="ClassTeacheInformations" EntitySet="ClassTeacheInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_EmotioTest_Student" Association="Self.FK_EmotioTest_Student">
             <End Role="Students" EntitySet="Students" />
@@ -543,10 +649,6 @@
           <AssociationSet Name="FK_InterestsInSchoolSubjects_Student" Association="Self.FK_InterestsInSchoolSubjects_Student">
             <End Role="Students" EntitySet="Students" />
             <End Role="InterestsInSchoolSubjects" EntitySet="InterestsInSchoolSubjects" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Mindset_Student" Association="Self.FK_Mindset_Student">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Mindsets" EntitySet="Mindsets" />
           </AssociationSet>
           <AssociationSet Name="FK_PersonaAnxietyScale_Student1" Association="Self.FK_PersonaAnxietyScale_Student1">
             <End Role="Students" EntitySet="Students" />
@@ -621,14 +723,14 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="PhysicalAggression" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IndirectAggression" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Irritability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Negativism" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Touchiness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Suspicion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VerbalAggression" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Guilt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalAggression" Type="Int16" Nullable="false" />
+          <Property Name="IndirectAggression" Type="Int16" Nullable="false" />
+          <Property Name="Irritability" Type="Int16" Nullable="false" />
+          <Property Name="Negativism" Type="Int16" Nullable="false" />
+          <Property Name="Touchiness" Type="Int16" Nullable="false" />
+          <Property Name="Suspicion" Type="Int16" Nullable="false" />
+          <Property Name="VerbalAggression" Type="Int16" Nullable="false" />
+          <Property Name="Guilt" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_EmotioTest_Student" FromRole="EmotioTest" ToRole="Student" />
         </EntityType>
         <EntityType Name="FamilyAlarmAnalysi">
@@ -685,34 +787,34 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="Biology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Geography" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Geology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TheMedicine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LightAndFoodIndustry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Physics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Chemistry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EngineeringMechanics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ElectricalEngineeringRadioEngineering" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaterialHandling" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InformationTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Psychology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Building" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tranport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MilitarySpecialties" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Story" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Literature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Journalism" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sociology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Pedagogy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Right" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceSector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Maths" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Economy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ForeignLanguages" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Art" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Music" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Biology" Type="Int16" Nullable="false" />
+          <Property Name="Geography" Type="Int16" Nullable="false" />
+          <Property Name="Geology" Type="Int16" Nullable="false" />
+          <Property Name="TheMedicine" Type="Int16" Nullable="false" />
+          <Property Name="LightAndFoodIndustry" Type="Int16" Nullable="false" />
+          <Property Name="Physics" Type="Int16" Nullable="false" />
+          <Property Name="Chemistry" Type="Int16" />
+          <Property Name="EngineeringMechanics" Type="Int16" Nullable="false" />
+          <Property Name="ElectricalEngineeringRadioEngineering" Type="Int16" Nullable="false" />
+          <Property Name="MaterialHandling" Type="Int16" Nullable="false" />
+          <Property Name="InformationTechnology" Type="Int16" Nullable="false" />
+          <Property Name="Psychology" Type="Int16" Nullable="false" />
+          <Property Name="Building" Type="Int16" Nullable="false" />
+          <Property Name="Tranport" Type="Int16" Nullable="false" />
+          <Property Name="MilitarySpecialties" Type="Int16" Nullable="false" />
+          <Property Name="Story" Type="Int16" Nullable="false" />
+          <Property Name="Literature" Type="Int16" Nullable="false" />
+          <Property Name="Journalism" Type="Int16" Nullable="false" />
+          <Property Name="Sociology" Type="Int16" Nullable="false" />
+          <Property Name="Pedagogy" Type="Int16" Nullable="false" />
+          <Property Name="Right" Type="Int16" Nullable="false" />
+          <Property Name="ServiceSector" Type="Int16" Nullable="false" />
+          <Property Name="Maths" Type="Int16" Nullable="false" />
+          <Property Name="Economy" Type="Int16" Nullable="false" />
+          <Property Name="ForeignLanguages" Type="Int16" Nullable="false" />
+          <Property Name="Art" Type="Int16" Nullable="false" />
+          <Property Name="Music" Type="Int16" Nullable="false" />
+          <Property Name="Sport" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_145_Student" FromRole="Interests_Card_145" ToRole="Student" />
         </EntityType>
         <EntityType Name="Interests_Card_50">
@@ -720,16 +822,16 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="PhysicsMathematics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ChemistryBiology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RadioEngineeringElectronics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MechanicsDesign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GeographyGeology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LiteratureArt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HistoryPolitics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PedagogyMedicine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EntrepreneurshiHomeEconomics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SportsMilitary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicsMathematics" Type="Int16" Nullable="false" />
+          <Property Name="ChemistryBiology" Type="Int16" Nullable="false" />
+          <Property Name="RadioEngineeringElectronics" Type="Int16" Nullable="false" />
+          <Property Name="MechanicsDesign" Type="Int16" Nullable="false" />
+          <Property Name="GeographyGeology" Type="Int16" Nullable="false" />
+          <Property Name="LiteratureArt" Type="Int16" Nullable="false" />
+          <Property Name="HistoryPolitics" Type="Int16" Nullable="false" />
+          <Property Name="PedagogyMedicine" Type="Int16" Nullable="false" />
+          <Property Name="EntrepreneurshiHomeEconomics" Type="Int16" Nullable="false" />
+          <Property Name="SportsMilitary" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_50_Student" FromRole="Interests_Card_50" ToRole="Student" />
         </EntityType>
         <EntityType Name="InterestsInSchoolSubject">
@@ -737,28 +839,16 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="Russian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Belorussian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Physics" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Story" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SocialScientist" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Biology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Chemistry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ComputerScience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Russian" Type="Int16" Nullable="false" />
+          <Property Name="Belorussian" Type="Int16" Nullable="false" />
+          <Property Name="Physics" Type="Int16" Nullable="false" />
+          <Property Name="Story" Type="Int16" Nullable="false" />
+          <Property Name="SocialScientist" Type="Int16" Nullable="false" />
+          <Property Name="Biology" Type="Int16" Nullable="false" />
+          <Property Name="Chemistry" Type="Int16" Nullable="false" />
+          <Property Name="ComputerScience" Type="Int16" Nullable="false" />
+          <Property Name="English" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_InterestsInSchoolSubjects_Student" FromRole="InterestsInSchoolSubjects" ToRole="Student" />
-        </EntityType>
-        <EntityType Name="Mindset">
-          <Key>
-            <PropertyRef Name="StudentID" />
-          </Key>
-          <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="Subject_Effective" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AbstractSymbolic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Verbal_Logical" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Visually_Shaped" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Creativity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Mindset_Student" FromRole="Mindset" ToRole="Student" />
         </EntityType>
         <EntityType Name="PersonaAnxietyScale">
           <Key>
@@ -830,7 +920,6 @@
           <NavigationProperty Name="Interests_Card_145" Relationship="Self.FK_Interests_Card_145_Student" FromRole="Student" ToRole="Interests_Card_145" />
           <NavigationProperty Name="Interests_Card_50" Relationship="Self.FK_Interests_Card_50_Student" FromRole="Student" ToRole="Interests_Card_50" />
           <NavigationProperty Name="InterestsInSchoolSubject" Relationship="Self.FK_InterestsInSchoolSubjects_Student" FromRole="Student" ToRole="InterestsInSchoolSubjects" />
-          <NavigationProperty Name="Mindset" Relationship="Self.FK_Mindset_Student" FromRole="Student" ToRole="Mindset" />
           <NavigationProperty Name="PersonaAnxietyScale" Relationship="Self.FK_PersonaAnxietyScale_Student1" FromRole="Student" ToRole="PersonaAnxietyScale" />
           <NavigationProperty Name="PersonalProtagonistAizenko" Relationship="Self.FK_PersonalProtagonistAizenko_Student" FromRole="Student" ToRole="PersonalProtagonistAizenko" />
           <NavigationProperty Name="SchoolMotivation" Relationship="Self.FK_SchoolMotivation_Student" FromRole="Student" ToRole="SchoolMotivation" />
@@ -1004,20 +1093,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mindset_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Mindset" Type="Self.Mindset" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="StudentID" />
-            </Principal>
-            <Dependent Role="Mindset">
-              <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PersonaAnxietyScale_Student1">
           <End Role="Student" Type="Self.Student" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1088,7 +1163,6 @@
           <EntitySet Name="Interests_Card_145" EntityType="Self.Interests_Card_145" />
           <EntitySet Name="Interests_Card_50" EntityType="Self.Interests_Card_50" />
           <EntitySet Name="InterestsInSchoolSubjects" EntityType="Self.InterestsInSchoolSubject" />
-          <EntitySet Name="Mindsets" EntityType="Self.Mindset" />
           <EntitySet Name="PersonaAnxietyScales" EntityType="Self.PersonaAnxietyScale" />
           <EntitySet Name="PersonalProtagonistAizenkoes" EntityType="Self.PersonalProtagonistAizenko" />
           <EntitySet Name="SchoolMotivations" EntityType="Self.SchoolMotivation" />
@@ -1142,10 +1216,6 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="InterestsInSchoolSubjects" EntitySet="InterestsInSchoolSubjects" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mindset_Student" Association="Self.FK_Mindset_Student">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="Mindset" EntitySet="Mindsets" />
-          </AssociationSet>
           <AssociationSet Name="FK_PersonaAnxietyScale_Student1" Association="Self.FK_PersonaAnxietyScale_Student1">
             <End Role="Student" EntitySet="Students" />
             <End Role="PersonaAnxietyScale" EntitySet="PersonaAnxietyScales" />
@@ -1162,21 +1232,122 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Self_esteem" EntitySet="Self_esteem" />
           </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="PsychologicalSupportsModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="PsychologicalSupportsModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="PsychologicalSupportsModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="PsychologicalSupportsModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="PsychologicalSupportsModel.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="PsychologicalSupportsModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
           </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="PsychologicalSupportsModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="PsychologicalSupportsModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PsychologicalSupportsModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PsychologicalSupportsModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="PsychologicalSupportsModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PsychologicalSupportsModelStoreContainer" CdmEntityContainer="PsychologicalSupportsEntities">
-    <EntitySetMapping Name="Administrators">
-      <EntityTypeMapping TypeName="IsTypeOf(PsychologicalSupportsModel.Administrator)">
-        <MappingFragment StoreEntitySet="Administrators">
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AveragePoints">
       <EntityTypeMapping TypeName="IsTypeOf(PsychologicalSupportsModel.AveragePoint)">
         <MappingFragment StoreEntitySet="AveragePoints">
@@ -1284,14 +1455,14 @@
     <EntitySetMapping Name="Interests_Card_145">
       <EntityTypeMapping TypeName="IsTypeOf(PsychologicalSupportsModel.Interests_Card_145)">
         <MappingFragment StoreEntitySet="Interests_Card_145">
-          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Biology" ColumnName="Chemistry" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="Biology" ColumnName="Biology" />
           <ScalarProperty Name="Geography" ColumnName="Geography" />
           <ScalarProperty Name="Geology" ColumnName="Geology" />
           <ScalarProperty Name="TheMedicine" ColumnName="TheMedicine" />
           <ScalarProperty Name="LightAndFoodIndustry" ColumnName="LightAndFoodIndustry" />
           <ScalarProperty Name="Physics" ColumnName="Physics" />
-          <ScalarProperty Name="Chemistry" ColumnName="Chemistry" />
           <ScalarProperty Name="EngineeringMechanics" ColumnName="EngineeringMechanics" />
           <ScalarProperty Name="ElectricalEngineeringRadioEngineering" ColumnName="ElectricalEngineeringRadioEngineering" />
           <ScalarProperty Name="MaterialHandling" ColumnName="MaterialHandling" />
@@ -1346,18 +1517,6 @@
           <ScalarProperty Name="Chemistry" ColumnName="Chemistry" />
           <ScalarProperty Name="ComputerScience" ColumnName="ComputerScience" />
           <ScalarProperty Name="English" ColumnName="English" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Mindsets">
-      <EntityTypeMapping TypeName="IsTypeOf(PsychologicalSupportsModel.Mindset)">
-        <MappingFragment StoreEntitySet="Mindsets">
-          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-          <ScalarProperty Name="Subject_Effective" ColumnName="Subject_Effective" />
-          <ScalarProperty Name="AbstractSymbolic" ColumnName="AbstractSymbolic" />
-          <ScalarProperty Name="Verbal_Logical" ColumnName="Verbal_Logical" />
-          <ScalarProperty Name="Visually_Shaped" ColumnName="Visually_Shaped" />
-          <ScalarProperty Name="Creativity" ColumnName="Creativity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1421,6 +1580,70 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="PsychologicalSupportsModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="PsychologicalSupportsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

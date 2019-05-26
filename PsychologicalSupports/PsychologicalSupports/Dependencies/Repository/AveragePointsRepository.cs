@@ -16,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         {
             return _psychologicalSupportsContext.AveragePoints;
         }
-        public AveragePoint Get(int? id)
+        public AveragePoint Get(long? id)
         {
             return _psychologicalSupportsContext.AveragePoints.Find(id);
         }
@@ -30,7 +30,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.AveragePoints.AddOrUpdate(averagePoint);
             _psychologicalSupportsContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.AveragePoints.Find(id);
             _psychologicalSupportsContext.AveragePoints.Remove(student);

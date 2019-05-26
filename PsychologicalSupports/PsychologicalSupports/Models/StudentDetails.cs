@@ -40,8 +40,6 @@ namespace PsychologicalSupports.Models
         public string Interests_Card_50 { get; set; }
         [Display(Name = "Интересующие школьные предметы")]
         public string InterestsInSchoolSubject { get; set; }
-        [Display(Name = "Mindset")]
-        public string Mindset { get; set; }
         [Display(Name = "Шкала личностной тревоги")]
         public string PersonaAnxietyScale { get; set; }
         [Display(Name = "Личностный тест Айзенко")]

@@ -19,7 +19,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             return _psychologicalSupportsContext.Self_esteem;
         }
 
-        public Self_esteem Get(int? id)
+        public Self_esteem Get(long? id)
         {
             return _psychologicalSupportsContext.Self_esteem.Find(id);
         }
@@ -36,7 +36,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.Self_esteem.Find(id);
             _psychologicalSupportsContext.Self_esteem.Remove(student);

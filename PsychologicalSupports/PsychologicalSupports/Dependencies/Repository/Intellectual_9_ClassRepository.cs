@@ -16,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         {
             return _psychologicalSupportsContext.Intellectual_9_Class;
         }
-        public Intellectual_9_Class Get(int? id)
+        public Intellectual_9_Class Get(long? id)
         {
             return _psychologicalSupportsContext.Intellectual_9_Class.Find(id);
         }
@@ -30,7 +30,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.Intellectual_9_Class.AddOrUpdate(Intellectual_9_Class);
             _psychologicalSupportsContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(long id)
         {
             var student = _psychologicalSupportsContext.Intellectual_9_Class.Find(id);
             _psychologicalSupportsContext.Intellectual_9_Class.Remove(student);

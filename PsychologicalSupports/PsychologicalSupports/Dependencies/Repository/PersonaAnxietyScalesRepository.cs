@@ -19,7 +19,7 @@ namespace PsychologicalSupports.Dependencies.Repository
             return _psychologicalSupportsContext.PersonaAnxietyScales;
         }
 
-        public PersonaAnxietyScale Get(int? id)
+        public PersonaAnxietyScale Get(long? id)
         {
             return _psychologicalSupportsContext.PersonaAnxietyScales.Find(id);
         }
@@ -36,9 +36,9 @@ namespace PsychologicalSupports.Dependencies.Repository
             _psychologicalSupportsContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
-            var student = _psychologicalSupportsContext.PersonaAnxietyScales.Find(id);
+            PersonaAnxietyScale student = _psychologicalSupportsContext.PersonaAnxietyScales.Find(id);
             _psychologicalSupportsContext.PersonaAnxietyScales.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }
