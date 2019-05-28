@@ -15,16 +15,16 @@ namespace PsychologicalSupports.Models
     public partial class Interests_Card_50
     {
         public long StudentID { get; set; }
-        public short PhysicsMathematics { get; set; }
-        public short ChemistryBiology { get; set; }
-        public short RadioEngineeringElectronics { get; set; }
-        public short MechanicsDesign { get; set; }
-        public short GeographyGeology { get; set; }
-        public short LiteratureArt { get; set; }
-        public short HistoryPolitics { get; set; }
-        public short PedagogyMedicine { get; set; }
-        public short EntrepreneurshiHomeEconomics { get; set; }
-        public short SportsMilitary { get; set; }
+        public byte PhysicsMathematics { get; set; }
+        public byte ChemistryBiology { get; set; }
+        public byte RadioEngineeringElectronics { get; set; }
+        public byte MechanicsDesign { get; set; }
+        public byte GeographyGeology { get; set; }
+        public byte LiteratureArt { get; set; }
+        public byte HistoryPolitics { get; set; }
+        public byte PedagogyMedicine { get; set; }
+        public byte EntrepreneurshiHomeEconomics { get; set; }
+        public byte SportsMilitary { get; set; }
     
         public virtual Student Student { get; set; }
     }

@@ -15,15 +15,15 @@ namespace PsychologicalSupports.Models
     public partial class InterestsInSchoolSubject
     {
         public long StudentID { get; set; }
-        public short Russian { get; set; }
-        public short Belorussian { get; set; }
-        public short Physics { get; set; }
-        public short Story { get; set; }
-        public short SocialScientist { get; set; }
-        public short Biology { get; set; }
-        public short Chemistry { get; set; }
-        public short ComputerScience { get; set; }
-        public short English { get; set; }
+        public byte Russian { get; set; }
+        public byte Belorussian { get; set; }
+        public byte Physics { get; set; }
+        public byte Story { get; set; }
+        public byte SocialScientist { get; set; }
+        public byte Biology { get; set; }
+        public byte Chemistry { get; set; }
+        public byte ComputerScience { get; set; }
+        public byte English { get; set; }
     
         public virtual Student Student { get; set; }
     }

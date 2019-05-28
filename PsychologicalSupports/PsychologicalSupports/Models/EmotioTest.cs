@@ -15,14 +15,14 @@ namespace PsychologicalSupports.Models
     public partial class EmotioTest
     {
         public long StudentID { get; set; }
-        public short PhysicalAggression { get; set; }
-        public short IndirectAggression { get; set; }
-        public short Irritability { get; set; }
-        public short Negativism { get; set; }
-        public short Touchiness { get; set; }
-        public short Suspicion { get; set; }
-        public short VerbalAggression { get; set; }
-        public short Guilt { get; set; }
+        public byte PhysicalAggression { get; set; }
+        public byte IndirectAggression { get; set; }
+        public byte Irritability { get; set; }
+        public byte Negativism { get; set; }
+        public byte Touchiness { get; set; }
+        public byte Suspicion { get; set; }
+        public byte VerbalAggression { get; set; }
+        public byte Guilt { get; set; }
     
         public virtual Student Student { get; set; }
     }

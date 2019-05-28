@@ -15,34 +15,34 @@ namespace PsychologicalSupports.Models
     public partial class Interests_Card_145
     {
         public long StudentID { get; set; }
-        public short Biology { get; set; }
-        public short Geography { get; set; }
-        public short Geology { get; set; }
-        public short TheMedicine { get; set; }
-        public short LightAndFoodIndustry { get; set; }
-        public short Physics { get; set; }
-        public Nullable<short> Chemistry { get; set; }
-        public short EngineeringMechanics { get; set; }
-        public short ElectricalEngineeringRadioEngineering { get; set; }
-        public short MaterialHandling { get; set; }
-        public short InformationTechnology { get; set; }
-        public short Psychology { get; set; }
-        public short Building { get; set; }
-        public short Tranport { get; set; }
-        public short MilitarySpecialties { get; set; }
-        public short Story { get; set; }
-        public short Literature { get; set; }
-        public short Journalism { get; set; }
-        public short Sociology { get; set; }
-        public short Pedagogy { get; set; }
-        public short Right { get; set; }
-        public short ServiceSector { get; set; }
-        public short Maths { get; set; }
-        public short Economy { get; set; }
-        public short ForeignLanguages { get; set; }
-        public short Art { get; set; }
-        public short Music { get; set; }
-        public short Sport { get; set; }
+        public byte Biology { get; set; }
+        public byte Geography { get; set; }
+        public byte Geology { get; set; }
+        public byte TheMedicine { get; set; }
+        public byte LightAndFoodIndustry { get; set; }
+        public byte Physics { get; set; }
+        public byte Chemistry { get; set; }
+        public byte EngineeringMechanics { get; set; }
+        public byte ElectricalEngineeringRadioEngineering { get; set; }
+        public byte MaterialHandling { get; set; }
+        public byte InformationTechnology { get; set; }
+        public byte Psychology { get; set; }
+        public byte Building { get; set; }
+        public byte Tranport { get; set; }
+        public byte MilitarySpecialties { get; set; }
+        public byte Story { get; set; }
+        public byte Literature { get; set; }
+        public byte Journalism { get; set; }
+        public byte Sociology { get; set; }
+        public byte Pedagogy { get; set; }
+        public byte Right { get; set; }
+        public byte ServiceSector { get; set; }
+        public byte Maths { get; set; }
+        public byte Economy { get; set; }
+        public byte ForeignLanguages { get; set; }
+        public byte Art { get; set; }
+        public byte Music { get; set; }
+        public byte Sport { get; set; }
     
         public virtual Student Student { get; set; }
     }

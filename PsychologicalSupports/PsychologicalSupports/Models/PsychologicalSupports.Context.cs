@@ -25,7 +25,6 @@ namespace PsychologicalSupports.Models
             throw new UnintentionalCodeFirstException();
         }
 
-        public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
         public virtual DbSet<ClassTeacheInformation> ClassTeacheInformations { get; set; }

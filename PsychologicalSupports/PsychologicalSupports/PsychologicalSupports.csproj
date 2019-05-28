@@ -304,22 +304,8 @@
     <Compile Include="Authentication\AppIdentityDbContext.cs" />
     <Compile Include="Authentication\AppUserManager.cs" />
     <Compile Include="Authentication\AppUserStore.cs" />
-    <Compile Include="Models\Administrator.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AppUser.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\AveragePoint.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>
@@ -333,9 +319,6 @@
     <Compile Include="Dependencies\Interface\IRepository.cs" />
     <Compile Include="Authentication\LoginRepository.cs" />
     <Compile Include="Dependencies\Repository\StudentRepository.cs" />
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\EmotioTest.cs">
       <DependentUpon>PsychologicalSupports.tt</DependentUpon>
     </Compile>

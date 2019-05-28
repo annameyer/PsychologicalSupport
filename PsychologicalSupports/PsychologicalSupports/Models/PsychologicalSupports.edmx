@@ -5,68 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PsychologicalSupportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetRoles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaims">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ClaimType" Type="nvarchar(max)" />
-          <Property Name="ClaimValue" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogins">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserRoles">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
         <EntityType Name="AveragePoints">
           <Key>
             <PropertyRef Name="StudentID" />
@@ -324,62 +262,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_EmotioTest_Student">
           <End Role="Students" Type="Self.Students" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -563,12 +445,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PsychologicalSupportsModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AveragePoints" EntityType="Self.AveragePoints" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassroomRelationships" EntityType="Self.ClassroomRelationships" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassTeacheInformations" EntityType="Self.ClassTeacheInformations" Schema="dbo" store:Type="Tables" />
@@ -597,22 +473,6 @@
           <AssociationSet Name="FK_ClassTeacheInformation_Student" Association="Self.FK_ClassTeacheInformation_Student">
             <End Role="Students" EntitySet="Students" />
             <End Role="ClassTeacheInformations" EntitySet="ClassTeacheInformations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_EmotioTest_Student" Association="Self.FK_EmotioTest_Student">
             <End Role="Students" EntitySet="Students" />
@@ -671,13 +531,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PsychologicalSupportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Administrator">
-          <Key>
-            <PropertyRef Name="Login" />
-          </Key>
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="AveragePoint">
           <Key>
             <PropertyRef Name="StudentID" />
@@ -723,14 +576,14 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="PhysicalAggression" Type="Int16" Nullable="false" />
-          <Property Name="IndirectAggression" Type="Int16" Nullable="false" />
-          <Property Name="Irritability" Type="Int16" Nullable="false" />
-          <Property Name="Negativism" Type="Int16" Nullable="false" />
-          <Property Name="Touchiness" Type="Int16" Nullable="false" />
-          <Property Name="Suspicion" Type="Int16" Nullable="false" />
-          <Property Name="VerbalAggression" Type="Int16" Nullable="false" />
-          <Property Name="Guilt" Type="Int16" Nullable="false" />
+          <Property Name="PhysicalAggression" Type="Byte" Nullable="false" />
+          <Property Name="IndirectAggression" Type="Byte" Nullable="false" />
+          <Property Name="Irritability" Type="Byte" Nullable="false" />
+          <Property Name="Negativism" Type="Byte" Nullable="false" />
+          <Property Name="Touchiness" Type="Byte" Nullable="false" />
+          <Property Name="Suspicion" Type="Byte" Nullable="false" />
+          <Property Name="VerbalAggression" Type="Byte" Nullable="false" />
+          <Property Name="Guilt" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_EmotioTest_Student" FromRole="EmotioTest" ToRole="Student" />
         </EntityType>
         <EntityType Name="FamilyAlarmAnalysi">
@@ -787,34 +640,34 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="Biology" Type="Int16" Nullable="false" />
-          <Property Name="Geography" Type="Int16" Nullable="false" />
-          <Property Name="Geology" Type="Int16" Nullable="false" />
-          <Property Name="TheMedicine" Type="Int16" Nullable="false" />
-          <Property Name="LightAndFoodIndustry" Type="Int16" Nullable="false" />
-          <Property Name="Physics" Type="Int16" Nullable="false" />
-          <Property Name="Chemistry" Type="Int16" />
-          <Property Name="EngineeringMechanics" Type="Int16" Nullable="false" />
-          <Property Name="ElectricalEngineeringRadioEngineering" Type="Int16" Nullable="false" />
-          <Property Name="MaterialHandling" Type="Int16" Nullable="false" />
-          <Property Name="InformationTechnology" Type="Int16" Nullable="false" />
-          <Property Name="Psychology" Type="Int16" Nullable="false" />
-          <Property Name="Building" Type="Int16" Nullable="false" />
-          <Property Name="Tranport" Type="Int16" Nullable="false" />
-          <Property Name="MilitarySpecialties" Type="Int16" Nullable="false" />
-          <Property Name="Story" Type="Int16" Nullable="false" />
-          <Property Name="Literature" Type="Int16" Nullable="false" />
-          <Property Name="Journalism" Type="Int16" Nullable="false" />
-          <Property Name="Sociology" Type="Int16" Nullable="false" />
-          <Property Name="Pedagogy" Type="Int16" Nullable="false" />
-          <Property Name="Right" Type="Int16" Nullable="false" />
-          <Property Name="ServiceSector" Type="Int16" Nullable="false" />
-          <Property Name="Maths" Type="Int16" Nullable="false" />
-          <Property Name="Economy" Type="Int16" Nullable="false" />
-          <Property Name="ForeignLanguages" Type="Int16" Nullable="false" />
-          <Property Name="Art" Type="Int16" Nullable="false" />
-          <Property Name="Music" Type="Int16" Nullable="false" />
-          <Property Name="Sport" Type="Int16" Nullable="false" />
+          <Property Name="Biology" Type="Byte" Nullable="false" />
+          <Property Name="Geography" Type="Byte" Nullable="false" />
+          <Property Name="Geology" Type="Byte" Nullable="false" />
+          <Property Name="TheMedicine" Type="Byte" Nullable="false" />
+          <Property Name="LightAndFoodIndustry" Type="Byte" Nullable="false" />
+          <Property Name="Physics" Type="Byte" Nullable="false" />
+          <Property Name="Chemistry" Type="Byte" Nullable="false" />
+          <Property Name="EngineeringMechanics" Type="Byte" Nullable="false" />
+          <Property Name="ElectricalEngineeringRadioEngineering" Type="Byte" Nullable="false" />
+          <Property Name="MaterialHandling" Type="Byte" Nullable="false" />
+          <Property Name="InformationTechnology" Type="Byte" Nullable="false" />
+          <Property Name="Psychology" Type="Byte" Nullable="false" />
+          <Property Name="Building" Type="Byte" Nullable="false" />
+          <Property Name="Tranport" Type="Byte" Nullable="false" />
+          <Property Name="MilitarySpecialties" Type="Byte" Nullable="false" />
+          <Property Name="Story" Type="Byte" Nullable="false" />
+          <Property Name="Literature" Type="Byte" Nullable="false" />
+          <Property Name="Journalism" Type="Byte" Nullable="false" />
+          <Property Name="Sociology" Type="Byte" Nullable="false" />
+          <Property Name="Pedagogy" Type="Byte" Nullable="false" />
+          <Property Name="Right" Type="Byte" Nullable="false" />
+          <Property Name="ServiceSector" Type="Byte" Nullable="false" />
+          <Property Name="Maths" Type="Byte" Nullable="false" />
+          <Property Name="Economy" Type="Byte" Nullable="false" />
+          <Property Name="ForeignLanguages" Type="Byte" Nullable="false" />
+          <Property Name="Art" Type="Byte" Nullable="false" />
+          <Property Name="Music" Type="Byte" Nullable="false" />
+          <Property Name="Sport" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_145_Student" FromRole="Interests_Card_145" ToRole="Student" />
         </EntityType>
         <EntityType Name="Interests_Card_50">
@@ -822,16 +675,16 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="PhysicsMathematics" Type="Int16" Nullable="false" />
-          <Property Name="ChemistryBiology" Type="Int16" Nullable="false" />
-          <Property Name="RadioEngineeringElectronics" Type="Int16" Nullable="false" />
-          <Property Name="MechanicsDesign" Type="Int16" Nullable="false" />
-          <Property Name="GeographyGeology" Type="Int16" Nullable="false" />
-          <Property Name="LiteratureArt" Type="Int16" Nullable="false" />
-          <Property Name="HistoryPolitics" Type="Int16" Nullable="false" />
-          <Property Name="PedagogyMedicine" Type="Int16" Nullable="false" />
-          <Property Name="EntrepreneurshiHomeEconomics" Type="Int16" Nullable="false" />
-          <Property Name="SportsMilitary" Type="Int16" Nullable="false" />
+          <Property Name="PhysicsMathematics" Type="Byte" Nullable="false" />
+          <Property Name="ChemistryBiology" Type="Byte" Nullable="false" />
+          <Property Name="RadioEngineeringElectronics" Type="Byte" Nullable="false" />
+          <Property Name="MechanicsDesign" Type="Byte" Nullable="false" />
+          <Property Name="GeographyGeology" Type="Byte" Nullable="false" />
+          <Property Name="LiteratureArt" Type="Byte" Nullable="false" />
+          <Property Name="HistoryPolitics" Type="Byte" Nullable="false" />
+          <Property Name="PedagogyMedicine" Type="Byte" Nullable="false" />
+          <Property Name="EntrepreneurshiHomeEconomics" Type="Byte" Nullable="false" />
+          <Property Name="SportsMilitary" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Interests_Card_50_Student" FromRole="Interests_Card_50" ToRole="Student" />
         </EntityType>
         <EntityType Name="InterestsInSchoolSubject">
@@ -839,15 +692,15 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="Russian" Type="Int16" Nullable="false" />
-          <Property Name="Belorussian" Type="Int16" Nullable="false" />
-          <Property Name="Physics" Type="Int16" Nullable="false" />
-          <Property Name="Story" Type="Int16" Nullable="false" />
-          <Property Name="SocialScientist" Type="Int16" Nullable="false" />
-          <Property Name="Biology" Type="Int16" Nullable="false" />
-          <Property Name="Chemistry" Type="Int16" Nullable="false" />
-          <Property Name="ComputerScience" Type="Int16" Nullable="false" />
-          <Property Name="English" Type="Int16" Nullable="false" />
+          <Property Name="Russian" Type="Byte" Nullable="false" />
+          <Property Name="Belorussian" Type="Byte" Nullable="false" />
+          <Property Name="Physics" Type="Byte" Nullable="false" />
+          <Property Name="Story" Type="Byte" Nullable="false" />
+          <Property Name="SocialScientist" Type="Byte" Nullable="false" />
+          <Property Name="Biology" Type="Byte" Nullable="false" />
+          <Property Name="Chemistry" Type="Byte" Nullable="false" />
+          <Property Name="ComputerScience" Type="Byte" Nullable="false" />
+          <Property Name="English" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_InterestsInSchoolSubjects_Student" FromRole="InterestsInSchoolSubjects" ToRole="Student" />
         </EntityType>
         <EntityType Name="PersonaAnxietyScale">
@@ -1150,7 +1003,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PsychologicalSupportsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
           <EntitySet Name="AveragePoints" EntityType="Self.AveragePoint" />
           <EntitySet Name="ClassroomRelationships" EntityType="Self.ClassroomRelationship" />
           <EntitySet Name="ClassTeacheInformations" EntityType="Self.ClassTeacheInformation" />
@@ -1232,116 +1084,7 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Self_esteem" EntitySet="Self_esteem" />
           </AssociationSet>
-          <EntitySet Name="C__MigrationHistory" EntityType="PsychologicalSupportsModel.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="PsychologicalSupportsModel.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="PsychologicalSupportsModel.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="PsychologicalSupportsModel.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="PsychologicalSupportsModel.AspNetUser" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="PsychologicalSupportsModel.AspNetUserRoles">
-            <End Role="AspNetRole" EntitySet="AspNetRoles" />
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AspNetRole">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="PsychologicalSupportsModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaim">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogin">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="PsychologicalSupportsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-          <NavigationProperty Name="AspNetRoles" Relationship="PsychologicalSupportsModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="PsychologicalSupportsModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaim">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="PsychologicalSupportsModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogin">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Type="PsychologicalSupportsModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-          <End Type="PsychologicalSupportsModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1455,7 +1198,7 @@
     <EntitySetMapping Name="Interests_Card_145">
       <EntityTypeMapping TypeName="IsTypeOf(PsychologicalSupportsModel.Interests_Card_145)">
         <MappingFragment StoreEntitySet="Interests_Card_145">
-          <ScalarProperty Name="Biology" ColumnName="Chemistry" />
+                <ScalarProperty Name="Chemistry" ColumnName="Chemistry" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="Biology" ColumnName="Biology" />
           <ScalarProperty Name="Geography" ColumnName="Geography" />
@@ -1580,70 +1323,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="PsychologicalSupportsModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetRole">
-              <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUserClaim">
-              <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUserLogin">
-              <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="PsychologicalSupportsModel.AspNetUser">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="PsychologicalSupportsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUser">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRole">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
