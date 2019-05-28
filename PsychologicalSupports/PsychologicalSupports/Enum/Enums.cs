@@ -7,6 +7,11 @@
             return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         }
 
+        public static string[] GetClass()
+        {
+            return new string[] { "А", "Б", "В", "Г", "Д", "Е", "C" };
+        }
+
         public static string[] GetSociometry()
         {
             return new string[] { "Изолированный", "Принятый", "Популярный", "Лидер", "Отвергаемый" };

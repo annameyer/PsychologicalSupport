@@ -18,7 +18,7 @@
     @using (Html.BeginForm())
     {
         <div class="div-list">
-            @Html.DropDownList("Class", new SelectList(Enum.GetValues(typeof(PsychologicalSupports.Enum.Class))), new { @class = "list" })
+            @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), new { @class = "list" })
         </div>
         <div class="div-list">
             @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), new { @class = "list" })

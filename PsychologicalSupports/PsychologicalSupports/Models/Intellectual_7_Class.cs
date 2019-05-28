@@ -10,16 +10,23 @@
 namespace PsychologicalSupports.Models
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("7 класс")]
     public partial class Intellectual_7_Class
     {
+        [key]
         public long StudentID { get; set; }
+        [Display(Name = "IQ")]
         public Nullable<int> IQ { get; set; }
+        [Display(Name = "Уровень")]
         public string Level { get; set; }
+        [Display(Name = "Средний балл")]
         public Nullable<double> AveragePointСommon { get; set; }
+        [Display(Name = "Средний балл по математике")]
         public Nullable<double> AveragePointMath { get; set; }
-    
+
         public virtual Student Student { get; set; }
     }
 }
