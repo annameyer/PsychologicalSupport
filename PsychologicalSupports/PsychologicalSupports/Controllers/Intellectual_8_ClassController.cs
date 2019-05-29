@@ -1,7 +1,8 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
@@ -29,7 +30,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_8_Class = _repository.Get(id);
+            Intellectual_8_Class intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -38,9 +39,10 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_8_Class);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 
@@ -63,7 +65,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_8_Class = _repository.Get(id);
+            Intellectual_8_Class intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();
@@ -91,7 +93,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_8_Class = _repository.Get(id);
+            Intellectual_8_Class intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {
                 return HttpNotFound();

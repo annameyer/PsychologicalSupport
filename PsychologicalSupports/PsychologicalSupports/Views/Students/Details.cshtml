@@ -16,7 +16,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.FIO)
-        </dd>
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.NumberClass)
@@ -24,7 +24,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.NumberClass)
-        </dd>
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Class)
@@ -32,7 +32,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Class)
-        </dd>
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.AdmissionDate)
@@ -40,7 +40,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.AdmissionDate)
-        </dd>
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.BeingTrained)
@@ -48,20 +48,8 @@
 
         <dd>
             @Html.DisplayFor(model => model.BeingTrained)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AveragePoint)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AveragePoint)
-            @if (Model.AveragePoint != String.Empty)
-            {
-                @Html.ActionLink("Подробнее", "Details", "AveragePoints", new { id = Model.StudentID }, new {@class = "btn"})
-            }
-        </dd>
-
+        </dd><br>
+        
         <dt>
             @Html.DisplayNameFor(model => model.ClassroomRelationship)
         </dt>
@@ -71,8 +59,13 @@
             @if (Model.ClassroomRelationship != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.ClassTeacheInformation)
@@ -83,8 +76,13 @@
             @if (Model.ClassTeacheInformation != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.EmotioTest)
@@ -95,8 +93,13 @@
             @if (Model.EmotioTest != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.FamilyAlarmAnalysi)
@@ -107,8 +110,13 @@
             @if (Model.FamilyAlarmAnalysi != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Intellectual_6_Class)
@@ -119,8 +127,13 @@
             @if (Model.Intellectual_6_Class != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Intellectual_7_Class)
@@ -131,8 +144,13 @@
             @if (Model.Intellectual_7_Class != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Intellectual_8_Class)
@@ -143,8 +161,13 @@
             @if (Model.Intellectual_8_Class != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Intellectual_9_Class)
@@ -155,8 +178,13 @@
             @if (Model.Intellectual_9_Class != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Interests_Card_145)
@@ -167,8 +195,13 @@
             @if (Model.Interests_Card_145 != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Подробнее", "Creare", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Interests_Card_50)
@@ -179,8 +212,13 @@
             @if (Model.Interests_Card_50 != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.InterestsInSchoolSubject)
@@ -191,8 +229,13 @@
             @if (Model.InterestsInSchoolSubject != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.PersonaAnxietyScale)
@@ -203,8 +246,13 @@
             @if (Model.PersonaAnxietyScale != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.PersonalProtagonistAizenko)
@@ -215,8 +263,13 @@
             @if (Model.PersonalProtagonistAizenko != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.SchoolMotivation)
@@ -227,8 +280,13 @@
             @if (Model.SchoolMotivation != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Self_esteem)
@@ -239,8 +297,13 @@
             @if (Model.Self_esteem != String.Empty)
             {
                 @Html.ActionLink("Подробнее", "Details", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn" })
             }
-        </dd>
+            else
+            {
+                @Html.ActionLink("Создать", "Create", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn" })
+            }
+        </dd><br>
 
     </dl>
 </div>

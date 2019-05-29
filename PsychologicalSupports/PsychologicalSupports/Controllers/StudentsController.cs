@@ -44,14 +44,14 @@ namespace PsychologicalSupports.Controllers
                 students = students.Where(x => x.FIO.Contains(search));
             }
 
-            if (!string.IsNullOrEmpty(Class))
-            {
-                students = students.Where(x => x.Class.Contains(Class));
-            }
+            //if (!string.IsNullOrEmpty(Class))
+            //{
+            //    students = students.Where(x => x.Class == Class);
+            //}
 
             if (NumberClass != null)
             {
-                students = students.Where(x => x.NumberClass.Equals(NumberClass));
+                students = students.Where(x => x.NumberClass == NumberClass);
             }
 
             return View(students);

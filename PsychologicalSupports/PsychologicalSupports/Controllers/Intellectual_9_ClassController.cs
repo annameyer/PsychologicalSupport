@@ -1,7 +1,8 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
@@ -29,7 +30,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_9_Class = _repository.Get(id);
+            Intellectual_9_Class intellectual_9_Class = _repository.Get(id);
             if (intellectual_9_Class == null)
             {
                 return HttpNotFound();
@@ -38,9 +39,10 @@ namespace PsychologicalSupports.Controllers
             return View(intellectual_9_Class);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 
@@ -52,7 +54,7 @@ namespace PsychologicalSupports.Controllers
                 _repository.Create(intellectual_9_Class);
                 return RedirectToAction("Index");
             }
-            
+
             return View(intellectual_9_Class);
         }
 
@@ -63,7 +65,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_9_Class = _repository.Get(id);
+            Intellectual_9_Class intellectual_9_Class = _repository.Get(id);
             if (intellectual_9_Class == null)
             {
                 return HttpNotFound();
@@ -91,7 +93,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var intellectual_9_Class = _repository.Get(id);
+            Intellectual_9_Class intellectual_9_Class = _repository.Get(id);
             if (intellectual_9_Class == null)
             {
                 return HttpNotFound();

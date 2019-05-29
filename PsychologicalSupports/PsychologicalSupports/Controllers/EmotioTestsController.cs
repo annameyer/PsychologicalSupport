@@ -1,7 +1,8 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
@@ -29,7 +30,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var emotioTest = _repository.Get(id);
+            EmotioTest emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();
@@ -38,18 +39,19 @@ namespace PsychologicalSupports.Controllers
             return View(emotioTest);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create( EmotioTest emotioTest)
+        public ActionResult Create(EmotioTest emotioTest)
         {
             if (ModelState.IsValid)
             {
-               _repository.Create(emotioTest);
+                _repository.Create(emotioTest);
                 return RedirectToAction("Index");
             }
 
@@ -63,7 +65,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var emotioTest = _repository.Get(id);
+            EmotioTest emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();
@@ -91,7 +93,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var emotioTest = _repository.Get(id);
+            EmotioTest emotioTest = _repository.Get(id);
             if (emotioTest == null)
             {
                 return HttpNotFound();

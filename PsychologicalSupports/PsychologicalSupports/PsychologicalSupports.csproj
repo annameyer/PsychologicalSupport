@@ -298,6 +298,7 @@
     <Compile Include="Dependencies\Repository\Self_esteemRepository.cs" />
     <Compile Include="Enum\Class.cs" />
     <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Enum\GetCurrentStudent.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

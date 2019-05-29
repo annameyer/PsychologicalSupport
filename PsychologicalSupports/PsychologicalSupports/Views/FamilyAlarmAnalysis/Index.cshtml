@@ -6,18 +6,6 @@
 
 <h2>Семейная тревожность</h2>
 
-<p>
-    @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-success" })
-</p>
-
-@using (Html.BeginForm())
-{
-    <p>
-        Поиск: @Html.TextBox("search")
-        <input class="btn btn-info" type="submit" value="Поиск" />
-    </p>
-}
 <table class="table">
     <tr>
         <th>

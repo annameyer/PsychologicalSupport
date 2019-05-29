@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
@@ -56,9 +57,10 @@ namespace PsychologicalSupports.Controllers
             return View(familyAlarmAnalysi);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 

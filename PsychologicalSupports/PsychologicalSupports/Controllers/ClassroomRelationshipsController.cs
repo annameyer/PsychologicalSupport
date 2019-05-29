@@ -1,4 +1,5 @@
-﻿using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Enum;
+using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
 using System.Web.Mvc;
@@ -29,7 +30,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var classroomRelationship = _repository.Get(id);
+            ClassroomRelationship classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -38,9 +39,10 @@ namespace PsychologicalSupports.Controllers
             return View(classroomRelationship);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 
@@ -64,7 +66,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var classroomRelationship = _repository.Get(id);
+            ClassroomRelationship classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
@@ -94,7 +96,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var classroomRelationship = _repository.Get(id);
+            ClassroomRelationship classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();

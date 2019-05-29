@@ -1,4 +1,5 @@
-﻿using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Enum;
+using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
 using System.Web.Mvc;
@@ -29,7 +30,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var averagePoint = _repository.Get(id);
+            AveragePoint averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -38,9 +39,10 @@ namespace PsychologicalSupports.Controllers
             return View(averagePoint);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO");
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentID = studentName.GetStudentId(Id);
             return View();
         }
 
@@ -63,7 +65,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var averagePoint = _repository.Get(id);
+            AveragePoint averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
@@ -91,7 +93,7 @@ namespace PsychologicalSupports.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var averagePoint = _repository.Get(id);
+            AveragePoint averagePoint = _repository.Get(id);
             if (averagePoint == null)
             {
                 return HttpNotFound();
