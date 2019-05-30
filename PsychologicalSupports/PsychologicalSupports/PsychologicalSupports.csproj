@@ -307,78 +307,36 @@
     <Compile Include="Authentication\AppUserStore.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AppUser.cs" />
-    <Compile Include="Models\AveragePoint.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClassroomRelationship.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClassTeacheInformation.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dependencies\Interface\IPsychologicalSupportsContext.cs" />
     <Compile Include="Dependencies\Interface\IRepository.cs" />
     <Compile Include="Authentication\LoginRepository.cs" />
     <Compile Include="Dependencies\Repository\StudentRepository.cs" />
-    <Compile Include="Models\EmotioTest.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AveragePoint.cs" />
+    <Compile Include="Models\ClassroomRelationship.cs" />
+    <Compile Include="Models\ClassTeacheInformation.cs" />
+    <Compile Include="Models\EmotioTest.cs" />
     <Compile Include="Models\ExcelFile.cs" />
-    <Compile Include="Models\FamilyAlarmAnalysi.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Intellectual_6_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Intellectual_7_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Intellectual_8_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Intellectual_9_Class.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InterestsInSchoolSubject.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Interests_Card_145.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Interests_Card_50.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\keyAttribute.cs" />
-    <Compile Include="Models\PersonaAnxietyScale.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PersonalProtagonistAizenko.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\FamilyAlarmAnalysi.cs" />
+    <Compile Include="Models\Intellectual_6_Class.cs" />
+    <Compile Include="Models\Intellectual_7_Class.cs" />
+    <Compile Include="Models\Intellectual_8_Class.cs" />
+    <Compile Include="Models\Intellectual_9_Class.cs" />
+    <Compile Include="Models\InterestsInSchoolSubject.cs" />
+    <Compile Include="Models\Interests_Card_145.cs" />
+    <Compile Include="Models\Interests_Card_50.cs" />
+    <Compile Include="Models\PersonaAnxietyScale.cs" />
+    <Compile Include="Models\PersonalProtagonistAizenko.cs" />
     <Compile Include="Models\PsychologicalSupports.Context.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\PsychologicalSupports.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PsychologicalSupports.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\SchoolMotivation.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Self_esteem.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Student.cs">
-      <DependentUpon>PsychologicalSupports.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\SchoolMotivation.cs" />
+    <Compile Include="Models\Self_esteem.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\NinjectRegistrations.cs" />
@@ -393,25 +351,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\PsychologicalSupports.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
-      <LastGenOutput>PsychologicalSupports.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PsychologicalSupports.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
-      <LastGenOutput>PsychologicalSupports.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\PsychologicalSupports.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PsychologicalSupports.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\PsychologicalSupports.edmx.diagram">
-      <DependentUpon>PsychologicalSupports.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -432,7 +373,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

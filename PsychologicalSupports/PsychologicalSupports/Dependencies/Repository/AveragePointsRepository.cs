@@ -1,7 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
@@ -14,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public IEnumerable<AveragePoint> List()
         {
-            return _psychologicalSupportsContext.AveragePoints;
+            return _psychologicalSupportsContext.AveragePoints.Include(x => x.Student).ToList(); ;
         }
         public AveragePoint Get(long? id)
         {
@@ -32,7 +34,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public void Delete(long id)
         {
-            var student = _psychologicalSupportsContext.AveragePoints.Find(id);
+            AveragePoint student = _psychologicalSupportsContext.AveragePoints.Find(id);
             _psychologicalSupportsContext.AveragePoints.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }

@@ -1,7 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
@@ -14,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public IEnumerable<ClassroomRelationship> List()
         {
-            return _psychologicalSupportsContext.ClassroomRelationships;
+            return _psychologicalSupportsContext.ClassroomRelationships.Include(x => x.Student).ToList(); ;
         }
         public ClassroomRelationship Get(long? id)
         {

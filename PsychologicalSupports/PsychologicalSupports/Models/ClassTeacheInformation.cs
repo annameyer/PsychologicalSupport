@@ -12,9 +12,10 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Информация классного руководителя")]
     public partial class ClassTeacheInformation
     {
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
         [Display(Name = "Самовредительство")]
         public string Self_harmingBehavior { get; set; }

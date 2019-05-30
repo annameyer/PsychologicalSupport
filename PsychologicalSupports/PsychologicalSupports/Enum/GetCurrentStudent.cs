@@ -8,7 +8,7 @@ namespace PsychologicalSupports.Enum
 
         public string GetStudentId(int Id)
         {
-            Models.Student student = _psychologicalSupportsContext.Students.Find(Id);
+            Student student = _psychologicalSupportsContext.Students.Find(Id);
             return student.FIO;
         }
     }

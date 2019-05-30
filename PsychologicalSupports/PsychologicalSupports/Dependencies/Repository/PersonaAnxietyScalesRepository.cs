@@ -1,7 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
@@ -16,7 +18,7 @@ namespace PsychologicalSupports.Dependencies.Repository
 
         public IEnumerable<PersonaAnxietyScale> List()
         {
-            return _psychologicalSupportsContext.PersonaAnxietyScales;
+            return _psychologicalSupportsContext.PersonaAnxietyScales.Include(x => x.Student).ToList();
         }
 
         public PersonaAnxietyScale Get(long? id)

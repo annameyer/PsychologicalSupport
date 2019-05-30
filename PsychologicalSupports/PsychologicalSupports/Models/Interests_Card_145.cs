@@ -12,10 +12,10 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Карта интересов  145")]
     public partial class Interests_Card_145
     {
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
 
         [Display(Name = "Билогия")]

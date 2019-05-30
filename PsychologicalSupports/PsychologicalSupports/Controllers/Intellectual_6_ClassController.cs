@@ -1,5 +1,4 @@
-﻿using PsychologicalSupports.Enum;
-using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
 using System.Web.Mvc;
@@ -41,8 +40,8 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create(int Id)
         {
-            GetCurrentStudent studentName = new GetCurrentStudent();
-            ViewBag.StudentName = studentName.GetStudentId(Id);
+            
+            ViewBag.StudentName = "dfs";
             return View();
         }
 

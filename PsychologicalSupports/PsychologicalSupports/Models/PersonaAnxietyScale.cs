@@ -12,10 +12,10 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Шкала личностной тревоги")]
     public partial class PersonaAnxietyScale
     {
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
 
         [Display(Name = "Школьная")]

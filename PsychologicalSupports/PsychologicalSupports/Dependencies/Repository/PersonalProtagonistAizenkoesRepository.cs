@@ -1,7 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
@@ -16,7 +18,7 @@ namespace PsychologicalSupports.Dependencies.Repository
 
         public IEnumerable<PersonalProtagonistAizenko> List()
         {
-            return _psychologicalSupportsContext.PersonalProtagonistAizenkoes;
+            return _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Include(x => x.Student).ToList();
         }
 
         public PersonalProtagonistAizenko Get(long? id)
@@ -38,7 +40,7 @@ namespace PsychologicalSupports.Dependencies.Repository
 
         public void Delete(long id)
         {
-            var student = _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
+            PersonalProtagonistAizenko student = _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Find(id);
             _psychologicalSupportsContext.PersonalProtagonistAizenkoes.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }

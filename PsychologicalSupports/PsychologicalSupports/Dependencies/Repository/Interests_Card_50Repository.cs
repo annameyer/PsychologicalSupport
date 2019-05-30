@@ -1,7 +1,10 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
+
 
 namespace PsychologicalSupports.Controllers
 {
@@ -16,7 +19,7 @@ namespace PsychologicalSupports.Controllers
 
         public IEnumerable<Interests_Card_50> List()
         {
-            return _psychologicalSupportsContext.Interests_Card_50;
+            return _psychologicalSupportsContext.Interests_Card_50.Include(x => x.Student).ToList(); ;
         }
 
         public Interests_Card_50 Get(long? id)

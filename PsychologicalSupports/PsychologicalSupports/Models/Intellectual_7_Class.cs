@@ -13,13 +13,13 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("7 класс")]
     public partial class Intellectual_7_Class
     {
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
         [Display(Name = "IQ")]
-        public Nullable<int> IQ { get; set; }
+        public string IQ { get; set; }
         [Display(Name = "Уровень")]
         public string Level { get; set; }
         [Display(Name = "Средний балл")]

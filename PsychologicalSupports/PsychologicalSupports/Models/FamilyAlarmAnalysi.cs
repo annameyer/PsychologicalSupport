@@ -12,11 +12,11 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Анализ семейной тревоги")]
     public partial class FamilyAlarmAnalysi
     {
 
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
         [Display(Name = "Вина")]
         public string Fault { get; set; }

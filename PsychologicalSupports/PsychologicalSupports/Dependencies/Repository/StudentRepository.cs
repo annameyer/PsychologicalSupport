@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
@@ -14,7 +16,7 @@ namespace PsychologicalSupports.Models.Dependencies
 
         public IEnumerable<Student> List()
         {
-            return _psychologicalSupportsContext.Students;
+            return _psychologicalSupportsContext.Students.Include(x => x.Intellectual_6_Class).Include(x => x.Intellectual_7_Class).ToList();
         }
 
         public Student Get(long? id)
@@ -30,7 +32,7 @@ namespace PsychologicalSupports.Models.Dependencies
 
         public void Edit(Student student)
         {
-            Student newStudent = Get((long)student.StudentID);
+            Student newStudent = Get(student.StudentID);
 
             if (newStudent != null)
             {

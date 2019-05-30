@@ -12,10 +12,10 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Личностный тест Айзенко")]
     public partial class PersonalProtagonistAizenko
     {
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
         [Display(Name = "Темперамент")]
         public string Temperament { get; set; }

@@ -1,7 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace PsychologicalSupports.Dependencies.Repository
 {
@@ -14,7 +16,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public IEnumerable<FamilyAlarmAnalysi> List()
         {
-            return _psychologicalSupportsContext.FamilyAlarmAnalysis;
+            return _psychologicalSupportsContext.FamilyAlarmAnalysis.Include(x => x.Student).ToList(); ;
         }
         public FamilyAlarmAnalysi Get(long? id)
         {

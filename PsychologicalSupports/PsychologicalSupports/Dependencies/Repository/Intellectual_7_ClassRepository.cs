@@ -1,8 +1,9 @@
 ﻿using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
-
+using System.Linq;
 namespace PsychologicalSupports.Dependencies.Repository
 {
     public class Intellectual_7_ClassRepository : IRepository<Intellectual_7_Class>
@@ -14,7 +15,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public IEnumerable<Intellectual_7_Class> List()
         {
-            return _psychologicalSupportsContext.Intellectual_7_Class;
+            return _psychologicalSupportsContext.Intellectual_7_Class.Include(x => x.Student).ToList();
         }
         public Intellectual_7_Class Get(long? id)
         {
@@ -32,7 +33,7 @@ namespace PsychologicalSupports.Dependencies.Repository
         }
         public void Delete(long id)
         {
-            var student = _psychologicalSupportsContext.Intellectual_7_Class.Find(id);
+            Intellectual_7_Class student = _psychologicalSupportsContext.Intellectual_7_Class.Find(id);
             _psychologicalSupportsContext.Intellectual_7_Class.Remove(student);
             _psychologicalSupportsContext.SaveChanges();
         }

@@ -11,11 +11,12 @@ namespace PsychologicalSupports.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    [Table("Самооценка")]
+
     public partial class Self_esteem
     {
 
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
 
 

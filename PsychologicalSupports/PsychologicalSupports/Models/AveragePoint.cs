@@ -13,10 +13,10 @@ namespace PsychologicalSupports.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Средний балл")]
     public partial class AveragePoint
     {
-        [key]
+        [Key]
+        [ForeignKey("Student")]
         public long StudentID { get; set; }
         [Display(Name = "6 класс")]
         public Nullable<double> AveragePoint_6 { get; set; }
