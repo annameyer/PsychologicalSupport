@@ -199,7 +199,7 @@
             }
             else
             {
-                @Html.ActionLink("Подробнее", "Creare", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Создать", "Create", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn" })
             }
         </dd><br>
 
@@ -262,12 +262,12 @@
             @Html.DisplayFor(model => model.PersonalProtagonistAizenko)
             @if (Model.PersonalProtagonistAizenko != String.Empty)
             {
-                @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
-                @Html.ActionLink("Изменить", "Edit", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Изменить", "Edit", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn" })
             }
             else
             {
-                @Html.ActionLink("Создать", "Create", "PersonalProtagonistAizenko", new { id = Model.StudentID }, new { @class = "btn" })
+                @Html.ActionLink("Создать", "Create", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn" })
             }
         </dd><br>
 

@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ClassroomRelationship classroomRelationship)
+        public ActionResult Create(ClassroomRelationship classroomRelationship, int Id)
         {
+            classroomRelationship.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(classroomRelationship);

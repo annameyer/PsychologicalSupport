@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Self_esteem Self_esteem)
+        public ActionResult Create(Self_esteem Self_esteem, int Id)
         {
+            Self_esteem.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(Self_esteem);

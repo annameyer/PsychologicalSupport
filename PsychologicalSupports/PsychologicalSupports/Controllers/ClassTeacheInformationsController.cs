@@ -48,8 +48,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ClassTeacheInformation classTeacheInformation)
+        public ActionResult Create(ClassTeacheInformation classTeacheInformation, int Id)
         {
+            classTeacheInformation.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(classTeacheInformation);

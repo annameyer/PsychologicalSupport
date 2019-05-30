@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(SchoolMotivation SchoolMotivation)
+        public ActionResult Create(SchoolMotivation SchoolMotivation, int Id)
         {
+            SchoolMotivation.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(SchoolMotivation);

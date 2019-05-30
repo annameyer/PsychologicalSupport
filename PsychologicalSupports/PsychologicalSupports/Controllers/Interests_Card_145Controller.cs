@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Interests_Card_145 Interests_Card_145)
+        public ActionResult Create(Interests_Card_145 Interests_Card_145, int Id)
         {
+            Interests_Card_145.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(Interests_Card_145);

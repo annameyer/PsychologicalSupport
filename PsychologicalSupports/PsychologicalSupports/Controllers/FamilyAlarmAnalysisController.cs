@@ -65,8 +65,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(FamilyAlarmAnalysi familyAlarmAnalysi)
+        public ActionResult Create(FamilyAlarmAnalysi familyAlarmAnalysi, int Id)
         {
+            familyAlarmAnalysi.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(familyAlarmAnalysi);

@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Intellectual_9_Class intellectual_9_Class)
+        public ActionResult Create(Intellectual_9_Class intellectual_9_Class, int Id)
         {
+            intellectual_9_Class.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(intellectual_9_Class);

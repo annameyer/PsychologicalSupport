@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(PersonalProtagonistAizenko PersonalProtagonistAizenko)
+        public ActionResult Create(PersonalProtagonistAizenko PersonalProtagonistAizenko, int Id)
         {
+            PersonalProtagonistAizenko.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(PersonalProtagonistAizenko);

@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(EmotioTest emotioTest)
+        public ActionResult Create(EmotioTest emotioTest, int Id)
         {
+            emotioTest.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(emotioTest);

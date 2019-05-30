@@ -47,8 +47,9 @@ namespace PsychologicalSupports.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(PersonaAnxietyScale PersonaAnxietyScale)
+        public ActionResult Create(PersonaAnxietyScale PersonaAnxietyScale, int Id)
         {
+            PersonaAnxietyScale.StudentID = Id;
             if (ModelState.IsValid)
             {
                 _repository.Create(PersonaAnxietyScale);
