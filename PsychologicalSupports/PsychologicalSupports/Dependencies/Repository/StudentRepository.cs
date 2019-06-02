@@ -16,7 +16,23 @@ namespace PsychologicalSupports.Models.Dependencies
 
         public IEnumerable<Student> List()
         {
-            return _psychologicalSupportsContext.Students.Include(x => x.Intellectual_6_Class).Include(x => x.Intellectual_7_Class).ToList();
+            return _psychologicalSupportsContext.Students
+                .Include(x => x.ClassroomRelationship)
+                .Include(x => x.ClassTeacheInformation)
+                .Include(x => x.EmotioTest)
+                .Include(x => x.FamilyAlarmAnalysi)
+                .Include(x => x.Intellectual_6_Class)
+                .Include(x => x.Intellectual_7_Class)
+                .Include(x => x.Intellectual_8_Class)
+                .Include(x => x.Intellectual_9_Class)
+                .Include(x => x.Interests_Card_145)
+                .Include(x => x.Interests_Card_50)
+                .Include(x => x.InterestsInSchoolSubject)
+                .Include(x => x.PersonaAnxietyScale)
+                .Include(x => x.PersonalProtagonistAizenko)
+                .Include(x => x.SchoolMotivation)
+                .Include(x => x.Self_esteem)
+                .ToList();
         }
 
         public Student Get(long? id)

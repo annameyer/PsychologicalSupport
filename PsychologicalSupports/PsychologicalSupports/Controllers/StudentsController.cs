@@ -1,8 +1,12 @@
 ﻿using OfficeOpenXml;
+using PagedList;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
@@ -16,16 +20,60 @@ namespace PsychologicalSupports.Controllers
             _repository = student;
         }
 
+        public ActionResult CreateFromExcel()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult CreateFromExcel(FormCollection formCollection, Student allIfo)
+        {
+            List<Student> studentsList = new List<Student>();
+            if (Request != null)
+            {
+                HttpPostedFileBase file = Request.Files["UploadedFile"];
+                if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                {
+                    string fileName = file.FileName;
+                    string fileContentType = file.ContentType;
+                    byte[] fileBytes = new byte[file.ContentLength];
+                    int data = file.InputStream.Read(fileBytes, 0, Convert.ToInt32(file.ContentLength));
+                    using (ExcelPackage package = new ExcelPackage(file.InputStream))
+                    {
+                        ExcelWorksheets currentSheet = package.Workbook.Worksheets;
+                        ExcelWorksheet workSheet = currentSheet.First();
+                        int noOfCol = workSheet.Dimension.End.Column;
+                        int noOfRow = workSheet.Dimension.End.Row;
+                        DateTime admissionDate = DateTime.Now;
+                        for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                        {
+                            Student student = new Student
+                            {
+                                FIO = workSheet.Cells[rowIterator, 1].Value.ToString(),
+                                Class = allIfo.Class,
+                                NumberClass = allIfo.NumberClass,
+                                AdmissionDate = allIfo.AdmissionDate,
+                                BeingTrained = allIfo.BeingTrained
+                            };
+                            studentsList.Add(student);
+                        }
+                    }
+                }
+            }
+            foreach (Student item in studentsList)
+            {
+                _repository.Create(item);
+            }
 
-        public FileContentResult Download()
+            return RedirectToAction("Index");
+        }
+
+        public FileContentResult Download(IEnumerable<Student> student)
         {
 
             string fileDownloadName = string.Format("Студенты.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-
-
-            ExcelPackage package = ExcelFile.GenerateExcelFile(_repository.List());
+            ExcelPackage package = ExcelFile.GenerateExcelFile(student);
 
             FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
             {
@@ -35,29 +83,31 @@ namespace PsychologicalSupports.Controllers
             return fsr;
         }
 
-        [Authorize]
-        public ActionResult Index(string search, string Class, int? NumberClass)
+
+        public ActionResult Index(string search, string Class, int? NumberClass, int? page)
         {
-            System.Collections.Generic.IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == true);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == true).OrderBy(x => x.NumberClass).ToList();
             if (!string.IsNullOrEmpty(search))
             {
                 students = students.Where(x => x.FIO.Contains(search));
             }
 
-            //if (!string.IsNullOrEmpty(Class))
-            //{
-            //    students = students.Where(x => x.Class == Class);
-            //}
+            if (!string.IsNullOrEmpty(Class))
+            {
+                students = students.Where(x => x.Class == Class);
+            }
 
             if (NumberClass != null)
             {
                 students = students.Where(x => x.NumberClass == NumberClass);
             }
 
-            return View(students);
+            return View(students.ToPagedList(pageNumber, pageSize));
         }
 
-        [Authorize]
+
         public ActionResult Archive(string search, string Class, int? NumberClass)
         {
             System.Collections.Generic.IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == false);

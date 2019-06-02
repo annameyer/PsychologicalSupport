@@ -4,7 +4,7 @@ using PsychologicalSupports.Models;
 
 namespace PsychologicalSupports.Infrastructure
 {
-    public class AppIdentityDbContext : IdentityDbContext<AppUser>,IAppIdentityDbContext
+    public class AppIdentityDbContext : IdentityDbContext<AppUser>, IAppIdentityDbContext
     {
         public AppIdentityDbContext() : base("name=PsychologicalSupport") { }
     }

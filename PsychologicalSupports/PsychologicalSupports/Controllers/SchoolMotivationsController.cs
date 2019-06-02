@@ -17,7 +17,7 @@ namespace PsychologicalSupports.Controllers
             _repository = repository;
         }
 
-        [Authorize]
+         
         public ActionResult Index()
         {
             return View(_repository.List());
