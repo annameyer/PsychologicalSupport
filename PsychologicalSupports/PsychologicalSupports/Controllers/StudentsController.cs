@@ -68,12 +68,26 @@ namespace PsychologicalSupports.Controllers
             return RedirectToAction("Index");
         }
 
-        public FileContentResult Download(IEnumerable<Student> student)
+        public FileContentResult Download(string search, string Class, int? NumberClass)
         {
+            IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == true).OrderBy(x => x.NumberClass).ToList();
+            if (!string.IsNullOrEmpty(search))
+            {
+                students = students.Where(x => x.FIO.Contains(search));
+            }
 
+            if (!string.IsNullOrEmpty(Class))
+            {
+                students = students.Where(x => x.Class == Class);
+            }
+
+            if (NumberClass != null)
+            {
+                students = students.Where(x => x.NumberClass == NumberClass);
+            }
             string fileDownloadName = string.Format("Студенты.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            ExcelPackage package = ExcelFile.GenerateExcelFile(student);
+            ExcelPackage package = ExcelFile.GenerateExcelFile(students);
 
             FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
             {
@@ -92,16 +106,19 @@ namespace PsychologicalSupports.Controllers
             if (!string.IsNullOrEmpty(search))
             {
                 students = students.Where(x => x.FIO.Contains(search));
+                ViewBag.Search = search;
             }
 
             if (!string.IsNullOrEmpty(Class))
             {
                 students = students.Where(x => x.Class == Class);
+                ViewBag.Class = Class;
             }
 
             if (NumberClass != null)
             {
                 students = students.Where(x => x.NumberClass == NumberClass);
+                ViewBag.NumberClass = NumberClass;
             }
 
             return View(students.ToPagedList(pageNumber, pageSize));

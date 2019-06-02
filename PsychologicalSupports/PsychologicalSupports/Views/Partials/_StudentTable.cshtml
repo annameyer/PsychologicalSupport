@@ -3,9 +3,6 @@
 @using PagedList;
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
-<p>
-    @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
-</p>
 <table id="table" class="table">
     <tr>
         <th>
@@ -40,24 +37,4 @@
         </tr>
     }
 </table>
-
-
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#table').DataTable();
-        $('.dataTables_length').addClass('bs-select');
-    });
-
-    $(document).ready(function () {
-        $("#Button1").click(function () {
-            $.ajax({
-                url: "@Url.Action("Download", "Students")",
-                method: "POST",
-                data: { student: @Model }
-            })
-        })
-    })
-</script>
-<input id="Button1" type="submit" value="button" />

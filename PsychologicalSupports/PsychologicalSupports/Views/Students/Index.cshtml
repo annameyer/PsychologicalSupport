@@ -3,6 +3,7 @@
 }
 <h2>Учащиеся</h2>
 <div>
+
     <p>
         @Html.ActionLink("Добавить учащегося", "Create", null, new { @class = "btn btn-success" })
     </p>
@@ -14,9 +15,9 @@
         <p>
             Поиск: @Html.TextBox("search")
         </p>
-    }
-    @using (Html.BeginForm())
-    {
+        <p>
+            @Html.ActionLink("Сформировать отчет", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass }, new { @class = "btn btn-primary" })
+        </p>
         <div class="div-list">
             @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), "Выберите", new { @class = "list" })
         </div>
@@ -24,7 +25,7 @@
             @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), "Выберите", new { @class = "list" })
         </div>
         <input class="btn btn-info" type="submit" value="Фильтровать" />
-        @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Clas = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Class = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
     }
     @Html.Partial("~/Views/Partials/_StudentTable.cshtml") ;
 </div>
