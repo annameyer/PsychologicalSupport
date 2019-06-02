@@ -56,24 +56,27 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
         public ActionResult Edit(int? id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             ClassroomRelationship classroomRelationship = _repository.Get(id);
             if (classroomRelationship == null)
             {
                 return HttpNotFound();
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 
@@ -86,7 +89,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", classroomRelationship.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", classroomRelationship.StudentID);
             return View(classroomRelationship);
         }
 

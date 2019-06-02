@@ -1,4 +1,5 @@
-﻿using PsychologicalSupports.Models;
+﻿using PsychologicalSupports.Enum;
+using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System.Net;
 using System.Web.Mvc;
@@ -40,8 +41,8 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Create(int Id)
         {
-            
-            ViewBag.StudentName = "dfs";
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View();
         }
 
@@ -60,10 +61,14 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
 
             Intellectual_6_Class intellectual_6_Class = _repository.Get(id);
             if (intellectual_6_Class == null)

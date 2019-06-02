@@ -65,7 +65,8 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             Interests_Card_50 Interests_Card_50 = _repository.Get(id);
             if (Interests_Card_50 == null)
             {

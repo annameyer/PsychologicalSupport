@@ -65,7 +65,8 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             PersonalProtagonistAizenko PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {

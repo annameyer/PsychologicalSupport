@@ -62,11 +62,14 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Edit(int? id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             ClassTeacheInformation classTeacheInformation = _repository.Get(id);
             if (classTeacheInformation == null)
             {

@@ -65,7 +65,8 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             Intellectual_8_Class intellectual_8_Class = _repository.Get(id);
             if (intellectual_8_Class == null)
             {

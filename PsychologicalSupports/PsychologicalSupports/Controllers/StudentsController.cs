@@ -1,5 +1,6 @@
 ﻿using OfficeOpenXml;
 using PagedList;
+using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
 using System;
@@ -245,6 +246,8 @@ namespace PsychologicalSupports.Controllers
 
         public ActionResult Edit(int? id)
         {
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

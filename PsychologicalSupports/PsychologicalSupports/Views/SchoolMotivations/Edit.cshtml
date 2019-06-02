@@ -10,108 +10,114 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.StudentID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StudyInClass, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.StudyInClass, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TestFamilyStudiesLevel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.TestFamilyStudiesLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CognitiveInterest, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CognitiveInterest, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TesMotivationAchievementstLevel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.TesMotivationAchievementstLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Classmates, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Classmates, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Pedagogues, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Pedagogues, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ByParents, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ByParents, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromTheSideOfTheSchool, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.FromTheSideOfTheSchool, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromTheSideOfTheFamily, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.FromTheSideOfTheFamily, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AwarenessOfSocialNecessity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.AwarenessOfSocialNecessity, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CommunicationMotif, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CommunicationMotif, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExtracurricularSchoolMotivation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ExtracurricularSchoolMotivation, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TheMotiveOfSelf_Realization, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.TheMotiveOfSelf_Realization, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.StudentID)
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudentID, "Учащийся", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Label((string)ViewBag.StudentName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudyInClass, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.StudyInClass, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TestFamilyStudiesLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.TestFamilyStudiesLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CognitiveInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CognitiveInterest, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TesMotivationAchievementstLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.TesMotivationAchievementstLevel, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Classmates, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Classmates, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pedagogues, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Pedagogues, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ByParents, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ByParents, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromTheSideOfTheSchool, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.FromTheSideOfTheSchool, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromTheSideOfTheFamily, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.FromTheSideOfTheFamily, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AwarenessOfSocialNecessity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.AwarenessOfSocialNecessity, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CommunicationMotif, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CommunicationMotif, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExtracurricularSchoolMotivation, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ExtracurricularSchoolMotivation, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TheMotiveOfSelf_Realization, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.TheMotiveOfSelf_Realization, new SelectList(PsychologicalSupports.Enums.GetSchoolMotivations()), new { @class = "dropdown-list-size" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>

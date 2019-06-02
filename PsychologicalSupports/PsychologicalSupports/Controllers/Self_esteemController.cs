@@ -56,7 +56,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", Self_esteem.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", Self_esteem.StudentID);
             return View(Self_esteem);
         }
 
@@ -66,14 +66,15 @@ namespace PsychologicalSupports.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(id.Value);
             Self_esteem PersonaAnxietyScale = _repository.Get(id);
             if (PersonaAnxietyScale == null)
             {
                 return HttpNotFound();
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", PersonaAnxietyScale.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", PersonaAnxietyScale.StudentID);
             return View(PersonaAnxietyScale);
         }
 
@@ -86,7 +87,7 @@ namespace PsychologicalSupports.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "StudentID", "FIO", Self_esteem.StudentID);
+            ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", Self_esteem.StudentID);
             return View(Self_esteem);
         }
 
