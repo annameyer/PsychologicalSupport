@@ -16,7 +16,7 @@
             Поиск: @Html.TextBox("search")
         </p>
         <p>
-            @Html.ActionLink("Сформировать отчет", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Сформировать отчет", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }, new { @class = "btn btn-primary" })
         </p>
         <div class="div-list">
             @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), "Выберите", new { @class = "list" })
@@ -24,6 +24,14 @@
         <div class="div-list">
             @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), "Выберите", new { @class = "list" })
         </div>
+        <label class="radio">
+            @Html.RadioButton("Filter", "FIO", new { htmlAttributes = new { @class = "form-check-input" } })
+            ФИО
+        </label>
+        <label class="radio">
+            @Html.RadioButton("Filter", "Сlass", new { htmlAttributes = new { @class = "form-check-input" } })
+            Класс
+        </label>
         <input class="btn btn-info" type="submit" value="Фильтровать" />
         @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Class = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
     }

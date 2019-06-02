@@ -68,7 +68,7 @@ namespace PsychologicalSupports.Controllers
             return RedirectToAction("Index");
         }
 
-        public FileContentResult Download(string search, string Class, int? NumberClass)
+        public FileContentResult Download(string search, string Class, int? NumberClass, string Filter)
         {
             IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == true).OrderBy(x => x.NumberClass).ToList();
             if (!string.IsNullOrEmpty(search))
@@ -85,6 +85,17 @@ namespace PsychologicalSupports.Controllers
             {
                 students = students.Where(x => x.NumberClass == NumberClass);
             }
+
+            if (Filter == "FIO")
+            {
+                students = students.OrderBy(x => x.FIO);
+            }
+
+            if (Filter == "Сlass")
+            {
+                students = students.OrderBy(x => x.Class);
+            }
+
             string fileDownloadName = string.Format("Студенты.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             ExcelPackage package = ExcelFile.GenerateExcelFile(students);
@@ -98,7 +109,7 @@ namespace PsychologicalSupports.Controllers
         }
 
 
-        public ActionResult Index(string search, string Class, int? NumberClass, int? page)
+        public ActionResult Index(string search, string Class, int? NumberClass, int? page, string Filter)
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -121,29 +132,56 @@ namespace PsychologicalSupports.Controllers
                 ViewBag.NumberClass = NumberClass;
             }
 
+            if (Filter == "FIO")
+            {
+                students = students.OrderBy(x => x.FIO);
+            }
+
+            if (Filter == "Сlass")
+            {
+                students = students.OrderBy(x => x.Class);
+            }
+            ViewBag.Filter = Filter;
+
             return View(students.ToPagedList(pageNumber, pageSize));
         }
 
 
-        public ActionResult Archive(string search, string Class, int? NumberClass)
+        public ActionResult Archive(string search, string Class, int? NumberClass, int? page, string Filter)
         {
-            System.Collections.Generic.IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == false);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            IEnumerable<Student> students = _repository.List().Where(x => x.BeingTrained == false).OrderBy(x => x.NumberClass).ToList();
             if (!string.IsNullOrEmpty(search))
             {
                 students = students.Where(x => x.FIO.Contains(search));
+                ViewBag.Search = search;
             }
 
             if (!string.IsNullOrEmpty(Class))
             {
-                students = students.Where(x => x.Class.Contains(Class));
+                students = students.Where(x => x.Class == Class);
+                ViewBag.Class = Class;
             }
 
             if (NumberClass != null)
             {
-                students = students.Where(x => x.NumberClass.Equals(NumberClass));
+                students = students.Where(x => x.NumberClass == NumberClass);
+                ViewBag.NumberClass = NumberClass;
             }
 
-            return View(students);
+            if (Filter == "FIO")
+            {
+                students = students.OrderBy(x => x.FIO);
+            }
+
+            if (Filter == "Сlass")
+            {
+                students = students.OrderBy(x => x.Class);
+            }
+            ViewBag.Filter = Filter;
+
+            return View(students.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Details(int? id)

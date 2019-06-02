@@ -4,24 +4,35 @@
 }
 
 <h2>Учащиеся</h2>
-
 <div>
-    <p>
-        @Html.ActionLink("Сформировать отчет", "Download", null, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-success" })
-    </p>
 
+    <p>
+        @Html.ActionLink("Добавить учащегося", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <p>
+        @Html.ActionLink("Добавить учащихся", "CreateFromExcel", null, new { @class = "btn btn-danger" })
+    </p>
     @using (Html.BeginForm())
     {
+        <p>
+            Поиск: @Html.TextBox("search")
+        </p>
+        <p>
+            @Html.ActionLink("Сформировать отчет", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }, new { @class = "btn btn-primary" })
+        </p>
         <div class="div-list">
-            @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), new { @class = "list" })
+            @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), "Выберите", new { @class = "list" })
         </div>
         <div class="div-list">
-            @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), new { @class = "list" })
+            @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), "Выберите", new { @class = "list" })
         </div>
+        @Html.RadioButton("Filter", "FIO", new { htmlAttributes = new { @class = "form-check-input" } })
+        @Html.Label("ФИО", new { @for = "+" })
+        @Html.RadioButton("Filter", "Сlass", new { htmlAttributes = new { @class = "form-check-input" } })
+        @Html.Label("Класс", new { @for = "+" })
         <input class="btn btn-info" type="submit" value="Фильтровать" />
+        @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Class = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
     }
-
-    @Html.Partial("~/Views/Partials/_StudentTable.cshtml");
+    @Html.Partial("~/Views/Partials/_StudentTable.cshtml") ;
 </div>
 
