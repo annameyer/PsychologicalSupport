@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.ClassTeacheInformation>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.ClassTeacheInformation>
 
 @{
     ViewBag.Title = "Index";
@@ -54,57 +56,59 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Self_harmingBehavior)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Isolation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Aggression)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvoidPhysicalContact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AfraidToGoHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RunningAwayFromHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WearBodyHidingClothes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DefiantBehavior)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LowSelf_esteem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoorPeerRelations)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SharpWeightChange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HystericalEmotionalImbalance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExceptionallyGoodSexKnowledge)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Self_harmingBehavior)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isolation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aggression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvoidPhysicalContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AfraidToGoHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RunningAwayFromHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WearBodyHidingClothes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefiantBehavior)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowSelf_esteem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoorPeerRelations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SharpWeightChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HystericalEmotionalImbalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExceptionallyGoodSexKnowledge)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-             @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

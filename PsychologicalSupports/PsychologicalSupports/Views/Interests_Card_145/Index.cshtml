@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.Interests_Card_145>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.Interests_Card_145>
 
 @{
     ViewBag.Title = "Index";
@@ -99,102 +101,104 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Biology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Geography)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Geology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TheMedicine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LightAndFoodIndustry)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Physics)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Chemistry)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EngineeringMechanics)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ElectricalEngineeringRadioEngineering)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaterialHandling)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InformationTechnology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Psychology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Building)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tranport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MilitarySpecialties)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Story)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Literature)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Journalism)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sociology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pedagogy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Right)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServiceSector)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Maths)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Economy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ForeignLanguages)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Art)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Music)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sport)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Biology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geography)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheMedicine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LightAndFoodIndustry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Physics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chemistry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineeringMechanics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElectricalEngineeringRadioEngineering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaterialHandling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InformationTechnology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psychology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tranport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MilitarySpecialties)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Story)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Literature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Journalism)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sociology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pedagogy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Right)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceSector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Economy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ForeignLanguages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Art)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Music)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

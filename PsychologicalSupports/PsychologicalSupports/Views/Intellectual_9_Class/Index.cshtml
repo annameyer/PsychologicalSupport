@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.Intellectual_9_Class>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.Intellectual_9_Class>
 
 @{
     ViewBag.Title = "Index";
@@ -18,21 +20,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Profile)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

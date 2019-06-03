@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.Intellectual_7_Class>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.Intellectual_7_Class>
 
 @{
     ViewBag.Title = "Index";
@@ -28,30 +30,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IQ)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Level)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AveragePointСommon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AveragePointMath)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IQ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AveragePointСommon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AveragePointMath)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

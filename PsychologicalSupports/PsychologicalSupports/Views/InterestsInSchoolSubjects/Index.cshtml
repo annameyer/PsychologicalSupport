@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.InterestsInSchoolSubject>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.InterestsInSchoolSubject>
 
 @{
     ViewBag.Title = "Index";
@@ -42,45 +44,47 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Russian)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Belorussian)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Physics)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Story)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SocialScientist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Biology)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Chemistry)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ComputerScience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.English)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Russian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Belorussian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Physics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Story)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialScientist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Biology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chemistry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComputerScience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.English)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

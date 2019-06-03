@@ -206,22 +206,22 @@ namespace PsychologicalSupports.Controllers
                 Class = student.Class,
                 AdmissionDate = student.AdmissionDate,
                 BeingTrained = student.BeingTrained.HasValue ? "Обучается" : "Не обучается",
-                AveragePoint = student.AveragePoint != null ? "1" : string.Empty,
-                ClassroomRelationship = student.ClassroomRelationship != null ? "1" : string.Empty,
-                ClassTeacheInformation = student.ClassTeacheInformation != null ? "1" : string.Empty,
-                EmotioTest = student.EmotioTest != null ? "1" : string.Empty,
-                FamilyAlarmAnalysi = student.FamilyAlarmAnalysi != null ? "1" : string.Empty,
-                Intellectual_6_Class = student.Intellectual_6_Class != null ? "1" : string.Empty,
-                Intellectual_7_Class = student.Intellectual_7_Class != null ? "1" : string.Empty,
-                Intellectual_8_Class = student.Intellectual_8_Class != null ? "1" : string.Empty,
-                Intellectual_9_Class = student.Intellectual_9_Class != null ? "1" : string.Empty,
-                Interests_Card_145 = student.Interests_Card_145 != null ? "1" : string.Empty,
-                Interests_Card_50 = student.Interests_Card_50 != null ? "1" : string.Empty,
-                InterestsInSchoolSubject = student.InterestsInSchoolSubject != null ? "1" : string.Empty,
-                PersonaAnxietyScale = student.PersonaAnxietyScale != null ? "1" : string.Empty,
-                PersonalProtagonistAizenko = student.PersonalProtagonistAizenko != null ? "1" : string.Empty,
-                SchoolMotivation = student.SchoolMotivation != null ? "1" : string.Empty,
-                Self_esteem = student.Self_esteem != null ? "1" : string.Empty
+                AveragePoint = student.AveragePoint != null ? "\u2718" : "\u2718",
+                ClassroomRelationship = student.ClassroomRelationship != null ? "\u2714" : "\u2718",
+                ClassTeacheInformation = student.ClassTeacheInformation != null ? "\u2714" :"\u2718",
+                EmotioTest = student.EmotioTest != null ? "\u2714" :"\u2718",
+                FamilyAlarmAnalysi = student.FamilyAlarmAnalysi != null ? "\u2714" :"\u2718",
+                Intellectual_6_Class = student.Intellectual_6_Class != null ? "\u2714" :"\u2718",
+                Intellectual_7_Class = student.Intellectual_7_Class != null ? "\u2714" :"\u2718",
+                Intellectual_8_Class = student.Intellectual_8_Class != null ? "\u2714" :"\u2718",
+                Intellectual_9_Class = student.Intellectual_9_Class != null ? "\u2714" :"\u2718",
+                Interests_Card_145 = student.Interests_Card_145 != null ? "\u2714" :"\u2718",
+                Interests_Card_50 = student.Interests_Card_50 != null ? "\u2714" :"\u2718",
+                InterestsInSchoolSubject = student.InterestsInSchoolSubject != null ? "\u2714" :"\u2718",
+                PersonaAnxietyScale = student.PersonaAnxietyScale != null ? "\u2714" :"\u2718",
+                PersonalProtagonistAizenko = student.PersonalProtagonistAizenko != null ? "\u2714" :"\u2718",
+                SchoolMotivation = student.SchoolMotivation != null ? "\u2714" :"\u2718",
+                Self_esteem = student.Self_esteem != null ? "\u2714" :"\u2718"
             };
 
             return View(newStudent);
@@ -287,7 +287,33 @@ namespace PsychologicalSupports.Controllers
                 return HttpNotFound();
             }
 
-            return View(student);
+            StudentDetails newStudent = new StudentDetails
+            {
+                StudentID = student.StudentID,
+                FIO = student.FIO,
+                NumberClass = student.NumberClass,
+                Class = student.Class,
+                AdmissionDate = student.AdmissionDate,
+                BeingTrained = student.BeingTrained.HasValue ? "Обучается" : "Не обучается",
+                AveragePoint = student.AveragePoint != null ? "\u2718" : "\u2718",
+                ClassroomRelationship = student.ClassroomRelationship != null ? "\u2714" : "\u2718",
+                ClassTeacheInformation = student.ClassTeacheInformation != null ? "\u2714" : "\u2718",
+                EmotioTest = student.EmotioTest != null ? "\u2714" : "\u2718",
+                FamilyAlarmAnalysi = student.FamilyAlarmAnalysi != null ? "\u2714" : "\u2718",
+                Intellectual_6_Class = student.Intellectual_6_Class != null ? "\u2714" : "\u2718",
+                Intellectual_7_Class = student.Intellectual_7_Class != null ? "\u2714" : "\u2718",
+                Intellectual_8_Class = student.Intellectual_8_Class != null ? "\u2714" : "\u2718",
+                Intellectual_9_Class = student.Intellectual_9_Class != null ? "\u2714" : "\u2718",
+                Interests_Card_145 = student.Interests_Card_145 != null ? "\u2714" : "\u2718",
+                Interests_Card_50 = student.Interests_Card_50 != null ? "\u2714" : "\u2718",
+                InterestsInSchoolSubject = student.InterestsInSchoolSubject != null ? "\u2714" : "\u2718",
+                PersonaAnxietyScale = student.PersonaAnxietyScale != null ? "\u2714" : "\u2718",
+                PersonalProtagonistAizenko = student.PersonalProtagonistAizenko != null ? "\u2714" : "\u2718",
+                SchoolMotivation = student.SchoolMotivation != null ? "\u2714" : "\u2718",
+                Self_esteem = student.Self_esteem != null ? "\u2714" : "\u2718"
+            };
+
+            return View(newStudent);
         }
 
         [HttpPost, ActionName("Delete")]

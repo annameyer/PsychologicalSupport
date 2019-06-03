@@ -43,13 +43,13 @@
      </div>
         <p>
             <input class="btn btn-info" type="submit" value="Фильтровать"/>
-            @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Class = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Очистить", "Index", new {search = string.Empty, Class = string.Empty, numberClass = string.Empty}, new {@class = "btn btn-info"})
 
         </p>
         <p class="p-t-10">
-            @Html.ActionLink("Импортировать", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Экспортировать", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }, new { @class = "btn btn-success" })
         </p>
     }
     
-    @Html.Partial("~/Views/Partials/_StudentTable.cshtml") ;
+    @Html.Partial("~/Views/Partials/_StudentTable.cshtml") 
 </div>

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PsychologicalSupports.Models.EmotioTest>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<PsychologicalSupports.Models.EmotioTest>
 
 @{
     ViewBag.Title = "Index";
@@ -39,42 +41,44 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicalAggression)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IndirectAggression)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Irritability)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Negativism)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Touchiness)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Suspicion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VerbalAggression)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Guilt)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalAggression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirectAggression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Irritability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Negativism)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Touchiness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suspicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerbalAggression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guilt)
+            </td>
 
-        <td>
-             @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
