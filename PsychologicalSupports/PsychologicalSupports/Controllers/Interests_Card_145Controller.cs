@@ -19,6 +19,45 @@ namespace PsychologicalSupports.Controllers
             _repository = repository;
         }
 
+        public FileContentResult Download(string search, string Class, int? NumberClass, string Filter)
+        {
+            var students = _repository.List().Join(_psychologicalSupportsContext.Students, p => p.StudentID, x => x.StudentID, (p, x) => p).Where(x => x.Student.BeingTrained == true);
+            if (!string.IsNullOrEmpty(search))
+            {
+                students = students.Where(x => x.Student.FIO.Contains(search));
+            }
+
+            if (!string.IsNullOrEmpty(Class))
+            {
+                students = students.Where(x => x.Student.Class == Class);
+            }
+
+            if (NumberClass != null)
+            {
+                students = students.Where(x => x.Student.NumberClass == NumberClass);
+            }
+
+            if (Filter == "FIO")
+            {
+                students = students.OrderBy(x => x.Student.FIO);
+            }
+
+            if (Filter == "Сlass")
+            {
+                students = students.OrderBy(x => x.Student.Class);
+            }
+
+            string fileDownloadName = string.Format("Карта интересов 145.xlsx");
+            const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            var package = ExcelFile.GenerateExcelFile(students);
+
+            FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
+            {
+                FileDownloadName = fileDownloadName
+            };
+
+            return fsr;
+        }
 
         public ActionResult Index(string search, string Class, int? NumberClass, int? page, string Filter)
         {

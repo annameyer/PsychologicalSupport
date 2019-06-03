@@ -50,7 +50,7 @@ namespace PsychologicalSupports.Controllers
                         {
                             Student student = new Student
                             {
-                                FIO = workSheet.Cells[rowIterator, 1].Value.ToString(),
+                                FIO = workSheet.Cells[rowIterator, 1].Value.ToString().Trim(),
                                 Class = allIfo.Class,
                                 NumberClass = allIfo.NumberClass,
                                 AdmissionDate = allIfo.AdmissionDate,
