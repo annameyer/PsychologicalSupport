@@ -10,19 +10,6 @@
         {
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.HasMany(b => b.Criterias)
-        //    .WithMany(x => x.Operations)
-        //    .Map(x =>
-        //    {
-        //        x.ToTable("CheckpointParameter");
-        //        x.MapLeftKey("CriteriaId");
-        //        x.MapRightKey("OperationId");
-        //    });
-        //}
-
         public virtual DbSet<AveragePoint> AveragePoints { get; set; }
         public virtual DbSet<ClassroomRelationship> ClassroomRelationships { get; set; }
         public virtual DbSet<ClassTeacheInformation> ClassTeacheInformations { get; set; }

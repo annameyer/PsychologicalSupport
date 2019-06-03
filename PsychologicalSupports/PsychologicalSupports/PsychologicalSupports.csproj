@@ -482,6 +482,7 @@
     <Content Include="Views\Partials\_StudentTable.cshtml" />
     <Content Include="Views\Students\Archive.cshtml" />
     <Content Include="Views\Students\CreateFromExcel.cshtml" />
+    <Content Include="Views\Partials\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

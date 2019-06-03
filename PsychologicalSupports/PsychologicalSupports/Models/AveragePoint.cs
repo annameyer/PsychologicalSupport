@@ -17,6 +17,7 @@ namespace PsychologicalSupports.Models
     {
         [Key]
         [ForeignKey("Student")]
+        [Display(Name = "Номер учащегося")]
         public long StudentID { get; set; }
         [Display(Name = "6 класс")]
         public Nullable<double> AveragePoint_6 { get; set; }

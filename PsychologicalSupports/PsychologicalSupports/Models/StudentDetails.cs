@@ -5,6 +5,7 @@ namespace PsychologicalSupports.Models
 {
     public class StudentDetails
     {
+        [Display(Name = "Номер учащегося")]
         public long StudentID { get; set; }
         [Display(Name = "ФИО")]
         public string FIO { get; set; }

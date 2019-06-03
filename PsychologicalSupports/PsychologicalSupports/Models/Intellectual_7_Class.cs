@@ -17,6 +17,7 @@ namespace PsychologicalSupports.Models
     {
         [Key]
         [ForeignKey("Student")]
+        [Display(Name = "Номер учащегося")]
         public long StudentID { get; set; }
         [Display(Name = "IQ")]
         public string IQ { get; set; }

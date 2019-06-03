@@ -10,48 +10,7 @@
 
         @Html.ActionLink("Добавить учащихся", "CreateFromExcel", null, new { @class = "btn btn-danger" })
     </p>
-    @using (Html.BeginForm())
-    {<div class="row p-t-10">
-         <div class="col-sm-3">
-             <p>
-                 Поиск: @Html.TextBox("search", null, new { @class = "form-control text-box single-line" })
-             </p>
-         </div>
-         <div class="col-sm-2 p-t-10">
-             <p>
-                 Cортировать:<br>
-                 <label class="radio p-l-20 font-weight-normal">
-                     @Html.RadioButton("Filter", "FIO", new { htmlAttributes = new { @class = "form-check-input" } })
-                     ФИО
-                 </label>
-                 <label class="radio p-l-20 font-weight-normal">
-                     @Html.RadioButton("Filter", "Сlass", new { htmlAttributes = new { @class = "form-check-input" } })
-                     Класс
-                 </label>
-
-             </p>
-         </div>
-         <div class="col-sm-2">
-             Класс:<br/>
-             <div class="div-list ">
-                 @Html.DropDownList("Class", new SelectList(PsychologicalSupports.Enums.GetClass()), "Выберите...", new {@class = "list form-control text-box single-line"})
-             </div>
-             Номер класа:<br/>
-             <div class="div-list">
-                 @Html.DropDownList("NumberClass", new SelectList(PsychologicalSupports.Enums.GetNumberClass()), "Выберите...", new {@class = "list form-control text-box single-line"})
-
-             </div>
-         </div>
-     </div>
-        <p>
-            <input class="btn btn-info" type="submit" value="Фильтровать" />
-            @Html.ActionLink("Очистить", "Index", new { search = string.Empty, Class = string.Empty, numberClass = string.Empty }, new { @class = "btn btn-info" })
-
-        </p>
-        <p class="p-t-10">
-            @Html.ActionLink("Импортировать", "Download", new { search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }, new { @class = "btn btn-success" })
-        </p>
-    }
+    @Html.Partial("~/Views/Partials/_Filter.cshtml")
    
     @Html.Partial("~/Views/Partials/_StudentTable.cshtml") ;
 </div>
