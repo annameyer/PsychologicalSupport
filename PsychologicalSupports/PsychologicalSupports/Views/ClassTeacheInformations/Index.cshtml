@@ -5,110 +5,112 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Информация классного руководителя</h2>
-@Html.Partial("~/Views/Partials/_Filter.cshtml")
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Self_harmingBehavior)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Isolation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Aggression)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AvoidPhysicalContact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AfraidToGoHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RunningAwayFromHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WearBodyHidingClothes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DefiantBehavior)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LowSelf_esteem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PoorPeerRelations)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SharpWeightChange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HystericalEmotionalImbalance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExceptionallyGoodSexKnowledge)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@using (Html.BeginForm())
+{
+    <h2>Информация классного руководителя</h2>
+    @Html.Partial("~/Views/Partials/_Filter.cshtml")
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.FIO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Self_harmingBehavior)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isolation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aggression)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvoidPhysicalContact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AfraidToGoHome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RunningAwayFromHome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WearBodyHidingClothes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DefiantBehavior)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LowSelf_esteem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PoorPeerRelations)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SharpWeightChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HystericalEmotionalImbalance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExceptionallyGoodSexKnowledge)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Self_harmingBehavior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isolation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aggression)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvoidPhysicalContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AfraidToGoHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RunningAwayFromHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WearBodyHidingClothes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefiantBehavior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LowSelf_esteem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoorPeerRelations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SharpWeightChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HystericalEmotionalImbalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExceptionallyGoodSexKnowledge)
+            </th>
 
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-            </td>
+            <th></th>
         </tr>
-    }
 
-</table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Self_harmingBehavior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Isolation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aggression)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvoidPhysicalContact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AfraidToGoHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RunningAwayFromHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WearBodyHidingClothes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DefiantBehavior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LowSelf_esteem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoorPeerRelations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SharpWeightChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HystericalEmotionalImbalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExceptionallyGoodSexKnowledge)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new {id = item.StudentID}, new {@class = "btn btn-info"})
+                    @Html.ActionLink("Подробнее", "Details", new {id = item.StudentID}, new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Удалить", "Delete", new {id = item.StudentID}, new {@class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }))
+}

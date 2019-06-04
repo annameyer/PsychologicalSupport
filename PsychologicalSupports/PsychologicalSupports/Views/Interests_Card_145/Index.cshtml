@@ -5,200 +5,202 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Карта интересов 145</h2>
-@Html.Partial("~/Views/Partials/_Filter.cshtml")
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Biology)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Geography)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Geology)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TheMedicine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LightAndFoodIndustry)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Physics)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Chemistry)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EngineeringMechanics)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ElectricalEngineeringRadioEngineering)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaterialHandling)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InformationTechnology)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Psychology)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Building)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tranport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MilitarySpecialties)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Story)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Literature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Journalism)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sociology)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pedagogy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Right)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ServiceSector)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Maths)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Economy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ForeignLanguages)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Art)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Music)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sport)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@using (Html.BeginForm())
+{
+    <h2>Карта интересов 145</h2>
+    @Html.Partial("~/Views/Partials/_Filter.cshtml")
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.FIO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Biology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Geography)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Geology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TheMedicine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LightAndFoodIndustry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Physics)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chemistry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EngineeringMechanics)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ElectricalEngineeringRadioEngineering)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaterialHandling)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InformationTechnology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Psychology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Building)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tranport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MilitarySpecialties)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Story)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Literature)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Journalism)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sociology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pedagogy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Right)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceSector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Maths)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Economy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ForeignLanguages)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Art)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Music)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sport)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Biology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geography)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TheMedicine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LightAndFoodIndustry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Physics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chemistry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineeringMechanics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ElectricalEngineeringRadioEngineering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaterialHandling)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InformationTechnology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Psychology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tranport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MilitarySpecialties)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Story)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Literature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Journalism)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sociology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pedagogy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Right)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceSector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Economy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ForeignLanguages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Art)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Music)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport)
+            </th>
 
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-            </td>
+            <th></th>
         </tr>
-    }
 
-</table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Biology)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Geography)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Geology)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TheMedicine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LightAndFoodIndustry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Physics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chemistry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngineeringMechanics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ElectricalEngineeringRadioEngineering)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaterialHandling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InformationTechnology)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Psychology)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tranport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MilitarySpecialties)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Story)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Literature)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Journalism)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sociology)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pedagogy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Right)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceSector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maths)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Economy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ForeignLanguages)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Art)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Music)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sport)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }))
+}

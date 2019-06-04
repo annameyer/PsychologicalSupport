@@ -5,57 +5,59 @@
 @{
     ViewBag.Title = "Index";
 }
+@using (Html.BeginForm())
+{
+    <h2>7 класс</h2>
 
-<h2>7 класс</h2>
-
-@Html.Partial("~/Views/Partials/_Filter.cshtml")
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IQ)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Level)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AveragePointСommon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AveragePointMath)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    @Html.Partial("~/Views/Partials/_Filter.cshtml")
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.FIO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IQ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AveragePointСommon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AveragePointMath)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IQ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AveragePointСommon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AveragePointMath)
+            </th>
 
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-            </td>
+            <th></th>
         </tr>
-    }
 
-</table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IQ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AveragePointСommon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AveragePointMath)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }))
+}

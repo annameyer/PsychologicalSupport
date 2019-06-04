@@ -2,13 +2,16 @@
     ViewBag.Title = "Index";
 }
 <h2>Учащиеся</h2>
-<div>
-    <p>
-        @Html.ActionLink("Добавить учащегося", "Create", null, new { @class = "btn btn-success" })
+@using (Html.BeginForm())
+{
+    <div>
+        <p>
+            @Html.ActionLink("Добавить учащегося", "Create", null, new {@class = "btn btn-success"})
 
-        @Html.ActionLink("Добавить учащихся", "CreateFromExcel", null, new { @class = "btn btn-danger" })
-    </p>
-    @Html.Partial("~/Views/Partials/_Filter.cshtml")
+            @Html.ActionLink("Добавить учащихся", "CreateFromExcel", null, new {@class = "btn btn-danger"})
+        </p>
+        @Html.Partial("~/Views/Partials/_Filter.cshtml")
 
-    @Html.Partial("~/Views/Partials/_StudentTable.cshtml")
-</div>
+        @Html.Partial("~/Views/Partials/_StudentTable.cshtml")
+    </div>
+}

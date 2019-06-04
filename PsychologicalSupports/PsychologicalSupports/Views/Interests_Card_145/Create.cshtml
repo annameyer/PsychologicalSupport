@@ -16,8 +16,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StudentID, "Учащийся", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Label((string)ViewBag.StudentName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+                @Html.Label((string) ViewBag.StudentName, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.StudentID, "", new {@class = "text-danger"})
             </div>
         </div>
 

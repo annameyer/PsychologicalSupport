@@ -5,110 +5,112 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Школьная мотивация</h2>
-@Html.Partial("~/Views/Partials/_Filter.cshtml")
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudyInClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TestFamilyStudiesLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CognitiveInterest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TesMotivationAchievementstLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Classmates)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pedagogues)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ByParents)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FromTheSideOfTheSchool)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FromTheSideOfTheFamily)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AwarenessOfSocialNecessity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommunicationMotif)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExtracurricularSchoolMotivation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@using (Html.BeginForm())
+{
+    <h2>Школьная мотивация</h2>
+    @Html.Partial("~/Views/Partials/_Filter.cshtml")
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.FIO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudyInClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestFamilyStudiesLevel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CognitiveInterest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TesMotivationAchievementstLevel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Classmates)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pedagogues)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ByParents)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FromTheSideOfTheSchool)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FromTheSideOfTheFamily)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AwarenessOfSocialNecessity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommunicationMotif)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExtracurricularSchoolMotivation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TheMotiveOfSelf_Realization)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudyInClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestFamilyStudiesLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CognitiveInterest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TesMotivationAchievementstLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classmates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pedagogues)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ByParents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromTheSideOfTheSchool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromTheSideOfTheFamily)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwarenessOfSocialNecessity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommunicationMotif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExtracurricularSchoolMotivation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TheMotiveOfSelf_Realization)
+            </th>
 
-            <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
-            </td>
+            <th></th>
         </tr>
-    }
 
-</table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudyInClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestFamilyStudiesLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CognitiveInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TesMotivationAchievementstLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classmates)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pedagogues)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ByParents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromTheSideOfTheSchool)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromTheSideOfTheFamily)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AwarenessOfSocialNecessity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommunicationMotif)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExtracurricularSchoolMotivation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TheMotiveOfSelf_Realization)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.StudentID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, search = ViewBag.Search, Class = ViewBag.Class, numberClass = ViewBag.NumberClass, Filter = ViewBag.Filter }))
+}
