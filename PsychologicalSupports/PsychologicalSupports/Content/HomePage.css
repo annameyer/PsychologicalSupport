@@ -1,8 +1,14 @@
 ﻿.btn-home-menu {
     width: 250px;
     height: 250px;
-    margin: 100px 15px;
+    margin: 30px 40px;
     line-height: 250px;
+}
+
+.body-bg {
+    background: url(../Views/../Img/sl6.jpg);
+    background-size: 100%;
+    width: 100%;
 }
 
 .btn-list-menu {
@@ -69,4 +75,16 @@
 }
 .transform-scale {
     transform: scale(1.5);
+}
+
+.home-tab {
+    width: 70%;
+    float: right;
+}
+
+.other-tab {
+    text-transform: uppercase;
+    width: 70%;
+    float: right;
+    padding-top: 7%;
 }

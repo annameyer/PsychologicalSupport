@@ -7,384 +7,383 @@
 <h2>Подробнее</h2>
 
 <div>
-    <h4>Учащиеся</h4>
+    <h3>Учащиеся</h3>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FIO)
-        </dt>
+        <div>
+            <h3>Личные данные учащегося</h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.FIO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FIO)
-        </dd>
-        <br>
+            <dd>
+                @Html.DisplayFor(model => model.FIO)
+            </dd>
+            <br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberClass)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NumberClass)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumberClass)
-        </dd>
-        <br>
+            <dd>
+                @Html.DisplayFor(model => model.NumberClass)
+            </dd>
+            <br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Class)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Class)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Class)
-        </dd>
-        <br>
+            <dd>
+                @Html.DisplayFor(model => model.Class)
+            </dd>
+            <br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AdmissionDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AdmissionDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdmissionDate)
-        </dd>
-        <br>
+            <dd>
+                @Html.DisplayFor(model => model.AdmissionDate)
+            </dd>
+            <br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BeingTrained)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.BeingTrained)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BeingTrained)
-        </dd>
-        <br>
+            <dd>
+                @Html.DisplayFor(model => model.BeingTrained)
+            </dd>
+            <br>
+        </div>
+        <hr />
+        <div class="p-t-10">
+            <h3>Эмоциональная сфера</h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.FamilyAlarmAnalysi)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClassroomRelationship)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.FamilyAlarmAnalysi)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.FamilyAlarmAnalysi != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.PersonaAnxietyScale)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.PersonaAnxietyScale != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassroomRelationship)
+            </dt>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.ClassroomRelationship)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.ClassroomRelationship != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.ClassroomRelationship)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.ClassroomRelationship != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "ClassroomRelationships", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClassTeacheInformation)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassTeacheInformation)
+            </dt>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.ClassTeacheInformation)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.ClassTeacheInformation != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.ClassTeacheInformation)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.ClassTeacheInformation != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "ClassTeacheInformations", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Self_esteem)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotioTest)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Self_esteem)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Self_esteem != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+        </div>
+        <hr />
+        <div class="p-t-10">
+            <h3>Личностная сфера</h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotioTest)
+            </dt>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.EmotioTest)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.EmotioTest != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.EmotioTest)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.EmotioTest != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn  btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "EmotioTests", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Interests_Card_145)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FamilyAlarmAnalysi)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Interests_Card_145)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Interests_Card_145 != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Interests_Card_50)
+            </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Interests_Card_50)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Interests_Card_50 != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.InterestsInSchoolSubject)
+            </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.InterestsInSchoolSubject)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.InterestsInSchoolSubject != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.FamilyAlarmAnalysi)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.FamilyAlarmAnalysi != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "FamilyAlarmAnalysis", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonaAnxietyScale)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonalProtagonistAizenko)
+            </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.PersonalProtagonistAizenko)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.PersonalProtagonistAizenko != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.SchoolMotivation)
+            </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.SchoolMotivation)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.SchoolMotivation != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+        </div>
+        <hr />
+        <div class="p-t-10">
+            <h3>Интеллектуальная сфера</h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intellectual_6_Class)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Intellectual_6_Class)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Intellectual_6_Class)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Intellectual_6_Class != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Intellectual_6_Class)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Intellectual_6_Class != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Intellectual_6_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intellectual_7_Class)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Intellectual_7_Class)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Intellectual_7_Class)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Intellectual_7_Class != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Intellectual_7_Class)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Intellectual_7_Class != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Intellectual_7_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intellectual_8_Class)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Intellectual_8_Class)
-        </dt>
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Intellectual_8_Class)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Intellectual_8_Class != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
 
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Intellectual_8_Class)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Intellectual_8_Class != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Intellectual_8_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intellectual_9_Class)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Intellectual_9_Class)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Intellectual_9_Class)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Intellectual_9_Class != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Interests_Card_145)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Interests_Card_145)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Interests_Card_145 != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Interests_Card_145", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Interests_Card_50)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Interests_Card_50)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Interests_Card_50 != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Interests_Card_50", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InterestsInSchoolSubject)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.InterestsInSchoolSubject)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.InterestsInSchoolSubject != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "InterestsInSchoolSubjects", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonaAnxietyScale)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.PersonaAnxietyScale)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.PersonaAnxietyScale != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "PersonaAnxietyScales", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonalProtagonistAizenko)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.PersonalProtagonistAizenko)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.PersonalProtagonistAizenko != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "PersonalProtagonistAizenkoes", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SchoolMotivation)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.SchoolMotivation)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.SchoolMotivation != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "SchoolMotivations", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Self_esteem)
-        </dt>
-
-        <dd>
-            <p class="col-sm-1">
-                @Html.DisplayFor(model => model.Self_esteem)
-            </p>
-            <p class="col-sm-5">
-                @if (Model.Self_esteem != "\u2718")
-                {
-                    @Html.ActionLink("Подробнее", "Details", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Изменить", "Edit", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
-                }
-                else
-                {
-                    @Html.ActionLink("Создать", "Create", "Self_esteem", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
-                }
-            </p>
-        </dd>
-        <br>
-
+            <dd>
+                <p class="col-sm-1">
+                    @Html.DisplayFor(model => model.Intellectual_9_Class)
+                </p>
+                <p class="col-sm-5">
+                    @if (Model.Intellectual_9_Class != "\u2718")
+                    {
+                        @Html.ActionLink("Подробнее", "Details", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Изменить", "Edit", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-danger m-l-5" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Создать", "Create", "Intellectual_9_Class", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+                    }
+                </p>
+            </dd>
+            <br>
+        </div>
     </dl>
 </div>
 <p>
