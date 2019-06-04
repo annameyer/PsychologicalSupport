@@ -44,7 +44,12 @@
 
         public static int[] GetFamilyAlarmAnalysis()
         {
-            return new int[] { 0, 1, 2, 3, 4, 5 };
+            return new int[] { 0, 1, 2, 3, 4, 5};
+        }
+
+        public static int[] GetFamilyAnalysis()
+        {
+            return new int[] { 0, 1, 2, 3, 4, 5, 6, 7 };
         }
 
         public static int[] GetSchoolMotivations()

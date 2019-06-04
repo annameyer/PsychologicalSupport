@@ -24,10 +24,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Self_harmingBehavior, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.Self_harmingBehavior, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.Self_harmingBehavior, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Self_harmingBehavior, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Self_harmingBehavior, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.Self_harmingBehavior, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -35,10 +39,16 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Isolation, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.Isolation, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.Isolation, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Isolation, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Isolation, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
+
+
             @Html.ValidationMessageFor(model => model.Isolation, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -46,10 +56,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Aggression, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.Aggression, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.Aggression, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Aggression, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.Aggression, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.Aggression, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -57,10 +71,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.AvoidPhysicalContact, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.AvoidPhysicalContact, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.AvoidPhysicalContact, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.AvoidPhysicalContact, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.AvoidPhysicalContact, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.AvoidPhysicalContact, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -68,10 +86,16 @@
     <div class="form-group">
         @Html.LabelFor(model => model.AfraidToGoHome, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.AfraidToGoHome, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.AfraidToGoHome, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.AfraidToGoHome, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.AfraidToGoHome, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
+
+
             @Html.ValidationMessageFor(model => model.AfraidToGoHome, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -79,10 +103,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.RunningAwayFromHome, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.RunningAwayFromHome, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.RunningAwayFromHome, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.RunningAwayFromHome, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.RunningAwayFromHome, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.RunningAwayFromHome, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -90,10 +118,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.WearBodyHidingClothes, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.WearBodyHidingClothes, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.WearBodyHidingClothes, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.WearBodyHidingClothes, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.WearBodyHidingClothes, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.WearBodyHidingClothes, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -101,10 +133,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.DefiantBehavior, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.DefiantBehavior, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.DefiantBehavior, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.DefiantBehavior, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.DefiantBehavior, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.DefiantBehavior, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -112,10 +148,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.LowSelf_esteem, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.LowSelf_esteem, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.LowSelf_esteem, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.LowSelf_esteem, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.LowSelf_esteem, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.LowSelf_esteem, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -123,10 +163,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.PoorPeerRelations, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.PoorPeerRelations, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.PoorPeerRelations, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.PoorPeerRelations, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.PoorPeerRelations, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.PoorPeerRelations, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -134,10 +178,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.SharpWeightChange, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.SharpWeightChange, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.SharpWeightChange, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.SharpWeightChange, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.SharpWeightChange, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.SharpWeightChange, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -145,10 +193,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HystericalEmotionalImbalance, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.HystericalEmotionalImbalance, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.HystericalEmotionalImbalance, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.HystericalEmotionalImbalance, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.HystericalEmotionalImbalance, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
             @Html.ValidationMessageFor(model => model.HystericalEmotionalImbalance, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -156,10 +208,16 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ExceptionallyGoodSexKnowledge, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.ExceptionallyGoodSexKnowledge, "+", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("+", new { @for = "+" })
-            @Html.RadioButtonFor(model => model.ExceptionallyGoodSexKnowledge, "-", new { htmlAttributes = new { @class = "form-check-input" } })
-            @Html.Label("-", new { @for = "-" })
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.ExceptionallyGoodSexKnowledge, "+", new { htmlAttributes = new { @class = "form-check-input" } })
+                +
+            </label>
+            <label class="col-xs-1 radio-inline p-l-40 font-weight-normal transform-scale">
+                @Html.RadioButtonFor(model => model.ExceptionallyGoodSexKnowledge, "-", new { htmlAttributes = new { @class = "form-check-input" } })
+                -
+            </label>
+
+
             @Html.ValidationMessageFor(model => model.ExceptionallyGoodSexKnowledge, "", new { @class = "text-danger" })
         </div>
     </div>

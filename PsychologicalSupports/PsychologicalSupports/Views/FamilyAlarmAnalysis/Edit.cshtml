@@ -24,28 +24,29 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Fault, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Fault, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
+                @Html.DropDownListFor(model => model.Fault, new SelectList(PsychologicalSupports.Enums.GetFamilyAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Anxiety, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Anxiety, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
+                @Html.DropDownListFor(model => model.Anxiety, new SelectList(PsychologicalSupports.Enums.GetFamilyAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Stress, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Stress, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
+                @Html.DropDownListFor(model => model.Stress, new SelectList(PsychologicalSupports.Enums.GetFamilyAnalysis()), new { @class = "dropdown-list-size" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.General, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.General, new SelectList(PsychologicalSupports.Enums.GetFamilyAlarmAnalysis()), new { @class = "dropdown-list-size" })
+                @Html.EditorFor(model => model.General, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.General, "", new { @class = "text-danger" })
             </div>
         </div>
 
