@@ -1,0 +1,18 @@
+﻿@model PsychologicalSupports.Models.CreateRoleModel
+@{
+    ViewBag.Title = "CreateRole";
+}
+
+<h2>Добавление роли пользователя</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "")
+        <p>Название:  @Html.EditorFor(model => model.Name)</p>
+        <p><input type="submit" value="Добавить" /></p>
+    </div>
+}
+

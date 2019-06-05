@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PsychologicalSupports.Authentication.Interface;
 using PsychologicalSupports.Infrastructure;
 using PsychologicalSupports.Models;
 using System.Threading.Tasks;
@@ -8,9 +9,26 @@ using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
-        private AppUserManager UserManager => HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+        private readonly ILoginRepository _LoginRepository;
+        private readonly IRoleRepository _roleRepository;
+
+        public AdminController(ILoginRepository loginRepository, IRoleRepository roleRepository)
+        {
+            _LoginRepository = loginRepository;
+            _roleRepository = roleRepository;
+        }
+
+        private AppUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            }
+        }
+
         private void AddErrorsFromResult(IdentityResult result)
         {
             foreach (string error in result.Errors)
@@ -34,22 +52,48 @@ namespace PsychologicalSupports.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser user = new AppUser { UserName = model.Login };
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
-                if (result.Succeeded)
+                bool result = await _LoginRepository.Create(model);
+                if (result == true)
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    AddErrorsFromResult(result);
+                    ModelState.AddModelError("", "Error");
+
                 }
             }
             return View(model);
         }
 
+        public ActionResult ViewRole()
+        {
+            return View(_roleRepository.Get());
+        }
 
+        public ActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateRole(CreateRoleModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool result = await _roleRepository.Create(model);
+                if (result == true)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Что-то пошло не так");
+                }
+            }
+            return View(model);
+        }
 
 
     }

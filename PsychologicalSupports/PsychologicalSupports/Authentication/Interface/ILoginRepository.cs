@@ -9,6 +9,7 @@ namespace PsychologicalSupports.Authentication.Interface
     {
         Task<bool> Login(Administrator detalis);
         void SignOut(IAuthenticationManager iManager);
+        Task<bool> Create(Administrator detalis);
 
     }
 }

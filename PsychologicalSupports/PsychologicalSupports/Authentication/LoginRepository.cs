@@ -5,16 +5,14 @@ using System.Threading.Tasks;
 
 namespace PsychologicalSupports.Models.Dependencies
 {
-    
+
     public class LoginRepository:ILoginRepository
     {
-        private readonly IAppIdentityDbContext _AppIdentityDbContext;
         private readonly IAppUserManager _appUserManager;
         private readonly IAuthenticationManager _authenticationManager;
 
-        public LoginRepository(IAppIdentityDbContext AppIdentityDbContext, IAuthenticationManager authenticationManager, IAppUserManager appUserManager)
+        public LoginRepository( IAuthenticationManager authenticationManager, IAppUserManager appUserManager)
         {
-            _AppIdentityDbContext = AppIdentityDbContext;
             _authenticationManager = authenticationManager;
             _appUserManager = appUserManager;
         }
@@ -37,6 +35,21 @@ namespace PsychologicalSupports.Models.Dependencies
 
                 }, ident);
                 return true;
+            }
+        }
+
+        public async Task<bool> Create(Administrator detalis)
+        {
+            var users = new AppUser { UserName = detalis.Login};
+            var result = await _appUserManager.CreateAsync(users, detalis.Password);
+            var user = await _appUserManager.AddToRoleAsync(users.Id, "User");
+            if (result.Succeeded)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

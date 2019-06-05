@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Ninject.Modules;
+using PsychologicalSupports.Authentication;
 using PsychologicalSupports.Authentication.Interface;
 using PsychologicalSupports.Controllers;
 using PsychologicalSupports.Dependencies.Repository;
@@ -39,6 +40,9 @@ namespace PsychologicalSupports.Util
             Bind<IAppUserManager>().To<AppUserManager>();
             Bind<IUserStore<AppUser>>().To<AppUserStore>();
             Bind<IAuthenticationManager>().ToMethod(c => HttpContext.Current.GetOwinContext().Authentication);
+            Bind<IAppRoleManager>().To<AppRoleManager>();
+            Bind<IRoleStore<AppRole, string>>().To<AppRoleStore>();
+            Bind<IRoleRepository>().To<RoleRepository>();
         }
     }
 }

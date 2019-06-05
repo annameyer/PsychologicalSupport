@@ -263,9 +263,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication\AppRole.cs" />
+    <Compile Include="Authentication\AppRoleManager.cs" />
+    <Compile Include="Authentication\AppRoleStore.cs" />
+    <Compile Include="Authentication\Interface\IAppRoleManager.cs" />
     <Compile Include="Authentication\Interface\IAppIdentityDbContext.cs" />
     <Compile Include="Authentication\Interface\IAppUserManager.cs" />
     <Compile Include="Authentication\Interface\ILoginRepository.cs" />
+    <Compile Include="Authentication\Interface\IRoleRepository.cs" />
+    <Compile Include="Authentication\RoleRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AveragePointsController.cs" />
@@ -305,12 +311,18 @@
     <Compile Include="Enum\Class.cs" />
     <Compile Include="Enum\Enums.cs" />
     <Compile Include="Enum\GetCurrentStudent.cs" />
+    <Compile Include="Enum\IdentityHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Authentication\AppIdentityDbContext.cs" />
     <Compile Include="Authentication\AppUserManager.cs" />
     <Compile Include="Authentication\AppUserStore.cs" />
+    <Compile Include="Migrations\201906050031297_InitialCreate.cs" />
+    <Compile Include="Migrations\201906050031297_InitialCreate.Designer.cs">
+      <DependentUpon>201906050031297_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Dependencies\Interface\IPsychologicalSupportsContext.cs" />
@@ -320,6 +332,7 @@
     <Compile Include="Models\AveragePoint.cs" />
     <Compile Include="Models\ClassroomRelationship.cs" />
     <Compile Include="Models\ClassTeacheInformation.cs" />
+    <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EmotioTest.cs" />
     <Compile Include="Models\ExcelFile.cs" />
     <Compile Include="Models\FamilyAlarmAnalysi.cs" />
@@ -484,6 +497,8 @@
     <Content Include="Views\Students\Archive.cshtml" />
     <Content Include="Views\Students\CreateFromExcel.cshtml" />
     <Content Include="Views\Partials\_Filter.cshtml" />
+    <Content Include="Views\Admin\ViewRole.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -503,6 +518,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906050031297_InitialCreate.resx">
+      <DependentUpon>201906050031297_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         private readonly IRepository<Student> _repository;
