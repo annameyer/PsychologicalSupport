@@ -374,6 +374,11 @@
     <Content Include="Img\sl6.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Fiagram\ClassDiagram1.cd" />
+    <Content Include="Fiagram\ClassDiagram2.cd" />
+    <Content Include="Fiagram\ClassDiagram3.cd" />
+    <Content Include="Fiagram\ClassDiagram4.cd" />
+    <Content Include="Fiagram\ClassDiagram5.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

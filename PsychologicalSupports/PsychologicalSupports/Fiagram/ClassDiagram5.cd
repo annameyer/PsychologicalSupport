@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PsychologicalSupports.Authentication.AppRole">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\AppRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Authentication.AppRoleManager" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\AppRoleManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Authentication.AppRoleStore">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\AppRoleStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Authentication.RoleRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\RoleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="PsychologicalSupports.Authentication.IAppRoleManager">
+    <Position X="4" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Authentication\Interface\IAppRoleManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PsychologicalSupports.Authentication.Interface.IAppIdentityDbContext">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\Interface\IAppIdentityDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PsychologicalSupports.Authentication.Interface.IAppUserManager">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAgAAAAAAAACAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Authentication\Interface\IAppUserManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PsychologicalSupports.Authentication.Interface.ILoginRepository">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAA=</HashCode>
+      <FileName>Authentication\Interface\ILoginRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PsychologicalSupports.Authentication.Interface.IRoleRepository">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\Interface\IRoleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

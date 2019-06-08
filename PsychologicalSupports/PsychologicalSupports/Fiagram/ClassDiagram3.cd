@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PsychologicalSupports.Dependencies.Repository.AveragePointsRepository" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\AveragePointsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.ClassroomRelationshipRepository" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\ClassroomRelationshipRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.ClassTeacheInformationsRepository" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\ClassTeacheInformationsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.EmotioTestsRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\EmotioTestsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.FamilyAlarmAnalysisRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\FamilyAlarmAnalysisRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Intellectual_6_ClassRepository" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Intellectual_6_ClassRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Intellectual_7_ClassRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Intellectual_7_ClassRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Intellectual_8_ClassRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Intellectual_8_ClassRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Intellectual_9_ClassRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Intellectual_9_ClassRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Interests_Card_145Repository" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Interests_Card_145Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.InterestsInSchoolSubjectsRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\InterestsInSchoolSubjectsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.PersonaAnxietyScalesRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\PersonaAnxietyScalesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.PersonalProtagonistAizenkoesRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\PersonalProtagonistAizenkoesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.SchoolMotivationsRepository" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\SchoolMotivationsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Dependencies.Repository.Self_esteemRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Self_esteemRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PsychologicalSupports.Models.Dependencies.LoginRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAABA=</HashCode>
+      <FileName>Authentication\LoginRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Dependencies.StudentRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\StudentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Administrator">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Models\Administrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.AppUser">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.AveragePoint">
+    <Position X="5.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAEAAAAACAAAAAAAAAAAAAAAAAAIBCAAA=</HashCode>
+      <FileName>Models\AveragePoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.ClassroomRelationship">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Models\ClassroomRelationship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.ClassTeacheInformation">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAgCAAQABAAABABAIIKAAAAAAAgAAAAAAIAAACAAA=</HashCode>
+      <FileName>Models\ClassTeacheInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.CreateRoleModel">
+    <Position X="9.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CreateRoleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.EmotioTest">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAIAABAAAAAAAAAAggAAAQAAAAAAAACIFA=</HashCode>
+      <FileName>Models\EmotioTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.ExcelFile">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ExcelFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.FamilyAlarmAnalysi">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAQAAAAAAAAAAAACAAAAQAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\FamilyAlarmAnalysi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Intellectual_6_Class">
+    <Position X="2.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAAACAACAAA=</HashCode>
+      <FileName>Models\Intellectual_6_Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Intellectual_7_Class">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAABAAABAAAFAAACAAA=</HashCode>
+      <FileName>Models\Intellectual_7_Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Intellectual_8_Class">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAACAAA=</HashCode>
+      <FileName>Models\Intellectual_8_Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Intellectual_9_Class">
+    <Position X="7.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAACAAA=</HashCode>
+      <FileName>Models\Intellectual_9_Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Interests_Card_145">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAgBESQAQACoIAABIABAQAiIAAAICAACCAMQACAAA=</HashCode>
+      <FileName>Models\Interests_Card_145.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Interests_Card_50">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAQAAAAAAAAAIAAJCAAAAAAAIAAAAAQAAKEAE=</HashCode>
+      <FileName>Models\Interests_Card_50.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.InterestsInSchoolSubject">
+    <Position X="0.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQACAAAAAAhIAAAAADAAAAACAAAAAAAACAAg=</HashCode>
+      <FileName>Models\InterestsInSchoolSubject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.PersonaAnxietyScale">
+    <Position X="7.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAACAAAAAAAAAAQAAAAAAGAAA=</HashCode>
+      <FileName>Models\PersonaAnxietyScale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.PersonalProtagonistAizenko">
+    <Position X="7.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>Models\PersonalProtagonistAizenko.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.PsychologicalSupportsEntities" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EUIAAAAAABAAAAAAAAIAAoAAgAiQEgAAUAAAAAAAAAA=</HashCode>
+      <FileName>Models\PsychologicalSupports.Context.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PsychologicalSupports.Models.SchoolMotivation">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAgAQQCAACCAAAAABAAgAAAAAQIAEAAAAAQCAAA=</HashCode>
+      <FileName>Models\SchoolMotivation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Self_esteem">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAACAAA=</HashCode>
+      <FileName>Models\Self_esteem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.Student">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A1BCAQAgABAAAAAAABYAIAAAIBkQAgAQEAgAAAACAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Models.StudentDetails">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A1BCAQAgABAAAAAAAAYAIAAAIBkQAgAQEAgAAAACAAA=</HashCode>
+      <FileName>Models\StudentDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="PsychologicalSupports.Models.Dependencies.IPsychologicalSupportsContext">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kUIQAAAAABAAAAAAAAIAAoAAgAiQEgAAUAAAAAAAAAA=</HashCode>
+      <FileName>Dependencies\Interface\IPsychologicalSupportsContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PsychologicalSupports.Models.Dependencies.IRepository&lt;T&gt;">
+    <Position X="2.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Interface\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

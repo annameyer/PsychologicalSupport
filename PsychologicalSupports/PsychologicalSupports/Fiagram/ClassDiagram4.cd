@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PsychologicalSupports.Controllers.AccountController">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAQAABA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.AdminController">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAACAAAAABEAAAAEAAEAQAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.AveragePointsController">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AveragePointsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.ClassroomRelationshipsController">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClassroomRelationshipsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.ClassTeacheInformationsController">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClassTeacheInformationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.EmotioTestsController">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\EmotioTestsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.FamilyAlarmAnalysisController">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\FamilyAlarmAnalysisController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.HomeController">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAEAAAAAAAAAAAQABAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Intellectual_6_ClassController">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Intellectual_6_ClassController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Intellectual_7_ClassController">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Intellectual_7_ClassController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Intellectual_8_ClassController">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Intellectual_8_ClassController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Intellectual_9_ClassController">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Intellectual_9_ClassController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Interests_Card_145Controller">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Interests_Card_145Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Interests_Card_50Controller">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Interests_Card_50Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.InterestsInSchoolSubjectsController">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\InterestsInSchoolSubjectsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.PersonaAnxietyScalesController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PersonaAnxietyScalesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.PersonalProtagonistAizenkoesController">
+    <Position X="0.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PersonalProtagonistAizenkoesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.SchoolMotivationsController">
+    <Position X="2.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SchoolMotivationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Self_esteemController">
+    <Position X="4" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Self_esteemController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.StudentsController">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABBAACAAAAAgAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\StudentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PsychologicalSupports.Controllers.Interests_Card_50Repository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABAAAAAAAAAAAEAAEACAAAAAAAAAAI=</HashCode>
+      <FileName>Dependencies\Repository\Interests_Card_50Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
