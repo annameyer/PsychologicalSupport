@@ -128,6 +128,8 @@ namespace PsychologicalSupports.Controllers
                 _repository.Create(Interests_Card_50);
                 return RedirectToAction("Index");
             }
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
 
             return View(Interests_Card_50);
         }
