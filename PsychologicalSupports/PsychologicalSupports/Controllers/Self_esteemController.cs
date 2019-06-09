@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
+    [Authorize]
     public class Self_esteemController : Controller
     {
         private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;

@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace PsychologicalSupports.Controllers
 {
-    public class AveragePointsController : Controller
+    [Authorize]
+       public class AveragePointsController : Controller
     {
         private readonly IPsychologicalSupportsContext _psychologicalSupportsContext;
         private IRepository<AveragePoint> _repository;
