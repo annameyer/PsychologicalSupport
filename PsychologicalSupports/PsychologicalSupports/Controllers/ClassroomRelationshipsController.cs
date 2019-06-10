@@ -132,6 +132,8 @@ namespace PsychologicalSupports.Controllers
             }
 
             ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", classroomRelationship.StudentID);
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             return View(classroomRelationship);
         }
 

@@ -130,8 +130,10 @@ namespace PsychologicalSupports.Controllers
                 _repository.Create(Self_esteem);
                 return RedirectToAction("Index");
             }
-
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
             ViewBag.StudentID = new SelectList(_psychologicalSupportsContext.Students, "Учащийся", "FIO", Self_esteem.StudentID);
+
             return View(Self_esteem);
         }
 

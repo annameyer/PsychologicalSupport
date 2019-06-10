@@ -148,6 +148,8 @@ namespace PsychologicalSupports.Controllers
                 _repository.Create(familyAlarmAnalysi);
                 return RedirectToAction("Index");
             }
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
 
             return View(familyAlarmAnalysi);
         }

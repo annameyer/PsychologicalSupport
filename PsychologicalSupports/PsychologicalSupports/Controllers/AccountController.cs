@@ -34,7 +34,7 @@ namespace PsychologicalSupports.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Students");
+                return RedirectToAction("Index", "Home");
             }
             return View(details);
         }
@@ -43,7 +43,7 @@ namespace PsychologicalSupports.Controllers
         public ActionResult LogOff()
         {
             _LoginRepository.SignOut(_authenticationManager);
-            return RedirectToAction("Index", "Students");
+            return RedirectToAction("Index", "Home");
         }
 
     }

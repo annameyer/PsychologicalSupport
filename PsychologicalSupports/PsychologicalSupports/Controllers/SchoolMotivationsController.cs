@@ -130,6 +130,8 @@ namespace PsychologicalSupports.Controllers
                 _repository.Create(SchoolMotivation);
                 return RedirectToAction("Index");
             }
+            GetCurrentStudent studentName = new GetCurrentStudent();
+            ViewBag.StudentName = studentName.GetStudentId(Id);
 
             return View(SchoolMotivation);
         }
