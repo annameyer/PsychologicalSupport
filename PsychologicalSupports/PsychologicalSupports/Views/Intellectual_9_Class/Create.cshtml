@@ -36,6 +36,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
-</div>
+    <div>
+        @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Карточка учащегося", "Details", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
+    </div>
