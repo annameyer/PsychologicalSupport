@@ -44,6 +44,7 @@ namespace PsychologicalSupports.Controllers
         {
             GetCurrentStudent studentName = new GetCurrentStudent();
             ViewBag.StudentID = studentName.GetStudentId(Id);
+            ViewBag.StudentID = Id;
             return View();
         }
 

@@ -38,5 +38,5 @@
 </div>
 <p>
     @Html.ActionLink("Изменить", "Edit", new { id = Model.StudentID }, new { @class = "btn btn-success" })
-    @Html.ActionLink("Вернутся", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Карточка учащегося", "Details","Students", new { id = Model.StudentID }, new { @class = "btn btn-primary" })
 </p>
