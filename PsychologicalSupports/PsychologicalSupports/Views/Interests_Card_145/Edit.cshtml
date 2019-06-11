@@ -14,6 +14,9 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.StudentID)
+    <div class="alert alert-danger" role="alert" style="width: 50%">
+       Внимание! Данные поля заполняются числовыми значениями от -10 до 10
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.StudentID, "Учащийся", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

@@ -13,6 +13,9 @@
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="alert alert-danger" role="alert" style="width: 50%">
+            Внимание! Данные поля заполняются числовыми значениями от 0 до 16
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.StudentID, "Учащийся", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
