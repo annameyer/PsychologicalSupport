@@ -59,7 +59,11 @@
                         </ul>
                     </li>
                     <li> @Html.ActionLink("Архив", "Archive", "Students")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    }
+                    
                 </ul>
                 <div class="btn-group navbar-right">
                     @Html.Partial("_LoginPartial")
