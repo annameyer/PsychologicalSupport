@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Owin.Security;
 using PsychologicalSupports.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PsychologicalSupports.Authentication.Interface
@@ -10,6 +11,7 @@ namespace PsychologicalSupports.Authentication.Interface
         Task<bool> Login(Administrator detalis);
         void SignOut(IAuthenticationManager iManager);
         Task<bool> Create(Administrator detalis);
-
+        IQueryable<AppUser> GetUsers();
+        Task<bool> Delete(string Id);
     }
 }

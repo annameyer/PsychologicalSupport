@@ -39,11 +39,33 @@ namespace PsychologicalSupports.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View(UserManager.Users);
+            return View(_LoginRepository.GetUsers());
         }
 
         public ActionResult Create()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed (string id)
+        {
+            var result =  await _LoginRepository.Delete(id);
+            if (result == true)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Error");
+
+            }
             return View();
         }
 
