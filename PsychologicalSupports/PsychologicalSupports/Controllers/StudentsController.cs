@@ -100,7 +100,7 @@ namespace PsychologicalSupports.Controllers
 
             string fileDownloadName = string.Format("Студенты.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            ExcelPackage package = ExcelFile.GenerateExcelFile(students);
+            ExcelPackage package = ExcelFile.GenerateExcelFile(students, students.Select(x => x.StudentID.ToString()).ToList());
 
             FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
             {

@@ -1,5 +1,4 @@
-﻿using OfficeOpenXml;
-using PagedList;
+﻿using PagedList;
 using PsychologicalSupports.Enum;
 using PsychologicalSupports.Models;
 using PsychologicalSupports.Models.Dependencies;
@@ -51,7 +50,8 @@ namespace PsychologicalSupports.Controllers
 
             string fileDownloadName = string.Format("Семейная тревожность.xlsx");
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            var package = ExcelFile.GenerateExcelFile(students);
+            var fio = students.Select(x => x.Student.FIO).ToList();
+            var package = ExcelFile.GenerateExcelFile(students, fio);
 
             FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
             {
@@ -98,24 +98,7 @@ namespace PsychologicalSupports.Controllers
             return View(students.ToPagedList(pageNumber, pageSize));
         }
 
-        public FileContentResult Download()
-        {
-
-            string fileDownloadName = string.Format("Семейная тревожность.xlsx");
-            const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-
-
-            ExcelPackage package = ExcelFile.GenerateExcelFile(_repository.List());
-
-            FileContentResult fsr = new FileContentResult(package.GetAsByteArray(), contentType)
-            {
-                FileDownloadName = fileDownloadName
-            };
-
-            return fsr;
-        }
-
-        public ActionResult Details(int? id)
+       public ActionResult Details(int? id)
         {
             if (id == null)
             {
